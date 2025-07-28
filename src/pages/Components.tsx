@@ -32,23 +32,124 @@ const Components = () => {
           <h2 className="text-3xl font-semibold">Buttons</h2>
           <Card>
             <CardHeader>
-              <CardTitle>Button Variants</CardTitle>
-              <CardDescription>Different button styles and sizes</CardDescription>
+              <CardTitle>Button Matrix</CardTitle>
+              <CardDescription>Comprehensive button variants, sizes, and states</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex flex-wrap gap-4">
-                <Button>+ Button +</Button>
-                <Button variant="outline">+ Button +</Button>
-                <Button variant="secondary">Secondary</Button>
-                <Button variant="destructive">Destructive</Button>
-                <Button variant="ghost">Ghost</Button>
-                <Button variant="link">Link</Button>
+            <CardContent className="space-y-8">
+              {/* Button States Matrix */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium">Button States & Variants</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-3 font-medium">Size</th>
+                        <th className="text-center p-3 font-medium">Primary</th>
+                        <th className="text-center p-3 font-medium">Secondary</th>
+                        <th className="text-center p-3 font-medium">Outline</th>
+                        <th className="text-center p-3 font-medium">Ghost</th>
+                        <th className="text-center p-3 font-medium">Link</th>
+                        <th className="text-center p-3 font-medium">Destructive</th>
+                        <th className="text-center p-3 font-medium">Icon Only</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b">
+                        <td className="p-3 font-medium">Large</td>
+                        <td className="p-3 text-center">
+                          <Button size="lg">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="secondary" size="lg">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="outline" size="lg">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="ghost" size="lg">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="link" size="lg">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="destructive" size="lg">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button size="icon-lg"><Star className="h-5 w-5" /></Button>
+                        </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-3 font-medium">Medium</td>
+                        <td className="p-3 text-center">
+                          <Button>+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="secondary">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="outline">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="ghost">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="link">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="destructive">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button size="icon"><Star className="h-4 w-4" /></Button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-medium">Small</td>
+                        <td className="p-3 text-center">
+                          <Button size="sm">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="secondary" size="sm">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="outline" size="sm">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="ghost" size="sm">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="link" size="sm">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="destructive" size="sm">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button size="icon-sm"><Star className="h-3 w-3" /></Button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-4 items-center">
-                <Button size="sm">Small</Button>
-                <Button size="default">Default</Button>
-                <Button size="lg">Large</Button>
-                <Button size="icon"><Star className="h-4 w-4" /></Button>
+
+              {/* Special Variants */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium">Special Variants</h3>
+                <div className="flex flex-wrap gap-4">
+                  <Button variant="success">Success</Button>
+                  <Button variant="warning">Warning</Button>
+                  <Button disabled>Disabled</Button>
+                  <Button size="xl">Extra Large</Button>
+                </div>
+              </div>
+
+              {/* Button with Icons */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium">Buttons with Icons</h3>
+                <div className="flex flex-wrap gap-4">
+                  <Button><Star className="mr-2 h-4 w-4" />Starred</Button>
+                  <Button variant="outline"><Check className="mr-2 h-4 w-4" />Checked</Button>
+                  <Button variant="secondary">Download<Star className="ml-2 h-4 w-4" /></Button>
+                </div>
               </div>
             </CardContent>
           </Card>
