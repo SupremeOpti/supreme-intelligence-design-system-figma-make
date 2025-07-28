@@ -26,7 +26,7 @@ const Index = () => {
                 View Components <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg">
+            <Button variant="secondary" size="lg">
               Documentation
             </Button>
           </div>
