@@ -24,6 +24,17 @@
     --input: 0 0% 89.8%;
     --ring: 243 100% 64%;
     --radius: 0.5rem;
+    
+    /* Supreme Intelligence Design Tokens */
+    --supreme-blue-50: #EDEBFD;
+    --supreme-blue-100: #C6C2F8;
+    --supreme-blue-800: #272080;
+    --supreme-blue-900: #1A1475;
+    --supreme-blue-950: #403A9A;
+    --supreme-blue-600: #4E47AF;
+    --supreme-blue-700: #312A93;
+    --neutral-300: #D4D4D4;
+    --white: #FFFFFF;
   }
 
   .dark {

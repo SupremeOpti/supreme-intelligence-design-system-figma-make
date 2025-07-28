@@ -16,6 +16,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { AlertTriangle, Check, Home, Star, Bold, Calendar } from "lucide-react";
+import { Persona } from "@/components/ui/persona";
 
 const Components = () => {
   return (
@@ -47,10 +48,8 @@ const Components = () => {
                         <th className="text-center p-3 font-medium">Primary</th>
                         <th className="text-center p-3 font-medium">Primary Stroke</th>
                         <th className="text-center p-3 font-medium">Secondary</th>
-                        <th className="text-center p-3 font-medium">Outline</th>
-                        <th className="text-center p-3 font-medium">Ghost</th>
+                        <th className="text-center p-3 font-medium">Secondary Color</th>
                         <th className="text-center p-3 font-medium">Link</th>
-                        <th className="text-center p-3 font-medium">Destructive</th>
                         <th className="text-center p-3 font-medium">Icon Only</th>
                       </tr>
                     </thead>
@@ -58,86 +57,65 @@ const Components = () => {
                       <tr className="border-b">
                         <td className="p-3 font-medium">Large</td>
                         <td className="p-3 text-center">
-                          <Button size="lg">+ Button +</Button>
+                          <Button variant="primary" size="lg" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="primary-stroke" size="lg">+ Button +</Button>
+                          <Button variant="primary-stroke" size="lg" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="secondary" size="lg">+ Button +</Button>
+                          <Button variant="secondary" size="lg" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="outline" size="lg">+ Button +</Button>
+                          <Button variant="secondary-color" size="lg" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="ghost" size="lg">+ Button +</Button>
+                          <Button variant="link" size="lg" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="link" size="lg">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="destructive" size="lg">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button size="icon-lg"><Star className="h-5 w-5" /></Button>
+                          <Button size="icon" showIcons="center"></Button>
                         </td>
                       </tr>
                       <tr className="border-b">
                         <td className="p-3 font-medium">Medium</td>
                         <td className="p-3 text-center">
-                          <Button>+ Button +</Button>
+                          <Button variant="primary" size="md" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="primary-stroke">+ Button +</Button>
+                          <Button variant="primary-stroke" size="md" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="secondary">+ Button +</Button>
+                          <Button variant="secondary" size="md" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="outline">+ Button +</Button>
+                          <Button variant="secondary-color" size="md" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="ghost">+ Button +</Button>
+                          <Button variant="link" size="md" showIcons="both">Button</Button>
                         </td>
                         <td className="p-3 text-center">
-                          <Button variant="link">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="destructive">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button size="icon"><Star className="h-4 w-4" /></Button>
+                          <Button size="icon-sm" showIcons="center"></Button>
                         </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
-
-              {/* Special Variants */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Special Variants</h3>
-                <div className="flex flex-wrap gap-4">
-                  <Button variant="success">Success</Button>
-                  <Button variant="warning">Warning</Button>
-                  <Button disabled>Disabled</Button>
-                  <Button size="xl">Extra Large</Button>
-                </div>
-              </div>
-
-              {/* Button with Icons */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Buttons with Icons</h3>
-                <div className="flex flex-wrap gap-4">
-                  <Button><Star className="mr-2 h-4 w-4" />Starred</Button>
-                  <Button variant="outline"><Check className="mr-2 h-4 w-4" />Checked</Button>
-                  <Button variant="secondary">Download<Star className="ml-2 h-4 w-4" /></Button>
-                </div>
-              </div>
             </CardContent>
           </Card>
         </section>
-
+        {/* Persona */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-semibold">Persona</h2>
+          <Card>
+            <CardHeader>
+              <CardTitle>Persona Component</CardTitle>
+              <CardDescription>User profile images and fallbacks</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Persona variant="default" showLeftIcon showRightIcon personas={["John Doe", "Jane Smith"]} />
+            </CardContent>
+          </Card>
+        </section>
         {/* Form Components */}
         <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Form Components</h2>
@@ -362,7 +340,7 @@ const Components = () => {
                     <TableCell><Badge variant="success">Active</Badge></TableCell>
                     <TableCell>Admin</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm">Edit</Button>
+                      <Button variant="secondary" size="md">Edit</Button>
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -370,7 +348,7 @@ const Components = () => {
                     <TableCell><Badge variant="secondary">Inactive</Badge></TableCell>
                     <TableCell>User</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm">Edit</Button>
+                      <Button variant="secondary" size="md">Edit</Button>
                     </TableCell>
                   </TableRow>
                 </TableBody>
@@ -405,7 +383,7 @@ const Components = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
-              
+
               <Pagination>
                 <PaginationContent>
                   <PaginationItem>
