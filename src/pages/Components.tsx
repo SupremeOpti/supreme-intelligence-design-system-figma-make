@@ -15,7 +15,8 @@ import { Logo } from "@/components/ui/logo";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
-import { AlertTriangle, Check, Home, Star, Bold, Calendar } from "lucide-react";
+import { AlertTriangle, Check, Home, Star, Bold, Calendar, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Persona } from "@/components/ui/persona";
 
 const Components = () => {
@@ -23,9 +24,18 @@ const Components = () => {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto py-8 space-y-12">
         {/* Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold">Design System Components</h1>
-          <p className="text-xl text-muted-foreground">A showcase of all available components</p>
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <Button asChild variant="secondary" size="icon">
+              <Link to="/">
+                <ArrowLeft className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+          <div className="text-center space-y-4">
+            <h1 className="text-4xl font-bold">Design System Components</h1>
+            <p className="text-xl text-muted-foreground">A showcase of all available components</p>
+          </div>
         </div>
 
         {/* Buttons */}
