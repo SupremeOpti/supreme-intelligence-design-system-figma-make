@@ -5,21 +5,23 @@ import { X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "flex items-center rounded-full border px-1.5 py-0.5 text-md font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
-        default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-        secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive: "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        success: "border-transparent bg-green-500 text-white hover:bg-green-500/80",
-        warning: "border-transparent bg-yellow-500 text-white hover:bg-yellow-500/80",
-        info: "border-transparent bg-blue-500 text-white hover:bg-blue-500/80",
-        outline: "text-foreground border-border",
-        purple: "border-transparent bg-purple-500 text-white hover:bg-purple-500/80",
-        pink: "border-transparent bg-pink-500 text-white hover:bg-pink-500/80",
-        cyan: "border-transparent bg-cyan-500 text-white hover:bg-cyan-500/80",
-        orange: "border-transparent bg-orange-500 text-white hover:bg-orange-500/80",
+        // Badge Foundation - light gray background with dark text
+        foundation: "border bg-slate-100/20 text-slate-900 hover:bg-slate-100/50",
+        // Default badge - light gray with dark text
+        default: "border bg-gray-100/20 text-gray-900 hover:bg-gray-100/50",
+        // Colored variants with dots and close buttons
+        red: "border-transparent bg-red-500/20 text-red-900 hover:bg-red-500/50",
+        orange: "border-transparent bg-orange-500/20 text-orange-900 hover:bg-orange-500/50",
+        yellow: "border-transparent bg-yellow-500/20 text-yellow-900 hover:bg-yellow-500/50",
+        green: "border-transparent bg-green-500/20 text-green-900 hover:bg-green-500/50",
+        blue: "border-transparent bg-blue-500/20 text-blue-900 hover:bg-blue-500/50",
+        indigo: "border-transparent bg-indigo-500/20 text-indigo-900 hover:bg-indigo-500/50",
+        purple: "border-transparent bg-purple-500/20 text-purple-900 hover:bg-purple-500/50",
+        pink: "border-transparent bg-pink-500/20 text-pink-900 hover:bg-pink-500/50",
       },
     },
     defaultVariants: {
@@ -34,21 +36,40 @@ export interface BadgeProps
   dismissible?: boolean
   onDismiss?: () => void
   dot?: boolean
+  size?: "default" | "foundation"
 }
 
-function Badge({ className, variant, dismissible, onDismiss, dot, children, ...props }: BadgeProps) {
+function Badge({ 
+  className, 
+  variant, 
+  dismissible, 
+  onDismiss, 
+  dot, 
+  size = "default",
+  children, 
+  ...props 
+}: BadgeProps) {
+  const baseClasses = cn(badgeVariants({ variant }), className)
+  
+  // Foundation styling with specific dimensions and spacing
+  const foundationClasses = size === "foundation" 
+    ? "w-20 h-5 gap-1.5 px-1.5 py-0.5" // 82px width, 20px height, 6px gap
+    : ""
+  
+  const finalClasses = cn(baseClasses, foundationClasses)
+
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props}>
+    <div className={finalClasses + " flex items-center justify-center gap-1.5 cursor-pointer"} {...props}>
       {dot && (
-        <div className="w-2 h-2 rounded-full bg-current opacity-75" />
+        <div className="w-2 h-2 rounded-full bg-current opacity-50" />
       )}
       {children}
       {dismissible && (
         <button
           onClick={onDismiss}
-          className="ml-1 rounded-full hover:bg-black/10 p-0.5 transition-colors"
+          className="rounded-full border border-current hover:bg-black/10 transition-colors p-0.5"
         >
-          <X className="h-3 w-3" />
+          <X className="h-4 w-4" />
         </button>
       )}
     </div>

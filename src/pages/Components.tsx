@@ -16,20 +16,25 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { AlertTriangle, Check, Home, Star, Bold, Calendar, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Persona } from "@/components/ui/persona";
 
 const Components = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto py-8 space-y-12">
         {/* Header */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <Button asChild variant="secondary" size="lg">
-              <Link to="/">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back
+            <Button variant="secondary" size="lg" onClick={() => navigate(-1)}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back
+            </Button>
+            <Button asChild variant="secondary" size="md">
+              <Link to="/design-tokens">
+                Design Tokens
               </Link>
             </Button>
           </div>
@@ -127,47 +132,37 @@ const Components = () => {
             </CardContent>
           </Card>
         </section>
-        {/* Form Components */}
+        
+        {/* Logo */}
         <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Form Components</h2>
+          <h2 className="text-3xl font-semibold">Logo</h2>
           <Card>
             <CardHeader>
-              <CardTitle>Input Fields</CardTitle>
-              <CardDescription>Text inputs, checkboxes, and form controls</CardDescription>
+              <CardTitle>Brand Logos</CardTitle>
+              <CardDescription>Different logo variants and themes</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="Enter your email" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="password">Password</Label>
-                  <Input id="password" type="password" placeholder="Enter password" />
-                </div>
+            <CardContent className="space-y-4 bg-slate-400 p-8 rounded-lg">
+              <div className="flex items-center gap-8">
+                <Logo variant="curie" size="lg" />
+                <Logo variant="curie" size="lg" showText={false} />
+                <Logo variant="supreme" size="lg" />
+                <Logo variant="supreme" size="lg" showText={false} />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="Type your message here..." />
+              <div className="flex items-center gap-8">
+                <Logo variant="curie" size="lg" theme="black" />
+                <Logo variant="curie" size="lg" showText={false} theme="black" />
+                <Logo variant="supreme" size="lg" theme="black" />
+                <Logo variant="supreme" size="lg" showText={false} theme="black" />
               </div>
-              <div className="flex items-center space-x-2">
-                <Checkbox id="terms" />
-                <Label htmlFor="terms">Accept terms and conditions</Label>
+              <div className="flex items-center gap-8">
+                <Logo variant="curie" size="lg" theme="white" />
+                <Logo variant="curie" size="lg" showText={false} theme="white" />
+                <Logo variant="supreme" size="lg" theme="white" />
+                <Logo variant="supreme" size="lg" showText={false} theme="white" />
               </div>
-              <RadioGroup defaultValue="option-one">
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="option-one" id="option-one" />
-                  <Label htmlFor="option-one">Option One</Label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="option-two" id="option-two" />
-                  <Label htmlFor="option-two">Option Two</Label>
-                </div>
-              </RadioGroup>
             </CardContent>
           </Card>
         </section>
-
         {/* Badges */}
         <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Badges</h2>
@@ -178,13 +173,16 @@ const Components = () => {
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-4">
-                <Badge>Default</Badge>
-                <Badge variant="secondary">Secondary</Badge>
-                <Badge variant="destructive">Destructive</Badge>
-                <Badge variant="success">Success</Badge>
-                <Badge variant="warning">Warning</Badge>
-                <Badge variant="info">Info</Badge>
-                <Badge variant="outline">Outline</Badge>
+                <Badge variant="default" dismissible dot>Badge</Badge>
+                <Badge variant="foundation" dismissible dot>Badge</Badge>
+                <Badge variant="red" dismissible dot>Badge</Badge>
+                <Badge variant="orange" dismissible dot>Badge</Badge>
+                <Badge variant="yellow" dismissible dot>Badge</Badge>
+                <Badge variant="green" dismissible dot>Badge</Badge>
+                <Badge variant="blue" dismissible dot>Badge</Badge>
+                <Badge variant="indigo" dismissible dot>Badge</Badge>
+                <Badge variant="purple" dismissible dot>Badge</Badge>
+                <Badge variant="pink" dismissible dot>Badge</Badge>
               </div>
             </CardContent>
           </Card>
@@ -198,25 +196,113 @@ const Components = () => {
               <CardTitle>Avatar Component</CardTitle>
               <CardDescription>User profile images and fallbacks</CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="flex items-center gap-4">
-                <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-                <Avatar>
-                  <AvatarFallback>AB</AvatarFallback>
-                </Avatar>
-                <Avatar>
-                  <AvatarFallback>XY</AvatarFallback>
-                </Avatar>
+            <CardContent className="space-y-8">
+              {/* Single Avatars */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium">Single Avatars</h3>
+                
+                {/* Photo Row */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium text-muted-foreground">Photo</h4>
+                  <div className="flex items-center gap-6">
+                    <div className="flex flex-col items-center gap-2">
+                      <Avatar className="h-8 w-8">
+                        <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
+                        <AvatarFallback>DA</AvatarFallback>
+                      </Avatar>
+                      <span className="text-xs text-muted-foreground">Small</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Avatar className="h-12 w-12">
+                        <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
+                        <AvatarFallback>DA</AvatarFallback>
+                      </Avatar>
+                      <span className="text-xs text-muted-foreground">Mid</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Avatar className="h-16 w-16">
+                        <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
+                        <AvatarFallback>DA</AvatarFallback>
+                      </Avatar>
+                      <span className="text-xs text-muted-foreground">Large</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Initials Row */}
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium text-muted-foreground">Initials</h4>
+                  <div className="flex items-center gap-6">
+                    <div className="flex flex-col items-center gap-2">
+                      <Avatar className="h-8 w-8">
+                        <AvatarFallback className="bg-primary text-primary-foreground">AA</AvatarFallback>
+                      </Avatar>
+                      <span className="text-xs text-muted-foreground">Small</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Avatar className="h-12 w-12">
+                        <AvatarFallback className="bg-primary text-primary-foreground">AA</AvatarFallback>
+                      </Avatar>
+                      <span className="text-xs text-muted-foreground">Mid</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Avatar className="h-16 w-16">
+                        <AvatarFallback className="bg-primary text-primary-foreground">AA</AvatarFallback>
+                      </Avatar>
+                      <span className="text-xs text-muted-foreground">Large</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Group Avatars */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium">Group Avatars</h3>
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium text-muted-foreground">Groups</h4>
+                  <div className="flex items-center gap-6">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="flex -space-x-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Avatar key={i} className="h-8 w-8 border-2 border-background">
+                            <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
+                            <AvatarFallback>DA</AvatarFallback>
+                          </Avatar>
+                        ))}
+                      </div>
+                      <span className="text-xs text-muted-foreground">Small</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="flex -space-x-4">
+                        {[...Array(5)].map((_, i) => (
+                          <Avatar key={i} className="h-12 w-12 border-2 border-background">
+                            <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
+                            <AvatarFallback>DA</AvatarFallback>
+                          </Avatar>
+                        ))}
+                      </div>
+                      <span className="text-xs text-muted-foreground">Mid</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="flex -space-x-5">
+                        {[...Array(5)].map((_, i) => (
+                          <Avatar key={i} className="h-16 w-16 border-2 border-background">
+                            <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
+                            <AvatarFallback>DA</AvatarFallback>
+                          </Avatar>
+                        ))}
+                      </div>
+                      <span className="text-xs text-muted-foreground">Large</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
         </section>
 
         {/* Progress */}
-        <section className="space-y-6">
+        {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Progress</h2>
           <Card>
             <CardHeader>
@@ -229,10 +315,10 @@ const Components = () => {
               <Progress value={85} size="lg" showValue />
             </CardContent>
           </Card>
-        </section>
+        </section> */}
 
         {/* Alerts */}
-        <section className="space-y-6">
+        {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Alerts</h2>
           <Card>
             <CardHeader>
@@ -256,10 +342,10 @@ const Components = () => {
               </Alert>
             </CardContent>
           </Card>
-        </section>
+        </section> */}
 
         {/* Toggle */}
-        <section className="space-y-6">
+        {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Toggle</h2>
           <Card>
             <CardHeader>
@@ -277,31 +363,11 @@ const Components = () => {
               </div>
             </CardContent>
           </Card>
-        </section>
+        </section> */}
 
-        {/* Logo */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Logo</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Brand Logos</CardTitle>
-              <CardDescription>Different logo variants and themes</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center gap-8">
-                <Logo variant="curie" showText />
-                <Logo variant="supreme" showText />
-              </div>
-              <div className="flex items-center gap-8">
-                <Logo variant="curie" size="lg" />
-                <Logo variant="supreme" size="lg" />
-              </div>
-            </CardContent>
-          </Card>
-        </section>
 
         {/* Accordion */}
-        <section className="space-y-6">
+        {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Accordion</h2>
           <Card>
             <CardHeader>
@@ -325,10 +391,10 @@ const Components = () => {
               </Accordion>
             </CardContent>
           </Card>
-        </section>
+        </section> */}
 
         {/* Table */}
-        <section className="space-y-6">
+        {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Table</h2>
           <Card>
             <CardHeader>
@@ -348,7 +414,7 @@ const Components = () => {
                 <TableBody>
                   <TableRow>
                     <TableCell className="font-medium">John Doe</TableCell>
-                    <TableCell><Badge variant="success">Active</Badge></TableCell>
+                    <TableCell><Badge variant="blue">Active</Badge></TableCell>
                     <TableCell>Admin</TableCell>
                     <TableCell className="text-right">
                       <Button variant="secondary" size="md">Edit</Button>
@@ -356,7 +422,7 @@ const Components = () => {
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-medium">Jane Smith</TableCell>
-                    <TableCell><Badge variant="secondary">Inactive</Badge></TableCell>
+                    <TableCell><Badge variant="foundation">Inactive</Badge></TableCell>
                     <TableCell>User</TableCell>
                     <TableCell className="text-right">
                       <Button variant="secondary" size="md">Edit</Button>
@@ -366,10 +432,10 @@ const Components = () => {
               </Table>
             </CardContent>
           </Card>
-        </section>
+        </section> */}
 
         {/* Navigation */}
-        <section className="space-y-6">
+        {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Navigation</h2>
           <Card>
             <CardHeader>
@@ -416,7 +482,7 @@ const Components = () => {
               </Pagination>
             </CardContent>
           </Card>
-        </section>
+        </section> */}
       </div>
     </div>
   );

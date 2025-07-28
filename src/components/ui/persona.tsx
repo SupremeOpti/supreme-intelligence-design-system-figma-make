@@ -29,9 +29,9 @@ const personaVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#EDEBFD] border-[#D4D4D4] text-[#272080] hover:bg-[#E8E6F8] hover:border-[#272080]",
-        selected: "bg-[#EDEBFD] border-[#272080] text-[#272080]",
-        outline: "bg-white border-[#D4D4D4] text-[#272080] hover:border-[#272080]",
+        default: "bg-supreme-blue-50 border-neutral-300 text-supreme-blue-800 hover:bg-supreme-blue-100 hover:border-supreme-blue-800",
+        selected: "bg-supreme-blue-50 border-supreme-blue-800 text-supreme-blue-800",
+        outline: "bg-white border-neutral-300 text-supreme-blue-800 hover:border-supreme-blue-800",
       },
       size: {
         default: "w-[364px] h-8 px-4 py-2",
