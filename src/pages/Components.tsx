@@ -102,30 +102,6 @@ const Components = () => {
                           <Button size="icon"><Star className="h-4 w-4" /></Button>
                         </td>
                       </tr>
-                      <tr>
-                        <td className="p-3 font-medium">Small</td>
-                        <td className="p-3 text-center">
-                          <Button size="sm">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="secondary" size="sm">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="outline" size="sm">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="ghost" size="sm">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="link" size="sm">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="destructive" size="sm">+ Button +</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button size="icon-sm"><Star className="h-3 w-3" /></Button>
-                        </td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
