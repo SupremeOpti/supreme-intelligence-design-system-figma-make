@@ -37,10 +37,10 @@ const Components = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex flex-wrap gap-4">
-                <Button>Default</Button>
+                <Button>+ Button +</Button>
+                <Button variant="outline">+ Button +</Button>
                 <Button variant="secondary">Secondary</Button>
                 <Button variant="destructive">Destructive</Button>
-                <Button variant="outline">Outline</Button>
                 <Button variant="ghost">Ghost</Button>
                 <Button variant="link">Link</Button>
               </div>
