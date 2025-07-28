@@ -1,73 +1,346 @@
-# Welcome to your Lovable project
+# Supreme Intelligence Design System
 
-## Project info
+A comprehensive design system that expands and integrates with Tailwind CSS v4, providing consistent styles and components across both Laravel and React (Lovable) versions of Supreme Intelligence.
 
-**URL**: https://lovable.dev/projects/b6eeaf87-3788-47dd-8138-e0f1c4f05396
+## Overview
 
-## How can I edit this code?
+This design system is built as an NPM package that seamlessly integrates with Tailwind CSS v4, offering:
 
-There are several ways of editing your application.
+- 🎨 **Complete Design System** - Colors, typography, spacing, shadows, and more
+- ⚛️ **React Components** - Pre-built, accessible components
+- 🎯 **Multi-Framework** - Support for React, Next.js, Laravel
+- 🌙 **Dark Mode** - Built-in dark theme support
+- 📱 **Responsive** - Mobile-first design approach
+- ♿ **Accessible** - WCAG compliant components
+- 🔧 **TypeScript** - Full type safety
+- 🎪 **Tailwind CSS v4** - Modern utility-first styling
 
-**Use Lovable**
+## Package Structure
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b6eeaf87-3788-47dd-8138-e0f1c4f05396) and start prompting.
+The design system is distributed as an NPM package with the following structure:
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+supreme-intelligence-design-system-npm/
+├── src/
+│   ├── components/
+│   │   └── ui/           # React component library
+│   │       ├── accordion.tsx
+│   │       ├── alert.tsx
+│   │       ├── alert-dialog.tsx
+│   │       ├── aspect-ratio.tsx
+│   │       ├── avatar.tsx
+│   │       ├── badge.tsx
+│   │       ├── breadcrumb.tsx
+│   │       ├── button.tsx
+│   │       ├── calendar.tsx
+│   │       ├── card.tsx
+│   │       ├── carousel.tsx
+│   │       ├── chart.tsx
+│   │       ├── checkbox.tsx
+│   │       ├── collapsible.tsx
+│   │       ├── command.tsx
+│   │       ├── context-menu.tsx
+│   │       ├── dialog.tsx
+│   │       ├── drawer.tsx
+│   │       ├── dropdown-menu.tsx
+│   │       ├── form.tsx
+│   │       ├── hover-card.tsx
+│   │       ├── input.tsx
+│   │       ├── input-otp.tsx
+│   │       ├── label.tsx
+│   │       ├── logo.tsx
+│   │       ├── menubar.tsx
+│   │       ├── navigation-menu.tsx
+│   │       ├── pagination.tsx
+│   │       ├── popover.tsx
+│   │       ├── progress.tsx
+│   │       ├── radio-group.tsx
+│   │       ├── sonner.tsx
+│   │       ├── table.tsx
+│   │       ├── textarea.tsx
+│   │       ├── toast.tsx
+│   │       ├── toaster.tsx
+│   │       ├── toggle.tsx
+│   │       └── tooltip.tsx
+│   ├── hooks/             # Custom React hooks
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   ├── lib/               # Utility functions
+│   │   └── utils.ts
+│   ├── pages/             # Example pages
+│   │   ├── Index.tsx
+│   │   └── NotFound.tsx
+│   ├── styles/            # Global styles
+│   │   └── globals.css
+│   ├── App.tsx            # Main app component
+│   ├── App.css            # App styles
+│   ├── index.css          # Main entry point
+│   └── main.tsx           # App entry point
+├── public/                # Static assets
+│   ├── placeholder.svg
+│   └── robots.txt
+├── package.json           # Package configuration
+├── components.json        # Component configuration
+├── tailwind.config.ts     # Tailwind configuration
+├── vite.config.ts         # Vite configuration
+├── tsup.config.ts         # Build configuration
+└── README.md
 ```
 
-**Edit a file directly in GitHub**
+## Installation
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm install supreme-intelligence-design-system-npm
+# or
+yarn add supreme-intelligence-design-system-npm
+# or
+pnpm add supreme-intelligence-design-system-npm
+```
 
-**Use GitHub Codespaces**
+## Quick Start
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### React/Next.js Projects
 
-## What technologies are used for this project?
+1. **Import the design system in your CSS:**
 
-This project is built with:
+```css
+/* globals.css or main.css */
+@import "tailwindcss";
+@import "supreme-intelligence-design-system-npm";
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+2. **Use the components:**
 
-## How can I deploy this project?
+```tsx
+import { Button, Logo } from 'supreme-intelligence-design-system-npm/react'
 
-Simply open [Lovable](https://lovable.dev/projects/b6eeaf87-3788-47dd-8138-e0f1c4f05396) and click on Share -> Publish.
+export default function App() {
+  return (
+    <div>
+      <Logo variant="supreme" size="lg" />
+      <Button variant="default">Get Started</Button>
+    </div>
+  )
+}
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Laravel Projects
 
-Yes, you can!
+1. **Import the design system in your main CSS file:**
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```css
+/* resources/css/app.css */
+@import "tailwindcss";
+@import "supreme-intelligence-design-system-npm";
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+2. **Use in Blade templates:**
+
+```html
+<div class="bg-background text-foreground p-4 rounded-lg">
+  <h1 class="text-2xl font-bold text-primary">Welcome to Supreme Intelligence</h1>
+  <button class="bg-primary text-primary-foreground px-4 py-2 rounded">
+    Get Started
+  </button>
+</div>
+```
+
+## Design Tokens
+
+The design system provides comprehensive design tokens that are automatically available through Tailwind:
+
+### Colors
+- `bg-background` / `text-foreground`
+- `bg-primary` / `text-primary-foreground`
+- `bg-secondary` / `text-secondary-foreground`
+- `bg-muted` / `text-muted-foreground`
+- `bg-accent` / `text-accent-foreground`
+- `bg-destructive` / `text-destructive-foreground`
+- `bg-card` / `text-card-foreground`
+- `bg-popover` / `text-popover-foreground`
+
+### Spacing & Layout
+- Consistent spacing scale: `p-1` through `p-16`
+- Container utilities with responsive breakpoints
+- Grid and flexbox utilities
+
+### Typography
+- Font family utilities: `font-sans`, `font-mono`
+- Font size scale: `text-xs` through `text-9xl`
+- Font weight utilities: `font-light` through `font-black`
+
+## Components
+
+### Button
+
+```tsx
+import { Button } from '@supremeintelligence/design-system/react'
+
+<Button variant="default" size="lg">
+  Primary Button
+</Button>
+
+<Button variant="outline" size="sm">
+  Secondary Button
+</Button>
+
+<Button variant="destructive">
+  Delete
+</Button>
+```
+
+### Logo
+
+```tsx
+import { Logo } from '@supremeintelligence/design-system/react'
+
+<Logo variant="supreme" theme="light" size="md" showText={true} />
+<Logo variant="supreme" theme="dark" size="lg" showText={false} />
+```
+
+### Form Components
+
+```tsx
+import { Input, Label, Button } from '@supremeintelligence/design-system/react'
+
+<div className="space-y-4">
+  <div>
+    <Label htmlFor="email">Email</Label>
+    <Input id="email" type="email" placeholder="Enter your email" />
+  </div>
+  <Button type="submit">Submit</Button>
+</div>
+```
+
+## Customization
+
+### Extending the Design System
+
+You can extend the design system by adding custom styles after importing:
+
+```css
+@import "tailwindcss";
+@import "supreme-intelligence-design-system-npm";
+
+/* Your custom styles */
+@layer base {
+  :root {
+    --custom-color: 220 100% 50%;
+  }
+}
+
+@layer components {
+  .custom-button {
+    @apply bg-custom-color text-white px-4 py-2 rounded;
+  }
+}
+```
+
+### Creating Custom Components
+
+```tsx
+import { cn, cva } from 'supreme-intelligence-design-system-npm'
+
+const cardVariants = cva(
+  'rounded-lg border bg-card text-card-foreground shadow-sm',
+  {
+    variants: {
+      variant: {
+        default: 'border-border',
+        elevated: 'border-border shadow-lg',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+)
+
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: 'default' | 'elevated'
+}
+
+const Card = ({ className, variant, ...props }: CardProps) => (
+  <div className={cn(cardVariants({ variant }), className)} {...props} />
+)
+```
+
+## Dark Mode
+
+The design system includes built-in dark mode support:
+
+```tsx
+import { ThemeProvider } from 'supreme-intelligence-design-system-npm/react'
+
+function App() {
+  return (
+    <ThemeProvider defaultTheme="dark" storageKey="supreme-theme">
+      {/* Your app content */}
+    </ThemeProvider>
+  )
+}
+```
+
+## Framework Integration
+
+### Next.js
+
+```js
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['supreme-intelligence-design-system-npm'],
+  },
+}
+
+module.exports = nextConfig
+```
+
+### Vite
+
+```js
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  optimizeDeps: {
+    include: ['supreme-intelligence-design-system-npm'],
+  },
+})
+```
+
+## Development
+
+### Local Development
+
+1. Clone the repository: `git clone https://github.com/developersupreme/supreme-intelligence-designSystem.git`
+2. Install dependencies: `npm install`
+3. Start development server: `npm run dev`
+4. Build the package: `npm run build`
+
+### Building for Distribution
+
+```bash
+npm run build:package
+```
+
+This creates the distributable package with all necessary files for NPM publishing.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+MIT © Supreme Intelligence
+
+## Support
+
+For support and questions, please contact the development team or create an issue in the [repository](https://github.com/developersupreme/supreme-intelligence-designSystem).
