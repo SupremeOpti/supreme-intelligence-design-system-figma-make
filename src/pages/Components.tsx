@@ -45,6 +45,7 @@ const Components = () => {
                       <tr className="border-b">
                         <th className="text-left p-3 font-medium">Size</th>
                         <th className="text-center p-3 font-medium">Primary</th>
+                        <th className="text-center p-3 font-medium">Primary Stroke</th>
                         <th className="text-center p-3 font-medium">Secondary</th>
                         <th className="text-center p-3 font-medium">Outline</th>
                         <th className="text-center p-3 font-medium">Ghost</th>
@@ -58,6 +59,9 @@ const Components = () => {
                         <td className="p-3 font-medium">Large</td>
                         <td className="p-3 text-center">
                           <Button size="lg">+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="primary-stroke" size="lg">+ Button +</Button>
                         </td>
                         <td className="p-3 text-center">
                           <Button variant="secondary" size="lg">+ Button +</Button>
@@ -82,6 +86,9 @@ const Components = () => {
                         <td className="p-3 font-medium">Medium</td>
                         <td className="p-3 text-center">
                           <Button>+ Button +</Button>
+                        </td>
+                        <td className="p-3 text-center">
+                          <Button variant="primary-stroke">+ Button +</Button>
                         </td>
                         <td className="p-3 text-center">
                           <Button variant="secondary">+ Button +</Button>
