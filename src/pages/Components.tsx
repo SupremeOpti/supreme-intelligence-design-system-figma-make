@@ -26,9 +26,10 @@ const Components = () => {
         {/* Header */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <Button asChild variant="secondary" size="icon">
+            <Button asChild variant="secondary" size="lg">
               <Link to="/">
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back
               </Link>
             </Button>
           </div>
