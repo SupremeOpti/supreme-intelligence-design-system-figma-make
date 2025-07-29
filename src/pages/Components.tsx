@@ -15,9 +15,21 @@ import { Logo } from "@/components/ui/logo";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
-import { AlertTriangle, Check, Home, Star, Bold, Calendar, ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Persona } from "@/components/ui/persona";
+import { AppIcon } from "@/components/ui/Icons/AppIcon";
+import { AI } from "@/components/ui/Icons/AI";
+import { Audiences } from "@/components/ui/Icons/Audiences";
+import { BrandGuidelines } from "@/components/ui/Icons/BrandGuidelines";
+import { DataSources } from "@/components/ui/Icons/DataSources";
+import { DigitalAssetManagement } from "@/components/ui/Icons/DigitalAssetManagement";
+import { Google } from "@/components/ui/Icons/Google";
+import { Home } from "@/components/ui/Icons/Home";
+import { KnowledgeBase } from "@/components/ui/Icons/KnowledgeBase";
+import { LinkedIn } from "@/components/ui/Icons/LinkedIn";
+import { PersonaIcon } from "@/components/ui/Icons/PersonaIcon";
+import { Sidebar } from "@/components/ui/Icons/Sidebar";
+import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 const Components = () => {
   const navigate = useNavigate();
@@ -29,7 +41,7 @@ const Components = () => {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <Button variant="secondary" size="lg" onClick={() => navigate(-1)}>
-              <ArrowLeft className="h-4 w-4 mr-2" />
+              <ArrowLeftIcon className="h-4 w-4 mr-2" />
               Back
             </Button>
             <Button asChild variant="secondary" size="md">
@@ -300,6 +312,31 @@ const Components = () => {
             </CardContent>
           </Card>
         </section>
+
+{/* Icons */}
+<section className="space-y-6">
+  <h2 className="text-3xl font-semibold">Icons</h2>
+  <Card>
+    <CardHeader>
+      <CardTitle>Icon Examples</CardTitle>
+      <CardDescription>Examples of all available icons</CardDescription>
+    </CardHeader>
+    <CardContent className="flex flex-wrap gap-4">
+      <AppIcon />
+      <AI />
+      <Audiences />
+      <BrandGuidelines />
+      <DataSources />
+      <DigitalAssetManagement />
+      <Google />
+      <Home />
+      <KnowledgeBase />
+      <LinkedIn />
+      <PersonaIcon />
+      <Sidebar />
+    </CardContent>
+  </Card>
+</section>
 
         {/* Progress */}
         {/* <section className="space-y-6">
