@@ -6,24 +6,28 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
+  ToastIcon,
+  ToastContent,
+  ToastActions,
 } from "@/components/ui/toast"
 
 export function Toaster() {
   const { toasts } = useToast()
-
+  console.log(toasts)
   return (
     <ToastProvider>
-      {toasts.map(function ({ id, title, description, action, ...props }) {
+      {toasts.map(function ({ id, title, description, action, children, variant, ...props }) {
         return (
-          <Toast key={id} {...props}>
-            <div className="grid gap-1">
-              {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
+          <Toast key={id} {...props} variant={variant} className="w-full flex">
+            <ToastIcon variant={variant} />
+            <div className="flex gap-1 flex-col">
+              <ToastContent>
+                {title && <ToastTitle variant={variant}>{title}</ToastTitle>}
+                {description && <ToastDescription variant={variant}>{description}</ToastDescription>}
+              </ToastContent>
+              {action}
             </div>
-            {action}
-            <ToastClose />
+            <ToastClose variant={variant} />
           </Toast>
         )
       })}

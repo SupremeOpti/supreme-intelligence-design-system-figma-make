@@ -187,7 +187,7 @@ const DesignTokens = () => {
         {/* Backdrop Blur Section */}
         <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Backdrop Blur Effects</h2>
-          <div className="relative h-32 bg-gradient-to-br from-supreme-blue-200 to-supreme-blue-400 rounded-lg overflow-hidden">
+          <div className="relative h-32 bg-gradient-to-br from-supreme-blue-200 to-supreme-blue-400 rounded-lg overflow-hidden" style={{ backgroundImage: 'url(/assets/background.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="absolute inset-0 bg-gradient-to-br from-supreme-blue-300 to-supreme-blue-500 opacity-50"></div>
             <div className="grid grid-cols-8 gap-4 p-4">
               {[
@@ -290,11 +290,11 @@ const DesignTokens = () => {
                   Using semantic colors, spacing, and border radius tokens
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="flex items-center gap-4">
                 <Button variant="primary" size="lg">
                   Primary Action
                 </Button>
-                <Button variant="secondary" size="md">
+                <Button variant="secondary" size="lg">
                   Secondary Action
                 </Button>
                 <Button variant="link" size="md">

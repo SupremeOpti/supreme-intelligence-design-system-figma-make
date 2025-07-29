@@ -192,10 +192,16 @@ All colors MUST be HSL.
     
     /* Slate colors for button shadows */
     --slate-50: #F8FAFC;
+    --slate-400: #90A1B9;
     --neutral-300: #D4D4D4;
     --white: #FFFFFF;
     --black: #000000;
     --transparent: transparent;
+    
+    /* Toggle specific colors */
+    --toggle-gradient-start: #403A9A;
+    --toggle-gradient-end: #1A1475;
+    --toggle-focus-shadow: #0D6EFD40;
     
     /* Gray colors for badges */
     --color-gray-100: #F3F4F6;

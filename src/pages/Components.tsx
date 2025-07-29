@@ -10,7 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Toggle } from "@/components/ui/toggle";
+import { ToggleDemo } from "@/pages/toggle-demo";
 import { Logo } from "@/components/ui/logo";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
@@ -30,6 +30,7 @@ import { LinkedIn } from "@/components/ui/Icons/LinkedIn";
 import { PersonaIcon } from "@/components/ui/Icons/PersonaIcon";
 import { Sidebar } from "@/components/ui/Icons/Sidebar";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+import ToastDemo from "./toast-demo";
 
 const Components = () => {
   const navigate = useNavigate();
@@ -144,7 +145,7 @@ const Components = () => {
             </CardContent>
           </Card>
         </section>
-        
+
         {/* Logo */}
         <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Logo</h2>
@@ -212,7 +213,7 @@ const Components = () => {
               {/* Single Avatars */}
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Single Avatars</h3>
-                
+
                 {/* Photo Row */}
                 <div className="space-y-2">
                   <h4 className="text-sm font-medium text-muted-foreground">Photo</h4>
@@ -313,30 +314,33 @@ const Components = () => {
           </Card>
         </section>
 
-{/* Icons */}
-<section className="space-y-6">
-  <h2 className="text-3xl font-semibold">Icons</h2>
-  <Card>
-    <CardHeader>
-      <CardTitle>Icon Examples</CardTitle>
-      <CardDescription>Examples of all available icons</CardDescription>
-    </CardHeader>
-    <CardContent className="flex flex-wrap gap-4">
-      <AppIcon />
-      <AI />
-      <Audiences />
-      <BrandGuidelines />
-      <DataSources />
-      <DigitalAssetManagement />
-      <Google />
-      <Home />
-      <KnowledgeBase />
-      <LinkedIn />
-      <PersonaIcon />
-      <Sidebar />
-    </CardContent>
-  </Card>
-</section>
+        {/* Icons */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-semibold">Icons</h2>
+          <Card>
+            <CardHeader>
+              <CardTitle>Custom Icons</CardTitle>
+              <CardDescription>Rules:
+                Only use the Outline style of Heroicons to ensure consistency across all interfaces.
+                All icons should use a 1.5px stroke weight to align with our visual standards.
+                Then Custom Icons should be used for any icons that are not part of the Heroicons library.</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-4">
+              <AppIcon />
+              <AI />
+              <Audiences />
+              <BrandGuidelines />
+              <DataSources />
+              <DigitalAssetManagement />
+              <Google />
+              <Home />
+              <KnowledgeBase />
+              <LinkedIn />
+              <PersonaIcon />
+              <Sidebar />
+            </CardContent>
+          </Card>
+        </section>
 
         {/* Progress */}
         {/* <section className="space-y-6">
@@ -382,26 +386,31 @@ const Components = () => {
         </section> */}
 
         {/* Toggle */}
-        {/* <section className="space-y-6">
+        <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Toggle</h2>
           <Card>
             <CardHeader>
-              <CardTitle>Toggle Buttons</CardTitle>
-              <CardDescription>On/off state controls</CardDescription>
+              <CardTitle>Toggle & Checkbox</CardTitle>
+              <CardDescription>On/off state controls with different states and sizes</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="flex gap-4">
-                <Toggle aria-label="Toggle italic">
-                  <Bold className="h-4 w-4" />
-                </Toggle>
-                <Toggle variant="outline" aria-label="Toggle calendar">
-                  <Calendar className="h-4 w-4" />
-                </Toggle>
-              </div>
+              <ToggleDemo />
             </CardContent>
           </Card>
-        </section> */}
-
+        </section>
+        {/* Toast */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-semibold">Toast</h2>
+          <Card>
+            <CardHeader>
+              <CardTitle>Toast Component</CardTitle>
+              <CardDescription>Toast messages for user feedback</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ToastDemo />
+            </CardContent>
+          </Card>
+        </section>
 
         {/* Accordion */}
         {/* <section className="space-y-6">

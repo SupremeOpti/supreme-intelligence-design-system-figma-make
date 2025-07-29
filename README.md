@@ -59,7 +59,6 @@ supreme-intelligence-design-system-npm/
 │   │       ├── table.tsx
 │   │       ├── textarea.tsx
 │   │       ├── toast.tsx
-│   │       ├── toaster.tsx
 │   │       ├── toggle.tsx
 │   │       └── tooltip.tsx
 │   ├── hooks/             # Custom React hooks
