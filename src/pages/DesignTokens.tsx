@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxHeader, ContentBoxTitle } from "@/components/ui/contentbox";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -283,14 +283,14 @@ const DesignTokens = () => {
         <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Usage Examples</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Button with Design Tokens</CardTitle>
-                <CardDescription>
+            <ContentBox>
+              <ContentBoxHeader>
+                <ContentBoxTitle>Button with Design Tokens</ContentBoxTitle>
+                <ContentBoxDescription>
                   Using semantic colors, spacing, and border radius tokens
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex items-center gap-4">
+                </ContentBoxDescription>
+              </ContentBoxHeader>
+              <ContentBoxContent className="flex items-center gap-4">
                 <Button variant="primary" size="lg">
                   Primary Action
                 </Button>
@@ -300,17 +300,17 @@ const DesignTokens = () => {
                 <Button variant="link" size="md">
                   Link Style
                 </Button>
-              </CardContent>
-            </Card>
+              </ContentBoxContent>
+            </ContentBox>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Card with Shadows</CardTitle>
-                <CardDescription>
+            <ContentBox>
+              <ContentBoxHeader>
+                <ContentBoxTitle>Card with Shadows</ContentBoxTitle>
+                <ContentBoxDescription>
                   Demonstrating shadow and spacing tokens
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
+                </ContentBoxDescription>
+              </ContentBoxHeader>
+              <ContentBoxContent className="space-y-4">
                 <div className="p-4 bg-supreme-blue-50 rounded-lg shadow-sm">
                   <p className="text-sm text-supreme-blue-800">
                     Light card with subtle shadow
@@ -321,8 +321,8 @@ const DesignTokens = () => {
                     Dark card with prominent shadow
                   </p>
                 </div>
-              </CardContent>
-            </Card>
+              </ContentBoxContent>
+            </ContentBox>
           </div>
         </section>
       </div>

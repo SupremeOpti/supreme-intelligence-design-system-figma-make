@@ -1,20 +1,46 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Progress } from "@/components/ui/progress";
+import {
+  ContentBox,
+  ContentBoxContent,
+  ContentBoxDescription,
+  ContentBoxHeader,
+  ContentBoxTitle,
+} from "@/components/ui/contentbox";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { ToggleDemo } from "@/pages/toggle-demo";
 import { Logo } from "@/components/ui/logo";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 import { Link, useNavigate } from "react-router-dom";
 import { Persona } from "@/components/ui/persona";
 import { AppIcon } from "@/components/ui/Icons/AppIcon";
@@ -31,6 +57,18 @@ import { PersonaIcon } from "@/components/ui/Icons/PersonaIcon";
 import { Sidebar } from "@/components/ui/Icons/Sidebar";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import ToastDemo from "./toast-demo";
+import {
+  InfoCard,
+  IconCard,
+  MessageAngle,
+  MessageCard,
+  HighlightCard,
+  HighlightCTACard,
+  AnnouncementCard,
+} from "@/components/ui/card";
+import BannerDemo from "./banner-demo";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Progress } from "@/components/ui/progress";
 
 const Components = () => {
   const navigate = useNavigate();
@@ -46,327 +84,766 @@ const Components = () => {
               Back
             </Button>
             <Button asChild variant="secondary" size="md">
-              <Link to="/design-tokens">
-                Design Tokens
-              </Link>
+              <Link to="/design-tokens">Design Tokens</Link>
             </Button>
           </div>
           <div className="text-center space-y-4">
             <h1 className="text-4xl font-bold">Design System Components</h1>
-            <p className="text-xl text-muted-foreground">A showcase of all available components</p>
+            <p className="text-xl text-muted-foreground">
+              A showcase of all available components
+            </p>
           </div>
         </div>
-
-        {/* Buttons */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Buttons</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Button Matrix</CardTitle>
-              <CardDescription>Comprehensive button variants, sizes, and states</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-8">
-              {/* Button States Matrix */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Button States & Variants</h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse">
-                    <thead>
-                      <tr className="border-b">
-                        <th className="text-left p-3 font-medium">Size</th>
-                        <th className="text-center p-3 font-medium">Primary</th>
-                        <th className="text-center p-3 font-medium">Primary Stroke</th>
-                        <th className="text-center p-3 font-medium">Secondary</th>
-                        <th className="text-center p-3 font-medium">Secondary Color</th>
-                        <th className="text-center p-3 font-medium">Link</th>
-                        <th className="text-center p-3 font-medium">Icon Only</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b">
-                        <td className="p-3 font-medium">Large</td>
-                        <td className="p-3 text-center">
-                          <Button variant="primary" size="lg" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="primary-stroke" size="lg" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="secondary" size="lg" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="secondary-color" size="lg" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="link" size="lg" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button size="icon" showIcons="center"></Button>
-                        </td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-3 font-medium">Medium</td>
-                        <td className="p-3 text-center">
-                          <Button variant="primary" size="md" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="primary-stroke" size="md" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="secondary" size="md" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="secondary-color" size="md" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button variant="link" size="md" showIcons="both">Button</Button>
-                        </td>
-                        <td className="p-3 text-center">
-                          <Button size="icon-sm" showIcons="center"></Button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-        {/* Persona */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Persona</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Persona Component</CardTitle>
-              <CardDescription>User profile images and fallbacks</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Persona variant="default" showLeftIcon showRightIcon personas={["John Doe", "Jane Smith"]} />
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Logo */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Logo</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Brand Logos</CardTitle>
-              <CardDescription>Different logo variants and themes</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4 bg-slate-400 p-8 rounded-lg">
-              <div className="flex items-center gap-8">
-                <Logo variant="curie" size="lg" />
-                <Logo variant="curie" size="lg" showText={false} />
-                <Logo variant="supreme" size="lg" />
-                <Logo variant="supreme" size="lg" showText={false} />
-              </div>
-              <div className="flex items-center gap-8">
-                <Logo variant="curie" size="lg" theme="black" />
-                <Logo variant="curie" size="lg" showText={false} theme="black" />
-                <Logo variant="supreme" size="lg" theme="black" />
-                <Logo variant="supreme" size="lg" showText={false} theme="black" />
-              </div>
-              <div className="flex items-center gap-8">
-                <Logo variant="curie" size="lg" theme="white" />
-                <Logo variant="curie" size="lg" showText={false} theme="white" />
-                <Logo variant="supreme" size="lg" theme="white" />
-                <Logo variant="supreme" size="lg" showText={false} theme="white" />
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-        {/* Badges */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Badges</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Badge Variants</CardTitle>
-              <CardDescription>Status indicators and labels</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-4">
-                <Badge variant="default" dismissible dot>Badge</Badge>
-                <Badge variant="foundation" dismissible dot>Badge</Badge>
-                <Badge variant="red" dismissible dot>Badge</Badge>
-                <Badge variant="orange" dismissible dot>Badge</Badge>
-                <Badge variant="yellow" dismissible dot>Badge</Badge>
-                <Badge variant="green" dismissible dot>Badge</Badge>
-                <Badge variant="blue" dismissible dot>Badge</Badge>
-                <Badge variant="indigo" dismissible dot>Badge</Badge>
-                <Badge variant="purple" dismissible dot>Badge</Badge>
-                <Badge variant="pink" dismissible dot>Badge</Badge>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Avatars */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Avatars</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Avatar Component</CardTitle>
-              <CardDescription>User profile images and fallbacks</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-8">
-              {/* Single Avatars */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Single Avatars</h3>
-
-                {/* Photo Row */}
-                <div className="space-y-2">
-                  <h4 className="text-sm font-medium text-muted-foreground">Photo</h4>
-                  <div className="flex items-center gap-6">
-                    <div className="flex flex-col items-center gap-2">
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
-                        <AvatarFallback>DA</AvatarFallback>
-                      </Avatar>
-                      <span className="text-xs text-muted-foreground">Small</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <Avatar className="h-12 w-12">
-                        <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
-                        <AvatarFallback>DA</AvatarFallback>
-                      </Avatar>
-                      <span className="text-xs text-muted-foreground">Mid</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <Avatar className="h-16 w-16">
-                        <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
-                        <AvatarFallback>DA</AvatarFallback>
-                      </Avatar>
-                      <span className="text-xs text-muted-foreground">Large</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Initials Row */}
-                <div className="space-y-2">
-                  <h4 className="text-sm font-medium text-muted-foreground">Initials</h4>
-                  <div className="flex items-center gap-6">
-                    <div className="flex flex-col items-center gap-2">
-                      <Avatar className="h-8 w-8">
-                        <AvatarFallback className="bg-primary text-primary-foreground">AA</AvatarFallback>
-                      </Avatar>
-                      <span className="text-xs text-muted-foreground">Small</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <Avatar className="h-12 w-12">
-                        <AvatarFallback className="bg-primary text-primary-foreground">AA</AvatarFallback>
-                      </Avatar>
-                      <span className="text-xs text-muted-foreground">Mid</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <Avatar className="h-16 w-16">
-                        <AvatarFallback className="bg-primary text-primary-foreground">AA</AvatarFallback>
-                      </Avatar>
-                      <span className="text-xs text-muted-foreground">Large</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Group Avatars */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Group Avatars</h3>
-                <div className="space-y-2">
-                  <h4 className="text-sm font-medium text-muted-foreground">Groups</h4>
-                  <div className="flex items-center gap-6">
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="flex -space-x-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Avatar key={i} className="h-8 w-8 border-2 border-background">
-                            <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
-                            <AvatarFallback>DA</AvatarFallback>
-                          </Avatar>
-                        ))}
+        <Tabs
+          defaultValue="InteractiveDynamicControls"
+          className="w-full mx-auto"
+        >
+          <TabsList className="w-full justify-between">
+            <TabsTrigger
+              value="InteractiveDynamicControls"
+              className="w-1/3"
+              variant="supreme-blue"
+            >
+              Interactive & Dynamic Controls
+            </TabsTrigger>
+            <TabsTrigger
+              value="ContentOrganizationLayout"
+              className="w-1/3"
+              variant="supreme-blue"
+            >
+              Content Organization & Layout
+            </TabsTrigger>
+            <TabsTrigger
+              value="VisualElementsIndicators"
+              className="w-1/3"
+              variant="supreme-blue"
+            >
+              Visual Elements & Indicators
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="InteractiveDynamicControls">
+            <div className="flex flex-col gap-4 mt-4">
+              {/* Buttons */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Buttons</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Button Matrix</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Comprehensive button variants, sizes, and states
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent className="space-y-8">
+                    {/* Button States Matrix */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">
+                        Button States & Variants
+                      </h3>
+                      <div className="overflow-x-auto">
+                        <table className="w-full border-collapse">
+                          <thead>
+                            <tr className="border-b">
+                              <th className="text-left p-3 font-medium">
+                                Size
+                              </th>
+                              <th className="text-center p-3 font-medium">
+                                Primary
+                              </th>
+                              <th className="text-center p-3 font-medium">
+                                Primary Stroke
+                              </th>
+                              <th className="text-center p-3 font-medium">
+                                Secondary
+                              </th>
+                              <th className="text-center p-3 font-medium">
+                                Secondary Color
+                              </th>
+                              <th className="text-center p-3 font-medium">
+                                Link
+                              </th>
+                              <th className="text-center p-3 font-medium">
+                                Icon Only
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b">
+                              <td className="p-3 font-medium">Large</td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="primary"
+                                  size="lg"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="primary-stroke"
+                                  size="lg"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="secondary"
+                                  size="lg"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="secondary-color"
+                                  size="lg"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="link"
+                                  size="lg"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button size="icon" showIcons="center"></Button>
+                              </td>
+                            </tr>
+                            <tr className="border-b">
+                              <td className="p-3 font-medium">Medium</td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="primary"
+                                  size="md"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="primary-stroke"
+                                  size="md"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="secondary"
+                                  size="md"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="secondary-color"
+                                  size="md"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  variant="link"
+                                  size="md"
+                                  showIcons="both"
+                                >
+                                  Button
+                                </Button>
+                              </td>
+                              <td className="p-3 text-center">
+                                <Button
+                                  size="icon-sm"
+                                  showIcons="center"
+                                ></Button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
-                      <span className="text-xs text-muted-foreground">Small</span>
                     </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="flex -space-x-4">
-                        {[...Array(5)].map((_, i) => (
-                          <Avatar key={i} className="h-12 w-12 border-2 border-background">
-                            <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
-                            <AvatarFallback>DA</AvatarFallback>
-                          </Avatar>
-                        ))}
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Toggle */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Toggle & Checkbox</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Toggle & Checkbox</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      On/off state controls with different states and sizes
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent>
+                    <ToggleDemo />
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Toast */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Toast</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Toast Component</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Toast messages for user feedback
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent>
+                    <ToastDemo />
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Banner */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Banner</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Banner Component</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Banner component for displaying important messages
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent>
+                    <BannerDemo />
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Progress */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Progress</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Progress Component</ContentBoxTitle>
+                  </ContentBoxHeader>
+                  <ContentBoxContent>
+                    <Progress showValue size="lg" value={50} />
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+            </div>
+          </TabsContent>
+          <TabsContent value="ContentOrganizationLayout">
+            <div className="flex flex-col gap-4 mt-4">
+              {/* Cards */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Cards</h2>
+                <ContentBox className="bg-neutral-100">
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Card Components</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Various card layouts and styles for different use cases.{" "}
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-2 justify-center">
+                    {/* Message Angle */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">Message Angle</h3>
+                      <div className="max-w-md">
+                        <MessageAngle
+                          title="Diam nascetur lobortis nec"
+                          description="Vulputate et id vulputate eget facilisis. Sed viverra eu quis viverra tincidunt nisi id ut sit fames eget."
+                        />
                       </div>
-                      <span className="text-xs text-muted-foreground">Mid</span>
                     </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="flex -space-x-5">
-                        {[...Array(5)].map((_, i) => (
-                          <Avatar key={i} className="h-16 w-16 border-2 border-background">
-                            <AvatarImage src="/assets/defaultAvatar.jpg" alt="Default Avatar" />
-                            <AvatarFallback>DA</AvatarFallback>
-                          </Avatar>
-                        ))}
+                    {/* Info Card */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">Info Card</h3>
+                      <div className="max-w-md">
+                        <InfoCard
+                          subtitle="Risus pretium"
+                          title="Lorem pharetra"
+                          description="Diam nascetur lobortis nec"
+                        />
                       </div>
-                      <span className="text-xs text-muted-foreground">Large</span>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
+                    {/* Card with Icon */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">Card with Icon</h3>
+                      <div className="max-w-md">
+                        <IconCard
+                          title="Diam nascetur lobortis nec"
+                          value="99999"
+                        />
+                      </div>
+                    </div>
+                    {/* Highlight Card */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">Highlight Card</h3>
+                      <div className="max-w-2xl">
+                        <HighlightCard
+                          value="99"
+                          title="Montes egestas mauris"
+                          subtitle="Velit dui enim turpis tempor"
+                        />
+                      </div>
+                    </div>
+                    {/* Highlight CTA Card */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">
+                        Highlight CTA Card
+                      </h3>
+                      <div className="max-w-sm">
+                        <HighlightCTACard
+                          title="Lorem ipsum dolor sit"
+                          value="9999M"
+                          description="Sapien orci id vitae justo elit sem dictums sed eu. Elementum hac volutpat amet."
+                          ctaText="See More Details"
+                          onCtaClick={() => console.log("CTA clicked")}
+                        />
+                      </div>
+                    </div>
+                    {/* Card with Message */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">Card with Message</h3>
+                      <div className="max-w-2xl">
+                        <MessageCard
+                          headerTitle="Risus pretium"
+                          mainContent="Sapien orci id vitae justo elit sem dictumst sed eu. Elementum hac volutpat amet viverra commodo sociis elementum gravida sit. Felis sed nec tellus interdum neque fames imperdiet ac. Pellentesque integer sit nibh risus in arcu amet tempus. Interdum convallis morbi."
+                          nestedTitle="Diam nascetur lobortis nec"
+                          nestedContent="Vulputate et id vulputate eget facilisis. Sed viverra eu quis viverra tincidunt nisi id ut sit fames eget."
+                        />
+                      </div>
+                    </div>
+                    {/* Announcement Card */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">Announcement Card</h3>
+                      <div className="max-w-2xl">
+                        <AnnouncementCard
+                          title="Sed mauris phasellus scelerisque"
+                          author="By Team"
+                          date="Month 1, 2025"
+                          content={
+                            "Sapien orci id vitae justo elit sem dictumst sed eu. Elementum hac volutpat amet viverra commodo sociis elementum gravida sit. Felis sed nec tellus interdum neque fames imperdiet ac. Pellentesque integer sit nibh risus in arcu amet tempus. Interdum convallis morbi."
+                          }
+                          badgeText="Badge"
+                        />
+                      </div>
+                    </div>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Pagination Demo */}
+              <section className="space-y-4">
+                <h2 className="text-3xl font-semibold">Pagination</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Pagination Showcase</ContentBoxTitle>
+                  </ContentBoxHeader>
+                  <ContentBoxContent className="w-full flex justify-center">
+                    <Pagination>
+                      <PaginationContent>
+                        <PaginationItem>
+                          <PaginationPrevious />
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink href="#" isActive>
+                            1
+                          </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink href="#">2</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink href="#">3</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink href="#">4</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink href="#">5</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink href="#">6</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink href="#">7</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink href="#">8</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationEllipsis />
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink href="#">100</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationNext />
+                        </PaginationItem>
+                      </PaginationContent>
+                    </Pagination>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+            </div>
+          </TabsContent>
+          <TabsContent value="VisualElementsIndicators">
+            <div className="flex flex-col gap-4 mt-4">
+              {/* Icons */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Icons</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Custom Icons</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Rules: Only use the Outline style of Heroicons to ensure
+                      consistency across all interfaces. All icons should use a
+                      1.5px stroke weight to align with our visual standards.
+                      Then Custom Icons should be used for any icons that are
+                      not part of the Heroicons library.
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent className="flex flex-wrap gap-4">
+                    <AppIcon />
+                    <AI />
+                    <Audiences />
+                    <BrandGuidelines />
+                    <DataSources />
+                    <DigitalAssetManagement />
+                    <Google />
+                    <Home />
+                    <KnowledgeBase />
+                    <LinkedIn />
+                    <PersonaIcon />
+                    <Sidebar />
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
 
-        {/* Icons */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Icons</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Custom Icons</CardTitle>
-              <CardDescription>Rules:
-                Only use the Outline style of Heroicons to ensure consistency across all interfaces.
-                All icons should use a 1.5px stroke weight to align with our visual standards.
-                Then Custom Icons should be used for any icons that are not part of the Heroicons library.</CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-wrap gap-4">
-              <AppIcon />
-              <AI />
-              <Audiences />
-              <BrandGuidelines />
-              <DataSources />
-              <DigitalAssetManagement />
-              <Google />
-              <Home />
-              <KnowledgeBase />
-              <LinkedIn />
-              <PersonaIcon />
-              <Sidebar />
-            </CardContent>
-          </Card>
-        </section>
+              {/* Persona */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Persona</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Persona Component</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      User profile images and fallbacks
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent>
+                    <Persona
+                      variant="default"
+                      showLeftIcon
+                      showRightIcon
+                      personas={["John Doe", "Jane Smith"]}
+                    />
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Logo */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Logo</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Brand Logos</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Different logo variants and themes
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent className="space-y-4 bg-slate-400 p-8 rounded-lg">
+                    <div className="flex items-center gap-8">
+                      <Logo variant="curie" size="lg" />
+                      <Logo variant="curie" size="lg" showText={false} />
+                      <Logo variant="supreme" size="lg" />
+                      <Logo variant="supreme" size="lg" showText={false} />
+                    </div>
+                    <div className="flex items-center gap-8">
+                      <Logo variant="curie" size="lg" theme="black" />
+                      <Logo
+                        variant="curie"
+                        size="lg"
+                        showText={false}
+                        theme="black"
+                      />
+                      <Logo variant="supreme" size="lg" theme="black" />
+                      <Logo
+                        variant="supreme"
+                        size="lg"
+                        showText={false}
+                        theme="black"
+                      />
+                    </div>
+                    <div className="flex items-center gap-8">
+                      <Logo variant="curie" size="lg" theme="white" />
+                      <Logo
+                        variant="curie"
+                        size="lg"
+                        showText={false}
+                        theme="white"
+                      />
+                      <Logo variant="supreme" size="lg" theme="white" />
+                      <Logo
+                        variant="supreme"
+                        size="lg"
+                        showText={false}
+                        theme="white"
+                      />
+                    </div>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Badges */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Badges</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Badge Variants</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Status indicators and labels
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent>
+                    <div className="flex flex-wrap gap-4">
+                      <Badge variant="default" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="foundation" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="red" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="orange" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="yellow" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="green" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="blue" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="indigo" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="purple" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="pink" dismissible dot>
+                        Badge
+                      </Badge>
+                    </div>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Avatars */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Avatars</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Avatar Component</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      User profile images and fallbacks
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent className="space-y-8">
+                    {/* Single Avatars */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">Single Avatars</h3>
+
+                      {/* Photo Row */}
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-medium text-muted-foreground">
+                          Photo
+                        </h4>
+                        <div className="flex items-center gap-6">
+                          <div className="flex flex-col items-center gap-2">
+                            <Avatar className="h-8 w-8">
+                              <AvatarImage
+                                src="/assets/defaultAvatar.jpg"
+                                alt="Default Avatar"
+                              />
+                              <AvatarFallback>DA</AvatarFallback>
+                            </Avatar>
+                            <span className="text-xs text-muted-foreground">
+                              Small
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center gap-2">
+                            <Avatar className="h-12 w-12">
+                              <AvatarImage
+                                src="/assets/defaultAvatar.jpg"
+                                alt="Default Avatar"
+                              />
+                              <AvatarFallback>DA</AvatarFallback>
+                            </Avatar>
+                            <span className="text-xs text-muted-foreground">
+                              Mid
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center gap-2">
+                            <Avatar className="h-16 w-16">
+                              <AvatarImage
+                                src="/assets/defaultAvatar.jpg"
+                                alt="Default Avatar"
+                              />
+                              <AvatarFallback>DA</AvatarFallback>
+                            </Avatar>
+                            <span className="text-xs text-muted-foreground">
+                              Large
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Initials Row */}
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-medium text-muted-foreground">
+                          Initials
+                        </h4>
+                        <div className="flex items-center gap-6">
+                          <div className="flex flex-col items-center gap-2">
+                            <Avatar className="h-8 w-8">
+                              <AvatarFallback className="bg-primary text-primary-foreground">
+                                AA
+                              </AvatarFallback>
+                            </Avatar>
+                            <span className="text-xs text-muted-foreground">
+                              Small
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center gap-2">
+                            <Avatar className="h-12 w-12">
+                              <AvatarFallback className="bg-primary text-primary-foreground">
+                                AA
+                              </AvatarFallback>
+                            </Avatar>
+                            <span className="text-xs text-muted-foreground">
+                              Mid
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center gap-2">
+                            <Avatar className="h-16 w-16">
+                              <AvatarFallback className="bg-primary text-primary-foreground">
+                                AA
+                              </AvatarFallback>
+                            </Avatar>
+                            <span className="text-xs text-muted-foreground">
+                              Large
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Group Avatars */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-medium">Group Avatars</h3>
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-medium text-muted-foreground">
+                          Groups
+                        </h4>
+                        <div className="flex items-center gap-6">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="flex -space-x-3">
+                              {[...Array(5)].map((_, i) => (
+                                <Avatar
+                                  key={i}
+                                  className="h-8 w-8 border-2 border-background"
+                                >
+                                  <AvatarImage
+                                    src="/assets/defaultAvatar.jpg"
+                                    alt="Default Avatar"
+                                  />
+                                  <AvatarFallback>DA</AvatarFallback>
+                                </Avatar>
+                              ))}
+                            </div>
+                            <span className="text-xs text-muted-foreground">
+                              Small
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="flex -space-x-4">
+                              {[...Array(5)].map((_, i) => (
+                                <Avatar
+                                  key={i}
+                                  className="h-12 w-12 border-2 border-background"
+                                >
+                                  <AvatarImage
+                                    src="/assets/defaultAvatar.jpg"
+                                    alt="Default Avatar"
+                                  />
+                                  <AvatarFallback>DA</AvatarFallback>
+                                </Avatar>
+                              ))}
+                            </div>
+                            <span className="text-xs text-muted-foreground">
+                              Mid
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="flex -space-x-5">
+                              {[...Array(5)].map((_, i) => (
+                                <Avatar
+                                  key={i}
+                                  className="h-16 w-16 border-2 border-background"
+                                >
+                                  <AvatarImage
+                                    src="/assets/defaultAvatar.jpg"
+                                    alt="Default Avatar"
+                                  />
+                                  <AvatarFallback>DA</AvatarFallback>
+                                </Avatar>
+                              ))}
+                            </div>
+                            <span className="text-xs text-muted-foreground">
+                              Large
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+            </div>
+          </TabsContent>
+        </Tabs>
 
         {/* Progress */}
         {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Progress</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Progress Bars</CardTitle>
-              <CardDescription>Loading and completion indicators</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
+          <ContentBox>
+            <ContentBoxHeader>
+              <ContentBoxTitle>Progress Bars</ContentBoxTitle>
+              <ContentBoxDescription>Loading and completion indicators</ContentBoxDescription>
+            </ContentBoxHeader>
+            <ContentBoxContent className="space-y-4">
               <Progress value={33} />
               <Progress value={66} showValue />
               <Progress value={85} size="lg" showValue />
-            </CardContent>
-          </Card>
+            </ContentBoxContent>
+          </ContentBox>
         </section> */}
 
         {/* Alerts */}
         {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Alerts</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Alert Messages</CardTitle>
-              <CardDescription>Information and warning messages</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
+          <ContentBox>
+            <ContentBoxHeader>
+              <ContentBoxTitle>Alert Messages</ContentBoxTitle>
+              <ContentBoxDescription>Information and warning messages</ContentBoxDescription>
+            </ContentBoxHeader>
+            <ContentBoxContent className="space-y-4">
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertTitle>Heads up!</AlertTitle>
@@ -381,46 +858,19 @@ const Components = () => {
                   Your session has expired. Please log in again.
                 </AlertDescription>
               </Alert>
-            </CardContent>
-          </Card>
+            </ContentBoxContent>
+          </ContentBox>
         </section> */}
-
-        {/* Toggle */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Toggle</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Toggle & Checkbox</CardTitle>
-              <CardDescription>On/off state controls with different states and sizes</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ToggleDemo />
-            </CardContent>
-          </Card>
-        </section>
-        {/* Toast */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Toast</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Toast Component</CardTitle>
-              <CardDescription>Toast messages for user feedback</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ToastDemo />
-            </CardContent>
-          </Card>
-        </section>
 
         {/* Accordion */}
         {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Accordion</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Collapsible Content</CardTitle>
-              <CardDescription>Expandable content sections</CardDescription>
-            </CardHeader>
-            <CardContent>
+          <ContentBox>
+            <ContentBoxHeader>
+              <ContentBoxTitle>Collapsible Content</ContentBoxTitle>
+              <ContentBoxDescription>Expandable content sections</ContentBoxDescription>
+            </ContentBoxHeader>
+              <ContentBoxContent>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -435,19 +885,19 @@ const Components = () => {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-            </CardContent>
-          </Card>
+            </ContentBoxContent>
+          </ContentBox>
         </section> */}
 
         {/* Table */}
         {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Table</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Data Tables</CardTitle>
-              <CardDescription>Structured data display</CardDescription>
-            </CardHeader>
-            <CardContent>
+          <ContentBox>
+            <ContentBoxHeader>
+              <ContentBoxTitle>Data Tables</ContentBoxTitle>
+              <ContentBoxDescription>Structured data display</ContentBoxDescription>
+            </ContentBoxHeader>
+            <ContentBoxContent>
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -476,19 +926,19 @@ const Components = () => {
                   </TableRow>
                 </TableBody>
               </Table>
-            </CardContent>
-          </Card>
+            </ContentBoxContent>
+          </ContentBox>
         </section> */}
 
         {/* Navigation */}
         {/* <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Navigation</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>Breadcrumbs & Pagination</CardTitle>
-              <CardDescription>Navigation components</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
+          <ContentBox>
+            <ContentBoxHeader>
+              <ContentBoxTitle>Breadcrumbs & Pagination</ContentBoxTitle>
+              <ContentBoxDescription>Navigation components</ContentBoxDescription>
+            </ContentBoxHeader>
+              <ContentBoxContent className="space-y-6">
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
@@ -526,8 +976,8 @@ const Components = () => {
                   </PaginationItem>
                 </PaginationContent>
               </Pagination>
-            </CardContent>
-          </Card>
+            </ContentBoxContent>
+          </ContentBox>
         </section> */}
       </div>
     </div>

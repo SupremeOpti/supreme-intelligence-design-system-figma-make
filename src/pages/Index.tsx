@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxHeader, ContentBoxTitle } from "@/components/ui/contentbox";
 import { Logo } from "@/components/ui/logo";
 import { ArrowRight, Palette, Code, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -36,41 +36,41 @@ const Index = () => {
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <Card>
-            <CardHeader>
+          <ContentBox>
+            <ContentBoxHeader>
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <Palette className="h-6 w-6 text-primary" />
               </div>
-              <CardTitle>Design Tokens</CardTitle>
-              <CardDescription>
+              <ContentBoxTitle>Design Tokens</ContentBoxTitle>
+              <ContentBoxDescription>
                 Semantic color system with HSL values, supporting both light and dark themes seamlessly.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+              </ContentBoxDescription>
+            </ContentBoxHeader>
+          </ContentBox>
 
-          <Card>
-            <CardHeader>
+          <ContentBox>
+            <ContentBoxHeader>
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <Code className="h-6 w-6 text-primary" />
               </div>
-              <CardTitle>TypeScript Ready</CardTitle>
-              <CardDescription>
+              <ContentBoxTitle>TypeScript Ready</ContentBoxTitle>
+              <ContentBoxDescription>
                 Fully typed components with excellent IntelliSense support and type safety out of the box.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+              </ContentBoxDescription>
+            </ContentBoxHeader>
+          </ContentBox>
 
-          <Card>
-            <CardHeader>
+          <ContentBox>
+            <ContentBoxHeader>
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <Zap className="h-6 w-6 text-primary" />
               </div>
-              <CardTitle>Performance First</CardTitle>
-              <CardDescription>
+              <ContentBoxTitle>Performance First</ContentBoxTitle>
+              <ContentBoxDescription>
                 Optimized bundle size with tree-shaking support and efficient component architecture.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+              </ContentBoxDescription>
+            </ContentBoxHeader>
+          </ContentBox>
         </div>
 
         {/* Quick Stats */}
