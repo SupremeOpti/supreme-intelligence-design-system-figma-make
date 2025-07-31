@@ -27,6 +27,11 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import {
+  PageLevel,
+  PageLevelList,
+  PageLevelItem,
+} from "@/components/ui/page-level";
+import {
   Pagination,
   PaginationContent,
   PaginationEllipsis,
@@ -69,7 +74,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const Components = () => {
   const navigate = useNavigate();
@@ -363,6 +372,106 @@ const Components = () => {
                         </AccordionContent>
                       </AccordionItem>
                     </Accordion>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Page Level Navigation */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">
+                  Page Level Navigation
+                </h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Page Level Indicators</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Hierarchical navigation indicators
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent className="space-y-6">
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">
+                          Basic Page Level
+                        </h3>
+                        <PageLevel level={1} />
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">
+                          Custom Text
+                        </h3>
+                        <PageLevel>Dashboard Overview</PageLevel>
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">
+                          Different Variants
+                        </h3>
+                        <div className="space-y-2">
+                          <PageLevel variant="default">
+                            Default variant
+                          </PageLevel>
+                          <PageLevel variant="primary">
+                            Primary variant
+                          </PageLevel>
+                          <PageLevel variant="secondary">
+                            Secondary variant
+                          </PageLevel>
+                          <PageLevel variant="brand">Brand variant</PageLevel>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">
+                          Different Sizes
+                        </h3>
+                        <div className="space-y-2">
+                          <PageLevel size="sm">Small size</PageLevel>
+                          <PageLevel size="default">Default size</PageLevel>
+                          <PageLevel size="lg">Large size</PageLevel>
+                          <PageLevel size="xl">Extra large size</PageLevel>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">
+                          Arrow Positions
+                        </h3>
+                        <div className="space-y-2">
+                          <PageLevel arrowPosition="before">
+                            Arrow before text
+                          </PageLevel>
+                          <PageLevel arrowPosition="after">
+                            Arrow after text
+                          </PageLevel>
+                          <PageLevel showArrow={false}>No arrow</PageLevel>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">
+                          Page Level List
+                        </h3>
+                        <PageLevelList>
+                          <PageLevelItem>Home</PageLevelItem>
+                          <PageLevelItem>Components</PageLevelItem>
+                          <PageLevelItem active>Page Level</PageLevelItem>
+                        </PageLevelList>
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">
+                          Custom Separator
+                        </h3>
+                        <PageLevel
+                          separator={
+                            <span className="text-muted-foreground">/</span>
+                          }
+                        >
+                          Custom separator
+                        </PageLevel>
+                      </div>
+                    </div>
                   </ContentBoxContent>
                 </ContentBox>
               </section>
@@ -851,26 +960,34 @@ const Components = () => {
                   <ContentBoxHeader>
                     <ContentBoxTitle>Tooltip Component</ContentBoxTitle>
                     <ContentBoxDescription>
-                      Tooltip component for displaying content in a
-                      collapsible format
+                      Tooltip component for displaying content in a collapsible
+                      format
                     </ContentBoxDescription>
                   </ContentBoxHeader>
                   <ContentBoxContent className="flex gap-4">
                     <Tooltip>
                       <TooltipTrigger>Top</TooltipTrigger>
-                      <TooltipContent arrowDirection="top">Add to library</TooltipContent>
+                      <TooltipContent arrowDirection="top">
+                        Add to library
+                      </TooltipContent>
                     </Tooltip>
                     <Tooltip>
                       <TooltipTrigger>Bottom</TooltipTrigger>
-                      <TooltipContent arrowDirection="bottom">Add to library</TooltipContent>
+                      <TooltipContent arrowDirection="bottom">
+                        Add to library
+                      </TooltipContent>
                     </Tooltip>
                     <Tooltip>
                       <TooltipTrigger>Left</TooltipTrigger>
-                      <TooltipContent arrowDirection="left">Add to library</TooltipContent>
+                      <TooltipContent arrowDirection="left">
+                        Add to library
+                      </TooltipContent>
                     </Tooltip>
                     <Tooltip>
                       <TooltipTrigger>Right</TooltipTrigger>
-                      <TooltipContent arrowDirection="right">Add to library</TooltipContent>
+                      <TooltipContent arrowDirection="right">
+                        Add to library
+                      </TooltipContent>
                     </Tooltip>
                   </ContentBoxContent>
                 </ContentBox>

@@ -14,6 +14,7 @@ export * from "./components/ui/dropdown-menu";
 export * from "./components/ui/logo";
 export * from "./components/ui/menubar";
 export * from "./components/ui/navigation-menu";
+export * from "./components/ui/page-level";
 export * from "./components/ui/pagination";
 export * from "./components/ui/persona";
 export * from "./components/ui/popover";
