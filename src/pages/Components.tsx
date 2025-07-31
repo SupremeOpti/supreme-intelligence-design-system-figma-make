@@ -69,6 +69,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Components = () => {
   const navigate = useNavigate();
@@ -840,6 +841,37 @@ const Components = () => {
                         </div>
                       </div>
                     </div>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Tooltip */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Tooltip</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Tooltip Component</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Tooltip component for displaying content in a
+                      collapsible format
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent className="flex gap-4">
+                    <Tooltip>
+                      <TooltipTrigger>Top</TooltipTrigger>
+                      <TooltipContent arrowDirection="top">Add to library</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger>Bottom</TooltipTrigger>
+                      <TooltipContent arrowDirection="bottom">Add to library</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger>Left</TooltipTrigger>
+                      <TooltipContent arrowDirection="left">Add to library</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger>Right</TooltipTrigger>
+                      <TooltipContent arrowDirection="right">Add to library</TooltipContent>
+                    </Tooltip>
                   </ContentBoxContent>
                 </ContentBox>
               </section>
