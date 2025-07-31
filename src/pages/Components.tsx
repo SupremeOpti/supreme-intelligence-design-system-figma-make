@@ -8,12 +8,6 @@ import {
   ContentBoxTitle,
 } from "@/components/ui/contentbox";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { ToggleDemo } from "@/pages/toggle-demo";
 import { Logo } from "@/components/ui/logo";
 import {
@@ -69,6 +63,12 @@ import {
 import BannerDemo from "./banner-demo";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Components = () => {
   const navigate = useNavigate();
@@ -336,6 +336,35 @@ const Components = () => {
                   </ContentBoxContent>
                 </ContentBox>
               </section>
+              {/* Accordion */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Accordion</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Accordion Component</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Accordion component for displaying content in a
+                      collapsible format
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem value="item-1">
+                        <AccordionTrigger>
+                          Accordion example lorem ipsum
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          Description Lorem ipsum dolor sit amet, consectetur
+                          adipiscing elit. Sed massa erat, faucibus vel eros et,
+                          feugiat euismod erat. Aenean viverra pellentesque
+                          nulla, at tempor libero laoreet id. Sed faucibus magna
+                          sit am.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
             </div>
           </TabsContent>
           <TabsContent value="ContentOrganizationLayout">
@@ -525,7 +554,6 @@ const Components = () => {
                   </ContentBoxContent>
                 </ContentBox>
               </section>
-
               {/* Persona */}
               <section className="space-y-6">
                 <h2 className="text-3xl font-semibold">Persona</h2>
