@@ -66,6 +66,8 @@ import {
   AnnouncementCard,
 } from "@/components/ui/card";
 import BannerDemo from "./banner-demo";
+import TableDemo from "./table-demo";
+import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import {
@@ -334,6 +336,106 @@ const Components = () => {
                   </ContentBoxContent>
                 </ContentBox>
               </section>
+              {/* Table */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Table</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Enhanced Table Component</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Table with filtering, pagination, and action buttons
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent>
+                    <div className="space-y-4">
+                      <p className="text-sm text-muted-foreground">
+                        Click the link below to view the full table demo with filtering and pagination:
+                      </p>
+                      <Button asChild variant="primary" size="md">
+                        <Link to="/table-demo">View Table Demo</Link>
+                      </Button>
+                    </div>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+                             {/* Slider */}
+               <section className="space-y-6">
+                 <h2 className="text-3xl font-semibold">Slider</h2>
+                 <ContentBox>
+                   <ContentBoxHeader>
+                     <ContentBoxTitle>Range Slider Component</ContentBoxTitle>
+                     <ContentBoxDescription>
+                       Interactive slider with Supreme Intelligence design tokens
+                     </ContentBoxDescription>
+                   </ContentBoxHeader>
+                   <ContentBoxContent>
+                     <div className="space-y-6">
+                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                         {/* Basic Slider */}
+                         <div className="space-y-4">
+                           <h3 className="text-lg font-medium">Basic Slider</h3>
+                           <div className="space-y-2">
+                             <div className="flex justify-between items-center">
+                               <span className="text-sm font-medium">Volume</span>
+                               <span className="text-supreme-blue-400 text-sm">75%</span>
+                             </div>
+                             <Slider
+                               defaultValue={[75]}
+                               max={100}
+                               step={1}
+                               className="w-full"
+                             />
+                           </div>
+                         </div>
+                         
+                         {/* Range Slider */}
+                         <div className="space-y-4">
+                           <h3 className="text-lg font-medium">Range Slider</h3>
+                           <div className="space-y-2">
+                             <div className="flex justify-between items-center">
+                               <span className="text-sm font-medium">Price Range</span>
+                               <span className="text-supreme-blue-400 text-sm">$25 - $75</span>
+                             </div>
+                             <Slider
+                               defaultValue={[25, 75]}
+                               max={100}
+                               step={5}
+                               className="w-full"
+                             />
+                           </div>
+                         </div>
+                       </div>
+                       
+                       {/* Features List */}
+                       <div className="mt-6 p-4 bg-card rounded-lg border border-border">
+                         <h4 className="text-sm font-semibold text-card-foreground mb-3">Component Features</h4>
+                         <ul className="space-y-2 text-muted-foreground text-sm">
+                           <li className="flex items-center">
+                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                             White circular handles with blue outline
+                           </li>
+                           <li className="flex items-center">
+                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                             Blue progress bar from left to handle position
+                           </li>
+                           <li className="flex items-center">
+                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                             Light gray track from handle to right edge
+                           </li>
+                           <li className="flex items-center">
+                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                             Subtle shadows for depth and elevation
+                           </li>
+                           <li className="flex items-center">
+                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                             Fully accessible with keyboard navigation
+                           </li>
+                         </ul>
+                       </div>
+                     </div>
+                   </ContentBoxContent>
+                 </ContentBox>
+               </section>
               {/* Progress */}
               <section className="space-y-6">
                 <h2 className="text-3xl font-semibold">Progress</h2>

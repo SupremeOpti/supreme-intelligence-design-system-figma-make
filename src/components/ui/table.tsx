@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const Table = React.forwardRef<
@@ -20,7 +20,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
+  <thead ref={ref} className={cn("bg-gray-50 border-b border-gray-200", className)} {...props} />
 ))
 TableHeader.displayName = "TableHeader"
 
@@ -30,7 +30,7 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
-    className={cn("[&_tr:last-child]:border-0", className)}
+    className={cn("divide-y divide-gray-200", className)}
     {...props}
   />
 ))
@@ -58,7 +58,7 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
+      "transition-colors hover:bg-gray-50 data-[state=selected]:bg-muted",
       className
     )}
     {...props}
@@ -68,16 +68,33 @@ TableRow.displayName = "TableRow"
 
 const TableHead = React.forwardRef<
   HTMLTableCellElement,
-  React.ThHTMLAttributes<HTMLTableCellElement>
->(({ className, ...props }, ref) => (
+  React.ThHTMLAttributes<HTMLTableCellElement> & {
+    sortable?: boolean
+    sorted?: "asc" | "desc" | false
+    onSort?: () => void
+  }
+>(({ className, sortable, sorted, onSort, children, ...props }, ref) => (
   <th
     ref={ref}
     className={cn(
-      "h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0",
+      "h-12 px-4 text-left align-middle font-medium text-gray-700 [&:has([role=checkbox])]:pr-0",
+      sortable && "cursor-pointer select-none",
       className
     )}
+    onClick={sortable ? onSort : undefined}
     {...props}
-  />
+  >
+    <div className="flex items-center gap-2">
+      {children}
+      {sortable && (
+        <ChevronDown className={cn(
+          "h-4 w-4 transition-transform",
+          sorted === "asc" && "rotate-180",
+          sorted === false && "opacity-30"
+        )} />
+      )}
+    </div>
+  </th>
 ))
 TableHead.displayName = "TableHead"
 
@@ -105,6 +122,23 @@ const TableCaption = React.forwardRef<
 ))
 TableCaption.displayName = "TableCaption"
 
+// Checkbox component for table selection
+const TableCheckbox = React.forwardRef<
+  HTMLInputElement,
+  React.InputHTMLAttributes<HTMLInputElement>
+>(({ className, ...props }, ref) => (
+  <input
+    ref={ref}
+    type="checkbox"
+    className={cn(
+      "h-4 w-4 rounded border-gray-300 text-supreme-blue-600 focus:ring-supreme-blue-500",
+      className
+    )}
+    {...props}
+  />
+))
+TableCheckbox.displayName = "TableCheckbox"
+
 export {
   Table,
   TableHeader,
@@ -114,4 +148,5 @@ export {
   TableRow,
   TableCell,
   TableCaption,
+  TableCheckbox,
 }
