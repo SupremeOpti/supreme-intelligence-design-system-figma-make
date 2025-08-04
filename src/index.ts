@@ -10,6 +10,7 @@ export * from "./components/ui/checkbox";
 export * from "./components/ui/contentbox";
 export * from "./components/ui/context-menu";
 export * from "./components/ui/dropdown-menu";
+export * from "./components/ui/input";
 export * from "./components/ui/logo";
 export * from "./components/ui/menubar";
 export * from "./components/ui/navigation-menu";

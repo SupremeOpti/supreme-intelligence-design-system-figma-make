@@ -1,6 +1,6 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const ContentBox = React.forwardRef<
   HTMLDivElement,
@@ -14,8 +14,8 @@ const ContentBox = React.forwardRef<
     )}
     {...props}
   />
-))
-ContentBox.displayName = "ContentBox"
+));
+ContentBox.displayName = "ContentBox";
 
 const ContentBoxHeader = React.forwardRef<
   HTMLDivElement,
@@ -26,8 +26,8 @@ const ContentBoxHeader = React.forwardRef<
     className={cn("flex flex-col space-y-1.5 p-6", className)}
     {...props}
   />
-))
-ContentBoxHeader.displayName = "ContentBoxHeader"
+));
+ContentBoxHeader.displayName = "ContentBoxHeader";
 
 const ContentBoxTitle = React.forwardRef<
   HTMLParagraphElement,
@@ -41,8 +41,8 @@ const ContentBoxTitle = React.forwardRef<
     )}
     {...props}
   />
-))
-ContentBoxTitle.displayName = "ContentBoxTitle"
+));
+ContentBoxTitle.displayName = "ContentBoxTitle";
 
 const ContentBoxDescription = React.forwardRef<
   HTMLParagraphElement,
@@ -53,16 +53,16 @@ const ContentBoxDescription = React.forwardRef<
     className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
-))
-ContentBoxDescription.displayName = "ContentBoxDescription"
+));
+ContentBoxDescription.displayName = "ContentBoxDescription";
 
 const ContentBoxContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-))
-ContentBoxContent.displayName = "ContentBoxContent"
+));
+ContentBoxContent.displayName = "ContentBoxContent";
 
 const ContentBoxFooter = React.forwardRef<
   HTMLDivElement,
@@ -73,7 +73,14 @@ const ContentBoxFooter = React.forwardRef<
     className={cn("flex items-center p-6 pt-0", className)}
     {...props}
   />
-))
-ContentBoxFooter.displayName = "ContentBoxFooter"
+));
+ContentBoxFooter.displayName = "ContentBoxFooter";
 
-export { ContentBox, ContentBoxHeader, ContentBoxFooter, ContentBoxTitle, ContentBoxDescription, ContentBoxContent }
+export {
+  ContentBox,
+  ContentBoxHeader,
+  ContentBoxFooter,
+  ContentBoxTitle,
+  ContentBoxDescription,
+  ContentBoxContent,
+};

@@ -7,17 +7,10 @@ import {
   ContentBoxHeader,
   ContentBoxTitle,
 } from "@/components/ui/contentbox";
+import { EnvelopeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ToggleDemo } from "@/pages/toggle-demo";
 import { Logo } from "@/components/ui/logo";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -66,10 +59,11 @@ import {
   AnnouncementCard,
 } from "@/components/ui/card";
 import BannerDemo from "./banner-demo";
-import TableDemo from "./table-demo";
 import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Accordion,
   AccordionContent,
@@ -91,7 +85,7 @@ const Components = () => {
         {/* Header */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <Button variant="secondary" size="lg" onClick={() => navigate(-1)}>
+            <Button variant="secondary" size="lg" onClick={() => navigate("/")}>
               <ArrowLeftIcon className="h-4 w-4 mr-2" />
               Back
             </Button>
@@ -349,7 +343,8 @@ const Components = () => {
                   <ContentBoxContent>
                     <div className="space-y-4">
                       <p className="text-sm text-muted-foreground">
-                        Click the link below to view the full table demo with filtering and pagination:
+                        Click the link below to view the full table demo with
+                        filtering and pagination:
                       </p>
                       <Button asChild variant="primary" size="md">
                         <Link to="/table-demo">View Table Demo</Link>
@@ -358,84 +353,196 @@ const Components = () => {
                   </ContentBoxContent>
                 </ContentBox>
               </section>
-                             {/* Slider */}
-               <section className="space-y-6">
-                 <h2 className="text-3xl font-semibold">Slider</h2>
-                 <ContentBox>
-                   <ContentBoxHeader>
-                     <ContentBoxTitle>Range Slider Component</ContentBoxTitle>
-                     <ContentBoxDescription>
-                       Interactive slider with Supreme Intelligence design tokens
-                     </ContentBoxDescription>
-                   </ContentBoxHeader>
-                   <ContentBoxContent>
-                     <div className="space-y-6">
-                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                         {/* Basic Slider */}
-                         <div className="space-y-4">
-                           <h3 className="text-lg font-medium">Basic Slider</h3>
-                           <div className="space-y-2">
-                             <div className="flex justify-between items-center">
-                               <span className="text-sm font-medium">Volume</span>
-                               <span className="text-supreme-blue-400 text-sm">75%</span>
-                             </div>
-                             <Slider
-                               defaultValue={[75]}
-                               max={100}
-                               step={1}
-                               className="w-full"
-                             />
-                           </div>
-                         </div>
-                         
-                         {/* Range Slider */}
-                         <div className="space-y-4">
-                           <h3 className="text-lg font-medium">Range Slider</h3>
-                           <div className="space-y-2">
-                             <div className="flex justify-between items-center">
-                               <span className="text-sm font-medium">Price Range</span>
-                               <span className="text-supreme-blue-400 text-sm">$25 - $75</span>
-                             </div>
-                             <Slider
-                               defaultValue={[25, 75]}
-                               max={100}
-                               step={5}
-                               className="w-full"
-                             />
-                           </div>
-                         </div>
-                       </div>
-                       
-                       {/* Features List */}
-                       <div className="mt-6 p-4 bg-card rounded-lg border border-border">
-                         <h4 className="text-sm font-semibold text-card-foreground mb-3">Component Features</h4>
-                         <ul className="space-y-2 text-muted-foreground text-sm">
-                           <li className="flex items-center">
-                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
-                             White circular handles with blue outline
-                           </li>
-                           <li className="flex items-center">
-                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
-                             Blue progress bar from left to handle position
-                           </li>
-                           <li className="flex items-center">
-                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
-                             Light gray track from handle to right edge
-                           </li>
-                           <li className="flex items-center">
-                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
-                             Subtle shadows for depth and elevation
-                           </li>
-                           <li className="flex items-center">
-                             <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
-                             Fully accessible with keyboard navigation
-                           </li>
-                         </ul>
-                       </div>
-                     </div>
-                   </ContentBoxContent>
-                 </ContentBox>
-               </section>
+              {/* Slider */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Slider</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>Range Slider Component</ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Interactive slider with Supreme Intelligence design tokens
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent>
+                    <div className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Basic Slider */}
+                        <div className="space-y-4">
+                          <h3 className="text-lg font-medium">Basic Slider</h3>
+                          <div className="space-y-2">
+                            <div className="flex justify-between items-center">
+                              <span className="text-sm font-medium">
+                                Volume
+                              </span>
+                              <span className="text-supreme-blue-400 text-sm">
+                                75%
+                              </span>
+                            </div>
+                            <Slider
+                              defaultValue={[75]}
+                              max={100}
+                              step={1}
+                              className="w-full"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Range Slider */}
+                        <div className="space-y-4">
+                          <h3 className="text-lg font-medium">Range Slider</h3>
+                          <div className="space-y-2">
+                            <div className="flex justify-between items-center">
+                              <span className="text-sm font-medium">
+                                Price Range
+                              </span>
+                              <span className="text-supreme-blue-400 text-sm">
+                                $25 - $75
+                              </span>
+                            </div>
+                            <Slider
+                              defaultValue={[25, 75]}
+                              max={100}
+                              step={5}
+                              className="w-full"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Features List */}
+                      <div className="mt-6 p-4 bg-card rounded-lg border border-border">
+                        <h4 className="text-sm font-semibold text-card-foreground mb-3">
+                          Component Features
+                        </h4>
+                        <ul className="space-y-2 text-muted-foreground text-sm">
+                          <li className="flex items-center">
+                            <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                            White circular handles with blue outline
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                            Blue progress bar from left to handle position
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                            Light gray track from handle to right edge
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                            Subtle shadows for depth and elevation
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-2 h-2 bg-supreme-blue-500 rounded-full mr-3"></span>
+                            Fully accessible with keyboard navigation
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
+              {/* Input & Textarea */}
+              <section className="space-y-6">
+                <h2 className="text-3xl font-semibold">Form Inputs</h2>
+                <ContentBox>
+                  <ContentBoxHeader>
+                    <ContentBoxTitle>
+                      Input & Textarea Components
+                    </ContentBoxTitle>
+                    <ContentBoxDescription>
+                      Form input components with labels, hints, and validation
+                      states
+                    </ContentBoxDescription>
+                  </ContentBoxHeader>
+                  <ContentBoxContent className="space-y-8">
+                    {/* Input Demo */}
+                    <div className="space-y-6">
+                      <h3 className="text-xl font-semibold">Input Component</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Design Implementation */}
+                        <div className="space-y-4">
+                          <h4 className="text-lg font-medium">
+                            Design Implementation
+                          </h4>
+                          <Input
+                            label="Title"
+                            required
+                            placeholder="Placeholder"
+                            hint="This is a hint text to help user."
+                            leftIcon={
+                              <Home className="text-muted-foreground" />
+                            }
+                            rightIcon={
+                              <Home className="text-muted-foreground" />
+                            }
+                          />
+                        </div>
+
+                        {/* Additional Examples */}
+                        <div className="space-y-4">
+                          <h4 className="text-lg font-medium">
+                            Additional Examples
+                          </h4>
+                          <div className="space-y-4">
+                            <Input
+                              label="Email"
+                              type="email"
+                              placeholder="Enter your email"
+                              hint="We'll never share your email with anyone else."
+                              leftIcon={
+                                <EnvelopeIcon className="text-muted-foreground w-5 h-5" />
+                              }
+                            />
+                            <Input
+                              label="Search"
+                              placeholder="Search..."
+                              hint="Search for something..."
+                              leftIcon={
+                                <MagnifyingGlassIcon className="text-muted-foreground w-5 h-5" />
+                              }
+                            />
+                            <Input
+                              label="With Error"
+                              placeholder="This field has an error"
+                              error="This field is required"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Textarea Demo */}
+                    <div className="space-y-6">
+                      <h3 className="text-xl font-semibold">
+                        Textarea Component
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-4">
+                          <h4 className="text-lg font-medium">
+                            Basic Textarea
+                          </h4>
+                          <Textarea
+                            label="Description"
+                            placeholder="Enter your description here..."
+                            hint="Provide a detailed description of your project."
+                          />
+                        </div>
+                        <div className="space-y-4">
+                          <h4 className="text-lg font-medium">
+                            With Error State
+                          </h4>
+                          <Textarea
+                            label="Comments"
+                            required
+                            placeholder="Enter your comments..."
+                            error="This field is required"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </ContentBoxContent>
+                </ContentBox>
+              </section>
               {/* Progress */}
               <section className="space-y-6">
                 <h2 className="text-3xl font-semibold">Progress</h2>
