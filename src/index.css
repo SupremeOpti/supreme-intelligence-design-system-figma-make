@@ -92,23 +92,23 @@ All colors MUST be HSL.
     
     /* Blur Design Tokens */
     --blur-none: 0px;
-    --blur-xs: 4px;
-    --blur-sm: 8px;
-    --blur-md: 12px;
-    --blur-lg: 16px;
-    --blur-xl: 24px;
-    --blur-2xl: 40px;
-    --blur-3xl: 64px;
+    --blur-xs: calc(4px / 2);
+    --blur-sm: calc(8px / 2);
+    --blur-md: calc(12px / 2);
+    --blur-lg: calc(16px / 2);
+    --blur-xl: calc(24px / 2);
+    --blur-2xl: calc(40px / 2);
+    --blur-3xl: calc(64px / 2);
     
     /* Backdrop Blur Design Tokens */
     --backdrop-blur-none: 0px;
-    --backdrop-blur-xs: 4px;
-    --backdrop-blur-sm: 8px;
-    --backdrop-blur-md: 12px;
-    --backdrop-blur-lg: 16px;
-    --backdrop-blur-xl: 24px;
-    --backdrop-blur-2xl: 40px;
-    --backdrop-blur-3xl: 64px;
+    --backdrop-blur-xs: calc(4px / 2);
+    --backdrop-blur-sm: calc(8px / 2);
+    --backdrop-blur-md: calc(12px / 2);
+    --backdrop-blur-lg: calc(16px / 2);
+    --backdrop-blur-xl: calc(24px / 2);
+    --backdrop-blur-2xl: calc(40px / 2);
+    --backdrop-blur-3xl: calc(64px / 2);
     
     /* Opacity Design Tokens */
     --opacity-0: 0;
