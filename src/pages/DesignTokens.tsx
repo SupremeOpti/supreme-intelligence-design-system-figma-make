@@ -37,16 +37,16 @@ const DesignTokens = () => {
           <h2 className="text-3xl font-semibold">Border Radius</h2>
           <div className="grid grid-cols-5 gap-4">
             {[
-              { name: "rounded-none", class: "rounded-none", value: "0px" },
-              { name: "rounded-xs", class: "rounded-xs", value: "2px" },
-              { name: "rounded-sm", class: "rounded-sm", value: "4px" },
-              { name: "rounded-md", class: "rounded-md", value: "6px" },
-              { name: "rounded-lg", class: "rounded-lg", value: "8px" },
-              { name: "rounded-xl", class: "rounded-xl", value: "12px" },
-              { name: "rounded-2xl", class: "rounded-2xl", value: "16px" },
-              { name: "rounded-3xl", class: "rounded-3xl", value: "24px" },
-              { name: "rounded-4xl", class: "rounded-4xl", value: "32px" },
-              { name: "rounded-full", class: "rounded-full", value: "9999px" },
+              { name: "rounded-none", class: "rounded-none" },
+              { name: "rounded-xs", class: "rounded-xs" },
+              { name: "rounded-sm", class: "rounded-sm" },
+              { name: "rounded-md", class: "rounded-md" },
+              { name: "rounded-lg", class: "rounded-lg" },
+              { name: "rounded-xl", class: "rounded-xl" },
+              { name: "rounded-2xl", class: "rounded-2xl" },
+              { name: "rounded-3xl", class: "rounded-3xl" },
+              { name: "rounded-4xl", class: "rounded-4xl" },
+              { name: "rounded-full", class: "rounded-full" },
             ].map((radius) => (
               <div key={radius.name} className="text-center space-y-2">
                 <div
