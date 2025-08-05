@@ -11,14 +11,7 @@ import { EnvelopeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ToggleDemo } from "@/pages/toggle-demo";
 import { Logo } from "@/components/ui/logo";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+
 import {
   PageLevel,
   PageLevelList,
@@ -59,9 +52,10 @@ import {
   AnnouncementCard,
 } from "@/components/ui/card";
 import BannerDemo from "./banner-demo";
-import { Slider } from "@/components/ui/slider";
+import { RangeSlider, Slider } from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -78,6 +72,10 @@ import {
 
 const Components = () => {
   const navigate = useNavigate();
+  const [singleSliderValue, setSingleSliderValue] = useState([75]);
+  const [rangeSliderValue, setRangeSliderValue] = useState<[number, number]>([
+    25, 75,
+  ]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -375,11 +373,12 @@ const Components = () => {
                                 Volume
                               </span>
                               <span className="text-supreme-blue-400 text-sm">
-                                75%
+                                {singleSliderValue[0]}%
                               </span>
                             </div>
                             <Slider
-                              defaultValue={[75]}
+                              value={singleSliderValue}
+                              onValueChange={setSingleSliderValue}
                               max={100}
                               step={1}
                               className="w-full"
@@ -396,11 +395,14 @@ const Components = () => {
                                 Price Range
                               </span>
                               <span className="text-supreme-blue-400 text-sm">
-                                $25 - $75
+                                ${rangeSliderValue[0]} - ${rangeSliderValue[1]}
                               </span>
                             </div>
-                            <Slider
-                              defaultValue={[25, 75]}
+                            <RangeSlider
+                              value={rangeSliderValue}
+                              onValueChange={(value) =>
+                                setRangeSliderValue(value as [number, number])
+                              }
                               max={100}
                               step={5}
                               className="w-full"
