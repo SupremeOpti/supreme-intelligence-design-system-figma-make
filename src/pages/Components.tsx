@@ -8,12 +8,7 @@ import {
   ContentBoxTitle,
 } from "@/components/ui/contentbox";
 import { EnvelopeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  AvatarGroup,
-} from "@/components/ui/avatar";
+import { Avatar, AvatarGroup } from "@/components/ui/avatar";
 import { ToggleDemo } from "@/pages/toggle-demo";
 import { Logo } from "@/components/ui/logo";
 
@@ -1020,37 +1015,34 @@ const Components = () => {
                         </h4>
                         <div className="flex items-center gap-6">
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar size="sm">
-                              <AvatarImage
-                                src="/assets/defaultAvatar.jpg"
-                                alt="Default Avatar"
-                              />
-                              <AvatarFallback>DA</AvatarFallback>
-                            </Avatar>
+                            <Avatar
+                              size="sm"
+                              src="/assets/defaultAvatar.jpg"
+                              alt="Default Avatar"
+                              fallback="DA"
+                            />
                             <span className="text-xs text-muted-foreground">
                               Small
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar size="md">
-                              <AvatarImage
-                                src="/assets/defaultAvatar.jpg"
-                                alt="Default Avatar"
-                              />
-                              <AvatarFallback>DA</AvatarFallback>
-                            </Avatar>
+                            <Avatar
+                              size="md"
+                              src="/assets/defaultAvatar.jpg"
+                              alt="Default Avatar"
+                              fallback="DA"
+                            />
                             <span className="text-xs text-muted-foreground">
                               Mid
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar size="lg">
-                              <AvatarImage
-                                src="/assets/defaultAvatar.jpg"
-                                alt="Default Avatar"
-                              />
-                              <AvatarFallback>DA</AvatarFallback>
-                            </Avatar>
+                            <Avatar
+                              size="lg"
+                              src="/assets/defaultAvatar.jpg"
+                              alt="Default Avatar"
+                              fallback="DA"
+                            />
                             <span className="text-xs text-muted-foreground">
                               Large
                             </span>
@@ -1065,31 +1057,31 @@ const Components = () => {
                         </h4>
                         <div className="flex items-center gap-6">
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar size="sm">
-                              <AvatarFallback className="bg-primary text-primary-foreground">
-                                AA
-                              </AvatarFallback>
-                            </Avatar>
+                            <Avatar
+                              size="sm"
+                              fallback="AA"
+                              className="bg-supreme-blue-900  text-primary-foreground"
+                            />
                             <span className="text-xs text-muted-foreground">
                               Small
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar size="md">
-                              <AvatarFallback className="bg-primary text-primary-foreground">
-                                AA
-                              </AvatarFallback>
-                            </Avatar>
+                            <Avatar
+                              size="md"
+                              fallback="AA"
+                              className="bg-supreme-blue-900 text-primary-foreground"
+                            />
                             <span className="text-xs text-muted-foreground">
                               Mid
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar size="lg">
-                              <AvatarFallback className="bg-primary text-primary-foreground">
-                                AA
-                              </AvatarFallback>
-                            </Avatar>
+                            <Avatar
+                              size="lg"
+                              fallback="AA"
+                              className="bg-supreme-blue-900 text-primary-foreground"
+                            />
                             <span className="text-xs text-muted-foreground">
                               Large
                             </span>
@@ -1113,13 +1105,10 @@ const Components = () => {
                                   key={i}
                                   size="sm"
                                   className="border-2 border-background"
-                                >
-                                  <AvatarImage
-                                    src="/assets/defaultAvatar.jpg"
-                                    alt="Default Avatar"
-                                  />
-                                  <AvatarFallback>DA</AvatarFallback>
-                                </Avatar>
+                                  src="/assets/defaultAvatar.jpg"
+                                  alt="Default Avatar"
+                                  fallback="DA"
+                                />
                               ))}
                             </AvatarGroup>
                             <span className="text-xs text-muted-foreground">
@@ -1133,13 +1122,10 @@ const Components = () => {
                                   key={i}
                                   size="md"
                                   className="border-2 border-background"
-                                >
-                                  <AvatarImage
-                                    src="/assets/defaultAvatar.jpg"
-                                    alt="Default Avatar"
-                                  />
-                                  <AvatarFallback>DA</AvatarFallback>
-                                </Avatar>
+                                  src="/assets/defaultAvatar.jpg"
+                                  alt="Default Avatar"
+                                  fallback="DA"
+                                />
                               ))}
                             </AvatarGroup>
                             <span className="text-xs text-muted-foreground">
@@ -1153,13 +1139,10 @@ const Components = () => {
                                   key={i}
                                   size="lg"
                                   className="border-2 border-background"
-                                >
-                                  <AvatarImage
-                                    src="/assets/defaultAvatar.jpg"
-                                    alt="Default Avatar"
-                                  />
-                                  <AvatarFallback>DA</AvatarFallback>
-                                </Avatar>
+                                  src="/assets/defaultAvatar.jpg"
+                                  alt="Default Avatar"
+                                  fallback="DA"
+                                />
                               ))}
                             </AvatarGroup>
                             <span className="text-xs text-muted-foreground">
