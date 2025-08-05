@@ -4,11 +4,9 @@ import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cn } from "@/lib/utils";
 
 const avatarVariants = {
-  size: {
-    sm: "h-8 w-8",
-    md: "h-12 w-12",
-    lg: "h-16 w-16",
-  },
+  sm: "h-8 w-8",
+  md: "h-12 w-12",
+  lg: "h-16 w-16",
 };
 
 const avatarGroupSpacing = {
@@ -30,14 +28,14 @@ const AvatarGroupContext = React.createContext<{ isInGroup: boolean }>({
 
 interface AvatarProps
   extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> {
-  size?: keyof typeof avatarVariants.size;
+  size?: keyof typeof avatarVariants;
   fallback?: React.ReactNode;
   src?: string;
   alt?: string;
 }
 
 interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  size?: keyof typeof avatarVariants.size;
+  size?: keyof typeof avatarVariants;
   children: React.ReactNode;
 }
 
@@ -52,7 +50,7 @@ const Avatar = React.forwardRef<
       ref={ref}
       className={cn(
         "relative flex shrink-0 overflow-hidden rounded-full",
-        avatarVariants.size[size],
+        avatarVariants[size],
         // Automatically add border when inside AvatarGroup
         isInGroup && "border-2 border-background",
         className
