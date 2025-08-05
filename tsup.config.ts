@@ -1,4 +1,25 @@
 import { defineConfig } from 'tsup'
+import { copyFileSync, mkdirSync, readdirSync, statSync } from 'fs'
+import { join } from 'path'
+
+// Function to copy assets recursively
+function copyAssets(src: string, dest: string) {
+  if (!statSync(src).isDirectory()) return
+  
+  mkdirSync(dest, { recursive: true })
+  
+  const files = readdirSync(src)
+  for (const file of files) {
+    const srcPath = join(src, file)
+    const destPath = join(dest, file)
+    
+    if (statSync(srcPath).isDirectory()) {
+      copyAssets(srcPath, destPath)
+    } else {
+      copyFileSync(srcPath, destPath)
+    }
+  }
+}
 
 export default defineConfig({
   entry: ['src/index.ts'],
@@ -35,5 +56,9 @@ export default defineConfig({
   ],
   banner: {
     js: '"use client";'
+  },
+  onSuccess: async () => {
+    // Copy assets to dist folder
+    copyAssets('public/assets', 'dist/assets')
   }
 })
