@@ -1015,7 +1015,7 @@ const Components = () => {
                         </h4>
                         <div className="flex items-center gap-6">
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar className="h-8 w-8">
+                            <Avatar size="sm">
                               <AvatarImage
                                 src="/assets/defaultAvatar.jpg"
                                 alt="Default Avatar"
@@ -1027,7 +1027,7 @@ const Components = () => {
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar className="h-12 w-12">
+                            <Avatar size="md">
                               <AvatarImage
                                 src="/assets/defaultAvatar.jpg"
                                 alt="Default Avatar"
@@ -1039,7 +1039,7 @@ const Components = () => {
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar className="h-16 w-16">
+                            <Avatar size="lg">
                               <AvatarImage
                                 src="/assets/defaultAvatar.jpg"
                                 alt="Default Avatar"
@@ -1060,7 +1060,7 @@ const Components = () => {
                         </h4>
                         <div className="flex items-center gap-6">
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar className="h-8 w-8">
+                            <Avatar size="sm">
                               <AvatarFallback className="bg-primary text-primary-foreground">
                                 AA
                               </AvatarFallback>
@@ -1070,7 +1070,7 @@ const Components = () => {
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar className="h-12 w-12">
+                            <Avatar size="md">
                               <AvatarFallback className="bg-primary text-primary-foreground">
                                 AA
                               </AvatarFallback>
@@ -1080,7 +1080,7 @@ const Components = () => {
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <Avatar className="h-16 w-16">
+                            <Avatar size="lg">
                               <AvatarFallback className="bg-primary text-primary-foreground">
                                 AA
                               </AvatarFallback>
@@ -1106,7 +1106,8 @@ const Components = () => {
                               {[...Array(5)].map((_, i) => (
                                 <Avatar
                                   key={i}
-                                  className="h-8 w-8 border-2 border-background"
+                                  size="sm"
+                                  className="border-2 border-background"
                                 >
                                   <AvatarImage
                                     src="/assets/defaultAvatar.jpg"
@@ -1125,7 +1126,8 @@ const Components = () => {
                               {[...Array(5)].map((_, i) => (
                                 <Avatar
                                   key={i}
-                                  className="h-12 w-12 border-2 border-background"
+                                  size="md"
+                                  className="border-2 border-background"
                                 >
                                   <AvatarImage
                                     src="/assets/defaultAvatar.jpg"
@@ -1144,7 +1146,8 @@ const Components = () => {
                               {[...Array(5)].map((_, i) => (
                                 <Avatar
                                   key={i}
-                                  className="h-16 w-16 border-2 border-background"
+                                  size="lg"
+                                  className="border-2 border-background"
                                 >
                                   <AvatarImage
                                     src="/assets/defaultAvatar.jpg"
