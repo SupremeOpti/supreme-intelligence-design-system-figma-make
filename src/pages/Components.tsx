@@ -618,7 +618,7 @@ const Components = () => {
                         <h3 className="text-lg font-semibold mb-2">
                           Different Variants
                         </h3>
-                        <div className="space-y-2">
+                        <div className="flex gap-2">
                           <PageLevel variant="default">
                             Default variant
                           </PageLevel>
@@ -634,21 +634,9 @@ const Components = () => {
 
                       <div>
                         <h3 className="text-lg font-semibold mb-2">
-                          Different Sizes
-                        </h3>
-                        <div className="space-y-2">
-                          <PageLevel size="sm">Small size</PageLevel>
-                          <PageLevel size="default">Default size</PageLevel>
-                          <PageLevel size="lg">Large size</PageLevel>
-                          <PageLevel size="xl">Extra large size</PageLevel>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h3 className="text-lg font-semibold mb-2">
                           Arrow Positions
                         </h3>
-                        <div className="space-y-2">
+                        <div className="gap-2 items-center flex">
                           <PageLevel arrowPosition="before">
                             Arrow before text
                           </PageLevel>
