@@ -9,12 +9,12 @@ const bannerVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-b from-supreme-blue-500 to-supreme-blue-700 text-white shadow-[0px_4px_6px_-2px_#0000000D] hover:bg-gradient-to-b hover:from-[#4E47AF] hover:to-[#312A93] hover:shadow-[0px_10px_15px_-3px_#0000001A]",
+          "bg-gradient-to-b from-supreme-blue-500 to-supreme-blue-700 text-white hover:bg-gradient-to-b hover:from-[#4E47AF] hover:to-[#312A93]",
         primary:
-          "bg-gradient-to-b from-supreme-blue-600 to-supreme-blue-700 text-white shadow-[0px_4px_6px_-2px_#0000000D] hover:bg-gradient-to-b hover:from-[#4E47AF] hover:to-[#312A93] hover:shadow-[0px_10px_15px_-3px_#0000001A]",
+          "bg-gradient-to-b from-supreme-blue-600 to-supreme-blue-700 text-white hover:bg-gradient-to-b hover:from-[#4E47AF] hover:to-[#312A93]",
         secondary:
-          "bg-gradient-to-b from-supreme-blue-500 to-supreme-blue-600 text-white shadow-[0px_4px_6px_-2px_#0000000D] hover:bg-gradient-to-b hover:from-[#4E47AF] hover:to-[#312A93] hover:shadow-[0px_10px_15px_-3px_#0000001A]",
-        dark: "bg-gradient-to-b from-supreme-blue-700 to-supreme-blue-800 text-white shadow-[0px_4px_6px_-2px_#0000000D] hover:bg-gradient-to-b hover:from-[#4E47AF] hover:to-[#312A93] hover:shadow-[0px_10px_15px_-3px_#0000001A]",
+          "bg-gradient-to-b from-supreme-blue-500 to-supreme-blue-600 text-white hover:bg-gradient-to-b hover:from-[#4E47AF] hover:to-[#312A93]",
+        dark: "bg-gradient-to-b from-supreme-blue-700 to-supreme-blue-800 text-white hover:bg-gradient-to-b hover:from-[#4E47AF] hover:to-[#312A93]",
       },
       size: {
         default: "px-8 py-[14px] h-[72px]",
