@@ -945,7 +945,7 @@ const Components = () => {
                       Status indicators and labels
                     </ContentBoxDescription>
                   </ContentBoxHeader>
-                  <ContentBoxContent>
+                  <ContentBoxContent className="flex flex-col gap-4">
                     <div className="flex flex-wrap gap-4">
                       <Badge variant="default" dismissible dot>
                         Badge
@@ -975,6 +975,18 @@ const Components = () => {
                         Badge
                       </Badge>
                       <Badge variant="pink" dismissible dot>
+                        Badge
+                      </Badge>
+                    </div>
+                    <div className="flex flex-wrap gap-4">
+                      <Badge variant="default" dismissible dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="default">Badge</Badge>
+                      <Badge variant="default" dot>
+                        Badge
+                      </Badge>
+                      <Badge variant="default" dismissible>
                         Badge
                       </Badge>
                     </div>
