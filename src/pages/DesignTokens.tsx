@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxHeader, ContentBoxTitle } from "@/components/ui/contentbox";
+import {
+  ContentBox,
+  ContentBoxContent,
+  ContentBoxDescription,
+  ContentBoxHeader,
+  ContentBoxTitle,
+} from "@/components/ui/contentbox";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -43,7 +49,9 @@ const DesignTokens = () => {
               { name: "rounded-full", class: "rounded-full" },
             ].map((radius) => (
               <div key={radius.name} className="text-center space-y-2">
-                <div className={`w-16 h-16 bg-supreme-blue-500 ${radius.class} mx-auto`}></div>
+                <div
+                  className={`w-16 h-16 bg-supreme-blue-500 ${radius.class} mx-auto`}
+                ></div>
                 <p className="text-sm font-mono">{radius.name}</p>
               </div>
             ))}
@@ -69,7 +77,10 @@ const DesignTokens = () => {
               { name: "text-8xl", class: "text-8xl" },
               { name: "text-9xl", class: "text-9xl" },
             ].map((typography) => (
-              <div key={typography.name} className="flex items-center space-x-4">
+              <div
+                key={typography.name}
+                className="flex items-center space-x-4"
+              >
                 <p className={`${typography.class} font-normal`}>
                   The quick brown fox jumps over the lazy dog
                 </p>
@@ -99,7 +110,9 @@ const DesignTokens = () => {
               { name: "opacity-50", class: "opacity-50" },
             ].map((opacity) => (
               <div key={opacity.name} className="text-center space-y-2">
-                <div className={`w-8 h-8 bg-black ${opacity.class} mx-auto rounded-sm`}></div>
+                <div
+                  className={`w-8 h-8 bg-black ${opacity.class} mx-auto rounded-sm`}
+                ></div>
                 <p className="text-xs font-mono">{opacity.name}</p>
               </div>
             ))}
@@ -118,7 +131,9 @@ const DesignTokens = () => {
               { name: "opacity-100", class: "opacity-100" },
             ].map((opacity) => (
               <div key={opacity.name} className="text-center space-y-2">
-                <div className={`w-8 h-8 bg-black ${opacity.class} mx-auto rounded-sm`}></div>
+                <div
+                  className={`w-8 h-8 bg-black ${opacity.class} mx-auto rounded-sm`}
+                ></div>
                 <p className="text-xs font-mono">{opacity.name}</p>
               </div>
             ))}
@@ -140,7 +155,9 @@ const DesignTokens = () => {
               { name: "shadow-2xl", class: "shadow-2xl" },
             ].map((shadow) => (
               <div key={shadow.name} className="text-center space-y-2">
-                <div className={`w-16 h-16 bg-white border border-border ${shadow.class} mx-auto rounded-lg`}></div>
+                <div
+                  className={`w-16 h-16 bg-white border border-border ${shadow.class} mx-auto rounded-lg`}
+                ></div>
                 <p className="text-sm font-mono">{shadow.name}</p>
               </div>
             ))}
@@ -152,7 +169,9 @@ const DesignTokens = () => {
               { name: "shadow-inset-sm", class: "shadow-inset-sm" },
             ].map((shadow) => (
               <div key={shadow.name} className="text-center space-y-2">
-                <div className={`w-16 h-16 bg-white border border-border ${shadow.class} mx-auto rounded-lg`}></div>
+                <div
+                  className={`w-16 h-16 bg-white border border-border ${shadow.class} mx-auto rounded-lg`}
+                ></div>
                 <p className="text-sm font-mono">{shadow.name}</p>
               </div>
             ))}
@@ -175,8 +194,14 @@ const DesignTokens = () => {
             ].map((blur) => (
               <div key={blur.name} className="text-center space-y-2">
                 <div className="relative w-16 h-16 mx-auto">
-                  <div className="absolute inset-0 bg-gradient-to-br from-supreme-blue-400 to-supreme-blue-600 rounded-lg"></div>
-                  <div className={`absolute inset-0 bg-gradient-to-br from-supreme-blue-400 to-supreme-blue-600 rounded-lg ${blur.class}`}></div>
+                  <div
+                    className={`absolute inset-0 rounded-lg ${blur.class}`}
+                    style={{
+                      backgroundImage: "url(/assets/Box.png)",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
                 </div>
                 <p className="text-sm font-mono">{blur.name}</p>
               </div>
@@ -187,7 +212,14 @@ const DesignTokens = () => {
         {/* Backdrop Blur Section */}
         <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Backdrop Blur Effects</h2>
-          <div className="relative h-32 bg-gradient-to-br from-supreme-blue-200 to-supreme-blue-400 rounded-lg overflow-hidden" style={{ backgroundImage: 'url(/assets/background.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div
+            className="relative h-32 bg-gradient-to-br from-supreme-blue-200 to-supreme-blue-400 rounded-lg overflow-hidden"
+            style={{
+              backgroundImage: "url(/assets/background.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-supreme-blue-300 to-supreme-blue-500 opacity-50"></div>
             <div className="grid grid-cols-8 gap-4 p-4">
               {[
@@ -201,7 +233,9 @@ const DesignTokens = () => {
                 { name: "backdrop-blur-3xl", class: "backdrop-blur-3xl" },
               ].map((blur) => (
                 <div key={blur.name} className="text-center space-y-2">
-                  <div className={`w-12 h-12 bg-white/20 border border-white/30 rounded-lg ${blur.class} flex items-center justify-center`}>
+                  <div
+                    className={`w-12 h-12 bg-white/20 border border-white/30 rounded-lg ${blur.class} flex items-center justify-center`}
+                  >
                     <div className="w-6 h-6 bg-white/40 rounded"></div>
                   </div>
                   <p className="text-xs font-mono text-white">{blur.name}</p>
@@ -239,7 +273,9 @@ const DesignTokens = () => {
               { name: "24", class: "w-24", label: "96px" },
             ].map((spacing) => (
               <div key={spacing.name} className="flex items-center space-x-4">
-                <div className={`h-4 bg-supreme-blue-500 ${spacing.class}`}></div>
+                <div
+                  className={`h-4 bg-supreme-blue-500 ${spacing.class}`}
+                ></div>
                 <div className="flex space-x-2">
                   <Badge variant="default" className="font-mono">
                     {spacing.name}
@@ -271,7 +307,9 @@ const DesignTokens = () => {
               { name: "950", class: "bg-supreme-blue-950", hex: "#100D3" },
             ].map((color) => (
               <div key={color.name} className="text-center space-y-2">
-                <div className={`w-12 h-12 ${color.class} rounded-lg border border-border mx-auto`}></div>
+                <div
+                  className={`w-12 h-12 ${color.class} rounded-lg border border-border mx-auto`}
+                ></div>
                 <p className="text-xs font-mono">{color.name}</p>
                 <p className="text-xs text-muted-foreground">{color.hex}</p>
               </div>
@@ -330,4 +368,4 @@ const DesignTokens = () => {
   );
 };
 
-export default DesignTokens; 
+export default DesignTokens;
