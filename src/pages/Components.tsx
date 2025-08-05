@@ -8,7 +8,12 @@ import {
   ContentBoxTitle,
 } from "@/components/ui/contentbox";
 import { EnvelopeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  AvatarGroup,
+} from "@/components/ui/avatar";
 import { ToggleDemo } from "@/pages/toggle-demo";
 import { Logo } from "@/components/ui/logo";
 
@@ -1102,7 +1107,7 @@ const Components = () => {
                         </h4>
                         <div className="flex items-center gap-6">
                           <div className="flex flex-col items-center gap-2">
-                            <div className="flex -space-x-3">
+                            <AvatarGroup size="sm">
                               {[...Array(5)].map((_, i) => (
                                 <Avatar
                                   key={i}
@@ -1116,13 +1121,13 @@ const Components = () => {
                                   <AvatarFallback>DA</AvatarFallback>
                                 </Avatar>
                               ))}
-                            </div>
+                            </AvatarGroup>
                             <span className="text-xs text-muted-foreground">
                               Small
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <div className="flex -space-x-4">
+                            <AvatarGroup size="md">
                               {[...Array(5)].map((_, i) => (
                                 <Avatar
                                   key={i}
@@ -1136,13 +1141,13 @@ const Components = () => {
                                   <AvatarFallback>DA</AvatarFallback>
                                 </Avatar>
                               ))}
-                            </div>
+                            </AvatarGroup>
                             <span className="text-xs text-muted-foreground">
                               Mid
                             </span>
                           </div>
                           <div className="flex flex-col items-center gap-2">
-                            <div className="flex -space-x-5">
+                            <AvatarGroup size="lg">
                               {[...Array(5)].map((_, i) => (
                                 <Avatar
                                   key={i}
@@ -1156,7 +1161,7 @@ const Components = () => {
                                   <AvatarFallback>DA</AvatarFallback>
                                 </Avatar>
                               ))}
-                            </div>
+                            </AvatarGroup>
                             <span className="text-xs text-muted-foreground">
                               Large
                             </span>

@@ -11,9 +11,20 @@ const avatarVariants = {
   },
 };
 
+const avatarGroupSpacing = {
+  sm: "-space-x-2",
+  md: "-space-x-3",
+  lg: "-space-x-4",
+};
+
 interface AvatarProps
   extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> {
   size?: keyof typeof avatarVariants.size;
+}
+
+interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+  size?: keyof typeof avatarVariants.size;
+  children: React.ReactNode;
 }
 
 const Avatar = React.forwardRef<
@@ -59,4 +70,17 @@ const AvatarFallback = React.forwardRef<
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
-export { Avatar, AvatarImage, AvatarFallback };
+const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
+  ({ className, size = "md", children, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("flex", avatarGroupSpacing[size], className)}
+      {...props}
+    >
+      {children}
+    </div>
+  )
+);
+AvatarGroup.displayName = "AvatarGroup";
+
+export { Avatar, AvatarImage, AvatarFallback, AvatarGroup };
