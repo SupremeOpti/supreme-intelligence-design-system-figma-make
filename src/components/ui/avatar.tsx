@@ -17,6 +17,12 @@ const avatarGroupSpacing = {
   lg: "-space-x-4",
 };
 
+const avatarTextSizes = {
+  sm: "text-xs",
+  md: "text-base",
+  lg: "text-lg",
+};
+
 interface AvatarProps
   extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> {
   size?: keyof typeof avatarVariants.size;
@@ -55,7 +61,7 @@ const Avatar = React.forwardRef<
       <AvatarPrimitive.Fallback
         className={cn(
           "flex h-full w-full items-center justify-center rounded-full",
-          size === "sm" ? "text-xs" : size === "md" ? "text-base" : "text-lg"
+          avatarTextSizes[size]
         )}
       >
         {fallback}
