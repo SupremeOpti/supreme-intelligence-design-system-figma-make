@@ -66,7 +66,7 @@ function Badge({
     <div
       className={
         finalClasses +
-        " flex items-center justify-center gap-1.5 cursor-pointer"
+        " flex items-center justify-center gap-1.5 cursor-pointer leading-none"
       }
       {...props}
     >
