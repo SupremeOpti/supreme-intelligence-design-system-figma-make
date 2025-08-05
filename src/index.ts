@@ -5,6 +5,7 @@ export * from "./components/ui/badge";
 export * from "./components/ui/banner";
 export * from "./components/ui/breadcrumb";
 export * from "./components/ui/button";
+export * from "./components/ui/card";
 export * from "./components/ui/checkbox";
 export * from "./components/ui/contentbox";
 export * from "./components/ui/input";
