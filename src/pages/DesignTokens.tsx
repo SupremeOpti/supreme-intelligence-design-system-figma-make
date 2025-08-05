@@ -37,22 +37,32 @@ const DesignTokens = () => {
           <h2 className="text-3xl font-semibold">Border Radius</h2>
           <div className="grid grid-cols-5 gap-4">
             {[
-              { name: "rounded-none", class: "rounded-none" },
-              { name: "rounded-xs", class: "rounded-xs" },
-              { name: "rounded-sm", class: "rounded-sm" },
-              { name: "rounded-md", class: "rounded-md" },
-              { name: "rounded-lg", class: "rounded-lg" },
-              { name: "rounded-xl", class: "rounded-xl" },
-              { name: "rounded-2xl", class: "rounded-2xl" },
-              { name: "rounded-3xl", class: "rounded-3xl" },
-              { name: "rounded-4xl", class: "rounded-4xl" },
-              { name: "rounded-full", class: "rounded-full" },
+              { name: "rounded-none", class: "rounded-none", value: "0px" },
+              { name: "rounded-xs", class: "rounded-xs", value: "2px" },
+              { name: "rounded-sm", class: "rounded-sm", value: "4px" },
+              { name: "rounded-md", class: "rounded-md", value: "6px" },
+              { name: "rounded-lg", class: "rounded-lg", value: "8px" },
+              { name: "rounded-xl", class: "rounded-xl", value: "12px" },
+              { name: "rounded-2xl", class: "rounded-2xl", value: "16px" },
+              { name: "rounded-3xl", class: "rounded-3xl", value: "24px" },
+              { name: "rounded-4xl", class: "rounded-4xl", value: "32px" },
+              { name: "rounded-full", class: "rounded-full", value: "9999px" },
             ].map((radius) => (
               <div key={radius.name} className="text-center space-y-2">
                 <div
                   className={`w-16 h-16 bg-supreme-blue-500 ${radius.class} mx-auto`}
+                  style={{
+                    borderRadius: `var(--${radius.name.replace(
+                      "rounded-",
+                      "radius-"
+                    )}, ${radius.value})`,
+                  }}
                 ></div>
                 <p className="text-sm font-mono">{radius.name}</p>
+                <p className="text-xs text-muted-foreground">
+                  var(--{radius.name.replace("rounded-", "radius-")},{" "}
+                  {radius.value})
+                </p>
               </div>
             ))}
           </div>
@@ -183,23 +193,27 @@ const DesignTokens = () => {
           <h2 className="text-3xl font-semibold">Blur Effects</h2>
           <div className="grid grid-cols-8 gap-4">
             {[
-              { name: "blur-none", class: "blur-none" },
-              { name: "blur-xs", class: "blur-xs" },
-              { name: "blur-sm", class: "blur-sm" },
-              { name: "blur-md", class: "blur-md" },
-              { name: "blur-lg", class: "blur-lg" },
-              { name: "blur-xl", class: "blur-xl" },
-              { name: "blur-2xl", class: "blur-2xl" },
-              { name: "blur-3xl", class: "blur-3xl" },
+              { name: "blur-none", class: "blur-none", value: "0px" },
+              { name: "blur-xs", class: "blur-xs", value: "4px" },
+              { name: "blur-sm", class: "blur-sm", value: "8px" },
+              { name: "blur-md", class: "blur-md", value: "12px" },
+              { name: "blur-lg", class: "blur-lg", value: "16px" },
+              { name: "blur-xl", class: "blur-xl", value: "24px" },
+              { name: "blur-2xl", class: "blur-2xl", value: "40px" },
+              { name: "blur-3xl", class: "blur-3xl", value: "64px" },
             ].map((blur) => (
               <div key={blur.name} className="text-center space-y-2">
                 <div className="relative w-16 h-16 mx-auto">
                   <div
-                    className={`absolute inset-0 rounded-lg ${blur.class}`}
+                    className={`absolute inset-0 rounded-lg`}
                     style={{
                       backgroundImage: "url(/assets/Box.png)",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
+                      filter: `blur(calc(var(--${blur.name.replace(
+                        "blur-",
+                        "blur-"
+                      )}, ${blur.value}) / 2))`,
                     }}
                   ></div>
                 </div>
@@ -223,18 +237,56 @@ const DesignTokens = () => {
             <div className="absolute inset-0"></div>
             <div className="grid grid-cols-8 gap-4 p-4">
               {[
-                { name: "backdrop-blur-none", class: "backdrop-blur-none" },
-                { name: "backdrop-blur-xs", class: "backdrop-blur-xs" },
-                { name: "backdrop-blur-sm", class: "backdrop-blur-sm" },
-                { name: "backdrop-blur-md", class: "backdrop-blur-md" },
-                { name: "backdrop-blur-lg", class: "backdrop-blur-lg" },
-                { name: "backdrop-blur-xl", class: "backdrop-blur-xl" },
-                { name: "backdrop-blur-2xl", class: "backdrop-blur-2xl" },
-                { name: "backdrop-blur-3xl", class: "backdrop-blur-3xl" },
+                {
+                  name: "backdrop-blur-none",
+                  class: "backdrop-blur-none",
+                  value: "0px",
+                },
+                {
+                  name: "backdrop-blur-xs",
+                  class: "backdrop-blur-xs",
+                  value: "4px",
+                },
+                {
+                  name: "backdrop-blur-sm",
+                  class: "backdrop-blur-sm",
+                  value: "8px",
+                },
+                {
+                  name: "backdrop-blur-md",
+                  class: "backdrop-blur-md",
+                  value: "12px",
+                },
+                {
+                  name: "backdrop-blur-lg",
+                  class: "backdrop-blur-lg",
+                  value: "16px",
+                },
+                {
+                  name: "backdrop-blur-xl",
+                  class: "backdrop-blur-xl",
+                  value: "24px",
+                },
+                {
+                  name: "backdrop-blur-2xl",
+                  class: "backdrop-blur-2xl",
+                  value: "40px",
+                },
+                {
+                  name: "backdrop-blur-3xl",
+                  class: "backdrop-blur-3xl",
+                  value: "64px",
+                },
               ].map((blur) => (
                 <div key={blur.name} className="text-center space-y-2">
                   <div
-                    className={`w-12 h-12 bg-white/20 border border-white/30 rounded-lg ${blur.class} flex items-center justify-center`}
+                    className={`w-12 h-12 bg-white/20 border border-white/30 rounded-lg flex items-center justify-center`}
+                    style={{
+                      backdropFilter: `blur(calc(var(--${blur.name.replace(
+                        "backdrop-blur-",
+                        "backdrop-blur-"
+                      )}, ${blur.value}) / 2))`,
+                    }}
                   >
                     <div className="w-6 h-6 bg-white/40 rounded"></div>
                   </div>
