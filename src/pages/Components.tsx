@@ -1104,7 +1104,6 @@ const Components = () => {
                                 <Avatar
                                   key={i}
                                   size="sm"
-                                  className="border-2 border-background"
                                   src="/assets/defaultAvatar.jpg"
                                   alt="Default Avatar"
                                   fallback="DA"
@@ -1137,7 +1136,6 @@ const Components = () => {
                                 <Avatar
                                   key={i}
                                   size="lg"
-                                  className="border-2 border-background"
                                   src="/assets/defaultAvatar.jpg"
                                   alt="Default Avatar"
                                   fallback="DA"
