@@ -21,8 +21,11 @@ const avatarTextSizes = {
   lg: "text-lg",
 };
 
-// Context to track if Avatar is inside AvatarGroup
-const AvatarGroupContext = React.createContext<{ isInGroup: boolean }>({
+// Context to track if Avatar is inside AvatarGroup and get group size
+const AvatarGroupContext = React.createContext<{
+  isInGroup: boolean;
+  groupSize?: keyof typeof avatarVariants;
+}>({
   isInGroup: false,
 });
 
@@ -43,14 +46,17 @@ const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   AvatarProps
 >(({ className, size = "md", fallback, src, alt, children, ...props }, ref) => {
-  const { isInGroup } = React.useContext(AvatarGroupContext);
+  const { isInGroup, groupSize } = React.useContext(AvatarGroupContext);
+
+  // Use group size if inside AvatarGroup and no explicit size is provided
+  const effectiveSize = isInGroup && size === "md" ? groupSize || "md" : size;
 
   return (
     <AvatarPrimitive.Root
       ref={ref}
       className={cn(
         "relative flex shrink-0 overflow-hidden rounded-full",
-        avatarVariants[size],
+        avatarVariants[effectiveSize],
         // Automatically add border when inside AvatarGroup
         isInGroup && "border-2 border-background",
         className
@@ -69,7 +75,7 @@ const Avatar = React.forwardRef<
         <AvatarPrimitive.Fallback
           className={cn(
             "flex h-full w-full items-center justify-center rounded-full",
-            avatarTextSizes[size]
+            avatarTextSizes[effectiveSize]
           )}
         >
           {fallback}
@@ -82,7 +88,7 @@ Avatar.displayName = AvatarPrimitive.Root.displayName;
 
 const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
   ({ className, size = "md", children, ...props }, ref) => (
-    <AvatarGroupContext.Provider value={{ isInGroup: true }}>
+    <AvatarGroupContext.Provider value={{ isInGroup: true, groupSize: size }}>
       <div
         ref={ref}
         className={cn("flex", avatarGroupSpacing[size], className)}
