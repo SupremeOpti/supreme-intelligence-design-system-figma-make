@@ -213,14 +213,14 @@ const DesignTokens = () => {
         <section className="space-y-6">
           <h2 className="text-3xl font-semibold">Backdrop Blur Effects</h2>
           <div
-            className="relative h-32 bg-gradient-to-br from-supreme-blue-200 to-supreme-blue-400 rounded-lg overflow-hidden"
+            className="relative h-32 rounded-lg overflow-hidden"
             style={{
               backgroundImage: "url(/assets/background.jpg)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-supreme-blue-300 to-supreme-blue-500 opacity-50"></div>
+            <div className="absolute inset-0"></div>
             <div className="grid grid-cols-8 gap-4 p-4">
               {[
                 { name: "backdrop-blur-none", class: "backdrop-blur-none" },
