@@ -3,22 +3,19 @@
     "version": "1.0.0",
     "type": "module",
     "description": "A comprehensive design system that expands and integrates with Tailwind CSS v4",
-    "main": "./index.css",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "files": [
-        "components",
-        "base.css",
-        "theme.css",
-        "utilities.css",
-        "index.css"
+        "dist"
     ],
     "exports": {
         ".": {
-            "style": "./index.css"
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
         },
-        "./package.json": "./package.json",
-        "./index.css": "./index.css",
-        "./index": "./index.css",
-        "./react": "./components/index.js"
+        "./package.json": "./package.json"
     },
     "scripts": {
         "dev": "vite",
@@ -32,10 +29,11 @@
         "design-system",
         "tailwind",
         "react",
-        "laravel",
         "ui",
         "components",
-        "css"
+        "typescript",
+        "radix-ui",
+        "supreme-intelligence"
     ],
     "author": "Supreme Intelligence",
     "license": "MIT",

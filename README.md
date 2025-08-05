@@ -89,11 +89,11 @@ supreme-intelligence-design-system-npm/
 ## Installation
 
 ```bash
-npm install supreme-intelligence-design-system-npm
+npm install @supreme-intelligence/design-system
 # or
-yarn add supreme-intelligence-design-system-npm
+yarn add @supreme-intelligence/design-system
 # or
-pnpm add supreme-intelligence-design-system-npm
+pnpm add @supreme-intelligence/design-system
 ```
 
 ## Quick Start
@@ -105,13 +105,13 @@ pnpm add supreme-intelligence-design-system-npm
 ```css
 /* globals.css or main.css */
 @import "tailwindcss";
-@import "supreme-intelligence-design-system-npm";
+@import "@supreme-intelligence/design-system";
 ```
 
 2. **Use the components:**
 
 ```tsx
-import { Button, Logo } from 'supreme-intelligence-design-system-npm/react'
+import { Button, Logo } from "@supreme-intelligence/design-system";
 
 export default function App() {
   return (
@@ -119,7 +119,7 @@ export default function App() {
       <Logo variant="supreme" size="lg" />
       <Button variant="default">Get Started</Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -130,14 +130,16 @@ export default function App() {
 ```css
 /* resources/css/app.css */
 @import "tailwindcss";
-@import "supreme-intelligence-design-system-npm";
+@import "@supreme-intelligence/design-system";
 ```
 
 2. **Use in Blade templates:**
 
 ```html
 <div class="bg-background text-foreground p-4 rounded-lg">
-  <h1 class="text-2xl font-bold text-primary">Welcome to Supreme Intelligence</h1>
+  <h1 class="text-2xl font-bold text-primary">
+    Welcome to Supreme Intelligence
+  </h1>
   <button class="bg-primary text-primary-foreground px-4 py-2 rounded">
     Get Started
   </button>
@@ -149,6 +151,7 @@ export default function App() {
 The design system provides comprehensive design tokens that are automatically available through Tailwind:
 
 ### Colors
+
 - `bg-background` / `text-foreground`
 - `bg-primary` / `text-primary-foreground`
 - `bg-secondary` / `text-secondary-foreground`
@@ -159,11 +162,13 @@ The design system provides comprehensive design tokens that are automatically av
 - `bg-popover` / `text-popover-foreground`
 
 ### Spacing & Layout
+
 - Consistent spacing scale: `p-1` through `p-16`
 - Container utilities with responsive breakpoints
 - Grid and flexbox utilities
 
 ### Typography
+
 - Font family utilities: `font-sans`, `font-mono`
 - Font size scale: `text-xs` through `text-9xl`
 - Font weight utilities: `font-light` through `font-black`
@@ -173,7 +178,7 @@ The design system provides comprehensive design tokens that are automatically av
 ### Button
 
 ```tsx
-import { Button } from '@supremeintelligence/design-system/react'
+import { Button } from '@supreme-intelligence/design-system'
 
 <Button variant="default" size="lg">
   Primary Button
@@ -191,7 +196,7 @@ import { Button } from '@supremeintelligence/design-system/react'
 ### Logo
 
 ```tsx
-import { Logo } from '@supremeintelligence/design-system/react'
+import { Logo } from '@supreme-intelligence/design-system'
 
 <Logo variant="supreme" theme="light" size="md" showText={true} />
 <Logo variant="supreme" theme="dark" size="lg" showText={false} />
@@ -200,7 +205,7 @@ import { Logo } from '@supremeintelligence/design-system/react'
 ### Form Components
 
 ```tsx
-import { Input, Label, Button } from '@supremeintelligence/design-system/react'
+import { Input, Label, Button } from "@supreme-intelligence/design-system";
 
 <div className="space-y-4">
   <div>
@@ -208,7 +213,7 @@ import { Input, Label, Button } from '@supremeintelligence/design-system/react'
     <Input id="email" type="email" placeholder="Enter your email" />
   </div>
   <Button type="submit">Submit</Button>
-</div>
+</div>;
 ```
 
 ## Customization
@@ -219,7 +224,7 @@ You can extend the design system by adding custom styles after importing:
 
 ```css
 @import "tailwindcss";
-@import "supreme-intelligence-design-system-npm";
+@import "@supreme-intelligence/design-system";
 
 /* Your custom styles */
 @layer base {
@@ -238,30 +243,31 @@ You can extend the design system by adding custom styles after importing:
 ### Creating Custom Components
 
 ```tsx
-import { cn, cva } from 'supreme-intelligence-design-system-npm'
+import { cn } from "@supreme-intelligence/design-system";
+import { cva } from "class-variance-authority";
 
 const cardVariants = cva(
-  'rounded-lg border bg-card text-card-foreground shadow-sm',
+  "rounded-lg border bg-card text-card-foreground shadow-sm",
   {
     variants: {
       variant: {
-        default: 'border-border',
-        elevated: 'border-border shadow-lg',
+        default: "border-border",
+        elevated: "border-border shadow-lg",
       },
     },
     defaultVariants: {
-      variant: 'default',
+      variant: "default",
     },
   }
-)
+);
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'elevated'
+  variant?: "default" | "elevated";
 }
 
 const Card = ({ className, variant, ...props }: CardProps) => (
   <div className={cn(cardVariants({ variant }), className)} {...props} />
-)
+);
 ```
 
 ## Dark Mode
@@ -269,14 +275,14 @@ const Card = ({ className, variant, ...props }: CardProps) => (
 The design system includes built-in dark mode support:
 
 ```tsx
-import { ThemeProvider } from 'supreme-intelligence-design-system-npm/react'
+import { ThemeProvider } from "@supreme-intelligence/design-system";
 
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="supreme-theme">
       {/* Your app content */}
     </ThemeProvider>
-  )
+  );
 }
 ```
 
@@ -289,26 +295,26 @@ function App() {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['supreme-intelligence-design-system-npm'],
+    optimizePackageImports: ["@supreme-intelligence/design-system"],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
 ```
 
 ### Vite
 
 ```js
 // vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    include: ['supreme-intelligence-design-system-npm'],
+    include: ["@supreme-intelligence/design-system"],
   },
-})
+});
 ```
 
 ## Development
