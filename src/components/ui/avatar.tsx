@@ -49,7 +49,7 @@ const Avatar = React.forwardRef<
   const { isInGroup, groupSize } = React.useContext(AvatarGroupContext);
 
   // Use group size if inside AvatarGroup and no explicit size is provided
-  const effectiveSize = isInGroup && size === "md" ? groupSize || "md" : size;
+  const effectiveSize = isInGroup && groupSize ? groupSize : size;
 
   return (
     <AvatarPrimitive.Root

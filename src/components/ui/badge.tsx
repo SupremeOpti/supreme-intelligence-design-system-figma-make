@@ -65,14 +65,13 @@ function Badge({
   return (
     <div
       className={
-        finalClasses + "flex items-center justify-center gap-1.5 cursor-pointer"
+        finalClasses +
+        "flex items-center justify-center gap-1.5 cursor-pointer leading-none"
       }
       {...props}
     >
-      <div>
-        {dot && <div className="w-2 h-2 rounded-full bg-current opacity-50" />}
-      </div>
-      <span className="leading-none pb-1">{children}</span>
+      {dot && <div className="w-2 h-2 rounded-full bg-current opacity-50" />}
+      <span className="h-5">{children}</span>
       {dismissible && (
         <button
           onClick={onDismiss}

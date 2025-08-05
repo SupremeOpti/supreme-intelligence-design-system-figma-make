@@ -1103,7 +1103,6 @@ const Components = () => {
                               {[...Array(5)].map((_, i) => (
                                 <Avatar
                                   key={i}
-                                  size="sm"
                                   src="/assets/defaultAvatar.jpg"
                                   alt="Default Avatar"
                                   fallback="DA"
@@ -1134,7 +1133,6 @@ const Components = () => {
                               {[...Array(5)].map((_, i) => (
                                 <Avatar
                                   key={i}
-                                  size="lg"
                                   src="/assets/defaultAvatar.jpg"
                                   alt="Default Avatar"
                                   fallback="DA"
