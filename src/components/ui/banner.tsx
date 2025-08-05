@@ -60,7 +60,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
         {...props}
       >
         <div className="flex-1">
-          <p className="text-base font-medium leading-relaxed">{title}</p>
+          <p className={`text-${size} font-medium leading-relaxed`}>{title}</p>
         </div>
 
         {showCta && (

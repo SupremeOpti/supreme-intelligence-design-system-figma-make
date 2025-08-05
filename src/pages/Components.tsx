@@ -130,7 +130,7 @@ const Components = () => {
           <TabsContent value="InteractiveDynamicControls">
             <div className="flex flex-col gap-4 mt-4">
               {/* Buttons */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Buttons</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -286,7 +286,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Toggle */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Toggle & Checkbox</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -301,7 +301,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Toast */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Toast</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -316,7 +316,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Banner */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Banner</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -331,7 +331,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Table */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Table</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -354,7 +354,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Slider */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Slider</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -442,7 +442,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Input & Textarea */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Form Inputs</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -544,7 +544,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Progress */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Progress</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -556,7 +556,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Accordion */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Accordion</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -585,7 +585,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Page Level Navigation */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">
                   Page Level Navigation
                 </h2>
@@ -689,7 +689,7 @@ const Components = () => {
           <TabsContent value="ContentOrganizationLayout">
             <div className="flex flex-col gap-4 mt-4">
               {/* Cards */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Cards</h2>
                 <ContentBox className="bg-neutral-100">
                   <ContentBoxHeader>
@@ -787,7 +787,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Pagination Demo */}
-              <section className="space-y-4">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Pagination</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -844,7 +844,7 @@ const Components = () => {
           <TabsContent value="VisualElementsIndicators">
             <div className="flex flex-col gap-4 mt-4">
               {/* Icons */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Icons</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -874,7 +874,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Persona */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Persona</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -894,7 +894,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Logo */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Logo</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -946,7 +946,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Badges */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Badges</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -992,7 +992,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Avatars */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Avatars</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -1163,7 +1163,7 @@ const Components = () => {
                 </ContentBox>
               </section>
               {/* Tooltip */}
-              <section className="space-y-6">
+              <section className="space-y-2">
                 <h2 className="text-3xl font-semibold">Tooltip</h2>
                 <ContentBox>
                   <ContentBoxHeader>
@@ -1204,167 +1204,6 @@ const Components = () => {
             </div>
           </TabsContent>
         </Tabs>
-
-        {/* Progress */}
-        {/* <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Progress</h2>
-          <ContentBox>
-            <ContentBoxHeader>
-              <ContentBoxTitle>Progress Bars</ContentBoxTitle>
-              <ContentBoxDescription>Loading and completion indicators</ContentBoxDescription>
-            </ContentBoxHeader>
-            <ContentBoxContent className="space-y-4">
-              <Progress value={33} />
-              <Progress value={66} showValue />
-              <Progress value={85} size="lg" showValue />
-            </ContentBoxContent>
-          </ContentBox>
-        </section> */}
-
-        {/* Alerts */}
-        {/* <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Alerts</h2>
-          <ContentBox>
-            <ContentBoxHeader>
-              <ContentBoxTitle>Alert Messages</ContentBoxTitle>
-              <ContentBoxDescription>Information and warning messages</ContentBoxDescription>
-            </ContentBoxHeader>
-            <ContentBoxContent className="space-y-4">
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertTitle>Heads up!</AlertTitle>
-                <AlertDescription>
-                  You can add components to your app using the cli.
-                </AlertDescription>
-              </Alert>
-              <Alert variant="destructive">
-                <AlertTriangle className="h-4 w-4" />
-                <AlertTitle>Error</AlertTitle>
-                <AlertDescription>
-                  Your session has expired. Please log in again.
-                </AlertDescription>
-              </Alert>
-            </ContentBoxContent>
-          </ContentBox>
-        </section> */}
-
-        {/* Accordion */}
-        {/* <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Accordion</h2>
-          <ContentBox>
-            <ContentBoxHeader>
-              <ContentBoxTitle>Collapsible Content</ContentBoxTitle>
-              <ContentBoxDescription>Expandable content sections</ContentBoxDescription>
-            </ContentBoxHeader>
-              <ContentBoxContent>
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>Is it styled?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It comes with default styles that match the other components.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </ContentBoxContent>
-          </ContentBox>
-        </section> */}
-
-        {/* Table */}
-        {/* <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Table</h2>
-          <ContentBox>
-            <ContentBoxHeader>
-              <ContentBoxTitle>Data Tables</ContentBoxTitle>
-              <ContentBoxDescription>Structured data display</ContentBoxDescription>
-            </ContentBoxHeader>
-            <ContentBoxContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Role</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">John Doe</TableCell>
-                    <TableCell><Badge variant="blue">Active</Badge></TableCell>
-                    <TableCell>Admin</TableCell>
-                    <TableCell className="text-right">
-                      <Button variant="secondary" size="md">Edit</Button>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Jane Smith</TableCell>
-                    <TableCell><Badge variant="foundation">Inactive</Badge></TableCell>
-                    <TableCell>User</TableCell>
-                    <TableCell className="text-right">
-                      <Button variant="secondary" size="md">Edit</Button>
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </ContentBoxContent>
-          </ContentBox>
-        </section> */}
-
-        {/* Navigation */}
-        {/* <section className="space-y-6">
-          <h2 className="text-3xl font-semibold">Navigation</h2>
-          <ContentBox>
-            <ContentBoxHeader>
-              <ContentBoxTitle>Breadcrumbs & Pagination</ContentBoxTitle>
-              <ContentBoxDescription>Navigation components</ContentBoxDescription>
-            </ContentBoxHeader>
-              <ContentBoxContent className="space-y-6">
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink href="/">
-                      <Home className="h-4 w-4" />
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage>Current Page</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
-
-              <Pagination>
-                <PaginationContent>
-                  <PaginationItem>
-                    <PaginationPrevious href="#" />
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#" isActive>1</PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#">2</PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#">3</PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationNext href="#" />
-                  </PaginationItem>
-                </PaginationContent>
-              </Pagination>
-            </ContentBoxContent>
-          </ContentBox>
-        </section> */}
       </div>
     </div>
   );
