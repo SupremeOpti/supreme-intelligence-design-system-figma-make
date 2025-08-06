@@ -154,9 +154,9 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
 
 interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
-    variant?: 'curie' | 'supreme';
-    theme?: 'original' | 'black' | 'white';
-    size?: 'sm' | 'md' | 'lg';
+    variant?: "curie" | "supreme";
+    theme?: "original" | "black" | "white";
+    size?: "sm" | "md" | "lg";
     showText?: boolean;
     imageSrc?: string;
     imageAlt?: string;
