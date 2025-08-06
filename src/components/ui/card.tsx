@@ -274,7 +274,7 @@ const HighlightCTACard = React.forwardRef<
     ctaText?: string;
     onCtaClick?: () => void;
   }
->(({ className, title, value, description, onCtaClick, ...props }, ref) => (
+>(({ className, title, value, description, ctaText, onCtaClick, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
