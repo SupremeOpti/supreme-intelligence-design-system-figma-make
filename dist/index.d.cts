@@ -158,8 +158,6 @@ interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
     theme?: "original" | "black" | "white";
     size?: "sm" | "md" | "lg";
     showText?: boolean;
-    imageSrc?: string;
-    imageAlt?: string;
 }
 declare const Logo: React.ForwardRefExoticComponent<LogoProps & React.RefAttributes<HTMLDivElement>>;
 
