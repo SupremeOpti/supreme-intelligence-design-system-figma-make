@@ -772,16 +772,15 @@ Input.displayName = "Input";
 // src/components/ui/logo.tsx
 import * as React10 from "react";
 import { jsx as jsx11, jsxs as jsxs10 } from "react/jsx-runtime";
-var CurieAiOriginalIcon = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxs10(
+var CurieAiOriginalIcon = React10.forwardRef(({ className, viewpoint, ...props }, ref) => /* @__PURE__ */ jsxs10(
   "svg",
   {
     ref,
-    width: "81",
-    height: "80",
-    viewBox: "0 0 81 80",
+    width: "95",
+    height: "95",
+    viewBox: viewpoint,
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    className: cn("w-full h-full", className),
     ...props,
     children: [
       /* @__PURE__ */ jsx11("g", { filter: "url(#filter0_d_1846_3041)", children: /* @__PURE__ */ jsx11(
@@ -866,12 +865,11 @@ var CurieAiOriginalText = React10.forwardRef(({ className, ...props }, ref) => /
   "svg",
   {
     ref,
-    width: "320",
-    height: "80",
-    viewBox: "0 0 320 80",
+    width: "319",
+    height: "95",
+    viewBox: "0 0 319 95",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    className: cn("w-full h-full", className),
     ...props,
     children: [
       /* @__PURE__ */ jsxs10("g", { filter: "url(#filter0_d_1846_3015)", children: [
@@ -1108,16 +1106,15 @@ var CurieAiOriginalText = React10.forwardRef(({ className, ...props }, ref) => /
   }
 ));
 CurieAiOriginalText.displayName = "CurieAiOriginalText";
-var CurieAiBlackIcon = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx11(
+var CurieAiBlackIcon = React10.forwardRef(({ className, viewpoint, ...props }, ref) => /* @__PURE__ */ jsx11(
   "svg",
   {
     ref,
-    width: "81",
-    height: "80",
-    viewBox: "0 0 81 80",
+    width: "95",
+    height: "95",
+    viewBox: viewpoint,
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    className: cn("w-full h-full", className),
     ...props,
     children: /* @__PURE__ */ jsx11(
       "path",
@@ -1133,12 +1130,11 @@ var CurieAiBlackText = React10.forwardRef(({ className, ...props }, ref) => /* @
   "svg",
   {
     ref,
-    width: "320",
-    height: "80",
-    viewBox: "0 0 320 80",
+    width: "319",
+    height: "95",
+    viewBox: "0 0 319 95",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    className: cn("w-full h-full", className),
     ...props,
     children: [
       /* @__PURE__ */ jsx11("path", { d: "M308.563 18.6961V64.4241H301.664V18.6961H308.563Z", fill: "black" }),
@@ -1195,16 +1191,15 @@ var CurieAiBlackText = React10.forwardRef(({ className, ...props }, ref) => /* @
   }
 ));
 CurieAiBlackText.displayName = "CurieAiBlackText";
-var CurieAiWhiteIcon = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx11(
+var CurieAiWhiteIcon = React10.forwardRef(({ className, viewpoint, ...props }, ref) => /* @__PURE__ */ jsx11(
   "svg",
   {
     ref,
-    width: "81",
-    height: "80",
-    viewBox: "0 0 81 80",
+    width: "95",
+    height: "95",
+    viewBox: viewpoint,
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    className: cn("w-full h-full", className),
     ...props,
     children: /* @__PURE__ */ jsx11(
       "path",
@@ -1220,12 +1215,11 @@ var CurieAiWhiteText = React10.forwardRef(({ className, ...props }, ref) => /* @
   "svg",
   {
     ref,
-    width: "320",
-    height: "80",
-    viewBox: "0 0 320 80",
+    width: "319",
+    height: "95",
+    viewBox: "0 0 319 95",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    className: cn("w-full h-full", className),
     ...props,
     children: [
       /* @__PURE__ */ jsx11("path", { d: "M308.563 18.6961V64.4241H301.664V18.6961H308.563Z", fill: "white" }),
@@ -1455,12 +1449,12 @@ var SupremeIntelligenceOriginalText = React10.forwardRef(({ className, ...props 
   }
 ));
 SupremeIntelligenceOriginalText.displayName = "SupremeIntelligenceOriginalText";
-var SupremeIntelligenceOriginalIcon = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxs10(
+var SupremeIntelligenceOriginalIcon = React10.forwardRef(({ className, viewpoint, ...props }, ref) => /* @__PURE__ */ jsxs10(
   "svg",
   {
     width: "95",
     height: "95",
-    viewBox: "0 0 95 95",
+    viewBox: viewpoint,
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     children: [
@@ -1657,12 +1651,12 @@ var SupremeIntelligenceWhiteText = React10.forwardRef(({ className, ...props }, 
   }
 ));
 SupremeIntelligenceWhiteText.displayName = "SupremeIntelligenceWhiteText";
-var SupremeIntelligenceWhiteIcon = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxs10(
+var SupremeIntelligenceWhiteIcon = React10.forwardRef(({ className, viewpoint, ...props }, ref) => /* @__PURE__ */ jsxs10(
   "svg",
   {
     width: "95",
     height: "95",
-    viewBox: "0 0 95 95",
+    viewBox: viewpoint,
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     children: [
@@ -1850,12 +1844,12 @@ var SupremeIntelligenceBlackText = React10.forwardRef(({ className, ...props }, 
   }
 ));
 SupremeIntelligenceBlackText.displayName = "SupremeIntelligenceBlackText";
-var SupremeIntelligenceBlackIcon = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxs10(
+var SupremeIntelligenceBlackIcon = React10.forwardRef(({ className, viewpoint, ...props }, ref) => /* @__PURE__ */ jsxs10(
   "svg",
   {
     width: "95",
     height: "95",
-    viewBox: "0 0 95 95",
+    viewBox: viewpoint,
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     children: [
@@ -1886,33 +1880,45 @@ var Logo = React10.forwardRef(
     theme = "original",
     size = "md",
     showText = true,
-    imageSrc,
-    imageAlt,
     ...props
   }, ref) => {
-    const renderCurieSvg = () => {
+    const renderCurieSvg = (size2) => {
+      const viewpoint = size2 === "sm" ? "0 0 185 95" : size2 === "md" ? "0 0 125 95" : "0 0 80 95";
       if (variant === "curie") {
         if (theme === "original") {
-          return showText ? /* @__PURE__ */ jsx11(CurieAiOriginalText, {}) : /* @__PURE__ */ jsx11(CurieAiOriginalIcon, {});
+          return showText ? /* @__PURE__ */ jsx11(CurieAiOriginalText, {}) : /* @__PURE__ */ jsx11(CurieAiOriginalIcon, { viewpoint });
         } else if (theme === "black") {
-          return showText ? /* @__PURE__ */ jsx11(CurieAiBlackText, {}) : /* @__PURE__ */ jsx11(CurieAiBlackIcon, {});
+          return showText ? /* @__PURE__ */ jsx11(CurieAiBlackText, {}) : /* @__PURE__ */ jsx11(CurieAiBlackIcon, { viewpoint });
         } else if (theme === "white") {
-          return showText ? /* @__PURE__ */ jsx11(CurieAiWhiteText, {}) : /* @__PURE__ */ jsx11(CurieAiWhiteIcon, {});
+          return showText ? /* @__PURE__ */ jsx11(CurieAiWhiteText, {}) : /* @__PURE__ */ jsx11(CurieAiWhiteIcon, { viewpoint });
         }
       }
       return null;
     };
-    const renderSupremeIntelligenceSvg = () => {
+    const renderSupremeIntelligenceSvg = (size2) => {
+      const viewpoint = size2 === "sm" ? "0 0 212 95" : size2 === "md" ? "0 0 151 95" : "0 0 101 95";
       if (variant === "supreme") {
         if (theme === "original") {
-          return showText ? /* @__PURE__ */ jsx11(SupremeIntelligenceOriginalText, {}) : /* @__PURE__ */ jsx11(SupremeIntelligenceOriginalIcon, {});
+          return showText ? /* @__PURE__ */ jsx11(SupremeIntelligenceOriginalText, {}) : /* @__PURE__ */ jsx11(SupremeIntelligenceOriginalIcon, { viewpoint });
         } else if (theme === "black") {
-          return showText ? /* @__PURE__ */ jsx11(SupremeIntelligenceBlackText, {}) : /* @__PURE__ */ jsx11(SupremeIntelligenceBlackIcon, {});
+          return showText ? /* @__PURE__ */ jsx11(SupremeIntelligenceBlackText, {}) : /* @__PURE__ */ jsx11(SupremeIntelligenceBlackIcon, { viewpoint });
         } else if (theme === "white") {
-          return showText ? /* @__PURE__ */ jsx11(SupremeIntelligenceWhiteText, {}) : /* @__PURE__ */ jsx11(SupremeIntelligenceWhiteIcon, {});
+          return showText ? /* @__PURE__ */ jsx11(SupremeIntelligenceWhiteText, {}) : /* @__PURE__ */ jsx11(SupremeIntelligenceWhiteIcon, { viewpoint });
         }
       }
       return null;
+    };
+    const getSizeClasses = () => {
+      switch (size) {
+        case "sm":
+          return "w-[143px] h-auto";
+        case "md":
+          return "w-[200px] h-auto";
+        case "lg":
+          return "w-[300px] h-auto";
+        default:
+          return "w-[200px] h-auto";
+      }
     };
     return /* @__PURE__ */ jsx11(
       "div",
@@ -1920,7 +1926,16 @@ var Logo = React10.forwardRef(
         ref,
         className: cn("flex items-center gap-2", className),
         ...props,
-        children: /* @__PURE__ */ jsx11("div", { className: cn("relative flex items-center justify-center"), children: renderCurieSvg() || renderSupremeIntelligenceSvg() })
+        children: /* @__PURE__ */ jsx11(
+          "div",
+          {
+            className: cn(
+              "relative flex items-center justify-center",
+              getSizeClasses()
+            ),
+            children: renderCurieSvg(size) || renderSupremeIntelligenceSvg(size)
+          }
+        )
       }
     );
   }

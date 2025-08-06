@@ -4,16 +4,15 @@ import { cn } from "@/lib/utils";
 // Curie AI Original Icon SVG Component
 const CurieAiOriginalIcon = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->(({ className, ...props }, ref) => (
+  React.SVGProps<SVGSVGElement> & { viewpoint?: string }
+>(({ className, viewpoint, ...props }, ref) => (
   <svg
     ref={ref}
-    width="81"
-    height="80"
-    viewBox="0 0 81 80"
+    width="95"
+    height="95"
+    viewBox={viewpoint}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn("w-full h-full", className)}
     {...props}
   >
     <g filter="url(#filter0_d_1846_3041)">
@@ -80,12 +79,11 @@ const CurieAiOriginalText = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <svg
     ref={ref}
-    width="320"
-    height="80"
-    viewBox="0 0 320 80"
+    width="319"
+    height="95"
+    viewBox="0 0 319 95"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn("w-full h-full", className)}
     {...props}
   >
     <g filter="url(#filter0_d_1846_3015)">
@@ -253,16 +251,15 @@ CurieAiOriginalText.displayName = "CurieAiOriginalText";
 // Curie AI Black Icon SVG Component
 const CurieAiBlackIcon = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->(({ className, ...props }, ref) => (
+  React.SVGProps<SVGSVGElement> & { viewpoint?: string }
+>(({ className, viewpoint, ...props }, ref) => (
   <svg
     ref={ref}
-    width="81"
-    height="80"
-    viewBox="0 0 81 80"
+    width="95"
+    height="95"
+    viewBox={viewpoint}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn("w-full h-full", className)}
     {...props}
   >
     <path
@@ -280,12 +277,11 @@ const CurieAiBlackText = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <svg
     ref={ref}
-    width="320"
-    height="80"
-    viewBox="0 0 320 80"
+    width="319"
+    height="95"
+    viewBox="0 0 319 95"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn("w-full h-full", className)}
     {...props}
   >
     <path d="M308.563 18.6961V64.4241H301.664V18.6961H308.563Z" fill="black" />
@@ -324,16 +320,15 @@ CurieAiBlackText.displayName = "CurieAiBlackText";
 // Curie AI White Icon SVG Component
 const CurieAiWhiteIcon = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->(({ className, ...props }, ref) => (
+  React.SVGProps<SVGSVGElement> & { viewpoint?: string }
+>(({ className, viewpoint, ...props }, ref) => (
   <svg
     ref={ref}
-    width="81"
-    height="80"
-    viewBox="0 0 81 80"
+    width="95"
+    height="95"
+    viewBox={viewpoint}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn("w-full h-full", className)}
     {...props}
   >
     <path
@@ -351,12 +346,11 @@ const CurieAiWhiteText = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <svg
     ref={ref}
-    width="320"
-    height="80"
-    viewBox="0 0 320 80"
+    width="319"
+    height="95"
+    viewBox="0 0 319 95"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn("w-full h-full", className)}
     {...props}
   >
     <path d="M308.563 18.6961V64.4241H301.664V18.6961H308.563Z" fill="white" />
@@ -509,12 +503,12 @@ SupremeIntelligenceOriginalText.displayName = "SupremeIntelligenceOriginalText";
 // Supreme Intelligence Original Icon SVG Component
 const SupremeIntelligenceOriginalIcon = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->(({ className, ...props }, ref) => (
+  React.SVGProps<SVGSVGElement> & { viewpoint: string }
+>(({ className, viewpoint, ...props }, ref) => (
   <svg
     width="95"
     height="95"
-    viewBox="0 0 95 95"
+    viewBox={viewpoint}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -655,12 +649,12 @@ SupremeIntelligenceWhiteText.displayName = "SupremeIntelligenceWhiteText";
 // Supreme Intelligence White Icon SVG Component
 const SupremeIntelligenceWhiteIcon = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->(({ className, ...props }, ref) => (
+  React.SVGProps<SVGSVGElement> & { viewpoint: string }
+>(({ className, viewpoint, ...props }, ref) => (
   <svg
     width="95"
     height="95"
-    viewBox="0 0 95 95"
+    viewBox={viewpoint}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -795,12 +789,12 @@ SupremeIntelligenceBlackText.displayName = "SupremeIntelligenceBlackText";
 // Supreme Intelligence Black Icon SVG Component
 const SupremeIntelligenceBlackIcon = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->(({ className, ...props }, ref) => (
+  React.SVGProps<SVGSVGElement> & { viewpoint: string }
+>(({ className, viewpoint, ...props }, ref) => (
   <svg
     width="95"
     height="95"
-    viewBox="0 0 95 95"
+    viewBox={viewpoint}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -829,8 +823,6 @@ interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: "original" | "black" | "white";
   size?: "sm" | "md" | "lg";
   showText?: boolean;
-  imageSrc?: string;
-  imageAlt?: string;
 }
 
 const Logo = React.forwardRef<HTMLDivElement, LogoProps>(
@@ -841,50 +833,87 @@ const Logo = React.forwardRef<HTMLDivElement, LogoProps>(
       theme = "original",
       size = "md",
       showText = true,
-      imageSrc,
-      imageAlt,
+
       ...props
     },
     ref
   ) => {
     // Render SVG components for Curie AI themes
-    const renderCurieSvg = () => {
+    const renderCurieSvg = (size: string) => {
+      const viewpoint =
+        size === "sm"
+          ? "0 0 185 95"
+          : size === "md"
+          ? "0 0 125 95"
+          : "0 0 80 95";
       if (variant === "curie") {
         if (theme === "original") {
-          return showText ? <CurieAiOriginalText /> : <CurieAiOriginalIcon />;
+          return showText ? (
+            <CurieAiOriginalText />
+          ) : (
+            <CurieAiOriginalIcon viewpoint={viewpoint} />
+          );
         } else if (theme === "black") {
-          return showText ? <CurieAiBlackText /> : <CurieAiBlackIcon />;
+          return showText ? (
+            <CurieAiBlackText />
+          ) : (
+            <CurieAiBlackIcon viewpoint={viewpoint} />
+          );
         } else if (theme === "white") {
-          return showText ? <CurieAiWhiteText /> : <CurieAiWhiteIcon />;
+          return showText ? (
+            <CurieAiWhiteText />
+          ) : (
+            <CurieAiWhiteIcon viewpoint={viewpoint} />
+          );
         }
       }
       return null;
     };
 
     // Render SVG components for Curie AI themes
-    const renderSupremeIntelligenceSvg = () => {
+    const renderSupremeIntelligenceSvg = (size: string) => {
+      const viewpoint =
+        size === "sm"
+          ? "0 0 212 95"
+          : size === "md"
+          ? "0 0 151 95"
+          : "0 0 101 95";
       if (variant === "supreme") {
         if (theme === "original") {
           return showText ? (
             <SupremeIntelligenceOriginalText />
           ) : (
-            <SupremeIntelligenceOriginalIcon />
+            <SupremeIntelligenceOriginalIcon viewpoint={viewpoint} />
           );
         } else if (theme === "black") {
           return showText ? (
             <SupremeIntelligenceBlackText />
           ) : (
-            <SupremeIntelligenceBlackIcon />
+            <SupremeIntelligenceBlackIcon viewpoint={viewpoint} />
           );
         } else if (theme === "white") {
           return showText ? (
             <SupremeIntelligenceWhiteText />
           ) : (
-            <SupremeIntelligenceWhiteIcon />
+            <SupremeIntelligenceWhiteIcon viewpoint={viewpoint} />
           );
         }
       }
       return null;
+    };
+
+    // Size-based styling
+    const getSizeClasses = () => {
+      switch (size) {
+        case "sm":
+          return "w-[143px] h-auto";
+        case "md":
+          return "w-[200px] h-auto";
+        case "lg":
+          return "w-[300px] h-auto";
+        default:
+          return "w-[200px] h-auto";
+      }
     };
 
     return (
@@ -893,8 +922,13 @@ const Logo = React.forwardRef<HTMLDivElement, LogoProps>(
         className={cn("flex items-center gap-2", className)}
         {...props}
       >
-        <div className={cn("relative flex items-center justify-center")}>
-          {renderCurieSvg() || renderSupremeIntelligenceSvg()}
+        <div
+          className={cn(
+            "relative flex items-center justify-center",
+            getSizeClasses()
+          )}
+        >
+          {renderCurieSvg(size) || renderSupremeIntelligenceSvg(size)}
         </div>
       </div>
     );
