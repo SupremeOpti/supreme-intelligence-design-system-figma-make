@@ -895,23 +895,23 @@ const Components = () => {
                   </ContentBoxHeader>
                   <ContentBoxContent className="space-y-4 bg-slate-400 p-8 rounded-lg">
                     <div className="flex items-center gap-8">
-                      <Logo variant="curie" size="sm" />
-                      <Logo variant="curie" size="sm" showText={false} />
-                      <Logo variant="supreme" size="sm" />
-                      <Logo variant="supreme" size="sm" showText={false} />
+                      <Logo variant="curie" size="lg" />
+                      <Logo variant="curie" size="lg" showText={false} />
+                      <Logo variant="supreme" size="lg" />
+                      <Logo variant="supreme" size="lg" showText={false} />
                     </div>
                     <div className="flex items-center gap-8">
-                      <Logo variant="curie" size="md" theme="black" />
+                      <Logo variant="curie" size="lg" theme="black" />
                       <Logo
                         variant="curie"
-                        size="md"
+                        size="lg"
                         showText={false}
                         theme="black"
                       />
-                      <Logo variant="supreme" size="md" theme="black" />
+                      <Logo variant="supreme" size="lg" theme="black" />
                       <Logo
                         variant="supreme"
-                        size="md"
+                        size="lg"
                         showText={false}
                         theme="black"
                       />
