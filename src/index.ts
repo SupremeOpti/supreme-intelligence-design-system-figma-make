@@ -26,6 +26,22 @@ export * from "./components/ui/toaster";
 export * from "./components/ui/toggle";
 export * from "./components/ui/tooltip";
 
+// Export Icon components
+export * from "./components/ui/Icons/AI";
+export * from "./components/ui/Icons/Analytics";
+export * from "./components/ui/Icons/AppIcon";
+export * from "./components/ui/Icons/Audiences";
+export * from "./components/ui/Icons/BrandGuidelines";
+export * from "./components/ui/Icons/DataSources";
+export * from "./components/ui/Icons/DigitalAssetManagement";
+export * from "./components/ui/Icons/Google";
+export * from "./components/ui/Icons/Home";
+export * from "./components/ui/Icons/KnowledgeBase";
+export * from "./components/ui/Icons/LinkedIn";
+export * from "./components/ui/Icons/PersonaIcon";
+export * from "./components/ui/Icons/Sidebar";
+export * from "./components/ui/Icons/Vector";
+
 // Export utilities
 export * from "./lib/utils";
 
