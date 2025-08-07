@@ -2,13 +2,13 @@ import React from "react";
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Supreme Intelligence Design System
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ textAlign: "center" }}>
+        <h1 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem" }}>
+          Test App
         </h1>
-        <p className="text-xl text-gray-600">
-          Simple test to verify build is working
+        <p style={{ fontSize: "1.2rem" }}>
+          Basic React without any imports
         </p>
       </div>
     </div>
