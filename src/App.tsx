@@ -2,13 +2,13 @@ import React from "react";
 
 const App = () => {
   return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ textAlign: "center" }}>
-        <h1 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem" }}>
-          Test App
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-foreground mb-4">
+          Supreme Intelligence Design System
         </h1>
-        <p style={{ fontSize: "1.2rem" }}>
-          Basic React without any imports
+        <p className="text-xl text-muted-foreground">
+          Preview is now working! The issue was the Vite library configuration.
         </p>
       </div>
     </div>
