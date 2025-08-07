@@ -10,7 +10,7 @@ const CurieAiOriginalIcon = React.forwardRef<
     ref={ref}
     width="95"
     height="95"
-    viewBox={viewpoint}
+    viewBox={viewpoint || "0 0 95 95"}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
@@ -257,7 +257,7 @@ const CurieAiBlackIcon = React.forwardRef<
     ref={ref}
     width="95"
     height="95"
-    viewBox={viewpoint}
+    viewBox={viewpoint || "0 0 95 95"}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
@@ -326,7 +326,7 @@ const CurieAiWhiteIcon = React.forwardRef<
     ref={ref}
     width="95"
     height="95"
-    viewBox={viewpoint}
+    viewBox={viewpoint || "0 0 95 95"}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
@@ -508,7 +508,7 @@ const SupremeIntelligenceOriginalIcon = React.forwardRef<
   <svg
     width="95"
     height="95"
-    viewBox={viewpoint}
+    viewBox={viewpoint || "0 0 95 95"}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -654,7 +654,7 @@ const SupremeIntelligenceWhiteIcon = React.forwardRef<
   <svg
     width="95"
     height="95"
-    viewBox={viewpoint}
+    viewBox={viewpoint || "0 0 95 95"}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -794,7 +794,7 @@ const SupremeIntelligenceBlackIcon = React.forwardRef<
   <svg
     width="95"
     height="95"
-    viewBox={viewpoint}
+    viewBox={viewpoint || "0 0 95 95"}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
