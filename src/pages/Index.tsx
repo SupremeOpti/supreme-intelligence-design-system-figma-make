@@ -11,7 +11,7 @@ const Index = () => {
         {/* Hero Section */}
         <div className="text-center space-y-6 mb-16">
           <div className="flex justify-center mb-6">
-            <Logo variant="supreme" size="lg" />
+            {/* <Logo variant="supreme" size="lg" /> */}
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Supreme Intelligence Design System
