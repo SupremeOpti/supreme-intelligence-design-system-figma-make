@@ -503,7 +503,7 @@ SupremeIntelligenceOriginalText.displayName = "SupremeIntelligenceOriginalText";
 // Supreme Intelligence Original Icon SVG Component
 const SupremeIntelligenceOriginalIcon = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement> & { viewpoint: string }
+  React.SVGProps<SVGSVGElement> & { viewpoint?: string }
 >(({ className, viewpoint, ...props }, ref) => (
   <svg
     width="95"
@@ -649,7 +649,7 @@ SupremeIntelligenceWhiteText.displayName = "SupremeIntelligenceWhiteText";
 // Supreme Intelligence White Icon SVG Component
 const SupremeIntelligenceWhiteIcon = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement> & { viewpoint: string }
+  React.SVGProps<SVGSVGElement> & { viewpoint?: string }
 >(({ className, viewpoint, ...props }, ref) => (
   <svg
     width="95"
@@ -789,7 +789,7 @@ SupremeIntelligenceBlackText.displayName = "SupremeIntelligenceBlackText";
 // Supreme Intelligence Black Icon SVG Component
 const SupremeIntelligenceBlackIcon = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement> & { viewpoint: string }
+  React.SVGProps<SVGSVGElement> & { viewpoint?: string }
 >(({ className, viewpoint, ...props }, ref) => (
   <svg
     width="95"
