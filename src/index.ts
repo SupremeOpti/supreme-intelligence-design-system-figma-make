@@ -38,6 +38,7 @@ export * from "./components/ui/Icons/Google";
 export * from "./components/ui/Icons/Home";
 export * from "./components/ui/Icons/KnowledgeBase";
 export * from "./components/ui/Icons/LinkedIn";
+export * from "./components/ui/Icons/Palette";
 export * from "./components/ui/Icons/PersonaIcon";
 export * from "./components/ui/Icons/Sidebar";
 export * from "./components/ui/Icons/Vector";
