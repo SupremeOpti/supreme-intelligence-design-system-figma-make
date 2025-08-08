@@ -26,6 +26,9 @@ export * from "./components/ui/toaster";
 export * from "./components/ui/toggle";
 export * from "./components/ui/tooltip";
 
+// Export all icon components
+export * from "./components/ui/Icons";
+
 // Export utilities
 export * from "./lib/utils";
 

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import React__default from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
 import * as react_jsx_runtime from 'react/jsx-runtime';
@@ -381,6 +382,81 @@ interface TooltipContentProps extends React.ComponentPropsWithoutRef<typeof Tool
 }
 declare const TooltipContent: React.ForwardRefExoticComponent<TooltipContentProps & React.RefAttributes<HTMLDivElement>>;
 
+interface AIProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const AI: React__default.FC<AIProps>;
+
+interface AnalyticsProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const Analytics: React__default.FC<AnalyticsProps>;
+
+interface AppIconProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const AppIcon: React__default.FC<AppIconProps>;
+
+interface AudiencesProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const Audiences: React__default.FC<AudiencesProps>;
+
+interface BrandGuidelinesProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const BrandGuidelines: React__default.FC<BrandGuidelinesProps>;
+
+interface DataSourcesProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const DataSources: React__default.FC<DataSourcesProps>;
+
+interface DigitalAssetManagementProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const DigitalAssetManagement: React__default.FC<DigitalAssetManagementProps>;
+
+interface GoogleProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const Google: React__default.FC<GoogleProps>;
+
+interface HomeProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const Home: React__default.FC<HomeProps>;
+
+interface KnowledgeBaseProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const KnowledgeBase: React__default.FC<KnowledgeBaseProps>;
+
+interface LinkedInProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const LinkedIn: React__default.FC<LinkedInProps>;
+
+interface PersonaIconProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const PersonaIcon: React__default.FC<PersonaIconProps>;
+
+interface PaletteProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const Palette: React__default.FC<PaletteProps>;
+
+interface SidebarProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const Sidebar: React__default.FC<SidebarProps>;
+
+interface VectorProps extends React__default.SVGProps<SVGSVGElement> {
+    size?: number;
+}
+declare const Vector: React__default.FC<VectorProps>;
+
 declare function cn(...inputs: ClassValue[]): string;
 
 declare function useIsMobile(): boolean;
@@ -426,4 +502,4 @@ declare function useToast(): {
     toasts: Toast[];
 };
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, AnnouncementCard, Avatar, AvatarGroup, Badge, type BadgeProps, Banner, type BannerProps, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, type ButtonProps, Checkbox, ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxFooter, ContentBoxHeader, ContentBoxTitle, HighlightCTACard, HighlightCard, IconCard, InfoCard, Input, type InputProps, Logo, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, MessageAngle, MessageCard, NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuViewport, PageLevel, PageLevelItem, PageLevelList, type PageLevelProps, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, Persona, type PersonaProps, Popover, PopoverContent, PopoverTrigger, Progress, RangeSlider, Slider, TabGroup, Table, TableBody, TableCaption, TableCell, TableCheckbox, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, type TextareaProps, Toast$1 as Toast, ToastAction, type ToastActionElement, ToastActions, ToastClose, ToastContent, ToastDescription, ToastIcon, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, badgeVariants, bannerVariants, buttonVariants, cn, navigationMenuTriggerStyle, pageLevelVariants, personaVariants, reducer, tabsContentVariants, tabsListVariants, tabsTriggerVariants, toast, toggleVariants, useIsMobile, useToast };
+export { AI, Accordion, AccordionContent, AccordionItem, AccordionTrigger, Analytics, AnnouncementCard, AppIcon, Audiences, Avatar, AvatarGroup, Badge, type BadgeProps, Banner, type BannerProps, BrandGuidelines, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, type ButtonProps, Checkbox, ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxFooter, ContentBoxHeader, ContentBoxTitle, DataSources, DigitalAssetManagement, Google, HighlightCTACard, HighlightCard, Home, IconCard, InfoCard, Input, type InputProps, KnowledgeBase, LinkedIn, Logo, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, MessageAngle, MessageCard, NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuViewport, PageLevel, PageLevelItem, PageLevelList, type PageLevelProps, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, Palette, Persona, PersonaIcon, type PersonaProps, Popover, PopoverContent, PopoverTrigger, Progress, RangeSlider, Sidebar, Slider, TabGroup, Table, TableBody, TableCaption, TableCell, TableCheckbox, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, type TextareaProps, Toast$1 as Toast, ToastAction, type ToastActionElement, ToastActions, ToastClose, ToastContent, ToastDescription, ToastIcon, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Vector, badgeVariants, bannerVariants, buttonVariants, cn, navigationMenuTriggerStyle, pageLevelVariants, personaVariants, reducer, tabsContentVariants, tabsListVariants, tabsTriggerVariants, toast, toggleVariants, useIsMobile, useToast };
