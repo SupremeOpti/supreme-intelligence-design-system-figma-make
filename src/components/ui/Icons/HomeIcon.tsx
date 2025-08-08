@@ -1,11 +1,11 @@
 import React from "react";
 import { cn } from "../../../lib/utils";
 
-interface HomeProps extends React.SVGProps<SVGSVGElement> {
+interface HomeIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-export const Home: React.FC<HomeProps> = ({
+export const HomeIcon: React.FC<HomeIconProps> = ({
   size = 24,
   className,
   ...props

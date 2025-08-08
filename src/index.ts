@@ -27,21 +27,21 @@ export * from "./components/ui/toggle";
 export * from "./components/ui/tooltip";
 
 // Export Icon components
-export * from "./components/ui/Icons/AI";
-export * from "./components/ui/Icons/Analytics";
-export * from "./components/ui/Icons/AppIcon";
-export * from "./components/ui/Icons/Audiences";
-export * from "./components/ui/Icons/BrandGuidelines";
-export * from "./components/ui/Icons/DataSources";
-export * from "./components/ui/Icons/DigitalAssetManagement";
-export * from "./components/ui/Icons/Google";
-export * from "./components/ui/Icons/Home";
-export * from "./components/ui/Icons/KnowledgeBase";
-export * from "./components/ui/Icons/LinkedIn";
-export * from "./components/ui/Icons/Palette";
-export * from "./components/ui/Icons/PersonaIcon";
-export * from "./components/ui/Icons/Sidebar";
-export * from "./components/ui/Icons/Vector";
+export * from "./components/ui/Icons/AIIcon";
+export * from "./components/ui/Icons/AnalyticsIcon";
+export * from "./components/ui/Icons/AppIconIcon";
+export * from "./components/ui/Icons/AudiencesIcon";
+export * from "./components/ui/Icons/BrandGuidelinesIcon";
+export * from "./components/ui/Icons/DataSourcesIcon";
+export * from "./components/ui/Icons/DigitalAssetManagementIcon";
+export * from "./components/ui/Icons/GoogleIcon";
+export * from "./components/ui/Icons/HomeIcon";
+export * from "./components/ui/Icons/KnowledgeBaseIcon";
+export * from "./components/ui/Icons/LinkedInIcon";
+export * from "./components/ui/Icons/PaletteIcon";
+export * from "./components/ui/Icons/PersonaIconIcon";
+export * from "./components/ui/Icons/SidebarIcon";
+export * from "./components/ui/Icons/VectorIcon";
 
 // Export utilities
 export * from "./lib/utils";

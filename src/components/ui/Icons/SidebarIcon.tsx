@@ -1,11 +1,11 @@
 import React from "react";
 import { cn } from "../../../lib/utils";
 
-interface SidebarProps extends React.SVGProps<SVGSVGElement> {
+interface SidebarIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({
+export const SidebarIcon: React.FC<SidebarIconProps> = ({
   size = 24,
   className,
   ...props

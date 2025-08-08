@@ -1,15 +1,14 @@
 import React from "react";
 import { cn } from "../../../lib/utils";
 
-interface DigitalAssetManagementProps extends React.SVGProps<SVGSVGElement> {
+interface DigitalAssetManagementIconProps
+  extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-export const DigitalAssetManagement: React.FC<DigitalAssetManagementProps> = ({
-  size = 24,
-  className,
-  ...props
-}) => {
+export const DigitalAssetManagementIcon: React.FC<
+  DigitalAssetManagementIconProps
+> = ({ size = 24, className, ...props }) => {
   return (
     <svg
       width={size}

@@ -1,11 +1,15 @@
 import React from "react";
 import { cn } from "../../../lib/utils";
 
-interface AIProps extends React.SVGProps<SVGSVGElement> {
+interface AIIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-export const AI: React.FC<AIProps> = ({ size = 24, className, ...props }) => {
+export const AIIcon: React.FC<AIIconProps> = ({
+  size = 24,
+  className,
+  ...props
+}) => {
   return (
     <svg
       width={size}

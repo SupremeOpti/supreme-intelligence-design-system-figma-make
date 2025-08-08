@@ -1,11 +1,11 @@
 import React from "react";
 import { cn } from "../../../lib/utils";
 
-interface AppIconProps extends React.SVGProps<SVGSVGElement> {
+interface AppIconIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-export const AppIcon: React.FC<AppIconProps> = ({
+export const AppIconIcon: React.FC<AppIconIconProps> = ({
   size = 24,
   className,
   ...props

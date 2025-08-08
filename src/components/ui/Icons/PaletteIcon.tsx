@@ -1,11 +1,11 @@
 import React from "react";
 import { cn } from "../../../lib/utils";
 
-interface PaletteProps extends React.SVGProps<SVGSVGElement> {
+interface PaletteIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-export const Palette: React.FC<PaletteProps> = ({
+export const PaletteIcon: React.FC<PaletteIconProps> = ({
   size = 24,
   className,
   ...props

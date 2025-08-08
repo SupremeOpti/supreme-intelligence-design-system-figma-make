@@ -30,20 +30,20 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var index_exports = {};
 __export(index_exports, {
-  AI: () => AI,
+  AIIcon: () => AIIcon,
   Accordion: () => Accordion,
   AccordionContent: () => AccordionContent,
   AccordionItem: () => AccordionItem,
   AccordionTrigger: () => AccordionTrigger,
-  Analytics: () => Analytics,
+  AnalyticsIcon: () => AnalyticsIcon,
   AnnouncementCard: () => AnnouncementCard,
-  AppIcon: () => AppIcon,
-  Audiences: () => Audiences,
+  AppIconIcon: () => AppIconIcon,
+  AudiencesIcon: () => AudiencesIcon,
   Avatar: () => Avatar,
   AvatarGroup: () => AvatarGroup,
   Badge: () => Badge,
   Banner: () => Banner,
-  BrandGuidelines: () => BrandGuidelines,
+  BrandGuidelinesIcon: () => BrandGuidelinesIcon,
   Breadcrumb: () => Breadcrumb,
   BreadcrumbEllipsis: () => BreadcrumbEllipsis,
   BreadcrumbItem: () => BreadcrumbItem,
@@ -59,17 +59,17 @@ __export(index_exports, {
   ContentBoxFooter: () => ContentBoxFooter,
   ContentBoxHeader: () => ContentBoxHeader,
   ContentBoxTitle: () => ContentBoxTitle,
-  DataSources: () => DataSources,
-  DigitalAssetManagement: () => DigitalAssetManagement,
-  Google: () => Google,
+  DataSourcesIcon: () => DataSourcesIcon,
+  DigitalAssetManagementIcon: () => DigitalAssetManagementIcon,
+  GoogleIcon: () => GoogleIcon,
   HighlightCTACard: () => HighlightCTACard,
   HighlightCard: () => HighlightCard,
-  Home: () => Home,
+  HomeIcon: () => HomeIcon,
   IconCard: () => IconCard,
   InfoCard: () => InfoCard,
   Input: () => Input,
-  KnowledgeBase: () => KnowledgeBase,
-  LinkedIn: () => LinkedIn,
+  KnowledgeBaseIcon: () => KnowledgeBaseIcon,
+  LinkedInIcon: () => LinkedInIcon,
   Logo: () => Logo,
   Menubar: () => Menubar,
   MenubarCheckboxItem: () => MenubarCheckboxItem,
@@ -107,15 +107,15 @@ __export(index_exports, {
   PaginationLink: () => PaginationLink,
   PaginationNext: () => PaginationNext,
   PaginationPrevious: () => PaginationPrevious,
-  Palette: () => Palette,
+  PaletteIcon: () => PaletteIcon,
   Persona: () => Persona,
-  PersonaIcon: () => PersonaIcon,
+  PersonaIconIcon: () => PersonaIconIcon,
   Popover: () => Popover,
   PopoverContent: () => PopoverContent,
   PopoverTrigger: () => PopoverTrigger,
   Progress: () => Progress,
   RangeSlider: () => RangeSlider,
-  Sidebar: () => Sidebar,
+  SidebarIcon: () => SidebarIcon,
   Slider: () => Slider,
   TabGroup: () => TabGroup,
   Table: () => Table,
@@ -148,7 +148,7 @@ __export(index_exports, {
   TooltipContent: () => TooltipContent,
   TooltipProvider: () => TooltipProvider,
   TooltipTrigger: () => TooltipTrigger,
-  Vector: () => Vector,
+  VectorIcon: () => VectorIcon,
   badgeVariants: () => badgeVariants,
   bannerVariants: () => bannerVariants,
   buttonVariants: () => buttonVariants,
@@ -937,7 +937,7 @@ var CurieAiOriginalIcon = React10.forwardRef(({ className, viewpoint, ...props }
     ref,
     width: "95",
     height: "95",
-    viewBox: viewpoint,
+    viewBox: viewpoint || "0 0 95 95",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
@@ -1271,7 +1271,7 @@ var CurieAiBlackIcon = React10.forwardRef(({ className, viewpoint, ...props }, r
     ref,
     width: "95",
     height: "95",
-    viewBox: viewpoint,
+    viewBox: viewpoint || "0 0 95 95",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
@@ -1356,7 +1356,7 @@ var CurieAiWhiteIcon = React10.forwardRef(({ className, viewpoint, ...props }, r
     ref,
     width: "95",
     height: "95",
-    viewBox: viewpoint,
+    viewBox: viewpoint || "0 0 95 95",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
@@ -1444,7 +1444,7 @@ var SupremeIntelligenceOriginalText = React10.forwardRef(({ className, ...props 
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("g", { "clip-path": "url(#clip0_1668_1288)", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("g", { clipPath: "url(#clip0_1668_1288)", children: [
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
           "path",
           {
@@ -1597,8 +1597,8 @@ var SupremeIntelligenceOriginalText = React10.forwardRef(({ className, ...props 
             gradientUnits: "userSpaceOnUse",
             gradientTransform: "translate(53.0473 88.0189) rotate(85.8187) scale(40.2243 72.7587)",
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("stop", { "stop-color": "#3830B7" }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("stop", { offset: "1", "stop-color": "#392D43" })
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("stop", { stopColor: "#3830B7" }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("stop", { offset: "1", stopColor: "#392D43" })
             ]
           }
         ),
@@ -1613,11 +1613,11 @@ var SupremeIntelligenceOriginalIcon = React10.forwardRef(({ className, viewpoint
   {
     width: "95",
     height: "95",
-    viewBox: viewpoint,
+    viewBox: viewpoint || "0 0 95 95",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("g", { "clip-path": "url(#clip0_1844_1347)", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("g", { clipPath: "url(#clip0_1844_1347)", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "path",
         {
           d: "M0 0.281769V94.5635H94.7752V0.281769H0ZM55.7218 66.3455C54.0247 68.6938 51.717 70.4873 48.7891 71.7356C45.866 72.9839 42.5823 73.6057 38.9476 73.6057C33.2456 73.6057 28.5773 72.2856 24.9378 69.6456C21.2983 67.0055 19.0627 63.2415 18.2262 58.3488H24.4186C25.2551 61.7206 26.8994 64.2794 29.3561 66.0155C31.8129 67.7516 35.0341 68.6173 39.0149 68.6173C42.9957 68.6173 45.9573 67.7277 48.3419 65.939C50.7266 64.155 51.9189 61.7971 51.9189 58.8605C51.9189 56.3161 51.217 54.3026 49.8179 52.8104C48.4189 51.3182 46.241 50.2803 43.2938 49.6921L31.0533 47.2003C27.0724 46.4207 24.1109 45.0385 22.1685 43.0584C20.2262 41.0784 19.255 38.3044 19.255 34.7317C19.255 31.8477 20.1156 29.3894 21.8368 27.3615C23.558 25.3337 25.8561 23.8032 28.7311 22.7797C31.6062 21.7514 34.7649 21.2397 38.2072 21.2397C43.515 21.2397 47.7939 22.4401 51.0343 24.8315C54.2795 27.2276 56.2218 30.676 56.8613 35.1717H50.6689C50.0775 32.1395 48.6881 29.8772 46.5054 28.385C44.3179 26.8928 41.5053 26.1467 38.063 26.1467C34.3754 26.1467 31.3754 26.8689 29.0677 28.3085C26.7551 29.7529 25.6013 31.7664 25.6013 34.3587C25.6013 36.6065 26.1782 38.3331 27.3321 39.5288C28.4859 40.7292 30.3658 41.5949 32.9716 42.1306L45.7986 44.6989C50.0247 45.5311 53.1593 47.0233 55.1978 49.1707C57.2363 51.323 58.2555 54.3026 58.2555 58.1192C58.2555 61.2471 57.4094 63.9876 55.7122 66.3359L55.7218 66.3455ZM76.549 73.0939H70.2797V40.3801H63.4239V35.4635H76.549V73.0891V73.0939Z",
@@ -1635,8 +1635,8 @@ var SupremeIntelligenceOriginalIcon = React10.forwardRef(({ className, viewpoint
             gradientUnits: "userSpaceOnUse",
             gradientTransform: "translate(53.0473 88.3007) rotate(85.8187) scale(40.2243 72.7587)",
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("stop", { "stop-color": "#3830B7" }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("stop", { offset: "1", "stop-color": "#392D43" })
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("stop", { stopColor: "#3830B7" }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("stop", { offset: "1", stopColor: "#392D43" })
             ]
           }
         ),
@@ -1663,7 +1663,7 @@ var SupremeIntelligenceWhiteText = React10.forwardRef(({ className, ...props }, 
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("g", { "clip-path": "url(#clip0_1844_1453)", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("g", { clipPath: "url(#clip0_1844_1453)", children: [
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
           "path",
           {
@@ -1815,11 +1815,11 @@ var SupremeIntelligenceWhiteIcon = React10.forwardRef(({ className, viewpoint, .
   {
     width: "95",
     height: "95",
-    viewBox: viewpoint,
+    viewBox: viewpoint || "0 0 95 95",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("g", { "clip-path": "url(#clip0_1844_1478)", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("g", { clipPath: "url(#clip0_1844_1478)", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "path",
         {
           d: "M0 0.281769V94.5635H94.7752V0.281769H0ZM55.7218 66.3455C54.0247 68.6938 51.717 70.4873 48.7891 71.7356C45.866 72.9839 42.5823 73.6057 38.9476 73.6057C33.2456 73.6057 28.5773 72.2856 24.9378 69.6456C21.2983 67.0055 19.0627 63.2415 18.2262 58.3488H24.4186C25.2551 61.7206 26.8994 64.2794 29.3561 66.0155C31.8129 67.7516 35.0341 68.6173 39.0149 68.6173C42.9957 68.6173 45.9573 67.7277 48.3419 65.939C50.7266 64.155 51.9189 61.7971 51.9189 58.8605C51.9189 56.3161 51.217 54.3026 49.8179 52.8104C48.4189 51.3182 46.241 50.2803 43.2938 49.6921L31.0533 47.2003C27.0724 46.4207 24.1109 45.0385 22.1685 43.0584C20.2262 41.0784 19.255 38.3044 19.255 34.7317C19.255 31.8477 20.1156 29.3894 21.8368 27.3615C23.558 25.3337 25.8561 23.8032 28.7311 22.7797C31.6062 21.7514 34.7649 21.2397 38.2072 21.2397C43.515 21.2397 47.7939 22.4401 51.0343 24.8315C54.2795 27.2276 56.2218 30.676 56.8613 35.1717H50.6689C50.0775 32.1395 48.6881 29.8772 46.5054 28.385C44.3179 26.8928 41.5053 26.1467 38.063 26.1467C34.3754 26.1467 31.3754 26.8689 29.0677 28.3085C26.7551 29.7529 25.6013 31.7664 25.6013 34.3587C25.6013 36.6065 26.1782 38.3331 27.3321 39.5288C28.4859 40.7292 30.3658 41.5949 32.9716 42.1306L45.7986 44.6989C50.0247 45.5311 53.1593 47.0233 55.1978 49.1707C57.2363 51.323 58.2555 54.3026 58.2555 58.1192C58.2555 61.2471 57.4094 63.9876 55.7122 66.3359L55.7218 66.3455ZM76.549 73.0939H70.2797V40.3801H63.4239V35.4635H76.549V73.0891V73.0939Z",
@@ -1848,7 +1848,7 @@ var SupremeIntelligenceBlackText = React10.forwardRef(({ className, ...props }, 
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("g", { "clip-path": "url(#clip0_1844_1507)", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("g", { clipPath: "url(#clip0_1844_1507)", children: [
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
           "path",
           {
@@ -2008,11 +2008,11 @@ var SupremeIntelligenceBlackIcon = React10.forwardRef(({ className, viewpoint, .
   {
     width: "95",
     height: "95",
-    viewBox: viewpoint,
+    viewBox: viewpoint || "0 0 95 95",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("g", { "clip-path": "url(#clip0_1844_1532)", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("g", { clipPath: "url(#clip0_1844_1532)", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "path",
         {
           d: "M0 0.281311V94.5631H94.7752V0.281311H0ZM55.7218 66.345C54.0247 68.6934 51.717 70.4869 48.7891 71.7352C45.866 72.9834 42.5823 73.6052 38.9476 73.6052C33.2456 73.6052 28.5773 72.2852 24.9378 69.6451C21.2983 67.0051 19.0627 63.2411 18.2262 58.3483H24.4186C25.2551 61.7201 26.8994 64.2789 29.3561 66.015C31.8129 67.7512 35.0341 68.6168 39.0149 68.6168C42.9957 68.6168 45.9573 67.7272 48.3419 65.9385C50.7266 64.1545 51.9189 61.7967 51.9189 58.8601C51.9189 56.3157 51.217 54.3021 49.8179 52.8099C48.4189 51.3177 46.241 50.2799 43.2938 49.6916L31.0533 47.1998C27.0724 46.4202 24.1109 45.038 22.1685 43.058C20.2262 41.0779 19.255 38.3039 19.255 34.7312C19.255 31.8473 20.1156 29.3889 21.8368 27.3611C23.558 25.3332 25.8561 23.8027 28.7311 22.7792C31.6062 21.7509 34.7649 21.2392 38.2072 21.2392C43.515 21.2392 47.7939 22.4397 51.0343 24.831C54.2795 27.2272 56.2218 30.6755 56.8613 35.1713H50.6689C50.0775 32.139 48.6881 29.8768 46.5054 28.3846C44.3179 26.8924 41.5053 26.1463 38.063 26.1463C34.3754 26.1463 31.3754 26.8685 29.0677 28.3081C26.7551 29.7524 25.6013 31.766 25.6013 34.3582C25.6013 36.6061 26.1782 38.3326 27.3321 39.5283C28.4859 40.7288 30.3658 41.5945 32.9716 42.1301L45.7986 44.6984C50.0247 45.5306 53.1593 47.0228 55.1978 49.1703C57.2363 51.3225 58.2555 54.3021 58.2555 58.1188C58.2555 61.2467 57.4094 63.9872 55.7122 66.3355L55.7218 66.345ZM76.549 73.0935H70.2797V40.3796H63.4239V35.463H76.549V73.0887V73.0935Z",
@@ -2999,9 +2999,9 @@ var ToastPrimitives = __toESM(require("@radix-ui/react-toast"), 1);
 var import_class_variance_authority8 = require("class-variance-authority");
 var import_outline8 = require("@heroicons/react/24/outline");
 
-// src/components/ui/Icons/Vector.tsx
+// src/components/ui/Icons/VectorIcon.tsx
 var import_jsx_runtime23 = require("react/jsx-runtime");
-var Vector = ({
+var VectorIcon = ({
   size = 24,
   className,
   ...props
@@ -3090,7 +3090,7 @@ var ToastIcon = React22.forwardRef(({ className, variant, ...props }, ref) => /*
       className
     ),
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Vector, { className: cn("w-5 h-5", variant === "success" && "text-green-500", variant === "info" && "text-blue-500", variant === "warning" && "text-yellow-500", variant === "destructive" && "text-red-500") })
+    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(VectorIcon, { className: cn("w-5 h-5", variant === "success" && "text-green-500", variant === "info" && "text-blue-500", variant === "warning" && "text-yellow-500", variant === "destructive" && "text-red-500") })
   }
 ));
 ToastIcon.displayName = "ToastIcon";
@@ -3422,9 +3422,13 @@ var TooltipContent = React25.forwardRef(({ className, sideOffset = 4, arrowDirec
 });
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-// src/components/ui/Icons/AI.tsx
+// src/components/ui/Icons/AIIcon.tsx
 var import_jsx_runtime28 = require("react/jsx-runtime");
-var AI = ({ size = 24, className, ...props }) => {
+var AIIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
   return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
     "svg",
     {
@@ -3449,9 +3453,9 @@ var AI = ({ size = 24, className, ...props }) => {
   );
 };
 
-// src/components/ui/Icons/Analytics.tsx
+// src/components/ui/Icons/AnalyticsIcon.tsx
 var import_jsx_runtime29 = require("react/jsx-runtime");
-var Analytics = ({
+var AnalyticsIcon = ({
   size = 24,
   className,
   ...props
@@ -3481,9 +3485,9 @@ var Analytics = ({
   );
 };
 
-// src/components/ui/Icons/AppIcon.tsx
+// src/components/ui/Icons/AppIconIcon.tsx
 var import_jsx_runtime30 = require("react/jsx-runtime");
-var AppIcon = ({
+var AppIconIcon = ({
   size = 24,
   className,
   ...props
@@ -3513,9 +3517,9 @@ var AppIcon = ({
   );
 };
 
-// src/components/ui/Icons/Audiences.tsx
+// src/components/ui/Icons/AudiencesIcon.tsx
 var import_jsx_runtime31 = require("react/jsx-runtime");
-var Audiences = ({
+var AudiencesIcon = ({
   size = 24,
   className,
   ...props
@@ -3545,9 +3549,9 @@ var Audiences = ({
   );
 };
 
-// src/components/ui/Icons/BrandGuidelines.tsx
+// src/components/ui/Icons/BrandGuidelinesIcon.tsx
 var import_jsx_runtime32 = require("react/jsx-runtime");
-var BrandGuidelines = ({
+var BrandGuidelinesIcon = ({
   size = 24,
   className,
   ...props
@@ -3577,9 +3581,9 @@ var BrandGuidelines = ({
   );
 };
 
-// src/components/ui/Icons/DataSources.tsx
+// src/components/ui/Icons/DataSourcesIcon.tsx
 var import_jsx_runtime33 = require("react/jsx-runtime");
-var DataSources = ({
+var DataSourcesIcon = ({
   size = 24,
   className,
   ...props
@@ -3609,13 +3613,9 @@ var DataSources = ({
   );
 };
 
-// src/components/ui/Icons/DigitalAssetManagement.tsx
+// src/components/ui/Icons/DigitalAssetManagementIcon.tsx
 var import_jsx_runtime34 = require("react/jsx-runtime");
-var DigitalAssetManagement = ({
-  size = 24,
-  className,
-  ...props
-}) => {
+var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
     "svg",
     {
@@ -3672,9 +3672,9 @@ var DigitalAssetManagement = ({
   );
 };
 
-// src/components/ui/Icons/Google.tsx
+// src/components/ui/Icons/GoogleIcon.tsx
 var import_jsx_runtime35 = require("react/jsx-runtime");
-var Google = ({
+var GoogleIcon = ({
   size = 24,
   className,
   ...props
@@ -3723,9 +3723,9 @@ var Google = ({
   );
 };
 
-// src/components/ui/Icons/Home.tsx
+// src/components/ui/Icons/HomeIcon.tsx
 var import_jsx_runtime36 = require("react/jsx-runtime");
-var Home = ({
+var HomeIcon = ({
   size = 24,
   className,
   ...props
@@ -3755,9 +3755,9 @@ var Home = ({
   );
 };
 
-// src/components/ui/Icons/KnowledgeBase.tsx
+// src/components/ui/Icons/KnowledgeBaseIcon.tsx
 var import_jsx_runtime37 = require("react/jsx-runtime");
-var KnowledgeBase = ({
+var KnowledgeBaseIcon = ({
   size = 24,
   className,
   ...props
@@ -3787,9 +3787,9 @@ var KnowledgeBase = ({
   );
 };
 
-// src/components/ui/Icons/LinkedIn.tsx
+// src/components/ui/Icons/LinkedInIcon.tsx
 var import_jsx_runtime38 = require("react/jsx-runtime");
-var LinkedIn = ({
+var LinkedInIcon = ({
   size = 24,
   className,
   ...props
@@ -3815,9 +3815,9 @@ var LinkedIn = ({
   );
 };
 
-// src/components/ui/Icons/PersonaIcon.tsx
+// src/components/ui/Icons/PaletteIcon.tsx
 var import_jsx_runtime39 = require("react/jsx-runtime");
-var PersonaIcon = ({
+var PaletteIcon = ({
   size = 24,
   className,
   ...props
@@ -3835,20 +3835,17 @@ var PersonaIcon = ({
       children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
         "path",
         {
-          d: "M5.98467 18.6946C6.53216 17.4047 7.81043 16.5 9.3 16.5H14.7C16.1896 16.5 17.4678 17.4047 18.0153 18.6946M15.6 9.75C15.6 11.7382 13.9882 13.35 12 13.35C10.0118 13.35 8.4 11.7382 8.4 9.75C8.4 7.76177 10.0118 6.15 12 6.15C13.9882 6.15 15.6 7.76177 15.6 9.75ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
-          stroke: "currentColor",
-          strokeWidth: "1.43406",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
+          d: "M12 22C10.6333 22 9.34167 21.7373 8.125 21.212C6.90833 20.6867 5.846 19.97 4.938 19.062C4.03 18.154 3.31333 17.0917 2.788 15.875C2.26267 14.6583 2 13.3667 2 12C2 10.6167 2.271 9.31667 2.813 8.1C3.355 6.88333 4.08833 5.825 5.013 4.925C5.93767 4.025 7.01667 3.31267 8.25 2.788C9.48333 2.26333 10.8 2.00067 12.2 2C13.5333 2 14.7917 2.22933 15.975 2.688C17.1583 3.14667 18.196 3.78 19.088 4.588C19.98 5.396 20.6883 6.35433 21.213 7.463C21.7377 8.57167 22 9.76733 22 11.05C22 12.9667 21.4167 14.4377 20.25 15.463C19.0833 16.4883 17.6667 17.0007 16 17H14.15C14 17 13.896 17.0417 13.838 17.125C13.78 17.2083 13.7507 17.3 13.75 17.4C13.75 17.6 13.875 17.8877 14.125 18.263C14.375 18.6383 14.5 19.0673 14.5 19.55C14.5 20.3833 14.271 21 13.813 21.4C13.355 21.8 12.7507 22 12 22ZM6.5 13C6.93333 13 7.29167 12.8583 7.575 12.575C7.85833 12.2917 8 11.9333 8 11.5C8 11.0667 7.85833 10.7083 7.575 10.425C7.29167 10.1417 6.93333 10 6.5 10C6.06667 10 5.70833 10.1417 5.425 10.425C5.14167 10.7083 5 11.0667 5 11.5C5 11.9333 5.14167 12.2917 5.425 12.575C5.70833 12.8583 6.06667 13 6.5 13ZM9.5 9C9.93333 9 10.2917 8.85833 10.575 8.575C10.8583 8.29167 11 7.93333 11 7.5C11 7.06667 10.8583 6.70833 10.575 6.425C10.2917 6.14167 9.93333 6 9.5 6C9.06667 6 8.70833 6.14167 8.425 6.425C8.14167 6.70833 8 7.06667 8 7.5C8 7.93333 8.14167 8.29167 8.425 8.575C8.70833 8.85833 9.06667 9 9.5 9ZM14.5 9C14.9333 9 15.2917 8.85833 15.575 8.575C15.8583 8.29167 16 7.93333 16 7.5C16 7.06667 15.8583 6.70833 15.575 6.425C15.2917 6.14167 14.9333 6 14.5 6C14.0667 6 13.7083 6.14167 13.425 6.425C13.1417 6.70833 13 7.06667 13 7.5C13 7.93333 13.1417 8.29167 13.425 8.575C13.7083 8.85833 14.0667 9 14.5 9ZM17.5 13C17.9333 13 18.2917 12.8583 18.575 12.575C18.8583 12.2917 19 11.9333 19 11.5C19 11.0667 18.8583 10.7083 18.575 10.425C18.2917 10.1417 17.9333 10 17.5 10C17.0667 10 16.7083 10.1417 16.425 10.425C16.1417 10.7083 16 11.0667 16 11.5C16 11.9333 16.1417 12.2917 16.425 12.575C16.7083 12.8583 17.0667 13 17.5 13ZM12 20C12.15 20 12.271 19.9583 12.363 19.875C12.455 19.7917 12.5007 19.6833 12.5 19.55C12.5 19.3167 12.375 19.0417 12.125 18.725C11.875 18.4083 11.75 17.9333 11.75 17.3C11.75 16.6 11.9917 16.0417 12.475 15.625C12.9583 15.2083 13.55 15 14.25 15H16C17.1 15 18.0417 14.6793 18.825 14.038C19.6083 13.3967 20 12.4007 20 11.05C20 9.03333 19.2293 7.354 17.688 6.012C16.1467 4.67 14.3173 3.99933 12.2 4C9.93333 4 8 4.775 6.4 6.325C4.8 7.875 4 9.76667 4 12C4 14.2167 4.77933 16.1043 6.338 17.663C7.89667 19.2217 9.784 20.0007 12 20Z",
+          fill: "black"
         }
       )
     }
   );
 };
 
-// src/components/ui/Icons/Palette.tsx
+// src/components/ui/Icons/PersonaIconIcon.tsx
 var import_jsx_runtime40 = require("react/jsx-runtime");
-var Palette = ({
+var PersonaIconIcon = ({
   size = 24,
   className,
   ...props
@@ -3866,17 +3863,20 @@ var Palette = ({
       children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
         "path",
         {
-          d: "M12 22C10.6333 22 9.34167 21.7373 8.125 21.212C6.90833 20.6867 5.846 19.97 4.938 19.062C4.03 18.154 3.31333 17.0917 2.788 15.875C2.26267 14.6583 2 13.3667 2 12C2 10.6167 2.271 9.31667 2.813 8.1C3.355 6.88333 4.08833 5.825 5.013 4.925C5.93767 4.025 7.01667 3.31267 8.25 2.788C9.48333 2.26333 10.8 2.00067 12.2 2C13.5333 2 14.7917 2.22933 15.975 2.688C17.1583 3.14667 18.196 3.78 19.088 4.588C19.98 5.396 20.6883 6.35433 21.213 7.463C21.7377 8.57167 22 9.76733 22 11.05C22 12.9667 21.4167 14.4377 20.25 15.463C19.0833 16.4883 17.6667 17.0007 16 17H14.15C14 17 13.896 17.0417 13.838 17.125C13.78 17.2083 13.7507 17.3 13.75 17.4C13.75 17.6 13.875 17.8877 14.125 18.263C14.375 18.6383 14.5 19.0673 14.5 19.55C14.5 20.3833 14.271 21 13.813 21.4C13.355 21.8 12.7507 22 12 22ZM6.5 13C6.93333 13 7.29167 12.8583 7.575 12.575C7.85833 12.2917 8 11.9333 8 11.5C8 11.0667 7.85833 10.7083 7.575 10.425C7.29167 10.1417 6.93333 10 6.5 10C6.06667 10 5.70833 10.1417 5.425 10.425C5.14167 10.7083 5 11.0667 5 11.5C5 11.9333 5.14167 12.2917 5.425 12.575C5.70833 12.8583 6.06667 13 6.5 13ZM9.5 9C9.93333 9 10.2917 8.85833 10.575 8.575C10.8583 8.29167 11 7.93333 11 7.5C11 7.06667 10.8583 6.70833 10.575 6.425C10.2917 6.14167 9.93333 6 9.5 6C9.06667 6 8.70833 6.14167 8.425 6.425C8.14167 6.70833 8 7.06667 8 7.5C8 7.93333 8.14167 8.29167 8.425 8.575C8.70833 8.85833 9.06667 9 9.5 9ZM14.5 9C14.9333 9 15.2917 8.85833 15.575 8.575C15.8583 8.29167 16 7.93333 16 7.5C16 7.06667 15.8583 6.70833 15.575 6.425C15.2917 6.14167 14.9333 6 14.5 6C14.0667 6 13.7083 6.14167 13.425 6.425C13.1417 6.70833 13 7.06667 13 7.5C13 7.93333 13.1417 8.29167 13.425 8.575C13.7083 8.85833 14.0667 9 14.5 9ZM17.5 13C17.9333 13 18.2917 12.8583 18.575 12.575C18.8583 12.2917 19 11.9333 19 11.5C19 11.0667 18.8583 10.7083 18.575 10.425C18.2917 10.1417 17.9333 10 17.5 10C17.0667 10 16.7083 10.1417 16.425 10.425C16.1417 10.7083 16 11.0667 16 11.5C16 11.9333 16.1417 12.2917 16.425 12.575C16.7083 12.8583 17.0667 13 17.5 13ZM12 20C12.15 20 12.271 19.9583 12.363 19.875C12.455 19.7917 12.5007 19.6833 12.5 19.55C12.5 19.3167 12.375 19.0417 12.125 18.725C11.875 18.4083 11.75 17.9333 11.75 17.3C11.75 16.6 11.9917 16.0417 12.475 15.625C12.9583 15.2083 13.55 15 14.25 15H16C17.1 15 18.0417 14.6793 18.825 14.038C19.6083 13.3967 20 12.4007 20 11.05C20 9.03333 19.2293 7.354 17.688 6.012C16.1467 4.67 14.3173 3.99933 12.2 4C9.93333 4 8 4.775 6.4 6.325C4.8 7.875 4 9.76667 4 12C4 14.2167 4.77933 16.1043 6.338 17.663C7.89667 19.2217 9.784 20.0007 12 20Z",
-          fill: "black"
+          d: "M5.98467 18.6946C6.53216 17.4047 7.81043 16.5 9.3 16.5H14.7C16.1896 16.5 17.4678 17.4047 18.0153 18.6946M15.6 9.75C15.6 11.7382 13.9882 13.35 12 13.35C10.0118 13.35 8.4 11.7382 8.4 9.75C8.4 7.76177 10.0118 6.15 12 6.15C13.9882 6.15 15.6 7.76177 15.6 9.75ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
+          stroke: "currentColor",
+          strokeWidth: "1.43406",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
         }
       )
     }
   );
 };
 
-// src/components/ui/Icons/Sidebar.tsx
+// src/components/ui/Icons/SidebarIcon.tsx
 var import_jsx_runtime41 = require("react/jsx-runtime");
-var Sidebar = ({
+var SidebarIcon = ({
   size = 24,
   className,
   ...props
@@ -3920,20 +3920,20 @@ function useIsMobile() {
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  AI,
+  AIIcon,
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  Analytics,
+  AnalyticsIcon,
   AnnouncementCard,
-  AppIcon,
-  Audiences,
+  AppIconIcon,
+  AudiencesIcon,
   Avatar,
   AvatarGroup,
   Badge,
   Banner,
-  BrandGuidelines,
+  BrandGuidelinesIcon,
   Breadcrumb,
   BreadcrumbEllipsis,
   BreadcrumbItem,
@@ -3949,17 +3949,17 @@ function useIsMobile() {
   ContentBoxFooter,
   ContentBoxHeader,
   ContentBoxTitle,
-  DataSources,
-  DigitalAssetManagement,
-  Google,
+  DataSourcesIcon,
+  DigitalAssetManagementIcon,
+  GoogleIcon,
   HighlightCTACard,
   HighlightCard,
-  Home,
+  HomeIcon,
   IconCard,
   InfoCard,
   Input,
-  KnowledgeBase,
-  LinkedIn,
+  KnowledgeBaseIcon,
+  LinkedInIcon,
   Logo,
   Menubar,
   MenubarCheckboxItem,
@@ -3997,15 +3997,15 @@ function useIsMobile() {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-  Palette,
+  PaletteIcon,
   Persona,
-  PersonaIcon,
+  PersonaIconIcon,
   Popover,
   PopoverContent,
   PopoverTrigger,
   Progress,
   RangeSlider,
-  Sidebar,
+  SidebarIcon,
   Slider,
   TabGroup,
   Table,
@@ -4038,7 +4038,7 @@ function useIsMobile() {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-  Vector,
+  VectorIcon,
   badgeVariants,
   bannerVariants,
   buttonVariants,

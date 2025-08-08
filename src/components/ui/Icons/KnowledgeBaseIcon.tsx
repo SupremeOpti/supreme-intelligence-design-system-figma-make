@@ -1,11 +1,11 @@
 import React from "react";
 import { cn } from "../../../lib/utils";
 
-interface KnowledgeBaseProps extends React.SVGProps<SVGSVGElement> {
+interface KnowledgeBaseIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-export const KnowledgeBase: React.FC<KnowledgeBaseProps> = ({
+export const KnowledgeBaseIcon: React.FC<KnowledgeBaseIconProps> = ({
   size = 24,
   className,
   ...props

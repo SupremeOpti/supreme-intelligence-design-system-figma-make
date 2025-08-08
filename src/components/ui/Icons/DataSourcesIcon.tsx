@@ -1,11 +1,11 @@
 import React from "react";
 import { cn } from "../../../lib/utils";
 
-interface DataSourcesProps extends React.SVGProps<SVGSVGElement> {
+interface DataSourcesIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
 
-export const DataSources: React.FC<DataSourcesProps> = ({
+export const DataSourcesIcon: React.FC<DataSourcesIconProps> = ({
   size = 24,
   className,
   ...props

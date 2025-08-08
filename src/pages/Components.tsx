@@ -28,18 +28,18 @@ import {
 } from "@/components/ui/pagination";
 import { Link, useNavigate } from "react-router-dom";
 import { Persona } from "@/components/ui/persona";
-import { AppIcon } from "@/components/ui/Icons/AppIcon";
-import { AI } from "@/components/ui/Icons/AI";
-import { Audiences } from "@/components/ui/Icons/Audiences";
-import { BrandGuidelines } from "@/components/ui/Icons/BrandGuidelines";
-import { DataSources } from "@/components/ui/Icons/DataSources";
-import { DigitalAssetManagement } from "@/components/ui/Icons/DigitalAssetManagement";
-import { Google } from "@/components/ui/Icons/Google";
-import { Home } from "@/components/ui/Icons/Home";
-import { KnowledgeBase } from "@/components/ui/Icons/KnowledgeBase";
-import { LinkedIn } from "@/components/ui/Icons/LinkedIn";
-import { PersonaIcon } from "@/components/ui/Icons/PersonaIcon";
-import { Sidebar } from "@/components/ui/Icons/Sidebar";
+import { AppIconIcon } from "@/components/ui/Icons/AppIconIcon";
+import { AIIcon } from "@/components/ui/Icons/AIIcon";
+import { AudiencesIcon } from "@/components/ui/Icons/AudiencesIcon";
+import { BrandGuidelinesIcon } from "@/components/ui/Icons/BrandGuidelinesIcon";
+import { DataSourcesIcon } from "@/components/ui/Icons/DataSourcesIcon";
+import { DigitalAssetManagementIcon } from "@/components/ui/Icons/DigitalAssetManagementIcon";
+import { GoogleIcon } from "@/components/ui/Icons/GoogleIcon";
+import { HomeIcon } from "@/components/ui/Icons/HomeIcon";
+import { KnowledgeBaseIcon } from "@/components/ui/Icons/KnowledgeBaseIcon";
+import { LinkedInIcon } from "@/components/ui/Icons/LinkedInIcon";
+import { PersonaIconIcon } from "@/components/ui/Icons/PersonaIconIcon";
+import { SidebarIcon } from "@/components/ui/Icons/SidebarIcon";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import ToastDemo from "./toast-demo";
 import {
@@ -472,10 +472,10 @@ const Components = () => {
                             placeholder="Placeholder"
                             hint="This is a hint text to help user."
                             leftIcon={
-                              <Home className="text-muted-foreground" />
+                              <HomeIcon className="text-muted-foreground" />
                             }
                             rightIcon={
-                              <Home className="text-muted-foreground" />
+                              <HomeIcon className="text-muted-foreground" />
                             }
                           />
                         </div>
@@ -848,18 +848,18 @@ const Components = () => {
                     </ContentBoxDescription>
                   </ContentBoxHeader>
                   <ContentBoxContent className="flex flex-wrap gap-4">
-                    <AppIcon />
-                    <AI />
-                    <Audiences />
-                    <BrandGuidelines />
-                    <DataSources />
-                    <DigitalAssetManagement />
-                    <Google />
-                    <Home />
-                    <KnowledgeBase />
-                    <LinkedIn />
-                    <PersonaIcon />
-                    <Sidebar />
+                    <AppIconIcon />
+                    <AIIcon />
+                    <AudiencesIcon />
+                    <BrandGuidelinesIcon />
+                    <DataSourcesIcon />
+                    <DigitalAssetManagementIcon />
+                    <GoogleIcon />
+                    <HomeIcon />
+                    <KnowledgeBaseIcon />
+                    <LinkedInIcon />
+                    <PersonaIconIcon />
+                    <SidebarIcon />
                   </ContentBoxContent>
                 </ContentBox>
               </section>
