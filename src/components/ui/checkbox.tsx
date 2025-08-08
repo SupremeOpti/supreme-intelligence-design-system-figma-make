@@ -31,7 +31,6 @@ const Checkbox = React.forwardRef<
         ? "indeterminate"
         : "unchecked";
     setState(nextState);
-    console.log(nextState);
   };
 
   return (

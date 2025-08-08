@@ -1,10 +1,37 @@
 import { Button } from "@/components/ui/button";
-import { ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxHeader, ContentBoxTitle } from "@/components/ui/contentbox";
+import {
+  ContentBox,
+  ContentBoxContent,
+  ContentBoxDescription,
+  ContentBoxHeader,
+  ContentBoxTitle,
+} from "@/components/ui/contentbox";
 import { Logo } from "@/components/ui/logo";
 import { ArrowRight, Palette, Code, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    // Add BugHerd script
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src =
+      "https://www.bugherd.com/sidebarv2.js?apikey=ljnm33lvqfgml4sr9fwffa";
+    script.async = true;
+    document.head.appendChild(script);
+
+    // Cleanup function to remove script when component unmounts
+    return () => {
+      const existingScript = document.querySelector(
+        'script[src*="bugherd.com"]'
+      );
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-16">
@@ -17,8 +44,9 @@ const Index = () => {
             Supreme Intelligence Design System
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive design system built with React, TypeScript, and Tailwind CSS. 
-            Featuring beautiful components, semantic tokens, and seamless dark mode support.
+            A comprehensive design system built with React, TypeScript, and
+            Tailwind CSS. Featuring beautiful components, semantic tokens, and
+            seamless dark mode support.
           </p>
           <div className="flex gap-4 justify-center">
             <Button asChild size="lg">
@@ -43,7 +71,8 @@ const Index = () => {
               </div>
               <ContentBoxTitle>Design Tokens</ContentBoxTitle>
               <ContentBoxDescription>
-                Semantic color system with HSL values, supporting both light and dark themes seamlessly.
+                Semantic color system with HSL values, supporting both light and
+                dark themes seamlessly.
               </ContentBoxDescription>
             </ContentBoxHeader>
           </ContentBox>
@@ -55,7 +84,8 @@ const Index = () => {
               </div>
               <ContentBoxTitle>TypeScript Ready</ContentBoxTitle>
               <ContentBoxDescription>
-                Fully typed components with excellent IntelliSense support and type safety out of the box.
+                Fully typed components with excellent IntelliSense support and
+                type safety out of the box.
               </ContentBoxDescription>
             </ContentBoxHeader>
           </ContentBox>
@@ -67,7 +97,8 @@ const Index = () => {
               </div>
               <ContentBoxTitle>Performance First</ContentBoxTitle>
               <ContentBoxDescription>
-                Optimized bundle size with tree-shaking support and efficient component architecture.
+                Optimized bundle size with tree-shaking support and efficient
+                component architecture.
               </ContentBoxDescription>
             </ContentBoxHeader>
           </ContentBox>
@@ -98,5 +129,5 @@ const Index = () => {
     </div>
   );
 };
-  
-  export default Index;
+
+export default Index;
