@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Sidebar, SidebarItem, SidebarSection } from "../components/ui/sidebar";
 import {
   HomeIcon,
@@ -9,13 +10,17 @@ import {
   BrandGuidelinesIcon,
   KnowledgeBaseIcon,
   DataSourcesIcon,
+  DigitalAssetManagementIcon,
 } from "../components/ui/Icons";
+import { CurieAIChatPrompt } from "@/components/ui/curie-ai-chat-prompt";
 
 const SidebarDemo: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set(["supreme-iq"])
   );
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Sample sidebar data matching the image
   const sidebarItems: SidebarSection[] = [
@@ -24,30 +29,39 @@ const SidebarDemo: React.FC = () => {
       title: "",
       items: [
         {
-          id: "menu",
-          label: "Menu",
+          id: "home",
+          label: "Home",
           icon: <HomeIcon className="w-6 h-6" />,
-          isActive: true,
+          isActive: location.pathname === "/",
+          href: "/",
         },
         {
           id: "curie-ai-chat",
           label: "Curie AI Chat",
           icon: <AIIcon className="w-6 h-6" />,
+          isActive: location.pathname === "/curie-ai-chat-demo",
+          href: "/curie-ai-chat-demo",
         },
         {
           id: "apps",
           label: "Apps",
           icon: <AppIcon className="w-6 h-6" />,
+          isActive: location.pathname === "/apps",
+          href: "/apps",
         },
         {
           id: "analytics",
           label: "Analytics",
           icon: <AnalyticsIcon className="w-6 h-6" />,
+          isActive: location.pathname === "/analytics",
+          href: "/analytics",
         },
         {
           id: "digital-asset-management",
           label: "Digital Asset Management",
-          icon: <BrandGuidelinesIcon className="w-6 h-6" />,
+          icon: <DigitalAssetManagementIcon className="w-6 h-6" />,
+          isActive: location.pathname === "/digital-asset-management",
+          href: "/digital-asset-management",
         },
       ],
     },
@@ -60,21 +74,29 @@ const SidebarDemo: React.FC = () => {
           id: "audiences",
           label: "Audiences",
           icon: <AudiencesIcon className="w-6 h-6" />,
+          isActive: location.pathname === "/audiences",
+          href: "/audiences",
         },
         {
           id: "brand-guidelines",
           label: "Brand Guidelines",
           icon: <BrandGuidelinesIcon className="w-6 h-6" />,
+          isActive: location.pathname === "/brand-guidelines",
+          href: "/brand-guidelines",
         },
         {
           id: "knowledge-base",
           label: "Knowledge Base",
           icon: <KnowledgeBaseIcon className="w-6 h-6" />,
+          isActive: location.pathname === "/knowledge-base",
+          href: "/knowledge-base",
         },
         {
           id: "data-sources",
           label: "Data Sources",
           icon: <DataSourcesIcon className="w-6 h-6" />,
+          isActive: location.pathname === "/data-sources",
+          href: "/data-sources",
         },
       ],
     },
@@ -82,7 +104,29 @@ const SidebarDemo: React.FC = () => {
 
   const handleItemClick = (item: SidebarItem) => {
     console.log("Clicked item:", item.label);
+
+    // Navigate to the specified route if href is provided
+    if (item.href) {
+      navigate(item.href);
+    }
+
+    // You can also add additional logic here like:
+    // - Opening modals
+    // - Triggering API calls
+    // - Updating global state
+    // - Analytics tracking
   };
+
+  // Update active item based on current route
+  React.useEffect(() => {
+    const currentItem = sidebarItems
+      .flatMap((section) => section.items)
+      .find((item) => item.href === location.pathname);
+    if (currentItem) {
+      // This will be handled by the Sidebar component's internal state
+      console.log("Current active item:", currentItem.label);
+    }
+  }, [location.pathname, sidebarItems]);
 
   const handleSectionToggle = (sectionId: string, isExpanded: boolean) => {
     console.log("Section toggled:", sectionId, "Expanded:", isExpanded);
@@ -108,102 +152,11 @@ const SidebarDemo: React.FC = () => {
       />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Header */}
-        <header className="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
-          <h1 className="text-2xl font-semibold text-gray-900">
-            Sidebar Component Demo
-          </h1>
-          <p className="text-gray-600 mt-1">
-            A comprehensive sidebar component with collapsible sections and
-            navigation
-          </p>
-        </header>
-
+      <div className="flex flex-col w-full">
         {/* Content Area */}
         <main className="flex-1 p-6">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                Features
-              </h2>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Clean, modern design with consistent styling
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Fixed size with optimal spacing and typography
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Collapsible sidebar with smooth animations
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Collapsible sections with chevron indicators
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Active state management
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Customizable logo and brand name
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Responsive design with proper spacing
-                </li>
-              </ul>
-
-              <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-                <h3 className="text-lg font-medium text-gray-900 mb-3">
-                  Usage Example
-                </h3>
-                <pre className="text-sm text-gray-700 bg-white p-3 rounded border overflow-x-auto">
-                  {`<Sidebar
-  items={sidebarItems}
-    onItemClick={handleItemClick}
-    onSectionToggle={handleSectionToggle}
-    collapsible={true}
-    isCollapsed={isCollapsed}
-    onToggleCollapse={() => setIsCollapsed(!isCollapsed)}
-/>`}
-                </pre>
-              </div>
-
-              <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-                <h3 className="text-lg font-medium text-blue-900 mb-3">
-                  Current State
-                </h3>
-                <div className="text-sm text-blue-700">
-                  <p>
-                    <strong>Sidebar collapsed:</strong>{" "}
-                    {isCollapsed ? "Yes" : "No"}
-                  </p>
-                  <p>
-                    <strong>Design:</strong> Clean, modern theme
-                  </p>
-                  <p>
-                    <strong>Size:</strong> Fixed (288px width)
-                  </p>
-                  <p>
-                    <strong>Behavior:</strong>{" "}
-                    {isCollapsed
-                      ? "Icons and chevron indicators visible, sections can be collapsed/expanded"
-                      : "Full sidebar with titles, labels, and chevron indicators"}
-                  </p>
-                  <p>
-                    <strong>Supreme IQ section:</strong>{" "}
-                    {expandedSections.has("supreme-iq")
-                      ? "Expanded"
-                      : "Collapsed"}
-                  </p>
-                </div>
-              </div>
-            </div>
+            <CurieAIChatPrompt />
           </div>
         </main>
       </div>

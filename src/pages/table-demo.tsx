@@ -220,6 +220,26 @@ const TableDemo = () => {
     setSelectedAuditRows(newSelected);
   };
 
+  // Handle table row clicks
+  const handleRowClick = (rowId: number, tableType: "basic" | "audit") => {
+    if (tableType === "basic") {
+      // Navigate to a detail page or open modal for basic table
+      console.log(`Clicked basic table row ${rowId}`);
+      // You can add navigation here: navigate(`/detail/${rowId}`);
+    } else {
+      // Navigate to company detail page for audit table
+      console.log(`Clicked audit table row ${rowId}`);
+      // You can add navigation here: navigate(`/company/${rowId}`);
+    }
+  };
+
+  // Handle company name click (specific link functionality)
+  const handleCompanyClick = (companyName: string) => {
+    console.log(`Clicked company: ${companyName}`);
+    // You can add navigation here: navigate(`/company/${encodeURIComponent(companyName)}`);
+    // Or open in new tab: window.open(`https://example.com/company/${encodeURIComponent(companyName)}`, '_blank');
+  };
+
   // Get color for score ranges using design system colors
   const getScoreColor = (score: string) => {
     const range = score.split("-");
@@ -347,7 +367,9 @@ const TableDemo = () => {
                   {tableData.map((row) => (
                     <TableRow
                       key={row.id}
-                      className="border-b border-gray-100 hover:bg-gray-50"
+                      className="border-b border-gray-100"
+                      clickable={true}
+                      onClick={() => handleRowClick(row.id, "basic")}
                     >
                       <TableCell className="px-4 py-3">
                         <TableCheckbox

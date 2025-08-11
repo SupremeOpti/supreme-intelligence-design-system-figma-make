@@ -173,28 +173,40 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                       className={cn(
                         "flex items-center w-full text-left rounded-lg transition-all duration-200 px-4",
                         sizeClasses.item,
-                        activeItemId === item.id
+                        activeItemId === item.id &&
+                          "text-supreme-blue-700 font-semibold"
                       )}
                     >
                       <div
                         className={cn(
-                          "flex w-full items-center hover:bg-white rounded-lg p-2",
+                          "flex w-full items-center hover:bg-white rounded-lg p-2 transition-all duration-200",
                           isCollapsed && "justify-center",
-                          activeItemId === item.id && "bg-white"
+                          activeItemId === item.id &&
+                            "bg-supreme-blue-50 border border-supreme-blue-200"
                         )}
                       >
                         {item.icon && (
                           <span
                             className={cn(
                               "flex-shrink-0",
-                              !isCollapsed && "mr-3"
+                              !isCollapsed && "mr-3",
+                              activeItemId === item.id &&
+                                "text-supreme-blue-700"
                             )}
                           >
                             {item.icon}
                           </span>
                         )}
                         {!isCollapsed && (
-                          <span className="truncate">{item.label}</span>
+                          <span
+                            className={cn(
+                              "truncate",
+                              activeItemId === item.id &&
+                                "text-supreme-blue-700 font-semibold"
+                            )}
+                          >
+                            {item.label}
+                          </span>
                         )}
                       </div>
                     </button>

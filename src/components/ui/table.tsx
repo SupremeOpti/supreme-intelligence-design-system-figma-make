@@ -1,6 +1,6 @@
-import * as React from "react"
-import { ChevronDown } from "lucide-react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const Table = React.forwardRef<
   HTMLTableElement,
@@ -13,16 +13,20 @@ const Table = React.forwardRef<
       {...props}
     />
   </div>
-))
-Table.displayName = "Table"
+));
+Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("bg-gray-50 border-b border-gray-200", className)} {...props} />
-))
-TableHeader.displayName = "TableHeader"
+  <thead
+    ref={ref}
+    className={cn("bg-gray-50 border-b border-gray-200", className)}
+    {...props}
+  />
+));
+TableHeader.displayName = "TableHeader";
 
 const TableBody = React.forwardRef<
   HTMLTableSectionElement,
@@ -33,8 +37,8 @@ const TableBody = React.forwardRef<
     className={cn("divide-y divide-gray-200", className)}
     {...props}
   />
-))
-TableBody.displayName = "TableBody"
+));
+TableBody.displayName = "TableBody";
 
 const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
@@ -48,30 +52,35 @@ const TableFooter = React.forwardRef<
     )}
     {...props}
   />
-))
-TableFooter.displayName = "TableFooter"
+));
+TableFooter.displayName = "TableFooter";
 
 const TableRow = React.forwardRef<
   HTMLTableRowElement,
-  React.HTMLAttributes<HTMLTableRowElement>
->(({ className, ...props }, ref) => (
+  React.HTMLAttributes<HTMLTableRowElement> & {
+    onClick?: () => void;
+    clickable?: boolean;
+  }
+>(({ className, onClick, clickable, ...props }, ref) => (
   <tr
     ref={ref}
     className={cn(
       "transition-colors hover:bg-gray-50 data-[state=selected]:bg-muted",
+      clickable && "cursor-pointer hover:bg-blue-50",
       className
     )}
+    onClick={onClick}
     {...props}
   />
-))
-TableRow.displayName = "TableRow"
+));
+TableRow.displayName = "TableRow";
 
 const TableHead = React.forwardRef<
   HTMLTableCellElement,
   React.ThHTMLAttributes<HTMLTableCellElement> & {
-    sortable?: boolean
-    sorted?: "asc" | "desc" | false
-    onSort?: () => void
+    sortable?: boolean;
+    sorted?: "asc" | "desc" | false;
+    onSort?: () => void;
   }
 >(({ className, sortable, sorted, onSort, children, ...props }, ref) => (
   <th
@@ -87,16 +96,18 @@ const TableHead = React.forwardRef<
     <div className="flex items-center gap-2">
       {children}
       {sortable && (
-        <ChevronDown className={cn(
-          "h-4 w-4 transition-transform",
-          sorted === "asc" && "rotate-180",
-          sorted === false && "opacity-30"
-        )} />
+        <ChevronDown
+          className={cn(
+            "h-4 w-4 transition-transform",
+            sorted === "asc" && "rotate-180",
+            sorted === false && "opacity-30"
+          )}
+        />
       )}
     </div>
   </th>
-))
-TableHead.displayName = "TableHead"
+));
+TableHead.displayName = "TableHead";
 
 const TableCell = React.forwardRef<
   HTMLTableCellElement,
@@ -107,8 +118,8 @@ const TableCell = React.forwardRef<
     className={cn("p-4 align-middle [&:has([role=checkbox])]:pr-0", className)}
     {...props}
   />
-))
-TableCell.displayName = "TableCell"
+));
+TableCell.displayName = "TableCell";
 
 const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
@@ -119,8 +130,8 @@ const TableCaption = React.forwardRef<
     className={cn("mt-4 text-sm text-muted-foreground", className)}
     {...props}
   />
-))
-TableCaption.displayName = "TableCaption"
+));
+TableCaption.displayName = "TableCaption";
 
 // Checkbox component for table selection
 const TableCheckbox = React.forwardRef<
@@ -136,8 +147,8 @@ const TableCheckbox = React.forwardRef<
     )}
     {...props}
   />
-))
-TableCheckbox.displayName = "TableCheckbox"
+));
+TableCheckbox.displayName = "TableCheckbox";
 
 export {
   Table,
@@ -149,4 +160,4 @@ export {
   TableCell,
   TableCaption,
   TableCheckbox,
-}
+};
