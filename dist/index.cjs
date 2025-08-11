@@ -37,7 +37,7 @@ __export(index_exports, {
   AccordionTrigger: () => AccordionTrigger,
   AnalyticsIcon: () => AnalyticsIcon,
   AnnouncementCard: () => AnnouncementCard,
-  AppIconIcon: () => AppIconIcon,
+  AppIcon: () => AppIcon,
   AudiencesIcon: () => AudiencesIcon,
   Avatar: () => Avatar,
   AvatarGroup: () => AvatarGroup,
@@ -109,12 +109,13 @@ __export(index_exports, {
   PaginationPrevious: () => PaginationPrevious,
   PaletteIcon: () => PaletteIcon,
   Persona: () => Persona,
-  PersonaIconIcon: () => PersonaIconIcon,
+  PersonaIcon: () => PersonaIcon,
   Popover: () => Popover,
   PopoverContent: () => PopoverContent,
   PopoverTrigger: () => PopoverTrigger,
   Progress: () => Progress,
   RangeSlider: () => RangeSlider,
+  Sidebar: () => Sidebar,
   SidebarIcon: () => SidebarIcon,
   Slider: () => Slider,
   TabGroup: () => TabGroup,
@@ -788,7 +789,6 @@ var Checkbox = React7.forwardRef(({ className, externalState, ...props }, ref) =
   const handleClick = () => {
     const nextState = state === "unchecked" ? "checked" : state === "checked" ? "indeterminate" : "unchecked";
     setState(nextState);
-    console.log(nextState);
   };
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
     CheckboxPrimitive.Root,
@@ -2684,11 +2684,690 @@ var Progress = React17.forwardRef(({ className, value, showValue, size = "defaul
 });
 Progress.displayName = ProgressPrimitive.Root.displayName;
 
-// src/components/ui/slider.tsx
+// src/components/ui/sidebar.tsx
 var React18 = __toESM(require("react"), 1);
-var SliderPrimitive = __toESM(require("@radix-ui/react-slider"), 1);
+var import_outline8 = require("@heroicons/react/24/outline");
+
+// src/components/ui/Icons/AIIcon.tsx
 var import_jsx_runtime19 = require("react/jsx-runtime");
-var Slider = React18.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
+var AIIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+        "path",
+        {
+          d: "M6.8335 18.8887V15.4443M6.8335 8.55566V5.11133M5.11133 6.8335H8.55566M5.11133 17.1665H8.55566M12.6889 5.8002L11.4942 8.9062C11.3 9.4113 11.2028 9.66385 11.0518 9.87628C10.9179 10.0646 10.7534 10.2291 10.5651 10.3629C10.3527 10.514 10.1002 10.6111 9.59507 10.8054L6.48906 12L9.59507 13.1946C10.1002 13.3889 10.3527 13.486 10.5651 13.6371C10.7534 13.7709 10.9179 13.9354 11.0518 14.1237C11.2028 14.3362 11.3 14.5887 11.4942 15.0938L12.6889 18.1998L13.8835 15.0938C14.0778 14.5887 14.1749 14.3362 14.3259 14.1237C14.4598 13.9354 14.6243 13.7709 14.8126 13.6371C15.025 13.486 15.2776 13.3889 15.7827 13.1946L18.8887 12L15.7827 10.8054C15.2776 10.6111 15.025 10.514 14.8126 10.3629C14.6243 10.2291 14.4598 10.0646 14.3259 9.87628C14.1749 9.66385 14.0778 9.4113 13.8835 8.9062L12.6889 5.8002Z",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/AnalyticsIcon.tsx
+var import_jsx_runtime20 = require("react/jsx-runtime");
+var AnalyticsIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+        "path",
+        {
+          opacity: "0.8",
+          d: "M17.5847 17.9337V13.0471M12 17.9337V10.9529M6.4153 17.9337L6.4153 15.1414M12.982 7.48163L16.59 8.83464M11.1614 7.74231L7.25316 10.6735M18.3251 8.46722C18.7341 8.87615 18.7341 9.53915 18.3251 9.94808C17.9162 10.357 17.2532 10.357 16.8443 9.94808C16.4353 9.53915 16.4353 8.87615 16.8443 8.46722C17.2532 8.05828 17.9162 8.05828 18.3251 8.46722ZM7.15573 10.5615C7.56466 10.9704 7.56466 11.6334 7.15573 12.0423C6.7468 12.4513 6.08379 12.4513 5.67486 12.0423C5.26593 11.6334 5.26593 10.9704 5.67486 10.5615C6.08379 10.1525 6.7468 10.1525 7.15573 10.5615ZM12.7404 6.37295C13.1494 6.78188 13.1494 7.44489 12.7404 7.85382C12.3315 8.26275 11.6685 8.26275 11.2596 7.85382C10.8506 7.44489 10.8506 6.78188 11.2596 6.37295C11.6685 5.96402 12.3315 5.96402 12.7404 6.37295Z",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/AppIcon.tsx
+var import_jsx_runtime21 = require("react/jsx-runtime");
+var AppIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+        "path",
+        {
+          opacity: "0.8",
+          d: "M18.8887 9.9334H5.11133M13.3777 15.7888L15.0999 14.0666L13.3777 12.3444M10.6223 12.3444L8.9001 14.0666L10.6223 15.7888M5.11133 9.10676L5.11133 14.8932C5.11133 16.0506 5.11133 16.6293 5.33657 17.0714C5.53471 17.4603 5.85086 17.7764 6.23971 17.9746C6.68178 18.1998 7.26048 18.1998 8.41789 18.1998H15.5821C16.7395 18.1998 17.3182 18.1998 17.7603 17.9746C18.1491 17.7764 18.4653 17.4603 18.6634 17.0714C18.8887 16.6293 18.8887 16.0506 18.8887 14.8932V9.10676C18.8887 7.94935 18.8887 7.37065 18.6634 6.92858C18.4653 6.53972 18.1491 6.22357 17.7603 6.02544C17.3182 5.80019 16.7395 5.80019 15.5821 5.80019L8.41789 5.80019C7.26049 5.80019 6.68178 5.80019 6.23971 6.02544C5.85086 6.22357 5.53471 6.53972 5.33657 6.92858C5.11133 7.37065 5.11133 7.94935 5.11133 9.10676Z",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/AudiencesIcon.tsx
+var import_jsx_runtime22 = require("react/jsx-runtime");
+var AudiencesIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+        "path",
+        {
+          opacity: "0.8",
+          d: "M7.20747 17.3335C7.64366 16.3059 8.66205 15.5851 9.84879 15.5851H14.151C15.3377 15.5851 16.3561 16.3059 16.7923 17.3336M14.868 10.2074C14.868 11.7914 13.5839 13.0755 11.9999 13.0755C10.4159 13.0755 9.13176 11.7914 9.13176 10.2074C9.13176 8.62341 10.4159 7.33931 11.9999 7.33931C13.5839 7.33931 14.868 8.62341 14.868 10.2074ZM19.1702 12C19.1702 15.96 15.9599 19.1703 11.9999 19.1703C8.03984 19.1703 4.82959 15.96 4.82959 12C4.82959 8.03996 8.03984 4.82971 11.9999 4.82971C15.9599 4.82971 19.1702 8.03996 19.1702 12Z",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/BrandGuidelinesIcon.tsx
+var import_jsx_runtime23 = require("react/jsx-runtime");
+var BrandGuidelinesIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
+        "path",
+        {
+          opacity: "0.8",
+          d: "M17.6078 12.3739V8.11195C17.6078 6.85569 17.6078 6.22756 17.3633 5.74774C17.1482 5.32567 16.8051 4.98252 16.383 4.76746C15.9032 4.52298 15.2751 4.52298 14.0188 4.52298H9.2335C7.97724 4.52298 7.34912 4.52298 6.86929 4.76746C6.44722 4.98252 6.10407 5.32567 5.88902 5.74774C5.64453 6.22756 5.64453 6.85569 5.64453 8.11195V15.8881C5.64453 17.1443 5.64453 17.7724 5.88902 18.2523C6.10407 18.6743 6.44722 19.0175 6.86929 19.2325C7.34912 19.477 7.97724 19.477 9.2335 19.477H11.6261M13.1216 11.2523H8.63534M10.1307 14.2431H8.63534M14.617 8.26149H8.63534M13.4954 17.2339L14.9908 18.7293L18.3555 15.3647",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/DataSourcesIcon.tsx
+var import_jsx_runtime24 = require("react/jsx-runtime");
+var DataSourcesIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+        "path",
+        {
+          opacity: "0.8",
+          d: "M6.2625 16.3031V16.1597C6.2625 14.9547 6.2625 14.3522 6.49701 13.892C6.70328 13.4871 7.03243 13.158 7.43727 12.9517C7.89752 12.7172 8.50001 12.7172 9.705 12.7172H14.295C15.5 12.7172 16.1025 12.7172 16.5627 12.9517C16.9676 13.158 17.2967 13.4871 17.503 13.892C17.7375 14.3522 17.7375 14.9547 17.7375 16.1597V16.3031M6.2625 16.3031C5.47032 16.3031 4.82812 16.9453 4.82812 17.7375C4.82812 18.5297 5.47032 19.1719 6.2625 19.1719C7.05468 19.1719 7.69688 18.5297 7.69688 17.7375C7.69688 16.9453 7.05468 16.3031 6.2625 16.3031ZM17.7375 16.3031C16.9453 16.3031 16.3031 16.9453 16.3031 17.7375C16.3031 18.5297 16.9453 19.1719 17.7375 19.1719C18.5297 19.1719 19.1719 18.5297 19.1719 17.7375C19.1719 16.9453 18.5297 16.3031 17.7375 16.3031ZM12 16.3031C11.2078 16.3031 10.5656 16.9453 10.5656 17.7375C10.5656 18.5297 11.2078 19.1719 12 19.1719C12.7922 19.1719 13.4344 18.5297 13.4344 17.7375C13.4344 16.9453 12.7922 16.3031 12 16.3031ZM12 16.3031V9.13125M7.69688 9.13125H16.3031C16.9715 9.13125 17.3056 9.13125 17.5692 9.02206C17.9207 8.87648 18.1999 8.59725 18.3455 8.24579C18.4547 7.98219 18.4547 7.64802 18.4547 6.97969C18.4547 6.31135 18.4547 5.97719 18.3455 5.71359C18.1999 5.36213 17.9207 5.08289 17.5692 4.93731C17.3056 4.82812 16.9715 4.82812 16.3031 4.82812H7.69688C7.02854 4.82812 6.69437 4.82812 6.43078 4.93731C6.07931 5.08289 5.80008 5.36213 5.6545 5.71359C5.54531 5.97719 5.54531 6.31135 5.54531 6.97969C5.54531 7.64802 5.54531 7.98219 5.6545 8.24579C5.80008 8.59725 6.07931 8.87648 6.43078 9.02206C6.69437 9.13125 7.02854 9.13125 7.69688 9.13125Z",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/DigitalAssetManagementIcon.tsx
+var import_jsx_runtime25 = require("react/jsx-runtime");
+var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("g", { opacity: "0.8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+          "path",
+          {
+            d: "M9.34727 5.36816H6.54716C6.13447 5.36816 5.92813 5.36816 5.7705 5.44848C5.63185 5.51912 5.51912 5.63185 5.44848 5.7705C5.36816 5.92813 5.36816 6.13447 5.36816 6.54716V9.34727C5.36816 9.75995 5.36816 9.9663 5.44848 10.1239C5.51912 10.2626 5.63185 10.3753 5.7705 10.4459C5.92813 10.5263 6.13447 10.5263 6.54716 10.5263H9.34727C9.75995 10.5263 9.9663 10.5263 10.1239 10.4459C10.2626 10.3753 10.3753 10.2626 10.4459 10.1239C10.5263 9.9663 10.5263 9.75995 10.5263 9.34727V6.54716C10.5263 6.13447 10.5263 5.92813 10.4459 5.7705C10.3753 5.63185 10.2626 5.51912 10.1239 5.44848C9.9663 5.36816 9.75995 5.36816 9.34727 5.36816Z",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+          "path",
+          {
+            d: "M17.4528 5.36816H14.6527C14.24 5.36816 14.0337 5.36816 13.8761 5.44848C13.7374 5.51912 13.6247 5.63185 13.5541 5.7705C13.4737 5.92813 13.4737 6.13447 13.4737 6.54716V9.34727C13.4737 9.75995 13.4737 9.9663 13.5541 10.1239C13.6247 10.2626 13.7374 10.3753 13.8761 10.4459C14.0337 10.5263 14.24 10.5263 14.6527 10.5263H17.4528C17.8655 10.5263 18.0719 10.5263 18.2295 10.4459C18.3681 10.3753 18.4809 10.2626 18.5515 10.1239C18.6318 9.9663 18.6318 9.75995 18.6318 9.34727V6.54716C18.6318 6.13447 18.6318 5.92813 18.5515 5.7705C18.4809 5.63185 18.3681 5.51912 18.2295 5.44848C18.0719 5.36816 17.8655 5.36816 17.4528 5.36816Z",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+          "path",
+          {
+            d: "M17.4528 13.4737H14.6527C14.24 13.4737 14.0337 13.4737 13.8761 13.5541C13.7374 13.6247 13.6247 13.7374 13.5541 13.8761C13.4737 14.0337 13.4737 14.24 13.4737 14.6527V17.4528C13.4737 17.8655 13.4737 18.0719 13.5541 18.2295C13.6247 18.3681 13.7374 18.4809 13.8761 18.5515C14.0337 18.6318 14.24 18.6318 14.6527 18.6318H17.4528C17.8655 18.6318 18.0719 18.6318 18.2295 18.5515C18.3681 18.4809 18.4809 18.3681 18.5515 18.2295C18.6318 18.0719 18.6318 17.8655 18.6318 17.4528V14.6527C18.6318 14.24 18.6318 14.0337 18.5515 13.8761C18.4809 13.7374 18.3681 13.6247 18.2295 13.5541C18.0719 13.4737 17.8655 13.4737 17.4528 13.4737Z",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+          "path",
+          {
+            d: "M9.34727 13.4737H6.54716C6.13447 13.4737 5.92813 13.4737 5.7705 13.5541C5.63185 13.6247 5.51912 13.7374 5.44848 13.8761C5.36816 14.0337 5.36816 14.24 5.36816 14.6527V17.4528C5.36816 17.8655 5.36816 18.0719 5.44848 18.2295C5.51912 18.3681 5.63185 18.4809 5.7705 18.5515C5.92813 18.6318 6.13447 18.6318 6.54716 18.6318H9.34727C9.75995 18.6318 9.9663 18.6318 10.1239 18.5515C10.2626 18.4809 10.3753 18.3681 10.4459 18.2295C10.5263 18.0719 10.5263 17.8655 10.5263 17.4528V14.6527C10.5263 14.24 10.5263 14.0337 10.4459 13.8761C10.3753 13.7374 10.2626 13.6247 10.1239 13.5541C9.9663 13.4737 9.75995 13.4737 9.34727 13.4737Z",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        )
+      ] })
+    }
+  );
+};
+
+// src/components/ui/Icons/GoogleIcon.tsx
+var import_jsx_runtime26 = require("react/jsx-runtime");
+var GoogleIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+          "path",
+          {
+            d: "M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z",
+            fill: "#FFC107"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+          "path",
+          {
+            d: "M3.15308 7.3455L6.43858 9.755C7.32758 7.554 9.48058 6 12.0001 6C13.5296 6 14.9211 6.577 15.9806 7.5195L18.8091 4.691C17.0231 3.0265 14.6341 2 12.0001 2C8.15908 2 4.82808 4.1685 3.15308 7.3455Z",
+            fill: "#FF3D00"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+          "path",
+          {
+            d: "M11.9999 22C14.5829 22 16.9299 21.0115 18.7044 19.404L15.6094 16.785C14.5719 17.5745 13.3037 18.0014 11.9999 18C9.39891 18 7.19041 16.3415 6.35841 14.027L3.09741 16.5395C4.75241 19.778 8.11341 22 11.9999 22Z",
+            fill: "#4CAF50"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+          "path",
+          {
+            d: "M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z",
+            fill: "#1976D2"
+          }
+        )
+      ]
+    }
+  );
+};
+
+// src/components/ui/Icons/HomeIcon.tsx
+var import_jsx_runtime27 = require("react/jsx-runtime");
+var HomeIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+        "path",
+        {
+          opacity: "0.8",
+          d: "M8.93837 16.1076H15.0616M11.2481 5.21128L6.05691 9.2489C5.70989 9.5188 5.53639 9.65375 5.41139 9.82275C5.30066 9.97246 5.21818 10.1411 5.16799 10.3204C5.11133 10.5228 5.11133 10.7426 5.11133 11.1823V16.7199C5.11133 17.5773 5.11133 18.0059 5.27818 18.3334C5.42494 18.6214 5.65913 18.8556 5.94717 19.0024C6.27463 19.1692 6.7033 19.1692 7.56063 19.1692H16.4394C17.2967 19.1692 17.7254 19.1692 18.0528 19.0024C18.3409 18.8556 18.5751 18.6214 18.7218 18.3334C18.8887 18.0059 18.8887 17.5773 18.8887 16.7199V11.1823C18.8887 10.7426 18.8887 10.5228 18.832 10.3204C18.7818 10.1411 18.6993 9.97246 18.5886 9.82275C18.4636 9.65375 18.2901 9.5188 17.9431 9.2489L12.7519 5.21128C12.483 5.00213 12.3485 4.89755 12.2 4.85735C12.069 4.82189 11.931 4.82189 11.8 4.85735C11.6515 4.89755 11.517 5.00213 11.2481 5.21128Z",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/KnowledgeBaseIcon.tsx
+var import_jsx_runtime28 = require("react/jsx-runtime");
+var KnowledgeBaseIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+        "path",
+        {
+          opacity: "0.8",
+          d: "M7.23281 14.0431C6.59816 14.0431 6.28084 14.0431 6.03053 13.9394C5.69678 13.8012 5.43162 13.536 5.29338 13.2023C5.1897 12.952 5.1897 12.6346 5.1897 12V7.36895C5.1897 6.60612 5.1897 6.2247 5.33815 5.93334C5.46874 5.67705 5.67711 5.46868 5.9334 5.33809C6.22477 5.18964 6.60618 5.18964 7.36901 5.18964H12.0001C12.6347 5.18964 12.952 5.18964 13.2023 5.29332C13.5361 5.43156 13.8012 5.69672 13.9395 6.03047C14.0432 6.28078 14.0432 6.5981 14.0432 7.23275M12.1363 18.8104H16.6311C17.3939 18.8104 17.7754 18.8104 18.0667 18.6619C18.323 18.5313 18.5314 18.3229 18.662 18.0667C18.8104 17.7753 18.8104 17.3939 18.8104 16.631V12.1362C18.8104 11.3734 18.8104 10.992 18.662 10.7006C18.5314 10.4443 18.323 10.2359 18.0667 10.1053C17.7754 9.95689 17.3939 9.95689 16.6311 9.95689H12.1363C11.3734 9.95689 10.992 9.95689 10.7007 10.1053C10.4444 10.2359 10.236 10.4443 10.1054 10.7006C9.95695 10.992 9.95695 11.3734 9.95695 12.1362V16.631C9.95695 17.3939 9.95695 17.7753 10.1054 18.0667C10.236 18.3229 10.4444 18.5313 10.7007 18.6619C10.992 18.8104 11.3734 18.8104 12.1363 18.8104Z",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/LinkedInIcon.tsx
+var import_jsx_runtime29 = require("react/jsx-runtime");
+var LinkedInIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
+        "path",
+        {
+          d: "M6.93994 5.00002C6.93968 5.53046 6.72871 6.03906 6.35345 6.41394C5.97819 6.78883 5.46937 6.99929 4.93894 6.99902C4.40851 6.99876 3.89991 6.78779 3.52502 6.41253C3.15014 6.03727 2.93968 5.52846 2.93994 4.99802C2.94021 4.46759 3.15117 3.95899 3.52644 3.5841C3.9017 3.20922 4.41051 2.99876 4.94094 2.99902C5.47137 2.99929 5.97998 3.21026 6.35486 3.58552C6.72975 3.96078 6.94021 4.46959 6.93994 5.00002ZM6.99994 8.48002H2.99994V21H6.99994V8.48002ZM13.3199 8.48002H9.33994V21H13.2799V14.43C13.2799 10.77 18.0499 10.43 18.0499 14.43V21H21.9999V13.07C21.9999 6.90002 14.9399 7.13002 13.2799 10.16L13.3199 8.48002Z",
+          fill: "#0A66C2"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/PersonaIcon.tsx
+var import_jsx_runtime30 = require("react/jsx-runtime");
+var PersonaIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
+        "path",
+        {
+          d: "M5.98467 18.6946C6.53216 17.4047 7.81043 16.5 9.3 16.5H14.7C16.1896 16.5 17.4678 17.4047 18.0153 18.6946M15.6 9.75C15.6 11.7382 13.9882 13.35 12 13.35C10.0118 13.35 8.4 11.7382 8.4 9.75C8.4 7.76177 10.0118 6.15 12 6.15C13.9882 6.15 15.6 7.76177 15.6 9.75ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
+          stroke: "currentColor",
+          strokeWidth: "1.43406",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/PaletteIcon.tsx
+var import_jsx_runtime31 = require("react/jsx-runtime");
+var PaletteIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+        "path",
+        {
+          d: "M12 22C10.6333 22 9.34167 21.7373 8.125 21.212C6.90833 20.6867 5.846 19.97 4.938 19.062C4.03 18.154 3.31333 17.0917 2.788 15.875C2.26267 14.6583 2 13.3667 2 12C2 10.6167 2.271 9.31667 2.813 8.1C3.355 6.88333 4.08833 5.825 5.013 4.925C5.93767 4.025 7.01667 3.31267 8.25 2.788C9.48333 2.26333 10.8 2.00067 12.2 2C13.5333 2 14.7917 2.22933 15.975 2.688C17.1583 3.14667 18.196 3.78 19.088 4.588C19.98 5.396 20.6883 6.35433 21.213 7.463C21.7377 8.57167 22 9.76733 22 11.05C22 12.9667 21.4167 14.4377 20.25 15.463C19.0833 16.4883 17.6667 17.0007 16 17H14.15C14 17 13.896 17.0417 13.838 17.125C13.78 17.2083 13.7507 17.3 13.75 17.4C13.75 17.6 13.875 17.8877 14.125 18.263C14.375 18.6383 14.5 19.0673 14.5 19.55C14.5 20.3833 14.271 21 13.813 21.4C13.355 21.8 12.7507 22 12 22ZM6.5 13C6.93333 13 7.29167 12.8583 7.575 12.575C7.85833 12.2917 8 11.9333 8 11.5C8 11.0667 7.85833 10.7083 7.575 10.425C7.29167 10.1417 6.93333 10 6.5 10C6.06667 10 5.70833 10.1417 5.425 10.425C5.14167 10.7083 5 11.0667 5 11.5C5 11.9333 5.14167 12.2917 5.425 12.575C5.70833 12.8583 6.06667 13 6.5 13ZM9.5 9C9.93333 9 10.2917 8.85833 10.575 8.575C10.8583 8.29167 11 7.93333 11 7.5C11 7.06667 10.8583 6.70833 10.575 6.425C10.2917 6.14167 9.93333 6 9.5 6C9.06667 6 8.70833 6.14167 8.425 6.425C8.14167 6.70833 8 7.06667 8 7.5C8 7.93333 8.14167 8.29167 8.425 8.575C8.70833 8.85833 9.06667 9 9.5 9ZM14.5 9C14.9333 9 15.2917 8.85833 15.575 8.575C15.8583 8.29167 16 7.93333 16 7.5C16 7.06667 15.8583 6.70833 15.575 6.425C15.2917 6.14167 14.9333 6 14.5 6C14.0667 6 13.7083 6.14167 13.425 6.425C13.1417 6.70833 13 7.06667 13 7.5C13 7.93333 13.1417 8.29167 13.425 8.575C13.7083 8.85833 14.0667 9 14.5 9ZM17.5 13C17.9333 13 18.2917 12.8583 18.575 12.575C18.8583 12.2917 19 11.9333 19 11.5C19 11.0667 18.8583 10.7083 18.575 10.425C18.2917 10.1417 17.9333 10 17.5 10C17.0667 10 16.7083 10.1417 16.425 10.425C16.1417 10.7083 16 11.0667 16 11.5C16 11.9333 16.1417 12.2917 16.425 12.575C16.7083 12.8583 17.0667 13 17.5 13ZM12 20C12.15 20 12.271 19.9583 12.363 19.875C12.455 19.7917 12.5007 19.6833 12.5 19.55C12.5 19.3167 12.375 19.0417 12.125 18.725C11.875 18.4083 11.75 17.9333 11.75 17.3C11.75 16.6 11.9917 16.0417 12.475 15.625C12.9583 15.2083 13.55 15 14.25 15H16C17.1 15 18.0417 14.6793 18.825 14.038C19.6083 13.3967 20 12.4007 20 11.05C20 9.03333 19.2293 7.354 17.688 6.012C16.1467 4.67 14.3173 3.99933 12.2 4C9.93333 4 8 4.775 6.4 6.325C4.8 7.875 4 9.76667 4 12C4 14.2167 4.77933 16.1043 6.338 17.663C7.89667 19.2217 9.784 20.0007 12 20Z",
+          fill: "black"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/SidebarIcon.tsx
+var import_jsx_runtime32 = require("react/jsx-runtime");
+var SidebarIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        "path",
+        {
+          d: "M9.46419 2.14258C9.46419 1.72836 9.12841 1.39258 8.71419 1.39258C8.29998 1.39258 7.96419 1.72836 7.96419 2.14258H9.46419ZM7.96419 21.8574C7.96419 22.2716 8.29998 22.6074 8.71419 22.6074C9.12841 22.6074 9.46419 22.2716 9.46419 21.8574H7.96419ZM3.93666 21.4993L3.59617 22.1675H3.59617L3.93666 21.4993ZM2.50071 20.0633L3.16896 19.7228L3.16896 19.7228L2.50071 20.0633ZM21.4993 20.0633L20.831 19.7228V19.7228L21.4993 20.0633ZM20.0633 21.4993L19.7228 20.831H19.7228L20.0633 21.4993ZM20.0633 2.50071L19.7228 3.16896L19.7228 3.16896L20.0633 2.50071ZM21.4993 3.93666L22.1675 3.59617V3.59617L21.4993 3.93666ZM3.93666 2.50071L4.27715 3.16896L3.93666 2.50071ZM2.50071 3.93666L3.16896 4.27715L2.50071 3.93666ZM16.8099 10.1778C17.1028 9.88489 17.1028 9.41001 16.8099 9.11713C16.517 8.82425 16.0421 8.82427 15.7492 9.11718L16.8099 10.1778ZM13.9271 12.0001L13.3968 11.4698C13.1039 11.7627 13.1039 12.2376 13.3968 12.5304L13.9271 12.0001ZM15.7493 14.8829C16.0422 15.1758 16.517 15.1758 16.8099 14.8829C17.1028 14.59 17.1028 14.1151 16.8099 13.8222L15.7493 14.8829ZM8.71419 2.14258H7.96419V21.8574H8.71419H9.46419V2.14258H8.71419ZM7.39987 2.14258V2.89258H16.6001V2.14258V1.39258H7.39987V2.14258ZM21.8574 7.39987H21.1074V16.6001H21.8574H22.6074V7.39987H21.8574ZM16.6001 21.8574V21.1074H7.39987V21.8574V22.6074H16.6001V21.8574ZM2.14258 16.6001H2.89258V7.39987H2.14258H1.39258V16.6001H2.14258ZM7.39987 21.8574V21.1074C6.46738 21.1074 5.81312 21.1068 5.30283 21.0651C4.8013 21.0242 4.50524 20.9473 4.27715 20.831L3.93666 21.4993L3.59617 22.1675C4.07095 22.4095 4.58639 22.5116 5.18068 22.5602C5.76622 22.608 6.49213 22.6074 7.39987 22.6074V21.8574ZM2.14258 16.6001H1.39258C1.39258 17.5079 1.39199 18.2338 1.43984 18.8193C1.48839 19.4136 1.59054 19.929 1.83246 20.4038L2.50071 20.0633L3.16896 19.7228C3.05275 19.4948 2.97583 19.1987 2.93485 18.6972C2.89316 18.1869 2.89258 17.5326 2.89258 16.6001H2.14258ZM3.93666 21.4993L4.27715 20.831C3.80001 20.5879 3.41208 20.2 3.16896 19.7228L2.50071 20.0633L1.83245 20.4038C2.21938 21.1632 2.83678 21.7806 3.59617 22.1675L3.93666 21.4993ZM21.8574 16.6001H21.1074C21.1074 17.5326 21.1068 18.1869 21.0651 18.6972C21.0242 19.1987 20.9473 19.4948 20.831 19.7228L21.4993 20.0633L22.1675 20.4038C22.4095 19.929 22.5116 19.4136 22.5602 18.8193C22.608 18.2338 22.6074 17.5079 22.6074 16.6001H21.8574ZM16.6001 21.8574V22.6074C17.5079 22.6074 18.2338 22.608 18.8193 22.5602C19.4136 22.5116 19.929 22.4095 20.4038 22.1675L20.0633 21.4993L19.7228 20.831C19.4948 20.9473 19.1987 21.0242 18.6972 21.0651C18.1869 21.1068 17.5326 21.1074 16.6001 21.1074V21.8574ZM21.4993 20.0633L20.831 19.7228C20.5879 20.2 20.2 20.5879 19.7228 20.831L20.0633 21.4993L20.4038 22.1675C21.1632 21.7806 21.7806 21.1632 22.1675 20.4038L21.4993 20.0633ZM16.6001 2.14258V2.89258C17.5326 2.89258 18.1869 2.89316 18.6972 2.93485C19.1987 2.97583 19.4948 3.05275 19.7228 3.16896L20.0633 2.50071L20.4038 1.83246C19.929 1.59054 19.4136 1.48839 18.8193 1.43984C18.2338 1.39199 17.5079 1.39258 16.6001 1.39258V2.14258ZM21.8574 7.39987H22.6074C22.6074 6.49213 22.608 5.76622 22.5602 5.18068C22.5116 4.58639 22.4095 4.07095 22.1675 3.59617L21.4993 3.93666L20.831 4.27715C20.9473 4.50524 21.0242 4.8013 21.0651 5.30283C21.1068 5.81312 21.1074 6.46738 21.1074 7.39987H21.8574ZM20.0633 2.50071L19.7228 3.16896C20.2 3.41208 20.5879 3.80001 20.831 4.27715L21.4993 3.93666L22.1675 3.59617C21.7806 2.83678 21.1632 2.21938 20.4038 1.83245L20.0633 2.50071ZM7.39987 2.14258V1.39258C6.49213 1.39258 5.76622 1.39199 5.18068 1.43984C4.58639 1.48839 4.07095 1.59054 3.59617 1.83245L3.93666 2.50071L4.27715 3.16896C4.50524 3.05275 4.8013 2.97583 5.30283 2.93485C5.81312 2.89316 6.46738 2.89258 7.39987 2.89258V2.14258ZM2.14258 7.39987H2.89258C2.89258 6.46738 2.89316 5.81312 2.93485 5.30283C2.97583 4.8013 3.05275 4.50524 3.16896 4.27715L2.50071 3.93666L1.83245 3.59617C1.59054 4.07095 1.48839 4.58639 1.43984 5.18068C1.39199 5.76622 1.39258 6.49213 1.39258 7.39987H2.14258ZM3.93666 2.50071L3.59617 1.83245C2.83678 2.21938 2.21938 2.83678 1.83245 3.59617L2.50071 3.93666L3.16896 4.27715C3.41208 3.80001 3.80001 3.41208 4.27715 3.16896L3.93666 2.50071ZM16.2796 9.64748L15.7492 9.11718L13.3968 11.4698L13.9271 12.0001L14.4575 12.5304L16.8099 10.1778L16.2796 9.64748ZM13.9271 12.0001L13.3968 12.5304L15.7493 14.8829L16.2796 14.3525L16.8099 13.8222L14.4575 11.4698L13.9271 12.0001Z",
+          fill: "currentColor"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/VectorIcon.tsx
+var import_jsx_runtime33 = require("react/jsx-runtime");
+var VectorIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 20 20",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+        "path",
+        {
+          d: "M9.25 9.25L9.29149 9.22926C9.86461 8.9427 10.5099 9.46034 10.3545 10.082L9.64549 12.918C9.49009 13.5397 10.1354 14.0573 10.7085 13.7707L10.75 13.75M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10ZM10 6.25H10.0075V6.2575H10V6.25Z",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/sidebar.tsx
+var import_jsx_runtime34 = require("react/jsx-runtime");
+var Sidebar = React18.forwardRef(
+  ({
+    className,
+    items,
+    onItemClick,
+    onSectionToggle,
+    onActiveItemChange,
+    collapsible = false,
+    isCollapsed = false,
+    onToggleCollapse,
+    ...props
+  }, ref) => {
+    const [expandedSections, setExpandedSections] = React18.useState(
+      new Set(items.map((section) => section.id))
+    );
+    const [activeItemId, setActiveItemId] = React18.useState(null);
+    const handleSectionToggle = (sectionId) => {
+      const newExpandedSections = new Set(expandedSections);
+      if (newExpandedSections.has(sectionId)) {
+        newExpandedSections.delete(sectionId);
+      } else {
+        newExpandedSections.add(sectionId);
+      }
+      setExpandedSections(newExpandedSections);
+      onSectionToggle?.(sectionId, newExpandedSections.has(sectionId));
+    };
+    const handleItemClick = (item) => {
+      setActiveItemId(item.id);
+      onActiveItemChange?.(item.id);
+      onItemClick?.(item);
+      item.onClick?.();
+    };
+    const getSizeClasses = () => {
+      return {
+        sidebar: "w-72 border-r border-slate-200",
+        item: "px-4 text-base font-medium text-neutral-600 hover:text-neutral-900",
+        sectionTitle: "px-4 py-2 text-sm text-neutral-400 hover:text-neutral-700",
+        logo: "w-10 h-10",
+        brandText: "text-base"
+      };
+    };
+    const sizeClasses = getSizeClasses();
+    return /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(
+      "div",
+      {
+        ref,
+        className: cn(
+          "flex flex-col h-full transition-all duration-300 ease-in-out",
+          sizeClasses.sidebar,
+          isCollapsed && "w-16",
+          className
+        ),
+        ...props,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(
+            "div",
+            {
+              className: cn(
+                "flex items-center justify-between px-4",
+                isCollapsed && "justify-center py-4 mb-4"
+              ),
+              children: [
+                !isCollapsed && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Logo, { size: "sm" }),
+                collapsible && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+                  "button",
+                  {
+                    onClick: onToggleCollapse,
+                    className: cn(
+                      "p-4 rounded-md hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out",
+                      isCollapsed && "rotate-180"
+                    ),
+                    "aria-label": isCollapsed ? "Expand sidebar" : "Collapse sidebar",
+                    children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+                      SidebarIcon,
+                      {
+                        size: 24,
+                        className: "transition-all duration-300 ease-in-out text-slate-600 hover:text-slate-900"
+                      }
+                    )
+                  }
+                )
+              ]
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "flex-col flex h-full py-6 gap-32", children: items.map((section) => /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "mb-6", children: [
+            section.isCollapsible ? /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(
+              "button",
+              {
+                onClick: () => handleSectionToggle(section.id),
+                className: cn(
+                  "flex items-center w-full text-left transition-colors transition-transform duration-300",
+                  sizeClasses.sectionTitle,
+                  "hover:text-slate-700 dark:hover:text-slate-300",
+                  isCollapsed && "justify-center px-2 py-2"
+                ),
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+                    import_outline8.ChevronDownIcon,
+                    {
+                      className: cn(
+                        "w-4 h-4 transition-transform duration-300 ease-in-out",
+                        expandedSections.has(section.id) ? "rotate-0" : "-rotate-90",
+                        !isCollapsed && "mr-2"
+                      )
+                    }
+                  ),
+                  !isCollapsed && section.title
+                ]
+              }
+            ) : !isCollapsed && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "font-medium", children: section.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+              "div",
+              {
+                className: cn(
+                  "overflow-hidden transition-all duration-300 ease-in-out",
+                  expandedSections.has(section.id) || !section.isCollapsible ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                ),
+                children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: cn("space-y-1", !isCollapsed && "mt-2"), children: section.items.map((item) => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+                  "button",
+                  {
+                    onClick: () => handleItemClick(item),
+                    className: cn(
+                      "flex items-center w-full text-left rounded-lg transition-all duration-200 px-4",
+                      sizeClasses.item,
+                      activeItemId === item.id
+                    ),
+                    children: /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(
+                      "div",
+                      {
+                        className: cn(
+                          "flex w-full items-center hover:bg-white rounded-lg p-2",
+                          isCollapsed && "justify-center",
+                          activeItemId === item.id && "bg-white"
+                        ),
+                        children: [
+                          item.icon && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+                            "span",
+                            {
+                              className: cn(
+                                "flex-shrink-0",
+                                !isCollapsed && "mr-3"
+                              ),
+                              children: item.icon
+                            }
+                          ),
+                          !isCollapsed && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("span", { className: "truncate", children: item.label })
+                        ]
+                      }
+                    )
+                  },
+                  item.id
+                )) })
+              }
+            )
+          ] }, section.id)) })
+        ]
+      }
+    );
+  }
+);
+Sidebar.displayName = "Sidebar";
+
+// src/components/ui/slider.tsx
+var React19 = __toESM(require("react"), 1);
+var SliderPrimitive = __toESM(require("@radix-ui/react-slider"), 1);
+var import_jsx_runtime35 = require("react/jsx-runtime");
+var Slider = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(
   SliderPrimitive.Root,
   {
     ref,
@@ -2698,13 +3377,13 @@ var Slider = React18.forwardRef(({ className, ...props }, ref) => /* @__PURE__ *
     ),
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SliderPrimitive.Track, { className: "relative h-2 w-full grow overflow-hidden rounded-full bg-neutral-300", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SliderPrimitive.Range, { className: "absolute h-full bg-supreme-blue-500" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SliderPrimitive.Thumb, { className: "block h-5 w-5 rounded-full border-2 border-supreme-blue-500 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SliderPrimitive.Track, { className: "relative h-2 w-full grow overflow-hidden rounded-full bg-neutral-300", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SliderPrimitive.Range, { className: "absolute h-full bg-supreme-blue-500" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SliderPrimitive.Thumb, { className: "block h-5 w-5 rounded-full border-2 border-supreme-blue-500 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })
     ]
   }
 ));
 Slider.displayName = SliderPrimitive.Root.displayName;
-var RangeSlider = React18.forwardRef(({ className, defaultValue, value, onValueChange, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
+var RangeSlider = React19.forwardRef(({ className, defaultValue, value, onValueChange, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(
   SliderPrimitive.Root,
   {
     ref,
@@ -2717,19 +3396,19 @@ var RangeSlider = React18.forwardRef(({ className, defaultValue, value, onValueC
     onValueChange,
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SliderPrimitive.Track, { className: "relative h-2 w-full grow overflow-hidden rounded-full bg-neutral-300", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SliderPrimitive.Range, { className: "absolute h-full bg-supreme-blue-500" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SliderPrimitive.Thumb, { className: "block h-5 w-5 rounded-full border-2 border-supreme-blue-500 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" }),
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SliderPrimitive.Thumb, { className: "block h-5 w-5 rounded-full border-2 border-supreme-blue-500 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SliderPrimitive.Track, { className: "relative h-2 w-full grow overflow-hidden rounded-full bg-neutral-300", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SliderPrimitive.Range, { className: "absolute h-full bg-supreme-blue-500" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SliderPrimitive.Thumb, { className: "block h-5 w-5 rounded-full border-2 border-supreme-blue-500 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" }),
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SliderPrimitive.Thumb, { className: "block h-5 w-5 rounded-full border-2 border-supreme-blue-500 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })
     ]
   }
 ));
 RangeSlider.displayName = "RangeSlider";
 
 // src/components/ui/table.tsx
-var React19 = __toESM(require("react"), 1);
+var React20 = __toESM(require("react"), 1);
 var import_lucide_react5 = require("lucide-react");
-var import_jsx_runtime20 = require("react/jsx-runtime");
-var Table = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "relative w-full overflow-auto", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+var import_jsx_runtime36 = require("react/jsx-runtime");
+var Table = React20.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "relative w-full overflow-auto", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
   "table",
   {
     ref,
@@ -2738,9 +3417,9 @@ var Table = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */
   }
 ) }));
 Table.displayName = "Table";
-var TableHeader = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("thead", { ref, className: cn("bg-gray-50 border-b border-gray-200", className), ...props }));
+var TableHeader = React20.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("thead", { ref, className: cn("bg-gray-50 border-b border-gray-200", className), ...props }));
 TableHeader.displayName = "TableHeader";
-var TableBody = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+var TableBody = React20.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
   "tbody",
   {
     ref,
@@ -2749,7 +3428,7 @@ var TableBody = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE_
   }
 ));
 TableBody.displayName = "TableBody";
-var TableFooter = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+var TableFooter = React20.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
   "tfoot",
   {
     ref,
@@ -2761,7 +3440,7 @@ var TableFooter = React19.forwardRef(({ className, ...props }, ref) => /* @__PUR
   }
 ));
 TableFooter.displayName = "TableFooter";
-var TableRow = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+var TableRow = React20.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
   "tr",
   {
     ref,
@@ -2773,7 +3452,7 @@ var TableRow = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__
   }
 ));
 TableRow.displayName = "TableRow";
-var TableHead = React19.forwardRef(({ className, sortable, sorted, onSort, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+var TableHead = React20.forwardRef(({ className, sortable, sorted, onSort, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
   "th",
   {
     ref,
@@ -2784,9 +3463,9 @@ var TableHead = React19.forwardRef(({ className, sortable, sorted, onSort, child
     ),
     onClick: sortable ? onSort : void 0,
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex items-center gap-2", children: [
+    children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "flex items-center gap-2", children: [
       children,
-      sortable && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(import_lucide_react5.ChevronDown, { className: cn(
+      sortable && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_lucide_react5.ChevronDown, { className: cn(
         "h-4 w-4 transition-transform",
         sorted === "asc" && "rotate-180",
         sorted === false && "opacity-30"
@@ -2795,7 +3474,7 @@ var TableHead = React19.forwardRef(({ className, sortable, sorted, onSort, child
   }
 ));
 TableHead.displayName = "TableHead";
-var TableCell = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+var TableCell = React20.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
   "td",
   {
     ref,
@@ -2804,7 +3483,7 @@ var TableCell = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE_
   }
 ));
 TableCell.displayName = "TableCell";
-var TableCaption = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+var TableCaption = React20.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
   "caption",
   {
     ref,
@@ -2813,7 +3492,7 @@ var TableCaption = React19.forwardRef(({ className, ...props }, ref) => /* @__PU
   }
 ));
 TableCaption.displayName = "TableCaption";
-var TableCheckbox = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+var TableCheckbox = React20.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
   "input",
   {
     ref,
@@ -2828,10 +3507,10 @@ var TableCheckbox = React19.forwardRef(({ className, ...props }, ref) => /* @__P
 TableCheckbox.displayName = "TableCheckbox";
 
 // src/components/ui/tabs.tsx
-var React20 = __toESM(require("react"), 1);
+var React21 = __toESM(require("react"), 1);
 var TabsPrimitive = __toESM(require("@radix-ui/react-tabs"), 1);
 var import_class_variance_authority7 = require("class-variance-authority");
-var import_jsx_runtime21 = require("react/jsx-runtime");
+var import_jsx_runtime37 = require("react/jsx-runtime");
 var tabsListVariants = (0, import_class_variance_authority7.cva)(
   "inline-flex h-10 items-center justify-center bg-muted text-muted-foreground",
   {
@@ -2890,7 +3569,7 @@ var tabsContentVariants = (0, import_class_variance_authority7.cva)(
   }
 );
 var Tabs = TabsPrimitive.Root;
-var TabsList = React20.forwardRef(({ className, variant, size, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+var TabsList = React21.forwardRef(({ className, variant, size, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
   TabsPrimitive.List,
   {
     ref,
@@ -2899,7 +3578,7 @@ var TabsList = React20.forwardRef(({ className, variant, size, ...props }, ref) 
   }
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
-var TabsTrigger = React20.forwardRef(({ className, variant, size, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+var TabsTrigger = React21.forwardRef(({ className, variant, size, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
   TabsPrimitive.Trigger,
   {
     ref,
@@ -2908,7 +3587,7 @@ var TabsTrigger = React20.forwardRef(({ className, variant, size, ...props }, re
   }
 ));
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
-var TabsContent = React20.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+var TabsContent = React21.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
   TabsPrimitive.Content,
   {
     ref,
@@ -2917,7 +3596,7 @@ var TabsContent = React20.forwardRef(({ className, variant, ...props }, ref) => 
   }
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
-var TabGroup = React20.forwardRef(({
+var TabGroup = React21.forwardRef(({
   tabs,
   defaultValue,
   value,
@@ -2927,7 +3606,7 @@ var TabGroup = React20.forwardRef(({
   className,
   orientation = "horizontal"
 }, ref) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { ref, className: cn("w-full", className), children: /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { ref, className: cn("w-full", className), children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
     Tabs,
     {
       defaultValue,
@@ -2936,7 +3615,7 @@ var TabGroup = React20.forwardRef(({
       orientation,
       className: "w-full",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(TabsList, { variant, size, className: "w-full", children: tabs.map((tab) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(TabsList, { variant, size, className: "w-full", children: tabs.map((tab) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
           TabsTrigger,
           {
             value: tab.value,
@@ -2948,7 +3627,7 @@ var TabGroup = React20.forwardRef(({
           },
           tab.value
         )) }),
-        tabs.map((tab) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(TabsContent, { value: tab.value, variant, children: tab.content }, tab.value))
+        tabs.map((tab) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(TabsContent, { value: tab.value, variant, children: tab.content }, tab.value))
       ]
     }
   ) });
@@ -2956,12 +3635,12 @@ var TabGroup = React20.forwardRef(({
 TabGroup.displayName = "TabGroup";
 
 // src/components/ui/textarea.tsx
-var React21 = __toESM(require("react"), 1);
-var import_jsx_runtime22 = require("react/jsx-runtime");
-var Textarea = React21.forwardRef(
+var React22 = __toESM(require("react"), 1);
+var import_jsx_runtime38 = require("react/jsx-runtime");
+var Textarea = React22.forwardRef(
   ({ className, label, required = false, hint, error, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "relative", children: [
-      label && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "relative", children: [
+      label && /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(
         "label",
         {
           className: cn(
@@ -2970,11 +3649,11 @@ var Textarea = React21.forwardRef(
           ),
           children: [
             label,
-            required && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "text-destructive", children: " *" })
+            required && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("span", { className: "text-destructive", children: " *" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
         "textarea",
         {
           className: cn(
@@ -2986,54 +3665,21 @@ var Textarea = React21.forwardRef(
           ...props
         }
       ),
-      hint && !error && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "text-sm text-muted-foreground", children: hint }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "text-sm text-destructive", children: error })
+      hint && !error && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-sm text-muted-foreground", children: hint }),
+      error && /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-sm text-destructive", children: error })
     ] });
   }
 );
 Textarea.displayName = "Textarea";
 
 // src/components/ui/toast.tsx
-var React22 = __toESM(require("react"), 1);
+var React23 = __toESM(require("react"), 1);
 var ToastPrimitives = __toESM(require("@radix-ui/react-toast"), 1);
 var import_class_variance_authority8 = require("class-variance-authority");
-var import_outline8 = require("@heroicons/react/24/outline");
-
-// src/components/ui/Icons/VectorIcon.tsx
-var import_jsx_runtime23 = require("react/jsx-runtime");
-var VectorIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 20 20",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-        "path",
-        {
-          d: "M9.25 9.25L9.29149 9.22926C9.86461 8.9427 10.5099 9.46034 10.3545 10.082L9.64549 12.918C9.49009 13.5397 10.1354 14.0573 10.7085 13.7707L10.75 13.75M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10ZM10 6.25H10.0075V6.2575H10V6.25Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/toast.tsx
-var import_jsx_runtime24 = require("react/jsx-runtime");
+var import_outline9 = require("@heroicons/react/24/outline");
+var import_jsx_runtime39 = require("react/jsx-runtime");
 var ToastProvider = ToastPrimitives.Provider;
-var ToastViewport = React22.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+var ToastViewport = React23.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
   ToastPrimitives.Viewport,
   {
     ref,
@@ -3066,8 +3712,8 @@ var toastVariants = (0, import_class_variance_authority8.cva)(
     }
   }
 );
-var Toast = React22.forwardRef(({ className, variant, ...props }, ref) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+var Toast = React23.forwardRef(({ className, variant, ...props }, ref) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
     ToastPrimitives.Root,
     {
       ref,
@@ -3077,7 +3723,7 @@ var Toast = React22.forwardRef(({ className, variant, ...props }, ref) => {
   );
 });
 Toast.displayName = ToastPrimitives.Root.displayName;
-var ToastIcon = React22.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+var ToastIcon = React23.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
   "div",
   {
     ref,
@@ -3090,20 +3736,24 @@ var ToastIcon = React22.forwardRef(({ className, variant, ...props }, ref) => /*
       className
     ),
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(VectorIcon, { className: cn("w-5 h-5", variant === "success" && "text-green-500", variant === "info" && "text-blue-500", variant === "warning" && "text-yellow-500", variant === "destructive" && "text-red-500") })
+    children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+      VectorIcon,
+      {
+        className: cn(
+          "w-5 h-5",
+          variant === "success" && "text-green-500",
+          variant === "info" && "text-blue-500",
+          variant === "warning" && "text-yellow-500",
+          variant === "destructive" && "text-red-500"
+        )
+      }
+    )
   }
 ));
 ToastIcon.displayName = "ToastIcon";
-var ToastContent = React22.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-  "div",
-  {
-    ref,
-    className: cn("flex-1", className),
-    ...props
-  }
-));
+var ToastContent = React23.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { ref, className: cn("flex-1", className), ...props }));
 ToastContent.displayName = "ToastContent";
-var ToastAction = React22.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+var ToastAction = React23.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
   ToastPrimitives.Action,
   {
     ref,
@@ -3115,7 +3765,7 @@ var ToastAction = React22.forwardRef(({ className, ...props }, ref) => /* @__PUR
   }
 ));
 ToastAction.displayName = ToastPrimitives.Action.displayName;
-var ToastClose = React22.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+var ToastClose = React23.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
   ToastPrimitives.Close,
   {
     ref,
@@ -3125,29 +3775,54 @@ var ToastClose = React22.forwardRef(({ className, variant, ...props }, ref) => /
     ),
     "toast-close": "",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_outline8.XMarkIcon, { className: cn("h-6 w-6", variant === "success" && "text-green-500", variant === "info" && "text-blue-500", variant === "warning" && "text-yellow-500", variant === "destructive" && "text-red-500") })
+    children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+      import_outline9.XMarkIcon,
+      {
+        className: cn(
+          "h-6 w-6",
+          variant === "success" && "text-green-500",
+          variant === "info" && "text-blue-500",
+          variant === "warning" && "text-yellow-500",
+          variant === "destructive" && "text-red-500"
+        )
+      }
+    )
   }
 ));
 ToastClose.displayName = ToastPrimitives.Close.displayName;
-var ToastTitle = React22.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+var ToastTitle = React23.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
   ToastPrimitives.Title,
   {
     ref,
-    className: cn("text-sm font-semibold text-foreground", variant === "success" && "text-green-500", variant === "info" && "text-blue-500", variant === "warning" && "text-yellow-500", variant === "destructive" && "text-red-500", className),
+    className: cn(
+      "text-sm font-semibold text-foreground",
+      variant === "success" && "text-green-500",
+      variant === "info" && "text-blue-500",
+      variant === "warning" && "text-yellow-500",
+      variant === "destructive" && "text-red-500",
+      className
+    ),
     ...props
   }
 ));
 ToastTitle.displayName = ToastPrimitives.Title.displayName;
-var ToastDescription = React22.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+var ToastDescription = React23.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
   ToastPrimitives.Description,
   {
     ref,
-    className: cn("text-sm text-muted-foreground", variant === "success" && "text-green-500", variant === "info" && "text-blue-500", variant === "warning" && "text-yellow-500", variant === "destructive" && "text-red-500", className),
+    className: cn(
+      "text-sm text-muted-foreground",
+      variant === "success" && "text-green-500",
+      variant === "info" && "text-blue-500",
+      variant === "warning" && "text-yellow-500",
+      variant === "destructive" && "text-red-500",
+      className
+    ),
     ...props
   }
 ));
 ToastDescription.displayName = ToastPrimitives.Description.displayName;
-var ToastActions = React22.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+var ToastActions = React23.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
   "div",
   {
     ref,
@@ -3158,7 +3833,7 @@ var ToastActions = React22.forwardRef(({ className, ...props }, ref) => /* @__PU
 ToastActions.displayName = "ToastActions";
 
 // src/hooks/use-toast.ts
-var React23 = __toESM(require("react"), 1);
+var React24 = __toESM(require("react"), 1);
 var TOAST_LIMIT = 1;
 var TOAST_REMOVE_DELAY = 1e4;
 var toastTimeouts = /* @__PURE__ */ new Map();
@@ -3256,8 +3931,8 @@ function toast({ ...props }) {
   };
 }
 function useToast() {
-  const [state, setState] = React23.useState(memoryState);
-  React23.useEffect(() => {
+  const [state, setState] = React24.useState(memoryState);
+  React24.useEffect(() => {
     listeners.push(setState);
     return () => {
       const index = listeners.indexOf(setState);
@@ -3274,33 +3949,40 @@ function useToast() {
 }
 
 // src/components/ui/toaster.tsx
-var import_jsx_runtime25 = require("react/jsx-runtime");
+var import_jsx_runtime40 = require("react/jsx-runtime");
 function Toaster() {
   const { toasts } = useToast();
-  console.log(toasts);
-  return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(ToastProvider, { children: [
-    toasts.map(function({ id, title, description, action, children, variant, ...props }) {
-      return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Toast, { ...props, variant, className: "w-full flex", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(ToastIcon, { variant }),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex gap-1 flex-col", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(ToastContent, { children: [
-            title && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(ToastTitle, { variant, children: title }),
-            description && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(ToastDescription, { variant, children: description })
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(ToastProvider, { children: [
+    toasts.map(function({
+      id,
+      title,
+      description,
+      action,
+      children,
+      variant,
+      ...props
+    }) {
+      return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(Toast, { ...props, variant, className: "w-full flex", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ToastIcon, { variant }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "flex gap-1 flex-col", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(ToastContent, { children: [
+            title && /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ToastTitle, { variant, children: title }),
+            description && /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ToastDescription, { variant, children: description })
           ] }),
           action
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(ToastClose, { variant })
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ToastClose, { variant })
       ] }, id);
     }),
-    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(ToastViewport, {})
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ToastViewport, {})
   ] });
 }
 
 // src/components/ui/toggle.tsx
-var React24 = __toESM(require("react"), 1);
+var React25 = __toESM(require("react"), 1);
 var TogglePrimitive = __toESM(require("@radix-ui/react-toggle"), 1);
 var import_class_variance_authority9 = require("class-variance-authority");
-var import_jsx_runtime26 = require("react/jsx-runtime");
+var import_jsx_runtime41 = require("react/jsx-runtime");
 var toggleVariants = (0, import_class_variance_authority9.cva)(
   "inline-flex items-center justify-center rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative",
   {
@@ -3323,8 +4005,8 @@ var toggleVariants = (0, import_class_variance_authority9.cva)(
     }
   }
 );
-var Toggle = React24.forwardRef(({ className, variant, size = "md", pressed, defaultPressed, onPressedChange, ...props }, ref) => {
-  const [isFocused, setIsFocused] = React24.useState(false);
+var Toggle = React25.forwardRef(({ className, variant, size = "md", pressed, defaultPressed, onPressedChange, ...props }, ref) => {
+  const [isFocused, setIsFocused] = React25.useState(false);
   const isChecked = pressed ?? defaultPressed ?? false;
   const getVariant = () => {
     if (props.disabled) {
@@ -3338,7 +4020,7 @@ var Toggle = React24.forwardRef(({ className, variant, size = "md", pressed, def
     }
     return isChecked ? "bg-white" : "bg-[#403A9A]";
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
     TogglePrimitive.Root,
     {
       ref,
@@ -3349,7 +4031,7 @@ var Toggle = React24.forwardRef(({ className, variant, size = "md", pressed, def
       onFocus: () => setIsFocused(true),
       onBlur: () => setIsFocused(false),
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
         "div",
         {
           className: cn(
@@ -3366,13 +4048,13 @@ var Toggle = React24.forwardRef(({ className, variant, size = "md", pressed, def
 Toggle.displayName = TogglePrimitive.Root.displayName;
 
 // src/components/ui/tooltip.tsx
-var React25 = __toESM(require("react"), 1);
+var React26 = __toESM(require("react"), 1);
 var TooltipPrimitive = __toESM(require("@radix-ui/react-tooltip"), 1);
-var import_jsx_runtime27 = require("react/jsx-runtime");
+var import_jsx_runtime42 = require("react/jsx-runtime");
 var TooltipProvider = TooltipPrimitive.Provider;
 var Tooltip = TooltipPrimitive.Root;
 var TooltipTrigger = TooltipPrimitive.Trigger;
-var TooltipContent = React25.forwardRef(({ className, sideOffset = 4, arrowDirection = "bottom", side, ...props }, ref) => {
+var TooltipContent = React26.forwardRef(({ className, sideOffset = 4, arrowDirection = "bottom", side, ...props }, ref) => {
   const getSide = () => {
     if (side) return side;
     switch (arrowDirection) {
@@ -3402,7 +4084,7 @@ var TooltipContent = React25.forwardRef(({ className, sideOffset = 4, arrowDirec
         return "absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-supreme-blue-700";
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(
     TooltipPrimitive.Content,
     {
       ref,
@@ -3415,499 +4097,19 @@ var TooltipContent = React25.forwardRef(({ className, sideOffset = 4, arrowDirec
       ...props,
       children: [
         props.children,
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: getArrowClasses() })
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: getArrowClasses() })
       ]
     }
   );
 });
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-// src/components/ui/Icons/AIIcon.tsx
-var import_jsx_runtime28 = require("react/jsx-runtime");
-var AIIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
-        "path",
-        {
-          d: "M6.8335 18.8887V15.4443M6.8335 8.55566V5.11133M5.11133 6.8335H8.55566M5.11133 17.1665H8.55566M12.6889 5.8002L11.4942 8.9062C11.3 9.4113 11.2028 9.66385 11.0518 9.87628C10.9179 10.0646 10.7534 10.2291 10.5651 10.3629C10.3527 10.514 10.1002 10.6111 9.59507 10.8054L6.48906 12L9.59507 13.1946C10.1002 13.3889 10.3527 13.486 10.5651 13.6371C10.7534 13.7709 10.9179 13.9354 11.0518 14.1237C11.2028 14.3362 11.3 14.5887 11.4942 15.0938L12.6889 18.1998L13.8835 15.0938C14.0778 14.5887 14.1749 14.3362 14.3259 14.1237C14.4598 13.9354 14.6243 13.7709 14.8126 13.6371C15.025 13.486 15.2776 13.3889 15.7827 13.1946L18.8887 12L15.7827 10.8054C15.2776 10.6111 15.025 10.514 14.8126 10.3629C14.6243 10.2291 14.4598 10.0646 14.3259 9.87628C14.1749 9.66385 14.0778 9.4113 13.8835 8.9062L12.6889 5.8002Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/AnalyticsIcon.tsx
-var import_jsx_runtime29 = require("react/jsx-runtime");
-var AnalyticsIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M17.5847 17.9337V13.0471M12 17.9337V10.9529M6.4153 17.9337L6.4153 15.1414M12.982 7.48163L16.59 8.83464M11.1614 7.74231L7.25316 10.6735M18.3251 8.46722C18.7341 8.87615 18.7341 9.53915 18.3251 9.94808C17.9162 10.357 17.2532 10.357 16.8443 9.94808C16.4353 9.53915 16.4353 8.87615 16.8443 8.46722C17.2532 8.05828 17.9162 8.05828 18.3251 8.46722ZM7.15573 10.5615C7.56466 10.9704 7.56466 11.6334 7.15573 12.0423C6.7468 12.4513 6.08379 12.4513 5.67486 12.0423C5.26593 11.6334 5.26593 10.9704 5.67486 10.5615C6.08379 10.1525 6.7468 10.1525 7.15573 10.5615ZM12.7404 6.37295C13.1494 6.78188 13.1494 7.44489 12.7404 7.85382C12.3315 8.26275 11.6685 8.26275 11.2596 7.85382C10.8506 7.44489 10.8506 6.78188 11.2596 6.37295C11.6685 5.96402 12.3315 5.96402 12.7404 6.37295Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/AppIconIcon.tsx
-var import_jsx_runtime30 = require("react/jsx-runtime");
-var AppIconIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M18.8887 9.9334H5.11133M13.3777 15.7888L15.0999 14.0666L13.3777 12.3444M10.6223 12.3444L8.9001 14.0666L10.6223 15.7888M5.11133 9.10676L5.11133 14.8932C5.11133 16.0506 5.11133 16.6293 5.33657 17.0714C5.53471 17.4603 5.85086 17.7764 6.23971 17.9746C6.68178 18.1998 7.26048 18.1998 8.41789 18.1998H15.5821C16.7395 18.1998 17.3182 18.1998 17.7603 17.9746C18.1491 17.7764 18.4653 17.4603 18.6634 17.0714C18.8887 16.6293 18.8887 16.0506 18.8887 14.8932V9.10676C18.8887 7.94935 18.8887 7.37065 18.6634 6.92858C18.4653 6.53972 18.1491 6.22357 17.7603 6.02544C17.3182 5.80019 16.7395 5.80019 15.5821 5.80019L8.41789 5.80019C7.26049 5.80019 6.68178 5.80019 6.23971 6.02544C5.85086 6.22357 5.53471 6.53972 5.33657 6.92858C5.11133 7.37065 5.11133 7.94935 5.11133 9.10676Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/AudiencesIcon.tsx
-var import_jsx_runtime31 = require("react/jsx-runtime");
-var AudiencesIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M7.20747 17.3335C7.64366 16.3059 8.66205 15.5851 9.84879 15.5851H14.151C15.3377 15.5851 16.3561 16.3059 16.7923 17.3336M14.868 10.2074C14.868 11.7914 13.5839 13.0755 11.9999 13.0755C10.4159 13.0755 9.13176 11.7914 9.13176 10.2074C9.13176 8.62341 10.4159 7.33931 11.9999 7.33931C13.5839 7.33931 14.868 8.62341 14.868 10.2074ZM19.1702 12C19.1702 15.96 15.9599 19.1703 11.9999 19.1703C8.03984 19.1703 4.82959 15.96 4.82959 12C4.82959 8.03996 8.03984 4.82971 11.9999 4.82971C15.9599 4.82971 19.1702 8.03996 19.1702 12Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/BrandGuidelinesIcon.tsx
-var import_jsx_runtime32 = require("react/jsx-runtime");
-var BrandGuidelinesIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M17.6078 12.3739V8.11195C17.6078 6.85569 17.6078 6.22756 17.3633 5.74774C17.1482 5.32567 16.8051 4.98252 16.383 4.76746C15.9032 4.52298 15.2751 4.52298 14.0188 4.52298H9.2335C7.97724 4.52298 7.34912 4.52298 6.86929 4.76746C6.44722 4.98252 6.10407 5.32567 5.88902 5.74774C5.64453 6.22756 5.64453 6.85569 5.64453 8.11195V15.8881C5.64453 17.1443 5.64453 17.7724 5.88902 18.2523C6.10407 18.6743 6.44722 19.0175 6.86929 19.2325C7.34912 19.477 7.97724 19.477 9.2335 19.477H11.6261M13.1216 11.2523H8.63534M10.1307 14.2431H8.63534M14.617 8.26149H8.63534M13.4954 17.2339L14.9908 18.7293L18.3555 15.3647",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/DataSourcesIcon.tsx
-var import_jsx_runtime33 = require("react/jsx-runtime");
-var DataSourcesIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M6.2625 16.3031V16.1597C6.2625 14.9547 6.2625 14.3522 6.49701 13.892C6.70328 13.4871 7.03243 13.158 7.43727 12.9517C7.89752 12.7172 8.50001 12.7172 9.705 12.7172H14.295C15.5 12.7172 16.1025 12.7172 16.5627 12.9517C16.9676 13.158 17.2967 13.4871 17.503 13.892C17.7375 14.3522 17.7375 14.9547 17.7375 16.1597V16.3031M6.2625 16.3031C5.47032 16.3031 4.82812 16.9453 4.82812 17.7375C4.82812 18.5297 5.47032 19.1719 6.2625 19.1719C7.05468 19.1719 7.69688 18.5297 7.69688 17.7375C7.69688 16.9453 7.05468 16.3031 6.2625 16.3031ZM17.7375 16.3031C16.9453 16.3031 16.3031 16.9453 16.3031 17.7375C16.3031 18.5297 16.9453 19.1719 17.7375 19.1719C18.5297 19.1719 19.1719 18.5297 19.1719 17.7375C19.1719 16.9453 18.5297 16.3031 17.7375 16.3031ZM12 16.3031C11.2078 16.3031 10.5656 16.9453 10.5656 17.7375C10.5656 18.5297 11.2078 19.1719 12 19.1719C12.7922 19.1719 13.4344 18.5297 13.4344 17.7375C13.4344 16.9453 12.7922 16.3031 12 16.3031ZM12 16.3031V9.13125M7.69688 9.13125H16.3031C16.9715 9.13125 17.3056 9.13125 17.5692 9.02206C17.9207 8.87648 18.1999 8.59725 18.3455 8.24579C18.4547 7.98219 18.4547 7.64802 18.4547 6.97969C18.4547 6.31135 18.4547 5.97719 18.3455 5.71359C18.1999 5.36213 17.9207 5.08289 17.5692 4.93731C17.3056 4.82812 16.9715 4.82812 16.3031 4.82812H7.69688C7.02854 4.82812 6.69437 4.82812 6.43078 4.93731C6.07931 5.08289 5.80008 5.36213 5.6545 5.71359C5.54531 5.97719 5.54531 6.31135 5.54531 6.97969C5.54531 7.64802 5.54531 7.98219 5.6545 8.24579C5.80008 8.59725 6.07931 8.87648 6.43078 9.02206C6.69437 9.13125 7.02854 9.13125 7.69688 9.13125Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/DigitalAssetManagementIcon.tsx
-var import_jsx_runtime34 = require("react/jsx-runtime");
-var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("g", { opacity: "0.8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-          "path",
-          {
-            d: "M9.34727 5.36816H6.54716C6.13447 5.36816 5.92813 5.36816 5.7705 5.44848C5.63185 5.51912 5.51912 5.63185 5.44848 5.7705C5.36816 5.92813 5.36816 6.13447 5.36816 6.54716V9.34727C5.36816 9.75995 5.36816 9.9663 5.44848 10.1239C5.51912 10.2626 5.63185 10.3753 5.7705 10.4459C5.92813 10.5263 6.13447 10.5263 6.54716 10.5263H9.34727C9.75995 10.5263 9.9663 10.5263 10.1239 10.4459C10.2626 10.3753 10.3753 10.2626 10.4459 10.1239C10.5263 9.9663 10.5263 9.75995 10.5263 9.34727V6.54716C10.5263 6.13447 10.5263 5.92813 10.4459 5.7705C10.3753 5.63185 10.2626 5.51912 10.1239 5.44848C9.9663 5.36816 9.75995 5.36816 9.34727 5.36816Z",
-            stroke: "currentColor",
-            strokeWidth: "1.5",
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-          "path",
-          {
-            d: "M17.4528 5.36816H14.6527C14.24 5.36816 14.0337 5.36816 13.8761 5.44848C13.7374 5.51912 13.6247 5.63185 13.5541 5.7705C13.4737 5.92813 13.4737 6.13447 13.4737 6.54716V9.34727C13.4737 9.75995 13.4737 9.9663 13.5541 10.1239C13.6247 10.2626 13.7374 10.3753 13.8761 10.4459C14.0337 10.5263 14.24 10.5263 14.6527 10.5263H17.4528C17.8655 10.5263 18.0719 10.5263 18.2295 10.4459C18.3681 10.3753 18.4809 10.2626 18.5515 10.1239C18.6318 9.9663 18.6318 9.75995 18.6318 9.34727V6.54716C18.6318 6.13447 18.6318 5.92813 18.5515 5.7705C18.4809 5.63185 18.3681 5.51912 18.2295 5.44848C18.0719 5.36816 17.8655 5.36816 17.4528 5.36816Z",
-            stroke: "currentColor",
-            strokeWidth: "1.5",
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-          "path",
-          {
-            d: "M17.4528 13.4737H14.6527C14.24 13.4737 14.0337 13.4737 13.8761 13.5541C13.7374 13.6247 13.6247 13.7374 13.5541 13.8761C13.4737 14.0337 13.4737 14.24 13.4737 14.6527V17.4528C13.4737 17.8655 13.4737 18.0719 13.5541 18.2295C13.6247 18.3681 13.7374 18.4809 13.8761 18.5515C14.0337 18.6318 14.24 18.6318 14.6527 18.6318H17.4528C17.8655 18.6318 18.0719 18.6318 18.2295 18.5515C18.3681 18.4809 18.4809 18.3681 18.5515 18.2295C18.6318 18.0719 18.6318 17.8655 18.6318 17.4528V14.6527C18.6318 14.24 18.6318 14.0337 18.5515 13.8761C18.4809 13.7374 18.3681 13.6247 18.2295 13.5541C18.0719 13.4737 17.8655 13.4737 17.4528 13.4737Z",
-            stroke: "currentColor",
-            strokeWidth: "1.5",
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-          "path",
-          {
-            d: "M9.34727 13.4737H6.54716C6.13447 13.4737 5.92813 13.4737 5.7705 13.5541C5.63185 13.6247 5.51912 13.7374 5.44848 13.8761C5.36816 14.0337 5.36816 14.24 5.36816 14.6527V17.4528C5.36816 17.8655 5.36816 18.0719 5.44848 18.2295C5.51912 18.3681 5.63185 18.4809 5.7705 18.5515C5.92813 18.6318 6.13447 18.6318 6.54716 18.6318H9.34727C9.75995 18.6318 9.9663 18.6318 10.1239 18.5515C10.2626 18.4809 10.3753 18.3681 10.4459 18.2295C10.5263 18.0719 10.5263 17.8655 10.5263 17.4528V14.6527C10.5263 14.24 10.5263 14.0337 10.4459 13.8761C10.3753 13.7374 10.2626 13.6247 10.1239 13.5541C9.9663 13.4737 9.75995 13.4737 9.34727 13.4737Z",
-            stroke: "currentColor",
-            strokeWidth: "1.5",
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          }
-        )
-      ] })
-    }
-  );
-};
-
-// src/components/ui/Icons/GoogleIcon.tsx
-var import_jsx_runtime35 = require("react/jsx-runtime");
-var GoogleIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
-          "path",
-          {
-            d: "M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z",
-            fill: "#FFC107"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
-          "path",
-          {
-            d: "M3.15308 7.3455L6.43858 9.755C7.32758 7.554 9.48058 6 12.0001 6C13.5296 6 14.9211 6.577 15.9806 7.5195L18.8091 4.691C17.0231 3.0265 14.6341 2 12.0001 2C8.15908 2 4.82808 4.1685 3.15308 7.3455Z",
-            fill: "#FF3D00"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
-          "path",
-          {
-            d: "M11.9999 22C14.5829 22 16.9299 21.0115 18.7044 19.404L15.6094 16.785C14.5719 17.5745 13.3037 18.0014 11.9999 18C9.39891 18 7.19041 16.3415 6.35841 14.027L3.09741 16.5395C4.75241 19.778 8.11341 22 11.9999 22Z",
-            fill: "#4CAF50"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
-          "path",
-          {
-            d: "M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z",
-            fill: "#1976D2"
-          }
-        )
-      ]
-    }
-  );
-};
-
-// src/components/ui/Icons/HomeIcon.tsx
-var import_jsx_runtime36 = require("react/jsx-runtime");
-var HomeIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M8.93837 16.1076H15.0616M11.2481 5.21128L6.05691 9.2489C5.70989 9.5188 5.53639 9.65375 5.41139 9.82275C5.30066 9.97246 5.21818 10.1411 5.16799 10.3204C5.11133 10.5228 5.11133 10.7426 5.11133 11.1823V16.7199C5.11133 17.5773 5.11133 18.0059 5.27818 18.3334C5.42494 18.6214 5.65913 18.8556 5.94717 19.0024C6.27463 19.1692 6.7033 19.1692 7.56063 19.1692H16.4394C17.2967 19.1692 17.7254 19.1692 18.0528 19.0024C18.3409 18.8556 18.5751 18.6214 18.7218 18.3334C18.8887 18.0059 18.8887 17.5773 18.8887 16.7199V11.1823C18.8887 10.7426 18.8887 10.5228 18.832 10.3204C18.7818 10.1411 18.6993 9.97246 18.5886 9.82275C18.4636 9.65375 18.2901 9.5188 17.9431 9.2489L12.7519 5.21128C12.483 5.00213 12.3485 4.89755 12.2 4.85735C12.069 4.82189 11.931 4.82189 11.8 4.85735C11.6515 4.89755 11.517 5.00213 11.2481 5.21128Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/KnowledgeBaseIcon.tsx
-var import_jsx_runtime37 = require("react/jsx-runtime");
-var KnowledgeBaseIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M7.23281 14.0431C6.59816 14.0431 6.28084 14.0431 6.03053 13.9394C5.69678 13.8012 5.43162 13.536 5.29338 13.2023C5.1897 12.952 5.1897 12.6346 5.1897 12V7.36895C5.1897 6.60612 5.1897 6.2247 5.33815 5.93334C5.46874 5.67705 5.67711 5.46868 5.9334 5.33809C6.22477 5.18964 6.60618 5.18964 7.36901 5.18964H12.0001C12.6347 5.18964 12.952 5.18964 13.2023 5.29332C13.5361 5.43156 13.8012 5.69672 13.9395 6.03047C14.0432 6.28078 14.0432 6.5981 14.0432 7.23275M12.1363 18.8104H16.6311C17.3939 18.8104 17.7754 18.8104 18.0667 18.6619C18.323 18.5313 18.5314 18.3229 18.662 18.0667C18.8104 17.7753 18.8104 17.3939 18.8104 16.631V12.1362C18.8104 11.3734 18.8104 10.992 18.662 10.7006C18.5314 10.4443 18.323 10.2359 18.0667 10.1053C17.7754 9.95689 17.3939 9.95689 16.6311 9.95689H12.1363C11.3734 9.95689 10.992 9.95689 10.7007 10.1053C10.4444 10.2359 10.236 10.4443 10.1054 10.7006C9.95695 10.992 9.95695 11.3734 9.95695 12.1362V16.631C9.95695 17.3939 9.95695 17.7753 10.1054 18.0667C10.236 18.3229 10.4444 18.5313 10.7007 18.6619C10.992 18.8104 11.3734 18.8104 12.1363 18.8104Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/LinkedInIcon.tsx
-var import_jsx_runtime38 = require("react/jsx-runtime");
-var LinkedInIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
-        "path",
-        {
-          d: "M6.93994 5.00002C6.93968 5.53046 6.72871 6.03906 6.35345 6.41394C5.97819 6.78883 5.46937 6.99929 4.93894 6.99902C4.40851 6.99876 3.89991 6.78779 3.52502 6.41253C3.15014 6.03727 2.93968 5.52846 2.93994 4.99802C2.94021 4.46759 3.15117 3.95899 3.52644 3.5841C3.9017 3.20922 4.41051 2.99876 4.94094 2.99902C5.47137 2.99929 5.97998 3.21026 6.35486 3.58552C6.72975 3.96078 6.94021 4.46959 6.93994 5.00002ZM6.99994 8.48002H2.99994V21H6.99994V8.48002ZM13.3199 8.48002H9.33994V21H13.2799V14.43C13.2799 10.77 18.0499 10.43 18.0499 14.43V21H21.9999V13.07C21.9999 6.90002 14.9399 7.13002 13.2799 10.16L13.3199 8.48002Z",
-          fill: "#0A66C2"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/PaletteIcon.tsx
-var import_jsx_runtime39 = require("react/jsx-runtime");
-var PaletteIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
-        "path",
-        {
-          d: "M12 22C10.6333 22 9.34167 21.7373 8.125 21.212C6.90833 20.6867 5.846 19.97 4.938 19.062C4.03 18.154 3.31333 17.0917 2.788 15.875C2.26267 14.6583 2 13.3667 2 12C2 10.6167 2.271 9.31667 2.813 8.1C3.355 6.88333 4.08833 5.825 5.013 4.925C5.93767 4.025 7.01667 3.31267 8.25 2.788C9.48333 2.26333 10.8 2.00067 12.2 2C13.5333 2 14.7917 2.22933 15.975 2.688C17.1583 3.14667 18.196 3.78 19.088 4.588C19.98 5.396 20.6883 6.35433 21.213 7.463C21.7377 8.57167 22 9.76733 22 11.05C22 12.9667 21.4167 14.4377 20.25 15.463C19.0833 16.4883 17.6667 17.0007 16 17H14.15C14 17 13.896 17.0417 13.838 17.125C13.78 17.2083 13.7507 17.3 13.75 17.4C13.75 17.6 13.875 17.8877 14.125 18.263C14.375 18.6383 14.5 19.0673 14.5 19.55C14.5 20.3833 14.271 21 13.813 21.4C13.355 21.8 12.7507 22 12 22ZM6.5 13C6.93333 13 7.29167 12.8583 7.575 12.575C7.85833 12.2917 8 11.9333 8 11.5C8 11.0667 7.85833 10.7083 7.575 10.425C7.29167 10.1417 6.93333 10 6.5 10C6.06667 10 5.70833 10.1417 5.425 10.425C5.14167 10.7083 5 11.0667 5 11.5C5 11.9333 5.14167 12.2917 5.425 12.575C5.70833 12.8583 6.06667 13 6.5 13ZM9.5 9C9.93333 9 10.2917 8.85833 10.575 8.575C10.8583 8.29167 11 7.93333 11 7.5C11 7.06667 10.8583 6.70833 10.575 6.425C10.2917 6.14167 9.93333 6 9.5 6C9.06667 6 8.70833 6.14167 8.425 6.425C8.14167 6.70833 8 7.06667 8 7.5C8 7.93333 8.14167 8.29167 8.425 8.575C8.70833 8.85833 9.06667 9 9.5 9ZM14.5 9C14.9333 9 15.2917 8.85833 15.575 8.575C15.8583 8.29167 16 7.93333 16 7.5C16 7.06667 15.8583 6.70833 15.575 6.425C15.2917 6.14167 14.9333 6 14.5 6C14.0667 6 13.7083 6.14167 13.425 6.425C13.1417 6.70833 13 7.06667 13 7.5C13 7.93333 13.1417 8.29167 13.425 8.575C13.7083 8.85833 14.0667 9 14.5 9ZM17.5 13C17.9333 13 18.2917 12.8583 18.575 12.575C18.8583 12.2917 19 11.9333 19 11.5C19 11.0667 18.8583 10.7083 18.575 10.425C18.2917 10.1417 17.9333 10 17.5 10C17.0667 10 16.7083 10.1417 16.425 10.425C16.1417 10.7083 16 11.0667 16 11.5C16 11.9333 16.1417 12.2917 16.425 12.575C16.7083 12.8583 17.0667 13 17.5 13ZM12 20C12.15 20 12.271 19.9583 12.363 19.875C12.455 19.7917 12.5007 19.6833 12.5 19.55C12.5 19.3167 12.375 19.0417 12.125 18.725C11.875 18.4083 11.75 17.9333 11.75 17.3C11.75 16.6 11.9917 16.0417 12.475 15.625C12.9583 15.2083 13.55 15 14.25 15H16C17.1 15 18.0417 14.6793 18.825 14.038C19.6083 13.3967 20 12.4007 20 11.05C20 9.03333 19.2293 7.354 17.688 6.012C16.1467 4.67 14.3173 3.99933 12.2 4C9.93333 4 8 4.775 6.4 6.325C4.8 7.875 4 9.76667 4 12C4 14.2167 4.77933 16.1043 6.338 17.663C7.89667 19.2217 9.784 20.0007 12 20Z",
-          fill: "black"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/PersonaIconIcon.tsx
-var import_jsx_runtime40 = require("react/jsx-runtime");
-var PersonaIconIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-        "path",
-        {
-          d: "M5.98467 18.6946C6.53216 17.4047 7.81043 16.5 9.3 16.5H14.7C16.1896 16.5 17.4678 17.4047 18.0153 18.6946M15.6 9.75C15.6 11.7382 13.9882 13.35 12 13.35C10.0118 13.35 8.4 11.7382 8.4 9.75C8.4 7.76177 10.0118 6.15 12 6.15C13.9882 6.15 15.6 7.76177 15.6 9.75ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
-          stroke: "currentColor",
-          strokeWidth: "1.43406",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/SidebarIcon.tsx
-var import_jsx_runtime41 = require("react/jsx-runtime");
-var SidebarIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-        "path",
-        {
-          d: "M9.46419 2.14258C9.46419 1.72836 9.12841 1.39258 8.71419 1.39258C8.29998 1.39258 7.96419 1.72836 7.96419 2.14258H9.46419ZM7.96419 21.8574C7.96419 22.2716 8.29998 22.6074 8.71419 22.6074C9.12841 22.6074 9.46419 22.2716 9.46419 21.8574H7.96419ZM3.93666 21.4993L3.59617 22.1675H3.59617L3.93666 21.4993ZM2.50071 20.0633L3.16896 19.7228L3.16896 19.7228L2.50071 20.0633ZM21.4993 20.0633L20.831 19.7228V19.7228L21.4993 20.0633ZM20.0633 21.4993L19.7228 20.831H19.7228L20.0633 21.4993ZM20.0633 2.50071L19.7228 3.16896L19.7228 3.16896L20.0633 2.50071ZM21.4993 3.93666L22.1675 3.59617V3.59617L21.4993 3.93666ZM3.93666 2.50071L4.27715 3.16896L3.93666 2.50071ZM2.50071 3.93666L3.16896 4.27715L2.50071 3.93666ZM16.8099 10.1778C17.1028 9.88489 17.1028 9.41001 16.8099 9.11713C16.517 8.82425 16.0421 8.82427 15.7492 9.11718L16.8099 10.1778ZM13.9271 12.0001L13.3968 11.4698C13.1039 11.7627 13.1039 12.2376 13.3968 12.5304L13.9271 12.0001ZM15.7493 14.8829C16.0422 15.1758 16.517 15.1758 16.8099 14.8829C17.1028 14.59 17.1028 14.1151 16.8099 13.8222L15.7493 14.8829ZM8.71419 2.14258H7.96419V21.8574H8.71419H9.46419V2.14258H8.71419ZM7.39987 2.14258V2.89258H16.6001V2.14258V1.39258H7.39987V2.14258ZM21.8574 7.39987H21.1074V16.6001H21.8574H22.6074V7.39987H21.8574ZM16.6001 21.8574V21.1074H7.39987V21.8574V22.6074H16.6001V21.8574ZM2.14258 16.6001H2.89258V7.39987H2.14258H1.39258V16.6001H2.14258ZM7.39987 21.8574V21.1074C6.46738 21.1074 5.81312 21.1068 5.30283 21.0651C4.8013 21.0242 4.50524 20.9473 4.27715 20.831L3.93666 21.4993L3.59617 22.1675C4.07095 22.4095 4.58639 22.5116 5.18068 22.5602C5.76622 22.608 6.49213 22.6074 7.39987 22.6074V21.8574ZM2.14258 16.6001H1.39258C1.39258 17.5079 1.39199 18.2338 1.43984 18.8193C1.48839 19.4136 1.59054 19.929 1.83246 20.4038L2.50071 20.0633L3.16896 19.7228C3.05275 19.4948 2.97583 19.1987 2.93485 18.6972C2.89316 18.1869 2.89258 17.5326 2.89258 16.6001H2.14258ZM3.93666 21.4993L4.27715 20.831C3.80001 20.5879 3.41208 20.2 3.16896 19.7228L2.50071 20.0633L1.83245 20.4038C2.21938 21.1632 2.83678 21.7806 3.59617 22.1675L3.93666 21.4993ZM21.8574 16.6001H21.1074C21.1074 17.5326 21.1068 18.1869 21.0651 18.6972C21.0242 19.1987 20.9473 19.4948 20.831 19.7228L21.4993 20.0633L22.1675 20.4038C22.4095 19.929 22.5116 19.4136 22.5602 18.8193C22.608 18.2338 22.6074 17.5079 22.6074 16.6001H21.8574ZM16.6001 21.8574V22.6074C17.5079 22.6074 18.2338 22.608 18.8193 22.5602C19.4136 22.5116 19.929 22.4095 20.4038 22.1675L20.0633 21.4993L19.7228 20.831C19.4948 20.9473 19.1987 21.0242 18.6972 21.0651C18.1869 21.1068 17.5326 21.1074 16.6001 21.1074V21.8574ZM21.4993 20.0633L20.831 19.7228C20.5879 20.2 20.2 20.5879 19.7228 20.831L20.0633 21.4993L20.4038 22.1675C21.1632 21.7806 21.7806 21.1632 22.1675 20.4038L21.4993 20.0633ZM16.6001 2.14258V2.89258C17.5326 2.89258 18.1869 2.89316 18.6972 2.93485C19.1987 2.97583 19.4948 3.05275 19.7228 3.16896L20.0633 2.50071L20.4038 1.83246C19.929 1.59054 19.4136 1.48839 18.8193 1.43984C18.2338 1.39199 17.5079 1.39258 16.6001 1.39258V2.14258ZM21.8574 7.39987H22.6074C22.6074 6.49213 22.608 5.76622 22.5602 5.18068C22.5116 4.58639 22.4095 4.07095 22.1675 3.59617L21.4993 3.93666L20.831 4.27715C20.9473 4.50524 21.0242 4.8013 21.0651 5.30283C21.1068 5.81312 21.1074 6.46738 21.1074 7.39987H21.8574ZM20.0633 2.50071L19.7228 3.16896C20.2 3.41208 20.5879 3.80001 20.831 4.27715L21.4993 3.93666L22.1675 3.59617C21.7806 2.83678 21.1632 2.21938 20.4038 1.83245L20.0633 2.50071ZM7.39987 2.14258V1.39258C6.49213 1.39258 5.76622 1.39199 5.18068 1.43984C4.58639 1.48839 4.07095 1.59054 3.59617 1.83245L3.93666 2.50071L4.27715 3.16896C4.50524 3.05275 4.8013 2.97583 5.30283 2.93485C5.81312 2.89316 6.46738 2.89258 7.39987 2.89258V2.14258ZM2.14258 7.39987H2.89258C2.89258 6.46738 2.89316 5.81312 2.93485 5.30283C2.97583 4.8013 3.05275 4.50524 3.16896 4.27715L2.50071 3.93666L1.83245 3.59617C1.59054 4.07095 1.48839 4.58639 1.43984 5.18068C1.39199 5.76622 1.39258 6.49213 1.39258 7.39987H2.14258ZM3.93666 2.50071L3.59617 1.83245C2.83678 2.21938 2.21938 2.83678 1.83245 3.59617L2.50071 3.93666L3.16896 4.27715C3.41208 3.80001 3.80001 3.41208 4.27715 3.16896L3.93666 2.50071ZM16.2796 9.64748L15.7492 9.11718L13.3968 11.4698L13.9271 12.0001L14.4575 12.5304L16.8099 10.1778L16.2796 9.64748ZM13.9271 12.0001L13.3968 12.5304L15.7493 14.8829L16.2796 14.3525L16.8099 13.8222L14.4575 11.4698L13.9271 12.0001Z",
-          fill: "currentColor"
-        }
-      )
-    }
-  );
-};
-
 // src/hooks/use-mobile.tsx
-var React26 = __toESM(require("react"), 1);
+var React27 = __toESM(require("react"), 1);
 var MOBILE_BREAKPOINT = 768;
 function useIsMobile() {
-  const [isMobile, setIsMobile] = React26.useState(void 0);
-  React26.useEffect(() => {
+  const [isMobile, setIsMobile] = React27.useState(void 0);
+  React27.useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
     const onChange = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -3927,7 +4129,7 @@ function useIsMobile() {
   AccordionTrigger,
   AnalyticsIcon,
   AnnouncementCard,
-  AppIconIcon,
+  AppIcon,
   AudiencesIcon,
   Avatar,
   AvatarGroup,
@@ -3999,12 +4201,13 @@ function useIsMobile() {
   PaginationPrevious,
   PaletteIcon,
   Persona,
-  PersonaIconIcon,
+  PersonaIcon,
   Popover,
   PopoverContent,
   PopoverTrigger,
   Progress,
   RangeSlider,
+  Sidebar,
   SidebarIcon,
   Slider,
   TabGroup,

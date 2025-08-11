@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/pagination";
 import { Link, useNavigate } from "react-router-dom";
 import { Persona } from "@/components/ui/persona";
-import { AppIconIcon } from "@/components/ui/Icons/AppIconIcon";
+import { AppIcon } from "@/components/ui/Icons/AppIcon";
 import { AIIcon } from "@/components/ui/Icons/AIIcon";
 import { AudiencesIcon } from "@/components/ui/Icons/AudiencesIcon";
 import { BrandGuidelinesIcon } from "@/components/ui/Icons/BrandGuidelinesIcon";
@@ -38,7 +38,7 @@ import { GoogleIcon } from "@/components/ui/Icons/GoogleIcon";
 import { HomeIcon } from "@/components/ui/Icons/HomeIcon";
 import { KnowledgeBaseIcon } from "@/components/ui/Icons/KnowledgeBaseIcon";
 import { LinkedInIcon } from "@/components/ui/Icons/LinkedInIcon";
-import { PersonaIconIcon } from "@/components/ui/Icons/PersonaIconIcon";
+import { PersonaIcon } from "@/components/ui/Icons/PersonaIcon";
 import { SidebarIcon } from "@/components/ui/Icons/SidebarIcon";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import ToastDemo from "./toast-demo";
@@ -868,7 +868,7 @@ const Components = () => {
                     </ContentBoxDescription>
                   </ContentBoxHeader>
                   <ContentBoxContent className="flex flex-wrap gap-4">
-                    <AppIconIcon />
+                    <AppIcon />
                     <AIIcon />
                     <AudiencesIcon />
                     <BrandGuidelinesIcon />
@@ -878,7 +878,7 @@ const Components = () => {
                     <HomeIcon />
                     <KnowledgeBaseIcon />
                     <LinkedInIcon />
-                    <PersonaIconIcon />
+                    <PersonaIcon />
                     <SidebarIcon />
                   </ContentBoxContent>
                 </ContentBox>

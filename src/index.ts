@@ -17,6 +17,7 @@ export * from "./components/ui/pagination";
 export * from "./components/ui/persona";
 export * from "./components/ui/popover";
 export * from "./components/ui/progress";
+export * from "./components/ui/sidebar";
 export * from "./components/ui/slider";
 export * from "./components/ui/table";
 export * from "./components/ui/tabs";
@@ -29,7 +30,7 @@ export * from "./components/ui/tooltip";
 // Export Icon components
 export * from "./components/ui/Icons/AIIcon";
 export * from "./components/ui/Icons/AnalyticsIcon";
-export * from "./components/ui/Icons/AppIconIcon";
+export * from "./components/ui/Icons/AppIcon";
 export * from "./components/ui/Icons/AudiencesIcon";
 export * from "./components/ui/Icons/BrandGuidelinesIcon";
 export * from "./components/ui/Icons/DataSourcesIcon";
@@ -39,7 +40,7 @@ export * from "./components/ui/Icons/HomeIcon";
 export * from "./components/ui/Icons/KnowledgeBaseIcon";
 export * from "./components/ui/Icons/LinkedInIcon";
 export * from "./components/ui/Icons/PaletteIcon";
-export * from "./components/ui/Icons/PersonaIconIcon";
+export * from "./components/ui/Icons/PersonaIcon";
 export * from "./components/ui/Icons/SidebarIcon";
 export * from "./components/ui/Icons/VectorIcon";
 

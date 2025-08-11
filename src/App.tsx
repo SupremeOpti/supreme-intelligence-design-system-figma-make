@@ -8,6 +8,7 @@ import DesignTokens from "./pages/DesignTokens";
 import BannerDemo from "./pages/banner-demo";
 import TableDemo from "./pages/table-demo";
 import NotFound from "./pages/NotFound";
+import SidebarDemo from "./pages/sidebar-demo";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/design-tokens" element={<DesignTokens />} />
           <Route path="/banner-demo" element={<BannerDemo />} />
           <Route path="/table-demo" element={<TableDemo />} />
+          <Route path="/sidebar-demo" element={<SidebarDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -59,6 +59,11 @@ const Index = () => {
                 Design Tokens <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
+            <Button asChild variant="secondary" size="lg">
+              <Link to="/sidebar-demo">
+                Sidebar Demo <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
 

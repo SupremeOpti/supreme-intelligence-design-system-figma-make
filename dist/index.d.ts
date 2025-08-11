@@ -269,6 +269,32 @@ declare const Progress: React.ForwardRefExoticComponent<Omit<ProgressPrimitive.P
     size?: "sm" | "default" | "lg";
 } & React.RefAttributes<HTMLDivElement>>;
 
+interface SidebarItem {
+    id: string;
+    label: string;
+    icon?: React.ReactNode;
+    href?: string;
+    isActive?: boolean;
+    onClick?: () => void;
+}
+interface SidebarSection {
+    id: string;
+    title: string;
+    items: SidebarItem[];
+    isCollapsible?: boolean;
+    isExpanded?: boolean;
+}
+interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
+    items: SidebarSection[];
+    onItemClick?: (item: SidebarItem) => void;
+    onSectionToggle?: (sectionId: string, isExpanded: boolean) => void;
+    onActiveItemChange?: (itemId: string | null) => void;
+    collapsible?: boolean;
+    isCollapsed?: boolean;
+    onToggleCollapse?: () => void;
+}
+declare const Sidebar: React.ForwardRefExoticComponent<SidebarProps & React.RefAttributes<HTMLDivElement>>;
+
 declare const Slider: React.ForwardRefExoticComponent<Omit<SliderPrimitive.SliderProps & React.RefAttributes<HTMLSpanElement>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
 declare const RangeSlider: React.ForwardRefExoticComponent<Omit<SliderPrimitive.SliderProps & React.RefAttributes<HTMLSpanElement>, "ref"> & {
     defaultValue?: [number, number];
@@ -392,10 +418,10 @@ interface AnalyticsIconProps extends React__default.SVGProps<SVGSVGElement> {
 }
 declare const AnalyticsIcon: React__default.FC<AnalyticsIconProps>;
 
-interface AppIconIconProps extends React__default.SVGProps<SVGSVGElement> {
+interface AppIconProps extends React__default.SVGProps<SVGSVGElement> {
     size?: number;
 }
-declare const AppIconIcon: React__default.FC<AppIconIconProps>;
+declare const AppIcon: React__default.FC<AppIconProps>;
 
 interface AudiencesIconProps extends React__default.SVGProps<SVGSVGElement> {
     size?: number;
@@ -442,10 +468,10 @@ interface PaletteIconProps extends React__default.SVGProps<SVGSVGElement> {
 }
 declare const PaletteIcon: React__default.FC<PaletteIconProps>;
 
-interface PersonaIconIconProps extends React__default.SVGProps<SVGSVGElement> {
+interface PersonaIconProps extends React__default.SVGProps<SVGSVGElement> {
     size?: number;
 }
-declare const PersonaIconIcon: React__default.FC<PersonaIconIconProps>;
+declare const PersonaIcon: React__default.FC<PersonaIconProps>;
 
 interface SidebarIconProps extends React__default.SVGProps<SVGSVGElement> {
     size?: number;
@@ -502,4 +528,4 @@ declare function useToast(): {
     toasts: Toast[];
 };
 
-export { AIIcon, Accordion, AccordionContent, AccordionItem, AccordionTrigger, AnalyticsIcon, AnnouncementCard, AppIconIcon, AudiencesIcon, Avatar, AvatarGroup, Badge, type BadgeProps, Banner, type BannerProps, BrandGuidelinesIcon, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, type ButtonProps, Checkbox, ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxFooter, ContentBoxHeader, ContentBoxTitle, DataSourcesIcon, DigitalAssetManagementIcon, GoogleIcon, HighlightCTACard, HighlightCard, HomeIcon, IconCard, InfoCard, Input, type InputProps, KnowledgeBaseIcon, LinkedInIcon, Logo, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, MessageAngle, MessageCard, NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuViewport, PageLevel, PageLevelItem, PageLevelList, type PageLevelProps, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, PaletteIcon, Persona, PersonaIconIcon, type PersonaProps, Popover, PopoverContent, PopoverTrigger, Progress, RangeSlider, SidebarIcon, Slider, TabGroup, Table, TableBody, TableCaption, TableCell, TableCheckbox, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, type TextareaProps, Toast$1 as Toast, ToastAction, type ToastActionElement, ToastActions, ToastClose, ToastContent, ToastDescription, ToastIcon, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, VectorIcon, badgeVariants, bannerVariants, buttonVariants, cn, navigationMenuTriggerStyle, pageLevelVariants, personaVariants, reducer, tabsContentVariants, tabsListVariants, tabsTriggerVariants, toast, toggleVariants, useIsMobile, useToast };
+export { AIIcon, Accordion, AccordionContent, AccordionItem, AccordionTrigger, AnalyticsIcon, AnnouncementCard, AppIcon, AudiencesIcon, Avatar, AvatarGroup, Badge, type BadgeProps, Banner, type BannerProps, BrandGuidelinesIcon, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, type ButtonProps, Checkbox, ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxFooter, ContentBoxHeader, ContentBoxTitle, DataSourcesIcon, DigitalAssetManagementIcon, GoogleIcon, HighlightCTACard, HighlightCard, HomeIcon, IconCard, InfoCard, Input, type InputProps, KnowledgeBaseIcon, LinkedInIcon, Logo, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, MessageAngle, MessageCard, NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuViewport, PageLevel, PageLevelItem, PageLevelList, type PageLevelProps, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, PaletteIcon, Persona, PersonaIcon, type PersonaProps, Popover, PopoverContent, PopoverTrigger, Progress, RangeSlider, Sidebar, SidebarIcon, type SidebarItem, type SidebarProps, type SidebarSection, Slider, TabGroup, Table, TableBody, TableCaption, TableCell, TableCheckbox, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, type TextareaProps, Toast$1 as Toast, ToastAction, type ToastActionElement, ToastActions, ToastClose, ToastContent, ToastDescription, ToastIcon, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, VectorIcon, badgeVariants, bannerVariants, buttonVariants, cn, navigationMenuTriggerStyle, pageLevelVariants, personaVariants, reducer, tabsContentVariants, tabsListVariants, tabsTriggerVariants, toast, toggleVariants, useIsMobile, useToast };
