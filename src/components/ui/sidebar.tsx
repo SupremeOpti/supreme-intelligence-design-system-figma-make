@@ -127,21 +127,21 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
         {/* Content */}
         <div className="flex-col flex h-full py-6 gap-32">
           {items.map((section) => (
-            <div key={section.id} className="mb-6">
+            <div key={section.id} className="mb-4">
               {/* Section Header */}
               {section.isCollapsible ? (
                 <button
                   onClick={() => handleSectionToggle(section.id)}
                   className={cn(
-                    "flex items-center w-full text-left transition-colors transition-transform duration-300",
+                    "flex items-center w-full text-left transition-all duration-300 ease-in-out",
                     sizeClasses.sectionTitle,
-                    "hover:text-slate-700 dark:hover:text-slate-300",
+                    "hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-50 rounded-lg px-2 py-2",
                     isCollapsed && "justify-center px-2 py-2"
                   )}
                 >
                   <ChevronDownIcon
                     className={cn(
-                      "w-4 h-4 transition-transform duration-300 ease-in-out",
+                      "w-4 h-4 transition-transform duration-500 ease-out",
                       expandedSections.has(section.id)
                         ? "rotate-0"
                         : "-rotate-90",
@@ -159,7 +159,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
               {/* Section Items */}
               <div
                 className={cn(
-                  "overflow-hidden transition-all duration-300 ease-in-out",
+                  "overflow-hidden transition-all duration-500 ease-out",
                   expandedSections.has(section.id) || !section.isCollapsible
                     ? "max-h-96 opacity-100"
                     : "max-h-0 opacity-0"
