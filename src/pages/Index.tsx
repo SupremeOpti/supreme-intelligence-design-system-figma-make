@@ -48,7 +48,7 @@ const Index = () => {
             Tailwind CSS. Featuring beautiful components, semantic tokens, and
             seamless dark mode support.
           </p>
-          <div className="flex gap-4 justify-center">
+          <div className="flex gap-4 justify-center flex-wrap">
             <Button asChild size="lg">
               <Link to="/components">
                 View Components <ArrowRight className="ml-2 h-4 w-4" />
