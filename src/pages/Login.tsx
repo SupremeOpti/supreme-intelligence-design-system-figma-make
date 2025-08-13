@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import AuthForm from "../components/AuthForm";
+import AuthForm from "../components/ui/authForm";
 import { Logo } from "@/components/ui/logo";
 
 const Login: React.FC = () => {
   const [mode, setMode] = useState<"login" | "signup">("login");
+  const [rememberMe, setRememberMe] = useState(false);
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -26,8 +27,10 @@ const Login: React.FC = () => {
     password: string;
     fullName?: string;
     confirmPassword?: string;
+    rememberMe?: boolean;
   }) => {
     console.log("Form submitted:", data);
+    console.log("Remember me:", data.rememberMe);
 
     try {
       // Simulate API call delay
@@ -109,6 +112,11 @@ const Login: React.FC = () => {
     setMode(newMode);
   };
 
+  const handleRememberMeChange = (checked: boolean) => {
+    setRememberMe(checked);
+    console.log("Remember me changed:", checked);
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-supreme-blue-50 to-supreme-blue-100">
       <div className="max-w-md w-full bg-white rounded-xl shadow-2xl">
@@ -134,6 +142,8 @@ const Login: React.FC = () => {
           onGoogleLogin={handleGoogle}
           onLinkedInLogin={handleLinkedIn}
           showTerms={true}
+          onRememberMeChange={handleRememberMeChange}
+          rememberMe={rememberMe}
         />
       </div>
     </div>

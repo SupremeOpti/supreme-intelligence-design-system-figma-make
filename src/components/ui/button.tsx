@@ -21,6 +21,7 @@ const buttonVariants = cva(
         "secondary-blue":
           "bg-[#EDEBFD] text-gray-700 border border-[#C6C2F8] hover:border-[#272080] transition-all duration-300 ease-out",
         link: "text-[#272080] underline-offset-4 hover:underline bg-transparent border-none shadow-none h-5 gap-1 min-w-[83px]",
+        ghost: "bg-transparent border-none shadow-none h-5 gap-1 min-w-[83px]",
       },
       size: {
         default: "h-10 rounded-full px-6 py-2",

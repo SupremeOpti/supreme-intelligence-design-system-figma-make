@@ -50,7 +50,7 @@ const Index = () => {
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Button asChild size="lg">
-              <Link to="/components">
+              <Link to="/home">
                 View Components <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

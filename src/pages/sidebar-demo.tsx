@@ -15,11 +15,9 @@ import {
 import { CurieAIChatPrompt } from "@/components/ui/curie-ai-chat-prompt";
 
 const SidebarDemo: React.FC = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set(["supreme-iq"])
   );
-  const navigate = useNavigate();
   const location = useLocation();
 
   // Sample sidebar data matching the image
@@ -33,7 +31,7 @@ const SidebarDemo: React.FC = () => {
           label: "Home",
           icon: <HomeIcon className="w-6 h-6" />,
           isActive: location.pathname === "/",
-          href: "/",
+          href: "/home",
         },
         {
           id: "curie-ai-chat",
@@ -102,22 +100,6 @@ const SidebarDemo: React.FC = () => {
     },
   ];
 
-  const handleItemClick = (item: SidebarItem) => {
-    console.log("Clicked item:", item.label);
-
-    // Navigate to the specified route if href is provided
-    if (item.href) {
-      navigate(item.href);
-    }
-
-    // You can also add additional logic here like:
-    // - Opening modals
-    // - Triggering API calls
-    // - Updating global state
-    // - Analytics tracking
-  };
-
-  // Update active item based on current route
   React.useEffect(() => {
     const currentItem = sidebarItems
       .flatMap((section) => section.items)
@@ -128,28 +110,10 @@ const SidebarDemo: React.FC = () => {
     }
   }, [location.pathname, sidebarItems]);
 
-  const handleSectionToggle = (sectionId: string, isExpanded: boolean) => {
-    console.log("Section toggled:", sectionId, "Expanded:", isExpanded);
-    const newExpandedSections = new Set(expandedSections);
-    if (isExpanded) {
-      newExpandedSections.add(sectionId);
-    } else {
-      newExpandedSections.delete(sectionId);
-    }
-    setExpandedSections(newExpandedSections);
-  };
-
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
-      <Sidebar
-        items={sidebarItems}
-        onItemClick={handleItemClick}
-        onSectionToggle={handleSectionToggle}
-        collapsible={true}
-        isCollapsed={isCollapsed}
-        onToggleCollapse={() => setIsCollapsed(!isCollapsed)}
-      />
+      <Sidebar items={sidebarItems} />
 
       {/* Main Content */}
       <div className="flex flex-col w-full">

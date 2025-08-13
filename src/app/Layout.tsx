@@ -11,6 +11,7 @@ import {
   DataSourcesIcon,
   DigitalAssetManagementIcon,
 } from "@/components/ui/Icons";
+import { Header } from "@/components/ui/header";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,6 +21,33 @@ interface LayoutProps {
   variant?: "default" | "analytics" | "minimal";
   backgroundImage?: string;
 }
+
+const headerItems: {
+  icon: React.ReactNode;
+  label: string;
+  href: string;
+}[] = [
+  {
+    icon: <HomeIcon className="w-5 h-5" />,
+    label: "Home",
+    href: "/home",
+  },
+  {
+    icon: <AIIcon className="w-5 h-5" />,
+    label: "Curie AI Chat",
+    href: "/curie-ai-chat-demo",
+  },
+  {
+    icon: <AppIcon className="w-5 h-5" />,
+    label: "Apps",
+    href: "/apps",
+  },
+  {
+    icon: <AnalyticsIcon className="w-5 h-5" />,
+    label: "Analytics",
+    href: "/analytics",
+  },
+];
 
 const sidebarItems: SidebarSection[] = [
   {
@@ -31,7 +59,7 @@ const sidebarItems: SidebarSection[] = [
         label: "Home",
         icon: <HomeIcon className="w-6 h-6" />,
         isActive: location.pathname === "/",
-        href: "/",
+        href: "/home",
       },
       {
         id: "curie-ai-chat",
@@ -104,8 +132,6 @@ export const Layout: React.FC<LayoutProps> = ({
   children,
   showSidebar = true,
   showHeader = true,
-  className = "",
-  variant = "default",
 }) => {
   // Layout without sidebar and header (for auth pages, 404, etc.)
   if (!showSidebar && !showHeader) {
@@ -113,16 +139,26 @@ export const Layout: React.FC<LayoutProps> = ({
   }
 
   return (
-    <div className="min-h-screen bg-[rgba(245,245,247,1)] flex">
-      {showSidebar && <Sidebar items={sidebarItems} />}
+    <div className="min-h-screen bg-white flex">
+      {/* Sidebar */}
+      {showSidebar && (
+        <div className="bg-slate-100 border-r border-slate-200 sticky top-0 h-screen z-50">
+          <Sidebar items={sidebarItems} />
+        </div>
+      )}
 
-      <div className="flex-1 flex flex-col items-center font-medium md:pl-2 pt-2 max-md:pb-[100px] min-w-0">
-        <div className="relative w-full h-full bg-white rounded-tl-[20px]">
-          <div
-            className={`relative z-10 flex flex-col items-center h-full px-4 ${className}`}
-          >
-            <div className="w-full min-w-0 h-full">{children}</div>
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col">
+        {/* Header */}
+        {showHeader && (
+          <div className="bg-white border-b border-slate-200 sticky top-0 z-50">
+            <Header items={headerItems} />
           </div>
+        )}
+
+        {/* Children Content */}
+        <div className="flex-1 overflow-y-auto p-6">
+          <div className="w-full min-w-0">{children}</div>
         </div>
       </div>
     </div>

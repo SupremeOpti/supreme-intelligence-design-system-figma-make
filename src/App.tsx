@@ -3,10 +3,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./app/ProtectedRoute";
 import Login from "./pages/Login";
 import Index from "./pages/Index";
-import Components from "./pages/Components";
+import Home from "./pages/Home";
 import DesignTokens from "./pages/DesignTokens";
 import BannerDemo from "./pages/banner-demo";
 import TableDemo from "./pages/table-demo";
@@ -31,7 +31,7 @@ const App = () => (
                 </ProtectedRoute>
               }
             />
-            <Route path="/components" element={<Components />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/design-tokens" element={<DesignTokens />} />
             <Route path="/banner-demo" element={<BannerDemo />} />
             <Route path="/table-demo" element={<TableDemo />} />

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { Logo } from "./logo";
@@ -26,34 +27,20 @@ export interface SidebarSection {
 // Sidebar Props Interface
 export interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   items: SidebarSection[];
-  onItemClick?: (item: SidebarItem) => void;
-  onSectionToggle?: (sectionId: string, isExpanded: boolean) => void;
-  onActiveItemChange?: (itemId: string | null) => void;
-  collapsible?: boolean;
-  isCollapsed?: boolean;
-  onToggleCollapse?: () => void;
 }
 
 // Sidebar Component
 const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
-  (
-    {
-      className,
-      items,
-      onItemClick,
-      onSectionToggle,
-      onActiveItemChange,
-      collapsible = false,
-      isCollapsed = false,
-      onToggleCollapse,
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, items, ...props }, ref) => {
+    const navigate = useNavigate();
     const [expandedSections, setExpandedSections] = React.useState<Set<string>>(
       new Set(items.map((section) => section.id))
     );
-    const [activeItemId, setActiveItemId] = React.useState<string | null>(null);
+    const [isCollapsed, setIsCollapsed] = React.useState(false);
+
+    // Get current pathname to determine active item
+    const currentPath =
+      typeof window !== "undefined" ? window.location.pathname : "";
 
     const handleSectionToggle = (sectionId: string) => {
       const newExpandedSections = new Set(expandedSections);
@@ -63,19 +50,32 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
         newExpandedSections.add(sectionId);
       }
       setExpandedSections(newExpandedSections);
-      onSectionToggle?.(sectionId, newExpandedSections.has(sectionId));
     };
 
     const handleItemClick = (item: SidebarItem) => {
-      setActiveItemId(item.id);
-      onActiveItemChange?.(item.id);
-      onItemClick?.(item);
+      // Navigate to href if it exists using React Router
+      if (item.href) {
+        navigate(item.href);
+      }
       item.onClick?.();
+    };
+
+    const toggleCollapse = () => {
+      const newCollapsedState = !isCollapsed;
+      setIsCollapsed(newCollapsedState);
+    };
+
+    // Helper function to check if item is active based on URL
+    const isItemActive = (item: SidebarItem) => {
+      if (item.href) {
+        return currentPath === item.href || currentPath.startsWith(item.href);
+      }
+      return false;
     };
 
     const getSizeClasses = () => {
       return {
-        sidebar: "w-72 border-r border-slate-200",
+        sidebar: "",
         item: "px-4 text-base font-medium text-neutral-600 hover:text-neutral-900",
         sectionTitle:
           "px-4 py-2 text-sm text-neutral-400 hover:text-neutral-700",
@@ -90,37 +90,42 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
       <div
         ref={ref}
         className={cn(
-          "flex flex-col h-full transition-all duration-300 ease-in-out",
+          "flex flex-col h-screen transition-all duration-500 ease-in-out bg-slate-100 overflow-hidden",
           sizeClasses.sidebar,
-          isCollapsed && "w-16",
+          isCollapsed ? "w-16" : "w-64",
           className
         )}
         {...props}
       >
         {/* Header */}
-        <div className="">
+        <div className="py-4">
           <div
             className={cn(
               "flex items-center justify-between px-4",
-              isCollapsed && "justify-center py-4 mb-4"
+              isCollapsed && "justify-center"
             )}
           >
-            {!isCollapsed && <Logo size="sm" />}
-            {collapsible && (
-              <button
-                onClick={onToggleCollapse}
-                className={cn(
-                  "p-4 rounded-md hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out",
-                  isCollapsed && "rotate-180"
-                )}
-                aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-              >
-                <SidebarIcon
-                  size={24}
-                  className="transition-all duration-300 ease-in-out text-slate-600 hover:text-slate-900"
-                />
-              </button>
-            )}
+            <div
+              className={cn(
+                "transition-all duration-500 ease-in-out overflow-hidden",
+                isCollapsed ? "w-0 opacity-0" : "w-auto opacity-100"
+              )}
+            >
+              <Logo size="sm" />
+            </div>
+            <button
+              onClick={toggleCollapse}
+              className={cn(
+                "p-4 rounded-md transition-all duration-500 ease-in-out hover:bg-slate-200",
+                isCollapsed && "rotate-180"
+              )}
+              aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+            >
+              <SidebarIcon
+                size={24}
+                className="transition-all duration-500 ease-in-out text-slate-600"
+              />
+            </button>
           </div>
         </div>
 
@@ -133,84 +138,100 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                 <button
                   onClick={() => handleSectionToggle(section.id)}
                   className={cn(
-                    "flex items-center w-full text-left transition-all duration-300 ease-in-out",
+                    "flex items-center w-full text-left transition-all duration-500 ease-in-out",
                     sizeClasses.sectionTitle,
                     "hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-50 rounded-lg px-2 py-2",
-                    isCollapsed && "justify-center px-2 py-2"
+                    isCollapsed && "justify-center px-2"
                   )}
                 >
                   <ChevronDownIcon
                     className={cn(
-                      "w-4 h-4 transition-transform duration-500 ease-out",
+                      "w-4 h-4 transition-transform duration-500 ease-in-out flex-shrink-0",
                       expandedSections.has(section.id)
                         ? "rotate-0"
                         : "-rotate-90",
                       !isCollapsed && "mr-2"
                     )}
                   />
-                  {!isCollapsed && section.title}
+                  <span
+                    className={cn(
+                      "transition-all duration-500 ease-in-out",
+                      isCollapsed
+                        ? "opacity-0 scale-95 w-0"
+                        : "opacity-100 scale-100 w-auto"
+                    )}
+                  >
+                    {section.title}
+                  </span>
                 </button>
               ) : (
-                !isCollapsed && (
-                  <div className="font-medium">{section.title}</div>
-                )
+                <div
+                  className={cn(
+                    "font-medium transition-all duration-500 ease-in-out",
+                    isCollapsed ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                  )}
+                >
+                  {!isCollapsed && section.title}
+                </div>
               )}
 
               {/* Section Items */}
               <div
                 className={cn(
-                  "overflow-hidden transition-all duration-500 ease-out",
+                  "overflow-hidden transition-all duration-500 ease-in-out",
                   expandedSections.has(section.id) || !section.isCollapsible
                     ? "max-h-96 opacity-100"
                     : "max-h-0 opacity-0"
                 )}
               >
-                <div className={cn("space-y-1", !isCollapsed && "mt-2")}>
-                  {section.items.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => handleItemClick(item)}
-                      className={cn(
-                        "flex items-center w-full text-left rounded-lg transition-all duration-200 px-4",
-                        sizeClasses.item,
-                        activeItemId === item.id &&
-                          "text-supreme-blue-700 font-semibold"
-                      )}
-                    >
-                      <div
+                <div className="space-y-1">
+                  {section.items.map((item) => {
+                    const isActive = isItemActive(item);
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => handleItemClick(item)}
                         className={cn(
-                          "flex w-full items-center hover:bg-white rounded-lg p-2 transition-all duration-200",
-                          isCollapsed && "justify-center",
-                          activeItemId === item.id &&
-                            "bg-supreme-blue-50 border border-supreme-blue-200"
+                          "flex items-center w-full text-left rounded-lg transition-all duration-500 px-4",
+                          sizeClasses.item,
+                          isActive && "text-slate-600 font-semibold",
+                          isCollapsed && "justify-center"
                         )}
                       >
-                        {item.icon && (
+                        <div
+                          className={cn(
+                            "flex w-full items-center hover:bg-white rounded-lg transition-all duration-500 ease-in-out p-2",
+                            isCollapsed && "justify-center",
+                            isActive && "bg-white border border-slate-200"
+                          )}
+                        >
+                          {item.icon && (
+                            <span
+                              className={cn(
+                                "flex-shrink-0 transition-all duration-500 ease-in-out",
+                                !isCollapsed && "mr-3",
+                                isActive && "text-slate-600"
+                              )}
+                            >
+                              {item.icon}
+                            </span>
+                          )}
                           <span
                             className={cn(
-                              "flex-shrink-0",
-                              !isCollapsed && "mr-3",
-                              activeItemId === item.id &&
-                                "text-supreme-blue-700"
-                            )}
-                          >
-                            {item.icon}
-                          </span>
-                        )}
-                        {!isCollapsed && (
-                          <span
-                            className={cn(
+                              "transition-all duration-500 ease-in-out",
+                              isCollapsed
+                                ? "opacity-0 scale-95 w-0"
+                                : "opacity-100 scale-100 w-auto",
                               "truncate",
-                              activeItemId === item.id &&
-                                "text-supreme-blue-700 font-semibold"
+                              isActive && "text-slate-600 font-semibold"
                             )}
                           >
-                            {item.label}
+                            {!isCollapsed && item.label}
                           </span>
-                        )}
-                      </div>
-                    </button>
-                  ))}
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             </div>

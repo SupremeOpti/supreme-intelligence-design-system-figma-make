@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { GoogleIcon, LinkedInIcon } from "./ui/Icons";
+import { GoogleIcon, LinkedInIcon } from "./Icons";
 import { Toggle } from "@/components/ui/toggle";
 
 interface AuthFormProps {
@@ -13,10 +13,13 @@ interface AuthFormProps {
     password: string;
     fullName?: string;
     confirmPassword?: string;
+    rememberMe?: boolean;
   }) => Promise<void>;
   onGoogleLogin: () => Promise<void>;
   onLinkedInLogin: () => Promise<void>;
   showTerms?: boolean;
+  onRememberMeChange: (checked: boolean) => void;
+  rememberMe?: boolean;
   className?: string;
 }
 
@@ -27,7 +30,9 @@ const AuthForm: React.FC<AuthFormProps> = ({
   onSubmit,
   onGoogleLogin,
   onLinkedInLogin,
+  onRememberMeChange,
   showTerms = true,
+  rememberMe = false,
   className = "",
 }) => {
   // Common state
@@ -81,6 +86,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
         password,
         fullName: mode === "signup" ? fullName : undefined,
         confirmPassword: mode === "signup" ? confirmPassword : undefined,
+        rememberMe: mode === "login" ? rememberMe : undefined,
       });
       // onSuccess is now called from the parent component after successful authentication
     } catch (err: any) {
@@ -253,15 +259,18 @@ const AuthForm: React.FC<AuthFormProps> = ({
         {isLoginMode && (
           <div className="flex items-center justify-between gap-1 mt-4">
             <div className="flex items-center gap-1">
-              <Toggle pressed={true} onPressedChange={() => {}} />
+              <Toggle
+                onPressedChange={(checked) => onRememberMeChange(checked)}
+                pressed={rememberMe}
+              />
               <p className="text-sm text-neutral-500 font-light tracking-wide">
                 Remember me
               </p>
             </div>
             {/* Forgot Password - Uncomment when implemented */}
-            {/* <p className="text-sm text-supreme-blue-500 font-light tracking-wide cursor-pointer hover:underline">
+            <p className="text-sm text-supreme-blue-500 font-light tracking-wide cursor-pointer hover:underline">
               Forgot Password?
-            </p> */}
+            </p>
           </div>
         )}
 
