@@ -113,7 +113,9 @@ const SidebarDemo: React.FC = () => {
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
-      <Sidebar items={sidebarItems} />
+      <div className="bg-slate-100 border-r border-slate-200 sticky top-0 h-screen z-50">
+        <Sidebar items={sidebarItems} />
+      </div>
 
       {/* Main Content */}
       <div className="flex flex-col w-full">

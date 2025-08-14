@@ -92,7 +92,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
         className={cn(
           "flex flex-col h-screen transition-all duration-500 ease-in-out bg-slate-100 overflow-hidden",
           sizeClasses.sidebar,
-          isCollapsed ? "w-16" : "w-64",
+          isCollapsed ? "w-16" : "w-72",
           className
         )}
         {...props}
@@ -200,7 +200,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                       >
                         <div
                           className={cn(
-                            "flex w-full items-center hover:bg-white rounded-lg transition-all duration-500 ease-in-out py-2 px-5",
+                            "flex w-full items-center hover:bg-white rounded-lg transition-all duration-500 ease-in-out py-2 px-2",
                             isCollapsed && "justify-center",
                             isActive && "bg-white border border-slate-200"
                           )}
@@ -209,7 +209,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                             <span
                               className={cn(
                                 "flex-shrink-0 transition-all duration-500 ease-in-out",
-                                !isCollapsed && "mr-3",
+                                !isCollapsed && "mr-1",
                                 isActive && "text-slate-600"
                               )}
                             >
