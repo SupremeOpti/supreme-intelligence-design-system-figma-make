@@ -98,7 +98,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
         {...props}
       >
         {/* Header */}
-        <div className="py-4">
+        <div className="py-8">
           <div
             className={cn(
               "flex items-center justify-between px-4",
@@ -116,7 +116,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
             <button
               onClick={toggleCollapse}
               className={cn(
-                "p-4 rounded-md transition-all duration-500 ease-in-out",
+                "rounded-md transition-all duration-500 ease-in-out",
                 isCollapsed && "rotate-180"
               )}
               aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
