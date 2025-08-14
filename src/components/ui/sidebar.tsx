@@ -116,7 +116,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
             <button
               onClick={toggleCollapse}
               className={cn(
-                "p-4 rounded-md transition-all duration-500 ease-in-out hover:bg-slate-200",
+                "p-4 rounded-md transition-all duration-500 ease-in-out",
                 isCollapsed && "rotate-180"
               )}
               aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
@@ -140,7 +140,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                   className={cn(
                     "flex items-center w-full text-left transition-all duration-500 ease-in-out",
                     sizeClasses.sectionTitle,
-                    "hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-50 rounded-lg px-2 py-2",
+                    "hover:text-slate-700 dark:hover:text-slate-300 rounded-lg px-2 py-2",
                     isCollapsed && "justify-center px-2"
                   )}
                 >
@@ -200,7 +200,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                       >
                         <div
                           className={cn(
-                            "flex w-full items-center hover:bg-white rounded-lg transition-all duration-500 ease-in-out p-2",
+                            "flex w-full items-center hover:bg-white rounded-lg transition-all duration-500 ease-in-out py-2 px-5",
                             isCollapsed && "justify-center",
                             isActive && "bg-white border border-slate-200"
                           )}
