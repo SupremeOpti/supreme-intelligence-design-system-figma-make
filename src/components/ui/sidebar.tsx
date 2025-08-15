@@ -116,7 +116,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
             <button
               onClick={toggleCollapse}
               className={cn(
-                "rounded-md transition-all duration-500 ease-in-out",
+                "rounded-md transition-all duration-500 ease-in-out py-4",
                 isCollapsed && "rotate-180"
               )}
               aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
