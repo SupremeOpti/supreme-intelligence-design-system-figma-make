@@ -41,7 +41,7 @@
         "build:package": "tsup",
         "lint": "eslint .",
         "preview": "vite preview",
-        "postinstall": "node scripts/postinstall.js"
+        "postinstall": "node scripts/postinstall.cjs"
     },
     "keywords": [
         "design-system",

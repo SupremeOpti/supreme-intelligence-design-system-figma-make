@@ -96,6 +96,33 @@ yarn add @supreme-intelligence/design-system
 pnpm add @supreme-intelligence/design-system
 ```
 
+### Automatic Tailwind Configuration
+
+The package includes an automatic postinstall script that will:
+
+- ✅ **Auto-detect** your existing `tailwind.config.js` or `tailwind.config.ts` file
+- ✅ **Add the content path** `"./node_modules/@supreme-intelligence/**/*.{js,ts,jsx,tsx}"` to your Tailwind config
+- ✅ **Create a config** if none exists with the proper content paths
+- ✅ **Skip if already configured** to avoid duplicates
+
+The script runs automatically after installation and will show you what it's doing:
+
+```
+🚀 @supreme-intelligence/design-system postinstall script running...
+✅ Successfully added @supreme-intelligence content path to tailwind.config.ts
+📝 Added: ./node_modules/@supreme-intelligence/**/*.{js,ts,jsx,tsx}
+✨ Postinstall script completed!
+```
+
+If the automatic configuration fails, you can manually add this to your `tailwind.config.ts` content array:
+
+```typescript
+content: [
+  // ... your existing content paths
+  "./node_modules/@supreme-intelligence/**/*.{js,ts,jsx,tsx}",
+];
+```
+
 ## Quick Start
 
 ### React/Next.js Projects
