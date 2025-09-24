@@ -7,7 +7,8 @@
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
-        "dist"
+        "dist",
+        "scripts"
     ],
     "exports": {
         ".": {
@@ -39,7 +40,8 @@
         "build:dev": "vite build --mode development",
         "build:package": "tsup",
         "lint": "eslint .",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "postinstall": "node scripts/postinstall.js"
     },
     "keywords": [
         "design-system",
