@@ -2,11 +2,11 @@ import type { Config } from "tailwindcss";
 
 export default {
 	darkMode: ["class"],
-	content: [
-		"./pages/**/*.{ts,tsx}",
+	content: ["./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+		"./node_modules/@supreme-intelligence/**/*.{js,ts,jsx,tsx}"
 	],
 	prefix: "",
 	theme: {

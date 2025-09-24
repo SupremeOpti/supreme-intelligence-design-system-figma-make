@@ -46,15 +46,18 @@ function updateTailwindConfig(configPath, configName) {
 
     // Handle different config file formats
     if (configName.endsWith(".ts")) {
-      // TypeScript config
+      // TypeScript config - more flexible regex to handle multiline arrays
       const contentArrayRegex = /content:\s*\[([\s\S]*?)\]/;
       const match = content.match(contentArrayRegex);
 
       if (match) {
         const existingContent = match[1];
+
+        // Clean up the existing content and add the new path
+        const cleanedContent = existingContent.trim();
         const newContent =
-          existingContent.trim() +
-          (existingContent.trim().endsWith(",") ? "" : ",") +
+          cleanedContent +
+          (cleanedContent.endsWith(",") ? "" : ",") +
           `\n\t\t"${TAILWIND_CONTENT_PATH}"`;
 
         content = content.replace(
@@ -62,6 +65,28 @@ function updateTailwindConfig(configPath, configName) {
           `content: [${newContent}\n\t]`
         );
         updated = true;
+      } else {
+        // Try a more specific approach for TypeScript
+        const lines = content.split("\n");
+        let contentStartIndex = -1;
+        let contentEndIndex = -1;
+
+        for (let i = 0; i < lines.length; i++) {
+          if (lines[i].includes("content: [")) {
+            contentStartIndex = i;
+          }
+          if (contentStartIndex !== -1 && lines[i].includes("],")) {
+            contentEndIndex = i;
+            break;
+          }
+        }
+
+        if (contentStartIndex !== -1 && contentEndIndex !== -1) {
+          // Insert the new content path before the closing bracket
+          lines[contentEndIndex] = `\t\t"${TAILWIND_CONTENT_PATH}",\n\t],`;
+          content = lines.join("\n");
+          updated = true;
+        }
       }
     } else {
       // JavaScript config
@@ -70,9 +95,10 @@ function updateTailwindConfig(configPath, configName) {
 
       if (match) {
         const existingContent = match[1];
+        const cleanedContent = existingContent.trim();
         const newContent =
-          existingContent.trim() +
-          (existingContent.trim().endsWith(",") ? "" : ",") +
+          cleanedContent +
+          (cleanedContent.endsWith(",") ? "" : ",") +
           `\n\t\t"${TAILWIND_CONTENT_PATH}"`;
 
         content = content.replace(
@@ -158,11 +184,19 @@ function main() {
       packageJson.dependencies?.["@supreme-intelligence/design-system"] ||
       packageJson.devDependencies?.["@supreme-intelligence/design-system"];
 
-    if (!hasDesignSystem) {
+    // Check if this is the design system package itself (development mode)
+    const isDesignSystemPackage =
+      packageJson.name === "@supreme-intelligence/design-system";
+
+    if (!hasDesignSystem && !isDesignSystemPackage) {
       console.log(
         "⚠️  @supreme-intelligence/design-system not found in dependencies, skipping"
       );
       return;
+    }
+
+    if (isDesignSystemPackage) {
+      console.log("🔧 Running in development mode - updating local config");
     }
   } catch (error) {
     console.log("⚠️  Could not read package.json, skipping dependency check");
