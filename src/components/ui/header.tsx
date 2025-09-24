@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button } from "./button";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
-import { Logo } from "./logo";
+import { SupremeIcon } from "./Icons/SupremeIcon";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar } from "./avatar";
@@ -57,11 +57,11 @@ export const Header: React.FC<HeaderProps> = ({ className, items }) => {
       )}
     >
       <div className="container mx-auto">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex py-1 items-center justify-between">
           <div className="flex items-center gap-4">
             {/* Logo and Branding */}
             <div className="flex justify-center items-center">
-              <Logo size="sm" className="border-r border-slate-200 pr-4" />
+              <SupremeIcon size={60} />
             </div>
             {/* Navigation Menu Button */}
             <div className="flex items-center">

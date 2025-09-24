@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { Logo } from "./logo";
 import { SidebarIcon } from "./Icons";
+import { SupremeIcon } from "./Icons/SupremeIcon";
 
 // Sidebar Item Interface
 export interface SidebarItem {
@@ -76,7 +77,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
     const getSizeClasses = () => {
       return {
         sidebar: "",
-        item: "px-4 text-base font-medium text-neutral-600 hover:text-neutral-900",
+        item: "text-base font-medium text-neutral-600 hover:text-neutral-900",
         sectionTitle:
           "px-4 py-2 text-sm text-neutral-400 hover:text-neutral-700",
         logo: "w-10 h-10",
@@ -90,18 +91,18 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
       <div
         ref={ref}
         className={cn(
-          "flex flex-col h-screen transition-all duration-500 ease-in-out bg-slate-100 overflow-hidden",
+          "flex flex-col h-screen transition-all duration-500 ease-in-out bg-slate-100 overflow-hidden py-3",
           sizeClasses.sidebar,
-          isCollapsed ? "w-16" : "w-72",
+          isCollapsed ? "w-16 px-3" : "w-[315px]  px-6",
           className
         )}
         {...props}
       >
         {/* Header */}
-        <div className="py-8">
+        <div className="pb-7">
           <div
             className={cn(
-              "flex items-center justify-between px-4",
+              "flex items-center justify-between",
               isCollapsed && "justify-center"
             )}
           >
@@ -111,7 +112,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                 isCollapsed ? "w-0 opacity-0" : "w-auto opacity-100"
               )}
             >
-              <Logo size="sm" />
+              <SupremeIcon />
             </div>
             <button
               onClick={toggleCollapse}
@@ -128,9 +129,9 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
             </button>
           </div>
         </div>
-
+        <div className="w-full h-[1px] bg-slate-200"></div>
         {/* Content */}
-        <div className="flex-col flex h-full py-6 gap-32">
+        <div className="flex-col flex h-full gap-20 pt-7">
           {items.map((section) => (
             <div key={section.id} className="mb-4">
               {/* Section Header */}
@@ -192,7 +193,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                         key={item.id}
                         onClick={() => handleItemClick(item)}
                         className={cn(
-                          "flex items-center w-full text-left rounded-lg transition-all duration-500 px-4",
+                          "flex items-center w-full text-left rounded-lg transition-all duration-500",
                           sizeClasses.item,
                           isActive && "text-slate-600 font-semibold",
                           isCollapsed && "justify-center"
@@ -200,7 +201,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                       >
                         <div
                           className={cn(
-                            "flex w-full items-center hover:bg-white rounded-lg transition-all duration-500 ease-in-out py-2 px-2",
+                            "flex w-full items-center hover:bg-white rounded-lg transition-all duration-500 ease-in-out py-2.5 px-3.5 gap-3",
                             isCollapsed && "justify-center",
                             isActive && "bg-white border border-slate-200"
                           )}

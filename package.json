@@ -15,6 +15,21 @@
             "import": "./dist/index.js",
             "require": "./dist/index.cjs"
         },
+        "./icons": {
+            "types": "./dist/icons.d.ts",
+            "import": "./dist/icons.js",
+            "require": "./dist/icons.cjs"
+        },
+        "./layout": {
+            "types": "./dist/layout.d.ts",
+            "import": "./dist/layout.js",
+            "require": "./dist/layout.cjs"
+        },
+        "./components": {
+            "types": "./dist/components.d.ts",
+            "import": "./dist/components.js",
+            "require": "./dist/components.cjs"
+        },
         "./package.json": "./package.json"
     },
     "scripts": {
@@ -117,5 +132,11 @@
         "typescript": "^5.5.3",
         "typescript-eslint": "^8.0.1",
         "vite": "^5.4.1"
+    },
+    "overrides": {
+        "tsup": {
+            "source-map": "^0.7.4"
+        },
+        "source-map": "^0.7.4"
     }
 }

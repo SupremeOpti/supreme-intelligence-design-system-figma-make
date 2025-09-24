@@ -70,6 +70,114 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { AnalyticsIcon } from "@/components/ui/Icons/AnalyticsIcon";
+import { SidebarSection } from "@/components/ui/sidebar";
+
+const headerItems: {
+  icon: React.ReactNode;
+  label: string;
+  href: string;
+}[] = [
+  {
+    icon: <HomeIcon className="w-5 h-5" />,
+    label: "Home",
+    href: "/home",
+  },
+  {
+    icon: <AIIcon className="w-5 h-5" />,
+    label: "Curie AI Chat",
+    href: "/curie-ai-chat-demo",
+  },
+  {
+    icon: <AppIcon className="w-5 h-5" />,
+    label: "Apps",
+    href: "/apps",
+  },
+  {
+    icon: <AnalyticsIcon className="w-5 h-5" />,
+    label: "Analytics",
+    href: "/analytics",
+  },
+];
+
+const sidebarItems: SidebarSection[] = [
+  {
+    id: "main-menu",
+    title: "",
+    items: [
+      {
+        id: "home",
+        label: "Home",
+        icon: <HomeIcon className="w-6 h-6" />,
+        isActive: location.pathname === "/",
+        href: "/home",
+      },
+      {
+        id: "curie-ai-chat",
+        label: "Curie AI Chat",
+        icon: <AIIcon className="w-6 h-6" />,
+        isActive: location.pathname === "/curie-ai-chat-demo",
+        href: "/curie-ai-chat-demo",
+      },
+      {
+        id: "apps",
+        label: "Apps",
+        icon: <AppIcon className="w-6 h-6" />,
+        isActive: location.pathname === "/apps",
+        href: "/apps",
+      },
+      {
+        id: "analytics",
+        label: "Analytics",
+        icon: <AnalyticsIcon className="w-6 h-6" />,
+        isActive: location.pathname === "/analytics",
+        href: "/analytics",
+      },
+      {
+        id: "digital-asset-management",
+        label: "Digital Asset Management",
+        icon: <DigitalAssetManagementIcon className="w-6 h-6" />,
+        isActive: location.pathname === "/digital-asset-management",
+        href: "/digital-asset-management",
+      },
+    ],
+  },
+  {
+    id: "supreme-iq",
+    title: "Supreme IQ",
+    isCollapsible: true,
+    items: [
+      {
+        id: "audiences",
+        label: "Audiences",
+        icon: <AudiencesIcon className="w-6 h-6" />,
+        isActive: location.pathname === "/audiences",
+        href: "/audiences",
+      },
+      {
+        id: "brand-guidelines",
+        label: "Brand Guidelines",
+        icon: <BrandGuidelinesIcon className="w-6 h-6" />,
+        isActive: location.pathname === "/brand-guidelines",
+        href: "/brand-guidelines",
+      },
+      {
+        id: "knowledge-base",
+        label: "Knowledge Base",
+        icon: <KnowledgeBaseIcon className="w-6 h-6" />,
+        isActive: location.pathname === "/knowledge-base",
+        href: "/knowledge-base",
+      },
+      {
+        id: "data-sources",
+        label: "Data Sources",
+        icon: <DataSourcesIcon className="w-6 h-6" />,
+        isActive: location.pathname === "/data-sources",
+        href: "/data-sources",
+      },
+    ],
+  },
+];
 
 const Components = () => {
   const navigate = useNavigate();
@@ -99,7 +207,7 @@ const Components = () => {
   }, []);
 
   return (
-    <Layout>
+    <Layout headerItems={headerItems} sidebarItems={sidebarItems}>
       <div className="min-h-screen bg-background">
         <div className="container mx-auto py-8 space-y-12">
           {/* Header */}

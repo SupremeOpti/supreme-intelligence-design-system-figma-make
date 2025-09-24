@@ -27,23 +27,18 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/index.ts
-var index_exports = {};
-__export(index_exports, {
-  AIIcon: () => AIIcon,
+// src/components.ts
+var components_exports = {};
+__export(components_exports, {
   Accordion: () => Accordion,
   AccordionContent: () => AccordionContent,
   AccordionItem: () => AccordionItem,
   AccordionTrigger: () => AccordionTrigger,
-  AnalyticsIcon: () => AnalyticsIcon,
   AnnouncementCard: () => AnnouncementCard,
-  AppIcon: () => AppIcon,
-  AudiencesIcon: () => AudiencesIcon,
   Avatar: () => Avatar,
   AvatarGroup: () => AvatarGroup,
   Badge: () => Badge,
   Banner: () => Banner,
-  BrandGuidelinesIcon: () => BrandGuidelinesIcon,
   Breadcrumb: () => Breadcrumb,
   BreadcrumbEllipsis: () => BreadcrumbEllipsis,
   BreadcrumbItem: () => BreadcrumbItem,
@@ -60,17 +55,11 @@ __export(index_exports, {
   ContentBoxHeader: () => ContentBoxHeader,
   ContentBoxTitle: () => ContentBoxTitle,
   CurieAIChatPrompt: () => CurieAIChatPrompt,
-  DataSourcesIcon: () => DataSourcesIcon,
-  DigitalAssetManagementIcon: () => DigitalAssetManagementIcon,
-  GoogleIcon: () => GoogleIcon,
   HighlightCTACard: () => HighlightCTACard,
   HighlightCard: () => HighlightCard,
-  HomeIcon: () => HomeIcon,
   IconCard: () => IconCard,
   InfoCard: () => InfoCard,
   Input: () => Input,
-  KnowledgeBaseIcon: () => KnowledgeBaseIcon,
-  LinkedInIcon: () => LinkedInIcon,
   Logo: () => Logo,
   Menubar: () => Menubar,
   MenubarCheckboxItem: () => MenubarCheckboxItem,
@@ -100,16 +89,13 @@ __export(index_exports, {
   PaginationLink: () => PaginationLink,
   PaginationNext: () => PaginationNext,
   PaginationPrevious: () => PaginationPrevious,
-  PaletteIcon: () => PaletteIcon,
   Persona: () => Persona,
-  PersonaIcon: () => PersonaIcon,
   Popover: () => Popover,
   PopoverContent: () => PopoverContent,
   PopoverTrigger: () => PopoverTrigger,
   Progress: () => Progress,
   RangeSlider: () => RangeSlider,
   Sidebar: () => Sidebar,
-  SidebarIcon: () => SidebarIcon,
   Slider: () => Slider,
   TabGroup: () => TabGroup,
   Table: () => Table,
@@ -142,23 +128,17 @@ __export(index_exports, {
   TooltipContent: () => TooltipContent,
   TooltipProvider: () => TooltipProvider,
   TooltipTrigger: () => TooltipTrigger,
-  VectorIcon: () => VectorIcon,
   badgeVariants: () => badgeVariants,
   bannerVariants: () => bannerVariants,
   buttonVariants: () => buttonVariants,
-  cn: () => cn,
   pageLevelVariants: () => pageLevelVariants,
   personaVariants: () => personaVariants,
-  reducer: () => reducer,
   tabsContentVariants: () => tabsContentVariants,
   tabsListVariants: () => tabsListVariants,
   tabsTriggerVariants: () => tabsTriggerVariants,
-  toast: () => toast,
-  toggleVariants: () => toggleVariants,
-  useIsMobile: () => useIsMobile,
-  useToast: () => useToast
+  toggleVariants: () => toggleVariants
 });
-module.exports = __toCommonJS(index_exports);
+module.exports = __toCommonJS(components_exports);
 
 // src/components/ui/accordion.tsx
 var React = __toESM(require("react"), 1);
@@ -2588,367 +2568,33 @@ var AIIcon = ({
 
 // src/components/ui/Icons/AnalyticsIcon.tsx
 var import_jsx_runtime19 = require("react/jsx-runtime");
-var AnalyticsIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M17.5847 17.9337V13.0471M12 17.9337V10.9529M6.4153 17.9337L6.4153 15.1414M12.982 7.48163L16.59 8.83464M11.1614 7.74231L7.25316 10.6735M18.3251 8.46722C18.7341 8.87615 18.7341 9.53915 18.3251 9.94808C17.9162 10.357 17.2532 10.357 16.8443 9.94808C16.4353 9.53915 16.4353 8.87615 16.8443 8.46722C17.2532 8.05828 17.9162 8.05828 18.3251 8.46722ZM7.15573 10.5615C7.56466 10.9704 7.56466 11.6334 7.15573 12.0423C6.7468 12.4513 6.08379 12.4513 5.67486 12.0423C5.26593 11.6334 5.26593 10.9704 5.67486 10.5615C6.08379 10.1525 6.7468 10.1525 7.15573 10.5615ZM12.7404 6.37295C13.1494 6.78188 13.1494 7.44489 12.7404 7.85382C12.3315 8.26275 11.6685 8.26275 11.2596 7.85382C10.8506 7.44489 10.8506 6.78188 11.2596 6.37295C11.6685 5.96402 12.3315 5.96402 12.7404 6.37295Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
 
 // src/components/ui/Icons/AppIcon.tsx
 var import_jsx_runtime20 = require("react/jsx-runtime");
-var AppIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M18.8887 9.9334H5.11133M13.3777 15.7888L15.0999 14.0666L13.3777 12.3444M10.6223 12.3444L8.9001 14.0666L10.6223 15.7888M5.11133 9.10676L5.11133 14.8932C5.11133 16.0506 5.11133 16.6293 5.33657 17.0714C5.53471 17.4603 5.85086 17.7764 6.23971 17.9746C6.68178 18.1998 7.26048 18.1998 8.41789 18.1998H15.5821C16.7395 18.1998 17.3182 18.1998 17.7603 17.9746C18.1491 17.7764 18.4653 17.4603 18.6634 17.0714C18.8887 16.6293 18.8887 16.0506 18.8887 14.8932V9.10676C18.8887 7.94935 18.8887 7.37065 18.6634 6.92858C18.4653 6.53972 18.1491 6.22357 17.7603 6.02544C17.3182 5.80019 16.7395 5.80019 15.5821 5.80019L8.41789 5.80019C7.26049 5.80019 6.68178 5.80019 6.23971 6.02544C5.85086 6.22357 5.53471 6.53972 5.33657 6.92858C5.11133 7.37065 5.11133 7.94935 5.11133 9.10676Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
 
 // src/components/ui/Icons/AudiencesIcon.tsx
 var import_jsx_runtime21 = require("react/jsx-runtime");
-var AudiencesIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M7.20747 17.3335C7.64366 16.3059 8.66205 15.5851 9.84879 15.5851H14.151C15.3377 15.5851 16.3561 16.3059 16.7923 17.3336M14.868 10.2074C14.868 11.7914 13.5839 13.0755 11.9999 13.0755C10.4159 13.0755 9.13176 11.7914 9.13176 10.2074C9.13176 8.62341 10.4159 7.33931 11.9999 7.33931C13.5839 7.33931 14.868 8.62341 14.868 10.2074ZM19.1702 12C19.1702 15.96 15.9599 19.1703 11.9999 19.1703C8.03984 19.1703 4.82959 15.96 4.82959 12C4.82959 8.03996 8.03984 4.82971 11.9999 4.82971C15.9599 4.82971 19.1702 8.03996 19.1702 12Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
 
 // src/components/ui/Icons/BrandGuidelinesIcon.tsx
 var import_jsx_runtime22 = require("react/jsx-runtime");
-var BrandGuidelinesIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M17.6078 12.3739V8.11195C17.6078 6.85569 17.6078 6.22756 17.3633 5.74774C17.1482 5.32567 16.8051 4.98252 16.383 4.76746C15.9032 4.52298 15.2751 4.52298 14.0188 4.52298H9.2335C7.97724 4.52298 7.34912 4.52298 6.86929 4.76746C6.44722 4.98252 6.10407 5.32567 5.88902 5.74774C5.64453 6.22756 5.64453 6.85569 5.64453 8.11195V15.8881C5.64453 17.1443 5.64453 17.7724 5.88902 18.2523C6.10407 18.6743 6.44722 19.0175 6.86929 19.2325C7.34912 19.477 7.97724 19.477 9.2335 19.477H11.6261M13.1216 11.2523H8.63534M10.1307 14.2431H8.63534M14.617 8.26149H8.63534M13.4954 17.2339L14.9908 18.7293L18.3555 15.3647",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
 
 // src/components/ui/Icons/DataSourcesIcon.tsx
 var import_jsx_runtime23 = require("react/jsx-runtime");
-var DataSourcesIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M6.2625 16.3031V16.1597C6.2625 14.9547 6.2625 14.3522 6.49701 13.892C6.70328 13.4871 7.03243 13.158 7.43727 12.9517C7.89752 12.7172 8.50001 12.7172 9.705 12.7172H14.295C15.5 12.7172 16.1025 12.7172 16.5627 12.9517C16.9676 13.158 17.2967 13.4871 17.503 13.892C17.7375 14.3522 17.7375 14.9547 17.7375 16.1597V16.3031M6.2625 16.3031C5.47032 16.3031 4.82812 16.9453 4.82812 17.7375C4.82812 18.5297 5.47032 19.1719 6.2625 19.1719C7.05468 19.1719 7.69688 18.5297 7.69688 17.7375C7.69688 16.9453 7.05468 16.3031 6.2625 16.3031ZM17.7375 16.3031C16.9453 16.3031 16.3031 16.9453 16.3031 17.7375C16.3031 18.5297 16.9453 19.1719 17.7375 19.1719C18.5297 19.1719 19.1719 18.5297 19.1719 17.7375C19.1719 16.9453 18.5297 16.3031 17.7375 16.3031ZM12 16.3031C11.2078 16.3031 10.5656 16.9453 10.5656 17.7375C10.5656 18.5297 11.2078 19.1719 12 19.1719C12.7922 19.1719 13.4344 18.5297 13.4344 17.7375C13.4344 16.9453 12.7922 16.3031 12 16.3031ZM12 16.3031V9.13125M7.69688 9.13125H16.3031C16.9715 9.13125 17.3056 9.13125 17.5692 9.02206C17.9207 8.87648 18.1999 8.59725 18.3455 8.24579C18.4547 7.98219 18.4547 7.64802 18.4547 6.97969C18.4547 6.31135 18.4547 5.97719 18.3455 5.71359C18.1999 5.36213 17.9207 5.08289 17.5692 4.93731C17.3056 4.82812 16.9715 4.82812 16.3031 4.82812H7.69688C7.02854 4.82812 6.69437 4.82812 6.43078 4.93731C6.07931 5.08289 5.80008 5.36213 5.6545 5.71359C5.54531 5.97719 5.54531 6.31135 5.54531 6.97969C5.54531 7.64802 5.54531 7.98219 5.6545 8.24579C5.80008 8.59725 6.07931 8.87648 6.43078 9.02206C6.69437 9.13125 7.02854 9.13125 7.69688 9.13125Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
 
 // src/components/ui/Icons/DigitalAssetManagementIcon.tsx
 var import_jsx_runtime24 = require("react/jsx-runtime");
-var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("g", { opacity: "0.8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          "path",
-          {
-            d: "M9.34727 5.36816H6.54716C6.13447 5.36816 5.92813 5.36816 5.7705 5.44848C5.63185 5.51912 5.51912 5.63185 5.44848 5.7705C5.36816 5.92813 5.36816 6.13447 5.36816 6.54716V9.34727C5.36816 9.75995 5.36816 9.9663 5.44848 10.1239C5.51912 10.2626 5.63185 10.3753 5.7705 10.4459C5.92813 10.5263 6.13447 10.5263 6.54716 10.5263H9.34727C9.75995 10.5263 9.9663 10.5263 10.1239 10.4459C10.2626 10.3753 10.3753 10.2626 10.4459 10.1239C10.5263 9.9663 10.5263 9.75995 10.5263 9.34727V6.54716C10.5263 6.13447 10.5263 5.92813 10.4459 5.7705C10.3753 5.63185 10.2626 5.51912 10.1239 5.44848C9.9663 5.36816 9.75995 5.36816 9.34727 5.36816Z",
-            stroke: "currentColor",
-            strokeWidth: "1.5",
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          "path",
-          {
-            d: "M17.4528 5.36816H14.6527C14.24 5.36816 14.0337 5.36816 13.8761 5.44848C13.7374 5.51912 13.6247 5.63185 13.5541 5.7705C13.4737 5.92813 13.4737 6.13447 13.4737 6.54716V9.34727C13.4737 9.75995 13.4737 9.9663 13.5541 10.1239C13.6247 10.2626 13.7374 10.3753 13.8761 10.4459C14.0337 10.5263 14.24 10.5263 14.6527 10.5263H17.4528C17.8655 10.5263 18.0719 10.5263 18.2295 10.4459C18.3681 10.3753 18.4809 10.2626 18.5515 10.1239C18.6318 9.9663 18.6318 9.75995 18.6318 9.34727V6.54716C18.6318 6.13447 18.6318 5.92813 18.5515 5.7705C18.4809 5.63185 18.3681 5.51912 18.2295 5.44848C18.0719 5.36816 17.8655 5.36816 17.4528 5.36816Z",
-            stroke: "currentColor",
-            strokeWidth: "1.5",
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          "path",
-          {
-            d: "M17.4528 13.4737H14.6527C14.24 13.4737 14.0337 13.4737 13.8761 13.5541C13.7374 13.6247 13.6247 13.7374 13.5541 13.8761C13.4737 14.0337 13.4737 14.24 13.4737 14.6527V17.4528C13.4737 17.8655 13.4737 18.0719 13.5541 18.2295C13.6247 18.3681 13.7374 18.4809 13.8761 18.5515C14.0337 18.6318 14.24 18.6318 14.6527 18.6318H17.4528C17.8655 18.6318 18.0719 18.6318 18.2295 18.5515C18.3681 18.4809 18.4809 18.3681 18.5515 18.2295C18.6318 18.0719 18.6318 17.8655 18.6318 17.4528V14.6527C18.6318 14.24 18.6318 14.0337 18.5515 13.8761C18.4809 13.7374 18.3681 13.6247 18.2295 13.5541C18.0719 13.4737 17.8655 13.4737 17.4528 13.4737Z",
-            stroke: "currentColor",
-            strokeWidth: "1.5",
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          "path",
-          {
-            d: "M9.34727 13.4737H6.54716C6.13447 13.4737 5.92813 13.4737 5.7705 13.5541C5.63185 13.6247 5.51912 13.7374 5.44848 13.8761C5.36816 14.0337 5.36816 14.24 5.36816 14.6527V17.4528C5.36816 17.8655 5.36816 18.0719 5.44848 18.2295C5.51912 18.3681 5.63185 18.4809 5.7705 18.5515C5.92813 18.6318 6.13447 18.6318 6.54716 18.6318H9.34727C9.75995 18.6318 9.9663 18.6318 10.1239 18.5515C10.2626 18.4809 10.3753 18.3681 10.4459 18.2295C10.5263 18.0719 10.5263 17.8655 10.5263 17.4528V14.6527C10.5263 14.24 10.5263 14.0337 10.4459 13.8761C10.3753 13.7374 10.2626 13.6247 10.1239 13.5541C9.9663 13.4737 9.75995 13.4737 9.34727 13.4737Z",
-            stroke: "currentColor",
-            strokeWidth: "1.5",
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          }
-        )
-      ] })
-    }
-  );
-};
 
 // src/components/ui/Icons/GoogleIcon.tsx
 var import_jsx_runtime25 = require("react/jsx-runtime");
-var GoogleIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 20 21",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
-          "path",
-          {
-            d: "M10 0.507812C12.4741 0.507812 14.7249 1.43864 16.4443 2.95898L13.9658 5.4375C12.8873 4.54785 11.5085 4.00781 10 4.00781C6.54843 4.00781 3.75 6.80624 3.75 10.2578C3.75 13.7094 6.54843 16.5078 10 16.5078C12.7212 16.5078 15.0282 14.7655 15.8867 12.3408L16.0049 12.0078H10.25V8.50781H18.75V8.54883H19.5957C19.6943 9.10437 19.75 9.6749 19.75 10.2578C19.75 15.6422 15.3844 20.0078 10 20.0078C4.61557 20.0078 0.25 15.6422 0.25 10.2578C0.25 4.87338 4.61557 0.507812 10 0.507812Z",
-            fill: "#FFC107",
-            stroke: "#737373",
-            "stroke-width": "0.5"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
-          "path",
-          {
-            d: "M1.153 5.60331L4.4385 8.01281C5.3275 5.81181 7.4805 4.25781 10 4.25781C11.5295 4.25781 12.921 4.83481 13.9805 5.77731L16.809 2.94881C15.023 1.28431 12.634 0.257812 10 0.257812C6.159 0.257812 2.828 2.42631 1.153 5.60331Z",
-            fill: "#FF3D00"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
-          "path",
-          {
-            d: "M10 20.2578C12.583 20.2578 14.93 19.2693 16.7045 17.6618L13.6095 15.0428C12.572 15.8323 11.3038 16.2592 10 16.2578C7.399 16.2578 5.1905 14.5993 4.3585 12.2848L1.0975 14.7973C2.7525 18.0358 6.1135 20.2578 10 20.2578Z",
-            fill: "#4CAF50"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
-          "path",
-          {
-            d: "M19.8055 8.29931H19V8.25781H10V12.2578H15.6515C15.2571 13.366 14.5467 14.3344 13.608 15.0433L13.6095 15.0423L16.7045 17.6613C16.4855 17.8603 20 15.2578 20 10.2578C20 9.58731 19.931 8.93281 19.8055 8.29931Z",
-            fill: "#1976D2"
-          }
-        )
-      ]
-    }
-  );
-};
 
 // src/components/ui/Icons/HomeIcon.tsx
 var import_jsx_runtime26 = require("react/jsx-runtime");
-var HomeIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M8.93837 16.1076H15.0616M11.2481 5.21128L6.05691 9.2489C5.70989 9.5188 5.53639 9.65375 5.41139 9.82275C5.30066 9.97246 5.21818 10.1411 5.16799 10.3204C5.11133 10.5228 5.11133 10.7426 5.11133 11.1823V16.7199C5.11133 17.5773 5.11133 18.0059 5.27818 18.3334C5.42494 18.6214 5.65913 18.8556 5.94717 19.0024C6.27463 19.1692 6.7033 19.1692 7.56063 19.1692H16.4394C17.2967 19.1692 17.7254 19.1692 18.0528 19.0024C18.3409 18.8556 18.5751 18.6214 18.7218 18.3334C18.8887 18.0059 18.8887 17.5773 18.8887 16.7199V11.1823C18.8887 10.7426 18.8887 10.5228 18.832 10.3204C18.7818 10.1411 18.6993 9.97246 18.5886 9.82275C18.4636 9.65375 18.2901 9.5188 17.9431 9.2489L12.7519 5.21128C12.483 5.00213 12.3485 4.89755 12.2 4.85735C12.069 4.82189 11.931 4.82189 11.8 4.85735C11.6515 4.89755 11.517 5.00213 11.2481 5.21128Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
 
 // src/components/ui/Icons/KnowledgeBaseIcon.tsx
 var import_jsx_runtime27 = require("react/jsx-runtime");
-var KnowledgeBaseIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M7.23281 14.0431C6.59816 14.0431 6.28084 14.0431 6.03053 13.9394C5.69678 13.8012 5.43162 13.536 5.29338 13.2023C5.1897 12.952 5.1897 12.6346 5.1897 12V7.36895C5.1897 6.60612 5.1897 6.2247 5.33815 5.93334C5.46874 5.67705 5.67711 5.46868 5.9334 5.33809C6.22477 5.18964 6.60618 5.18964 7.36901 5.18964H12.0001C12.6347 5.18964 12.952 5.18964 13.2023 5.29332C13.5361 5.43156 13.8012 5.69672 13.9395 6.03047C14.0432 6.28078 14.0432 6.5981 14.0432 7.23275M12.1363 18.8104H16.6311C17.3939 18.8104 17.7754 18.8104 18.0667 18.6619C18.323 18.5313 18.5314 18.3229 18.662 18.0667C18.8104 17.7753 18.8104 17.3939 18.8104 16.631V12.1362C18.8104 11.3734 18.8104 10.992 18.662 10.7006C18.5314 10.4443 18.323 10.2359 18.0667 10.1053C17.7754 9.95689 17.3939 9.95689 16.6311 9.95689H12.1363C11.3734 9.95689 10.992 9.95689 10.7007 10.1053C10.4444 10.2359 10.236 10.4443 10.1054 10.7006C9.95695 10.992 9.95695 11.3734 9.95695 12.1362V16.631C9.95695 17.3939 9.95695 17.7753 10.1054 18.0667C10.236 18.3229 10.4444 18.5313 10.7007 18.6619C10.992 18.8104 11.3734 18.8104 12.1363 18.8104Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
 
 // src/components/ui/Icons/LinkedInIcon.tsx
 var import_jsx_runtime28 = require("react/jsx-runtime");
-var LinkedInIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
-        "path",
-        {
-          d: "M7.44 5.25784C7.43974 5.78827 7.22877 6.29687 6.85351 6.67176C6.47825 7.04664 5.96944 7.2571 5.439 7.25684C4.90857 7.25657 4.39997 7.0456 4.02508 6.67034C3.6502 6.29508 3.43974 5.78627 3.44 5.25584C3.44027 4.7254 3.65124 4.2168 4.0265 3.84192C4.40176 3.46703 4.91057 3.25657 5.441 3.25684C5.97144 3.2571 6.48004 3.46807 6.85492 3.84333C7.22981 4.21859 7.44027 4.7274 7.44 5.25784ZM7.5 8.73784H3.5V21.2578H7.5V8.73784ZM13.82 8.73784H9.84V21.2578H13.78V14.6878C13.78 11.0278 18.55 10.6878 18.55 14.6878V21.2578H22.5V13.3278C22.5 7.15784 15.44 7.38784 13.78 10.4178L13.82 8.73784Z",
-          fill: "#0A66C2"
-        }
-      )
-    }
-  );
-};
 
 // src/components/ui/Icons/PersonaIcon.tsx
 var import_jsx_runtime29 = require("react/jsx-runtime");
@@ -2983,31 +2629,6 @@ var PersonaIcon = ({
 
 // src/components/ui/Icons/PaletteIcon.tsx
 var import_jsx_runtime30 = require("react/jsx-runtime");
-var PaletteIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
-        "path",
-        {
-          d: "M12 22C10.6333 22 9.34167 21.7373 8.125 21.212C6.90833 20.6867 5.846 19.97 4.938 19.062C4.03 18.154 3.31333 17.0917 2.788 15.875C2.26267 14.6583 2 13.3667 2 12C2 10.6167 2.271 9.31667 2.813 8.1C3.355 6.88333 4.08833 5.825 5.013 4.925C5.93767 4.025 7.01667 3.31267 8.25 2.788C9.48333 2.26333 10.8 2.00067 12.2 2C13.5333 2 14.7917 2.22933 15.975 2.688C17.1583 3.14667 18.196 3.78 19.088 4.588C19.98 5.396 20.6883 6.35433 21.213 7.463C21.7377 8.57167 22 9.76733 22 11.05C22 12.9667 21.4167 14.4377 20.25 15.463C19.0833 16.4883 17.6667 17.0007 16 17H14.15C14 17 13.896 17.0417 13.838 17.125C13.78 17.2083 13.7507 17.3 13.75 17.4C13.75 17.6 13.875 17.8877 14.125 18.263C14.375 18.6383 14.5 19.0673 14.5 19.55C14.5 20.3833 14.271 21 13.813 21.4C13.355 21.8 12.7507 22 12 22ZM6.5 13C6.93333 13 7.29167 12.8583 7.575 12.575C7.85833 12.2917 8 11.9333 8 11.5C8 11.0667 7.85833 10.7083 7.575 10.425C7.29167 10.1417 6.93333 10 6.5 10C6.06667 10 5.70833 10.1417 5.425 10.425C5.14167 10.7083 5 11.0667 5 11.5C5 11.9333 5.14167 12.2917 5.425 12.575C5.70833 12.8583 6.06667 13 6.5 13ZM9.5 9C9.93333 9 10.2917 8.85833 10.575 8.575C10.8583 8.29167 11 7.93333 11 7.5C11 7.06667 10.8583 6.70833 10.575 6.425C10.2917 6.14167 9.93333 6 9.5 6C9.06667 6 8.70833 6.14167 8.425 6.425C8.14167 6.70833 8 7.06667 8 7.5C8 7.93333 8.14167 8.29167 8.425 8.575C8.70833 8.85833 9.06667 9 9.5 9ZM14.5 9C14.9333 9 15.2917 8.85833 15.575 8.575C15.8583 8.29167 16 7.93333 16 7.5C16 7.06667 15.8583 6.70833 15.575 6.425C15.2917 6.14167 14.9333 6 14.5 6C14.0667 6 13.7083 6.14167 13.425 6.425C13.1417 6.70833 13 7.06667 13 7.5C13 7.93333 13.1417 8.29167 13.425 8.575C13.7083 8.85833 14.0667 9 14.5 9ZM17.5 13C17.9333 13 18.2917 12.8583 18.575 12.575C18.8583 12.2917 19 11.9333 19 11.5C19 11.0667 18.8583 10.7083 18.575 10.425C18.2917 10.1417 17.9333 10 17.5 10C17.0667 10 16.7083 10.1417 16.425 10.425C16.1417 10.7083 16 11.0667 16 11.5C16 11.9333 16.1417 12.2917 16.425 12.575C16.7083 12.8583 17.0667 13 17.5 13ZM12 20C12.15 20 12.271 19.9583 12.363 19.875C12.455 19.7917 12.5007 19.6833 12.5 19.55C12.5 19.3167 12.375 19.0417 12.125 18.725C11.875 18.4083 11.75 17.9333 11.75 17.3C11.75 16.6 11.9917 16.0417 12.475 15.625C12.9583 15.2083 13.55 15 14.25 15H16C17.1 15 18.0417 14.6793 18.825 14.038C19.6083 13.3967 20 12.4007 20 11.05C20 9.03333 19.2293 7.354 17.688 6.012C16.1467 4.67 14.3173 3.99933 12.2 4C9.93333 4 8 4.775 6.4 6.325C4.8 7.875 4 9.76667 4 12C4 14.2167 4.77933 16.1043 6.338 17.663C7.89667 19.2217 9.784 20.0007 12 20Z",
-          fill: "black"
-        }
-      )
-    }
-  );
-};
 
 // src/components/ui/Icons/SidebarIcon.tsx
 var import_jsx_runtime31 = require("react/jsx-runtime");
@@ -4329,39 +3950,17 @@ var CurieAIChatPrompt = React26.forwardRef(
   }
 );
 CurieAIChatPrompt.displayName = "CurieAIChatPrompt";
-
-// src/hooks/use-mobile.tsx
-var React27 = __toESM(require("react"), 1);
-var MOBILE_BREAKPOINT = 768;
-function useIsMobile() {
-  const [isMobile, setIsMobile] = React27.useState(void 0);
-  React27.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
-    const onChange = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
-    };
-    mql.addEventListener("change", onChange);
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
-    return () => mql.removeEventListener("change", onChange);
-  }, []);
-  return !!isMobile;
-}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  AIIcon,
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AnalyticsIcon,
   AnnouncementCard,
-  AppIcon,
-  AudiencesIcon,
   Avatar,
   AvatarGroup,
   Badge,
   Banner,
-  BrandGuidelinesIcon,
   Breadcrumb,
   BreadcrumbEllipsis,
   BreadcrumbItem,
@@ -4378,17 +3977,11 @@ function useIsMobile() {
   ContentBoxHeader,
   ContentBoxTitle,
   CurieAIChatPrompt,
-  DataSourcesIcon,
-  DigitalAssetManagementIcon,
-  GoogleIcon,
   HighlightCTACard,
   HighlightCard,
-  HomeIcon,
   IconCard,
   InfoCard,
   Input,
-  KnowledgeBaseIcon,
-  LinkedInIcon,
   Logo,
   Menubar,
   MenubarCheckboxItem,
@@ -4418,16 +4011,13 @@ function useIsMobile() {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-  PaletteIcon,
   Persona,
-  PersonaIcon,
   Popover,
   PopoverContent,
   PopoverTrigger,
   Progress,
   RangeSlider,
   Sidebar,
-  SidebarIcon,
   Slider,
   TabGroup,
   Table,
@@ -4460,19 +4050,13 @@ function useIsMobile() {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-  VectorIcon,
   badgeVariants,
   bannerVariants,
   buttonVariants,
-  cn,
   pageLevelVariants,
   personaVariants,
-  reducer,
   tabsContentVariants,
   tabsListVariants,
   tabsTriggerVariants,
-  toast,
-  toggleVariants,
-  useIsMobile,
-  useToast
+  toggleVariants
 });
