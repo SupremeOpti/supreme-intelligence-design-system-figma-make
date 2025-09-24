@@ -182,21 +182,37 @@ function main() {
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
     const hasDesignSystem =
       packageJson.dependencies?.["@supreme-intelligence/design-system"] ||
-      packageJson.devDependencies?.["@supreme-intelligence/design-system"];
+      packageJson.devDependencies?.["@supreme-intelligence/design-system"] ||
+      packageJson.peerDependencies?.["@supreme-intelligence/design-system"];
 
     // Check if this is the design system package itself (development mode)
     const isDesignSystemPackage =
       packageJson.name === "@supreme-intelligence/design-system";
 
     if (!hasDesignSystem && !isDesignSystemPackage) {
-      console.log(
-        "⚠️  @supreme-intelligence/design-system not found in dependencies, skipping"
-      );
-      return;
+      // Check if this looks like a project that might use the design system
+      const hasReact =
+        packageJson.dependencies?.react || packageJson.devDependencies?.react;
+      const hasTailwind =
+        packageJson.dependencies?.tailwindcss ||
+        packageJson.devDependencies?.tailwindcss;
+
+      if (hasReact || hasTailwind) {
+        console.log(
+          "🔧 Project appears to use React/Tailwind, attempting to update config..."
+        );
+      } else {
+        console.log(
+          "⚠️  @supreme-intelligence/design-system not found in dependencies, skipping"
+        );
+        return;
+      }
     }
 
     if (isDesignSystemPackage) {
       console.log("🔧 Running in development mode - updating local config");
+    } else {
+      console.log("🔧 Running in consuming project - updating Tailwind config");
     }
   } catch (error) {
     console.log("⚠️  Could not read package.json, skipping dependency check");
