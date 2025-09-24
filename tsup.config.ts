@@ -1,4 +1,6 @@
 import { defineConfig } from "tsup";
+import { copyFileSync } from "fs";
+import { join } from "path";
 
 export default defineConfig({
   entry: ["src/index.ts", "src/icons.ts", "src/layout.ts", "src/components.ts"],
@@ -36,5 +38,8 @@ export default defineConfig({
   banner: {
     js: '"use client";',
   },
-  onSuccess: async () => {},
+  onSuccess: async () => {
+    // Copy CSS file to dist directory
+    copyFileSync("src/index.css", join("dist", "index.css"));
+  },
 });

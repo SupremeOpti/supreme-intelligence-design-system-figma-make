@@ -184,7 +184,7 @@ import { Fragment, jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
 var Layout = ({
   children,
   showSidebar = true,
-  showHeader = true,
+  showHeader = false,
   headerItems,
   sidebarItems
 }) => {

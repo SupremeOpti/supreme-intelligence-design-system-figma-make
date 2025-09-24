@@ -105,7 +105,7 @@ pnpm add @supreme-intelligence/design-system
 ```css
 /* globals.css or main.css */
 @import "tailwindcss";
-@import "@supreme-intelligence/design-system";
+@import "@supreme-intelligence/design-system/styles";
 ```
 
 2. **Use the components:**
@@ -130,7 +130,7 @@ export default function App() {
 ```css
 /* resources/css/app.css */
 @import "tailwindcss";
-@import "@supreme-intelligence/design-system";
+@import "@supreme-intelligence/design-system/styles";
 ```
 
 2. **Use in Blade templates:**
@@ -224,7 +224,7 @@ You can extend the design system by adding custom styles after importing:
 
 ```css
 @import "tailwindcss";
-@import "@supreme-intelligence/design-system";
+@import "@supreme-intelligence/design-system/styles";
 
 /* Your custom styles */
 @layer base {

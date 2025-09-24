@@ -27,7 +27,7 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({
   children,
   showSidebar = true,
-  showHeader = true,
+  showHeader = false,
   headerItems,
   sidebarItems,
 }) => {

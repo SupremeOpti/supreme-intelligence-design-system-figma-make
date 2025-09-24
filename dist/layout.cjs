@@ -831,7 +831,7 @@ var import_jsx_runtime22 = require("react/jsx-runtime");
 var Layout = ({
   children,
   showSidebar = true,
-  showHeader = true,
+  showHeader = false,
   headerItems,
   sidebarItems
 }) => {
