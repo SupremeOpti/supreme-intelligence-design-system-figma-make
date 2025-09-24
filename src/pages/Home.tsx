@@ -700,7 +700,7 @@ const Components = () => {
                       <ContentBoxTitle>Progress Component</ContentBoxTitle>
                     </ContentBoxHeader>
                     <ContentBoxContent>
-                      <Progress showValue size="lg" value={50} />
+                      <Progress value={50} />
                     </ContentBoxContent>
                   </ContentBox>
                 </section>

@@ -2201,46 +2201,37 @@ PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 // src/components/ui/progress.tsx
 import * as React14 from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
-import { jsx as jsx15, jsxs as jsxs13 } from "react/jsx-runtime";
-var Progress = React14.forwardRef(({ className, value, showValue, size = "default", ...props }, ref) => {
-  const sizeClasses = {
-    sm: "h-2",
-    default: "h-3",
-    lg: "h-4"
-  };
-  return /* @__PURE__ */ jsxs13("div", { className: "w-full space-y-1", children: [
-    /* @__PURE__ */ jsx15(
-      ProgressPrimitive.Root,
-      {
-        ref,
-        className: cn(
-          "relative overflow-hidden rounded-full bg-secondary",
-          sizeClasses[size],
-          className
-        ),
-        ...props,
-        children: /* @__PURE__ */ jsx15(
-          ProgressPrimitive.Indicator,
-          {
-            className: "h-full w-full flex-1 bg-primary transition-all duration-300 ease-in-out rounded-r-full",
-            style: { transform: `translateX(-${100 - (value || 0)}%)` }
-          }
-        )
-      }
+import { jsx as jsx15 } from "react/jsx-runtime";
+var Progress = React14.forwardRef(({ className, value, indicatorClassName, ...props }, ref) => /* @__PURE__ */ jsx15(
+  ProgressPrimitive.Root,
+  {
+    ref,
+    className: cn(
+      "relative h-4 w-full overflow-hidden rounded-full bg-secondary",
+      className
     ),
-    showValue && /* @__PURE__ */ jsx15("div", { className: "flex justify-end", children: /* @__PURE__ */ jsxs13("span", { className: "text-sm text-muted-foreground font-medium", children: [
-      value,
-      "%"
-    ] }) })
-  ] });
-});
+    ...props,
+    children: /* @__PURE__ */ jsx15(
+      ProgressPrimitive.Indicator,
+      {
+        className: cn(
+          "h-full w-full flex-1 transition-all rounded-r-full",
+          indicatorClassName
+        ),
+        style: {
+          transform: `translateX(-${100 - (value || 0)}%)`
+        }
+      }
+    )
+  }
+));
 Progress.displayName = ProgressPrimitive.Root.displayName;
 
 // src/components/ui/slider.tsx
 import * as React15 from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
-import { jsx as jsx16, jsxs as jsxs14 } from "react/jsx-runtime";
-var Slider = React15.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxs14(
+import { jsx as jsx16, jsxs as jsxs13 } from "react/jsx-runtime";
+var Slider = React15.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxs13(
   SliderPrimitive.Root,
   {
     ref,
@@ -2256,7 +2247,7 @@ var Slider = React15.forwardRef(({ className, ...props }, ref) => /* @__PURE__ *
   }
 ));
 Slider.displayName = SliderPrimitive.Root.displayName;
-var RangeSlider = React15.forwardRef(({ className, defaultValue, value, onValueChange, ...props }, ref) => /* @__PURE__ */ jsxs14(
+var RangeSlider = React15.forwardRef(({ className, defaultValue, value, onValueChange, ...props }, ref) => /* @__PURE__ */ jsxs13(
   SliderPrimitive.Root,
   {
     ref,
@@ -2280,7 +2271,7 @@ RangeSlider.displayName = "RangeSlider";
 // src/components/ui/table.tsx
 import * as React16 from "react";
 import { ChevronDown as ChevronDown2 } from "lucide-react";
-import { jsx as jsx17, jsxs as jsxs15 } from "react/jsx-runtime";
+import { jsx as jsx17, jsxs as jsxs14 } from "react/jsx-runtime";
 var Table = React16.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx17("div", { className: "relative w-full overflow-auto", children: /* @__PURE__ */ jsx17(
   "table",
   {
@@ -2345,7 +2336,7 @@ var TableHead = React16.forwardRef(({ className, sortable, sorted, onSort, child
     ),
     onClick: sortable ? onSort : void 0,
     ...props,
-    children: /* @__PURE__ */ jsxs15("div", { className: "flex items-center gap-2", children: [
+    children: /* @__PURE__ */ jsxs14("div", { className: "flex items-center gap-2", children: [
       children,
       sortable && /* @__PURE__ */ jsx17(
         ChevronDown2,
@@ -2397,7 +2388,7 @@ TableCheckbox.displayName = "TableCheckbox";
 import * as React17 from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cva as cva5 } from "class-variance-authority";
-import { jsx as jsx18, jsxs as jsxs16 } from "react/jsx-runtime";
+import { jsx as jsx18, jsxs as jsxs15 } from "react/jsx-runtime";
 var tabsListVariants = cva5(
   "inline-flex h-10 items-center justify-center bg-muted text-muted-foreground",
   {
@@ -2493,7 +2484,7 @@ var TabGroup = React17.forwardRef(({
   className,
   orientation = "horizontal"
 }, ref) => {
-  return /* @__PURE__ */ jsx18("div", { ref, className: cn("w-full", className), children: /* @__PURE__ */ jsxs16(
+  return /* @__PURE__ */ jsx18("div", { ref, className: cn("w-full", className), children: /* @__PURE__ */ jsxs15(
     Tabs,
     {
       defaultValue,
@@ -2523,11 +2514,11 @@ TabGroup.displayName = "TabGroup";
 
 // src/components/ui/textarea.tsx
 import * as React18 from "react";
-import { jsx as jsx19, jsxs as jsxs17 } from "react/jsx-runtime";
+import { jsx as jsx19, jsxs as jsxs16 } from "react/jsx-runtime";
 var Textarea = React18.forwardRef(
   ({ className, label, required = false, hint, error, ...props }, ref) => {
-    return /* @__PURE__ */ jsxs17("div", { className: "relative", children: [
-      label && /* @__PURE__ */ jsxs17(
+    return /* @__PURE__ */ jsxs16("div", { className: "relative", children: [
+      label && /* @__PURE__ */ jsxs16(
         "label",
         {
           className: cn(
@@ -2836,10 +2827,10 @@ function useToast() {
 }
 
 // src/components/ui/toaster.tsx
-import { jsx as jsx21, jsxs as jsxs18 } from "react/jsx-runtime";
+import { jsx as jsx21, jsxs as jsxs17 } from "react/jsx-runtime";
 function Toaster() {
   const { toasts } = useToast();
-  return /* @__PURE__ */ jsxs18(ToastProvider, { children: [
+  return /* @__PURE__ */ jsxs17(ToastProvider, { children: [
     toasts.map(function({
       id,
       title,
@@ -2849,10 +2840,10 @@ function Toaster() {
       variant,
       ...props
     }) {
-      return /* @__PURE__ */ jsxs18(Toast, { ...props, variant, className: "w-full flex", children: [
+      return /* @__PURE__ */ jsxs17(Toast, { ...props, variant, className: "w-full flex", children: [
         /* @__PURE__ */ jsx21(ToastIcon, { variant }),
-        /* @__PURE__ */ jsxs18("div", { className: "flex gap-1 flex-col", children: [
-          /* @__PURE__ */ jsxs18(ToastContent, { children: [
+        /* @__PURE__ */ jsxs17("div", { className: "flex gap-1 flex-col", children: [
+          /* @__PURE__ */ jsxs17(ToastContent, { children: [
             title && /* @__PURE__ */ jsx21(ToastTitle, { variant, children: title }),
             description && /* @__PURE__ */ jsx21(ToastDescription, { variant, children: description })
           ] }),
@@ -2946,7 +2937,7 @@ Toggle.displayName = TogglePrimitive.Root.displayName;
 // src/components/ui/tooltip.tsx
 import * as React22 from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { jsx as jsx23, jsxs as jsxs19 } from "react/jsx-runtime";
+import { jsx as jsx23, jsxs as jsxs18 } from "react/jsx-runtime";
 var TooltipProvider = TooltipPrimitive.Provider;
 var Tooltip = TooltipPrimitive.Root;
 var TooltipTrigger = TooltipPrimitive.Trigger;
@@ -2980,7 +2971,7 @@ var TooltipContent = React22.forwardRef(({ className, sideOffset = 4, arrowDirec
         return "absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-supreme-blue-700";
     }
   };
-  return /* @__PURE__ */ jsxs19(
+  return /* @__PURE__ */ jsxs18(
     TooltipPrimitive.Content,
     {
       ref,
@@ -3004,7 +2995,7 @@ TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 import * as React23 from "react";
 import { PlusIcon, ChevronDownIcon as ChevronDownIcon2 } from "@heroicons/react/24/outline";
 import { ArrowUpIcon } from "@heroicons/react/24/outline";
-import { jsx as jsx24, jsxs as jsxs20 } from "react/jsx-runtime";
+import { jsx as jsx24, jsxs as jsxs19 } from "react/jsx-runtime";
 var CurieAIChatPrompt = React23.forwardRef(
   ({
     onSend,
@@ -3038,7 +3029,7 @@ var CurieAIChatPrompt = React23.forwardRef(
         onPersonasChange(persona);
       }
     };
-    return /* @__PURE__ */ jsxs20(
+    return /* @__PURE__ */ jsxs19(
       "div",
       {
         ref,
@@ -3048,8 +3039,8 @@ var CurieAIChatPrompt = React23.forwardRef(
         ),
         ...props,
         children: [
-          /* @__PURE__ */ jsxs20("div", { className: "flex flex-col items-center space-y-2", children: [
-            /* @__PURE__ */ jsxs20("div", { className: "flex items-center space-x-2", children: [
+          /* @__PURE__ */ jsxs19("div", { className: "flex flex-col items-center space-y-2", children: [
+            /* @__PURE__ */ jsxs19("div", { className: "flex items-center space-x-2", children: [
               /* @__PURE__ */ jsx24(
                 AIIcon,
                 {
@@ -3061,7 +3052,7 @@ var CurieAIChatPrompt = React23.forwardRef(
             ] }),
             /* @__PURE__ */ jsx24("h2", { className: "text-3xl font-medium text-neutral-700", children: "What would you like to discover?" })
           ] }),
-          /* @__PURE__ */ jsx24("div", { className: "relative w-full max-w-4xl", children: /* @__PURE__ */ jsxs20("div", { className: "relative bg-white rounded-2xl shadow-lg border border-neutral-200 p-4", children: [
+          /* @__PURE__ */ jsx24("div", { className: "relative w-full max-w-4xl", children: /* @__PURE__ */ jsxs19("div", { className: "relative bg-white rounded-2xl shadow-lg border border-neutral-200 p-4", children: [
             /* @__PURE__ */ jsx24(
               "textarea",
               {
@@ -3073,8 +3064,8 @@ var CurieAIChatPrompt = React23.forwardRef(
                 className: "w-full h-16 resize-none border-none outline-none text-base placeholder:text-neutral-400 focus:ring-0 focus:outline-none disabled:opacity-50"
               }
             ),
-            /* @__PURE__ */ jsxs20("div", { className: "flex items-center justify-between pt-2", children: [
-              /* @__PURE__ */ jsxs20("div", { className: "flex items-center space-x-3", children: [
+            /* @__PURE__ */ jsxs19("div", { className: "flex items-center justify-between pt-2", children: [
+              /* @__PURE__ */ jsxs19("div", { className: "flex items-center space-x-3", children: [
                 /* @__PURE__ */ jsx24(
                   Button,
                   {
@@ -3085,7 +3076,7 @@ var CurieAIChatPrompt = React23.forwardRef(
                     children: /* @__PURE__ */ jsx24(PlusIcon, { className: "w-6 h-6 text-black" })
                   }
                 ),
-                /* @__PURE__ */ jsx24("div", { className: "relative", children: /* @__PURE__ */ jsxs20(
+                /* @__PURE__ */ jsx24("div", { className: "relative", children: /* @__PURE__ */ jsxs19(
                   Button,
                   {
                     onClick: () => setIsPersonasOpen(!isPersonasOpen),

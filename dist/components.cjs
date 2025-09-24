@@ -2496,38 +2496,29 @@ PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 var React16 = __toESM(require("react"), 1);
 var ProgressPrimitive = __toESM(require("@radix-ui/react-progress"), 1);
 var import_jsx_runtime17 = require("react/jsx-runtime");
-var Progress = React16.forwardRef(({ className, value, showValue, size = "default", ...props }, ref) => {
-  const sizeClasses = {
-    sm: "h-2",
-    default: "h-3",
-    lg: "h-4"
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "w-full space-y-1", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-      ProgressPrimitive.Root,
-      {
-        ref,
-        className: cn(
-          "relative overflow-hidden rounded-full bg-secondary",
-          sizeClasses[size],
-          className
-        ),
-        ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-          ProgressPrimitive.Indicator,
-          {
-            className: "h-full w-full flex-1 bg-primary transition-all duration-300 ease-in-out rounded-r-full",
-            style: { transform: `translateX(-${100 - (value || 0)}%)` }
-          }
-        )
-      }
+var Progress = React16.forwardRef(({ className, value, indicatorClassName, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+  ProgressPrimitive.Root,
+  {
+    ref,
+    className: cn(
+      "relative h-4 w-full overflow-hidden rounded-full bg-secondary",
+      className
     ),
-    showValue && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex justify-end", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("span", { className: "text-sm text-muted-foreground font-medium", children: [
-      value,
-      "%"
-    ] }) })
-  ] });
-});
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+      ProgressPrimitive.Indicator,
+      {
+        className: cn(
+          "h-full w-full flex-1 transition-all rounded-r-full",
+          indicatorClassName
+        ),
+        style: {
+          transform: `translateX(-${100 - (value || 0)}%)`
+        }
+      }
+    )
+  }
+));
 Progress.displayName = ProgressPrimitive.Root.displayName;
 
 // src/components/ui/sidebar.tsx

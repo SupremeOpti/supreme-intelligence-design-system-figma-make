@@ -253,8 +253,7 @@ declare const PopoverTrigger: React.ForwardRefExoticComponent<PopoverPrimitive.P
 declare const PopoverContent: React.ForwardRefExoticComponent<Omit<PopoverPrimitive.PopoverContentProps & React.RefAttributes<HTMLDivElement>, "ref"> & React.RefAttributes<HTMLDivElement>>;
 
 declare const Progress: React.ForwardRefExoticComponent<Omit<ProgressPrimitive.ProgressProps & React.RefAttributes<HTMLDivElement>, "ref"> & {
-    showValue?: boolean;
-    size?: "sm" | "default" | "lg";
+    indicatorClassName?: string;
 } & React.RefAttributes<HTMLDivElement>>;
 
 declare const Slider: React.ForwardRefExoticComponent<Omit<SliderPrimitive.SliderProps & React.RefAttributes<HTMLSpanElement>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
