@@ -333,8 +333,9 @@ var Sidebar = React3.forwardRef(
                         "div",
                         {
                           className: cn(
-                            "flex w-full items-center hover:bg-white rounded-lg transition-all duration-500 ease-in-out py-2.5 px-3.5 gap-3",
+                            "flex w-full items-center hover:bg-white rounded-xl transition-all duration-500 ease-in-out py-2.5 px-3.5",
                             isCollapsed && "justify-center",
+                            !isCollapsed && "gap-2",
                             isActive && "bg-white border border-slate-200"
                           ),
                           children: [
@@ -343,7 +344,7 @@ var Sidebar = React3.forwardRef(
                               {
                                 className: cn(
                                   "flex-shrink-0 transition-all duration-500 ease-in-out",
-                                  !isCollapsed && "mr-1",
+                                  !isCollapsed && "mr-1 ",
                                   isActive && "text-slate-600"
                                 ),
                                 children: item.icon
