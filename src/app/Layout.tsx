@@ -55,7 +55,7 @@ export const Layout: React.FC<LayoutProps> = ({
         )}
 
         {/* Children Content */}
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className="flex-1 overflow-y-auto">
           <div className="w-full min-w-0">{children}</div>
         </div>
       </div>

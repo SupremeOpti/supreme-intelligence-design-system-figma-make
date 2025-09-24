@@ -843,7 +843,7 @@ var Layout = ({
     showSidebar && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "bg-slate-100 border-r border-slate-200 sticky top-0 h-screen z-50", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Sidebar, { items: sidebarItems }) }),
     /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex-1 flex flex-col", children: [
       showHeader && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "bg-white border-b border-slate-200 sticky top-0 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Header, { items: headerItems }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "flex-1 overflow-y-auto p-6", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "w-full min-w-0", children }) })
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "flex-1 overflow-y-auto", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "w-full min-w-0", children }) })
     ] })
   ] });
 };
