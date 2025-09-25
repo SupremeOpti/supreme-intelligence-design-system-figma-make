@@ -325,6 +325,7 @@ interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
     required?: boolean;
     hint?: string;
     error?: string;
+    labelClassName?: string;
 }
 declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
 

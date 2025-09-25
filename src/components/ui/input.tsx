@@ -27,7 +27,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     return (
-      <div className="relative">
+      <div className="relative w-full">
         {label && (
           <label
             className={cn(

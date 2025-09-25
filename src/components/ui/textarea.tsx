@@ -8,16 +8,29 @@ export interface TextareaProps
   required?: boolean;
   hint?: string;
   error?: string;
+  labelClassName?: string;
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, label, required = false, hint, error, ...props }, ref) => {
+  (
+    {
+      className,
+      label,
+      labelClassName,
+      required = false,
+      hint,
+      error,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div className="relative">
         {label && (
           <label
             className={cn(
               "text-sm font-medium bg-white px-1 text-neutral-600 dark:text-supreme-blue-300 mb-1 absolute -top-3 z-10 left-4",
+              labelClassName,
               error && "text-destructive"
             )}
           >

@@ -881,7 +881,7 @@ var Input = React9.forwardRef(
     error,
     ...props
   }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "relative", children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "relative w-full", children: [
       label && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
         "label",
         {
@@ -3729,13 +3729,22 @@ TabGroup.displayName = "TabGroup";
 var React21 = __toESM(require("react"), 1);
 var import_jsx_runtime38 = require("react/jsx-runtime");
 var Textarea = React21.forwardRef(
-  ({ className, label, required = false, hint, error, ...props }, ref) => {
+  ({
+    className,
+    label,
+    labelClassName,
+    required = false,
+    hint,
+    error,
+    ...props
+  }, ref) => {
     return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "relative", children: [
       label && /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(
         "label",
         {
           className: cn(
             "text-sm font-medium bg-white px-1 text-neutral-600 dark:text-supreme-blue-300 mb-1 absolute -top-3 z-10 left-4",
+            labelClassName,
             error && "text-destructive"
           ),
           children: [

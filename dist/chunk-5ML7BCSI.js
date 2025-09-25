@@ -567,7 +567,7 @@ var Input = React7.forwardRef(
     error,
     ...props
   }, ref) => {
-    return /* @__PURE__ */ jsxs7("div", { className: "relative", children: [
+    return /* @__PURE__ */ jsxs7("div", { className: "relative w-full", children: [
       label && /* @__PURE__ */ jsxs7(
         "label",
         {
@@ -2516,13 +2516,22 @@ TabGroup.displayName = "TabGroup";
 import * as React18 from "react";
 import { jsx as jsx19, jsxs as jsxs16 } from "react/jsx-runtime";
 var Textarea = React18.forwardRef(
-  ({ className, label, required = false, hint, error, ...props }, ref) => {
+  ({
+    className,
+    label,
+    labelClassName,
+    required = false,
+    hint,
+    error,
+    ...props
+  }, ref) => {
     return /* @__PURE__ */ jsxs16("div", { className: "relative", children: [
       label && /* @__PURE__ */ jsxs16(
         "label",
         {
           className: cn(
             "text-sm font-medium bg-white px-1 text-neutral-600 dark:text-supreme-blue-300 mb-1 absolute -top-3 z-10 left-4",
+            labelClassName,
             error && "text-destructive"
           ),
           children: [
