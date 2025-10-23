@@ -3,7 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
-import ProtectedRoute from "./app/ProtectedRoute";
+
 import Login from "./pages/Login";
 import Index from "./pages/Index";
 import Home from "./pages/Home";
@@ -23,14 +23,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Index />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/" element={<Index />} />
             <Route path="/home" element={<Home />} />
             <Route path="/design-tokens" element={<DesignTokens />} />
             <Route path="/banner-demo" element={<BannerDemo />} />
