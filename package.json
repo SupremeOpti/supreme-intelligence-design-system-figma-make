@@ -36,7 +36,8 @@
         "build:dev": "vite build --mode development",
         "build:package": "tsup",
         "lint": "eslint .",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "figma:extract": "node scripts/extract-figma-params.js"
     },
     "keywords": [
         "design-system",

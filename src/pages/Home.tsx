@@ -51,6 +51,10 @@ import {
   HighlightCard,
   HighlightCTACard,
   AnnouncementCard,
+  HowItWorksCard,
+  ContentTypeCard,
+  SingleIconCard,
+  CardWithProgress
 } from "@/components/ui/card";
 import BannerDemo from "./banner-demo";
 import { RangeSlider, Slider } from "@/components/ui/slider";
@@ -921,6 +925,52 @@ const Components = () => {
                               "Sapien orci id vitae justo elit sem dictumst sed eu. Elementum hac volutpat amet viverra commodo sociis elementum gravida sit. Felis sed nec tellus interdum neque fames imperdiet ac. Pellentesque integer sit nibh risus in arcu amet tempus. Interdum convallis morbi."
                             }
                             badgeText="Badge"
+                          />
+                        </div>
+                      </div>
+                      {/* How It Works Card */}
+                      <div className="space-y-4">
+                        <h3 className="text-lg font-medium">How It Works Card</h3>
+                        <div className="">
+                          <HowItWorksCard
+                            stepNumber={1}
+                            title="Lorem ipsum dolor sit"
+                            description="Sapien orci id vitae justo elit sem dictumst sed eu. Elementum hac volutpat amet viverra commodo sociis elementum gravida sit. Felis sed nec tellus interdum neque fames imperdiet ac. Pellentesque integer sit nibh risus in arcu amet tempus. Interdum convallis morbi."
+                          />
+                        </div>
+                      </div>
+                      {/* Content Type Card */}
+                      <div className="space-y-4">
+                        <h3 className="text-lg font-medium">Content Type Card</h3>
+                        <div className="max-w-2xl">
+                          <ContentTypeCard
+                            title="Title content here"
+                            description="Description"
+                          />
+                        </div>
+                      </div>
+                      {/* Single Icon Card */}
+                      <div className="space-y-4">
+                        <h3 className="text-lg font-medium">Single Icon Card</h3>
+                        <div className="max-w-2xl">
+                          <SingleIconCard
+                            title="Persona Intelligence"
+                            description="Automatic messaging customization for healthcare professionals, researchers, and life science personas"
+                          />
+                        </div>
+                      </div>
+                      {/* Card with Progress */}
+                      <div className="space-y-4">
+                        <h3 className="text-lg font-medium">Card with Progress</h3>
+                        <div className="max-w-2xl">
+                          <CardWithProgress
+                            title="Persona Intelligence"
+                            description="Automatic messaging customization for healthcare professionals, researchers, and life science personas"
+                            progressItems={[
+                              { label: "Progress 1", value: 50 },
+                              { label: "Progress 2", value: 30 },
+                              { label: "Progress 3", value: 70 },
+                            ]}
                           />
                         </div>
                       </div>
