@@ -14,6 +14,7 @@ const tabsListVariants = cva(
         "card": "bg-white border border-neutral-200 shadow-sm",
         "outlined": "bg-white border-b border-slate-300",
         "filled": "bg-white border border-neutral-300",
+        "selector": "bg-transparent",
       },
       size: {
         default: "h-10",
@@ -38,6 +39,7 @@ const tabsTriggerVariants = cva(
         "card": "data-[state=active]:bg-supreme-blue-50 data-[state=active]:text-supreme-blue-700 data-[state=active]:shadow-sm text-neutral-600 hover:text-neutral-900",
         "outlined": "border-b-4 border-slate-300 data-[state=active]:border-b-4 data-[state=active]:border-indigo-900 data-[state=active]:font-semibold data-[state=active]:text-indigo-900 text-gray-700 font-normal py-3.5",
         "filled": "border border-neutral-300 bg-white data-[state=active]:bg-neutral-50 data-[state=active]:font-medium text-neutral-900 hover:bg-supreme-blue-50 text-sm py-2 px-3.5",
+        "selector": "rounded-full px-5 py-2.5 data-[state=active]:bg-supreme-blue-100 data-[state=active]:text-supreme-blue-500 data-[state=active]:font-medium text-neutral-400 hover:text-neutral-600",
       },
       size: {
         default: "px-3 py-1.5 text-sm",
@@ -62,6 +64,7 @@ const tabsContentVariants = cva(
         "card": "bg-white rounded-lg border border-neutral-200 p-4 shadow-sm",
         "outlined": "bg-white rounded-lg border border-neutral-200 p-4 shadow-sm",
         "filled": "bg-white rounded-lg border border-neutral-200 p-4 shadow-sm",
+        "selector": "",
       },
     },
     defaultVariants: {

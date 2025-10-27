@@ -1,8 +1,9 @@
 import * as React from "react"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Building2, CheckCircle } from "lucide-react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
 
 const UserIcon = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg 
@@ -42,6 +43,23 @@ const personaVariants = cva(
     defaultVariants: {
       variant: "default",
       size: "default",
+    },
+  }
+)
+
+const personaProfileVariants = cva(
+  "flex gap-2.5 items-start rounded-lg transition-all duration-200",
+  {
+    variants: {
+      variant: {
+        default: "bg-white border border-neutral-300 p-3.5 w-[279px]",
+        hover: "bg-white border border-supreme-blue-300 p-3.5 w-[279px]",
+        selected: "bg-supreme-blue-50 border border-supreme-blue-300 p-3.5 w-[279px]",
+        ghost: "bg-transparent w-[279px]",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
     },
   }
 )
@@ -97,4 +115,78 @@ const Persona = React.forwardRef<HTMLDivElement, PersonaProps>(
 )
 Persona.displayName = "Persona"
 
-export { Persona, personaVariants }
+export interface PersonaProfileProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof personaProfileVariants> {
+  avatar?: React.ReactNode
+  avatarFallback?: string
+  name?: string
+  title?: string
+  organization?: string
+  tags?: string[]
+}
+
+const PersonaProfile = React.forwardRef<HTMLDivElement, PersonaProfileProps>(
+  ({ 
+    className, 
+    variant, 
+    avatar,
+    avatarFallback = "AA",
+    name = "Name and Title Here",
+    title = "Text Content",
+    organization = "Text Content",
+    tags = [],
+    ...props 
+  }, ref) => {
+    return (
+      <div
+        className={cn(personaProfileVariants({ variant, className }))}
+        ref={ref}
+        {...props}
+      >
+        <div className="flex flex-1 gap-3 items-start">
+          {avatar || (
+            <div className="bg-supreme-blue-700 overflow-hidden rounded-full shrink-0 size-10 relative flex items-center justify-center">
+              <p className="font-sans font-normal leading-7 text-lg text-white text-center tracking-normal whitespace-nowrap">
+                {avatarFallback}
+              </p>
+            </div>
+          )}
+          <div className="flex flex-1 flex-col gap-1.5 items-start min-h-0 min-w-0">
+            <p className="font-sans font-semibold leading-6 text-neutral-900 text-base w-full">
+              {name}
+            </p>
+            <p className="font-sans font-normal leading-4 text-neutral-600 text-sm w-full">
+              {title}
+            </p>
+            <div className="flex gap-[5px] items-center w-full">
+              <div className="flex flex-1 gap-[5px] items-center min-h-0 min-w-0">
+                <Building2 className="size-3.5 text-neutral-900" />
+                <p className="font-sans font-normal leading-4 text-neutral-600 text-xs">
+                  {organization}
+                </p>
+              </div>
+            </div>
+            {tags.length > 0 && (
+              <div className="flex flex-wrap gap-1 items-start w-full">
+                {tags.map((tag, index) => (
+                  <Badge key={index} variant="default" className="bg-gray-100 text-gray-600 text-xs px-1.5 py-0.5 rounded-full">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+        <div className={cn("relative shrink-0 size-6", variant === "selected" ? "opacity-100" : "opacity-0")}>
+          {variant === "selected" && (
+            <CheckCircle className="size-6 text-supreme-blue-700" />
+          )}
+        </div>
+      </div>
+    )
+  }
+)
+PersonaProfile.displayName = "PersonaProfile"
+
+export { Persona, PersonaProfile, personaVariants, personaProfileVariants }

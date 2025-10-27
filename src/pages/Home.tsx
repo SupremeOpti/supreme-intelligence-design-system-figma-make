@@ -28,7 +28,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Link, useNavigate } from "react-router-dom";
-import { Persona } from "@/components/ui/persona";
+import { Persona, PersonaProfile } from "@/components/ui/persona";
 import { AppIcon } from "@/components/ui/Icons/AppIcon";
 import { AIIcon } from "@/components/ui/Icons/AIIcon";
 import { AudiencesIcon } from "@/components/ui/Icons/AudiencesIcon";
@@ -1074,12 +1074,28 @@ const Components = () => {
                         User profile images and fallbacks
                       </ContentBoxDescription>
                     </ContentBoxHeader>
-                    <ContentBoxContent>
+                    <ContentBoxContent className="flex flex-col gap-4">
                       <Persona
                         variant="default"
                         showLeftIcon
                         showRightIcon
                         personas={["John Doe", "Jane Smith"]}
+                      />
+                      <PersonaProfile
+                        variant="default"
+                        avatar={<Avatar src="/assets/defaultAvatar.jpg" alt="Default Avatar" fallback="DA" />}
+                        name="John Doe"
+                        title="Software Engineer"
+                        organization="Google"
+                        tags={["JavaScript", "React", "Node.js"]}
+                      />
+                      <PersonaProfile
+                        variant="default"
+                        avatarFallback="JS"
+                        name="Jane Smith"
+                        title="Product Manager"
+                        organization="Apple"
+                        tags={["Product Management", "Agile", "Scrum"]}
                       />
                     </ContentBoxContent>
                   </ContentBox>

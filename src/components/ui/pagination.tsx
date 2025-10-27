@@ -48,11 +48,12 @@ const PaginationLink = ({
     aria-current={isActive ? "page" : undefined}
     className={cn(
       buttonVariants({
-        variant: isActive ? "secondary" : "secondary",
+        variant: "secondary",
         size,
       }),
       className,
-      "rounded-none border-y-2 border-neutral-200 text-neutral-800 px-4"
+      "rounded-none border-x-1 border-y-2 text-neutral-800 px-5 py-2.5 text-sm font-medium hover:border-supreme-blue-300",
+      isActive && "bg-supreme-blue-50 font-medium"
     )}
     {...props}
   />
@@ -66,7 +67,7 @@ const PaginationPrevious = ({
   <PaginationLink
     aria-label="Go to previous page"
     size="default"
-    className={cn("!rounded-l-lg", className)}
+    className={cn("!rounded-l-lg !border-l-2", className)}
     {...props}
   >
     <ChevronLeft className="h-4 w-4" />
@@ -81,7 +82,7 @@ const PaginationNext = ({
   <PaginationLink
     aria-label="Go to next page"
     size="default"
-    className={cn("!rounded-r-lg", className)}
+    className={cn("!rounded-r-lg !border-r-2", className)}
     {...props}
   >
     <ChevronRight className="h-4 w-4" />
@@ -95,7 +96,7 @@ const PaginationEllipsis = ({
 }: React.ComponentProps<"span">) => (
   <span
     aria-hidden
-    className={cn("flex h-10 w-10 items-center justify-center border-y-2 border-neutral-200", className)}
+    className={cn("flex h-10 w-10 items-center justify-center border-x-1 border-y-2 border-neutral-200", className)}
     {...props}
   >
     <MoreHorizontal className="h-4 w-4" />
