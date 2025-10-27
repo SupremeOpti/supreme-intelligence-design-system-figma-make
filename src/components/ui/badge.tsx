@@ -12,16 +12,32 @@ const badgeVariants = cva(
         foundation:
           "border bg-slate-100/20 text-slate-900 hover:bg-slate-100/50",
         default: "border bg-gray-100/20 text-gray-900 hover:bg-gray-100/50",
+        slate:
+          "border-transparent bg-slate-500/20 text-slate-900 hover:bg-slate-500/50",
+        zinc:
+          "border-transparent bg-zinc-500/20 text-zinc-900 hover:bg-zinc-500/50",
+        gray:
+          "border-transparent bg-gray-500/20 text-gray-900 hover:bg-gray-500/50",
         red: "border-transparent bg-red-500/20 text-red-900 hover:bg-red-500/50",
         orange:
           "border-transparent bg-orange-500/20 text-orange-900 hover:bg-orange-500/50",
+        amber:
+          "border-transparent bg-amber-500/20 text-amber-900 hover:bg-amber-500/50",
         yellow:
           "border-transparent bg-yellow-500/20 text-yellow-900 hover:bg-yellow-500/50",
+        lime:
+          "border-transparent bg-lime-500/20 text-lime-900 hover:bg-lime-500/50",
         green:
           "border-transparent bg-green-500/20 text-green-900 hover:bg-green-500/50",
+        cyan:
+          "border-transparent bg-cyan-500/20 text-cyan-900 hover:bg-cyan-500/50",
+        sky:
+          "border-transparent bg-sky-500/20 text-sky-900 hover:bg-sky-500/50",
         blue: "border-transparent bg-blue-500/20 text-blue-900 hover:bg-blue-500/50",
         indigo:
           "border-transparent bg-indigo-500/20 text-indigo-900 hover:bg-indigo-500/50",
+        violet:
+          "border-transparent bg-violet-500/20 text-violet-900 hover:bg-violet-500/50",
         purple:
           "border-transparent bg-purple-100 text-purple-800 border-purple-200 hover:bg-purple-200",
         pink: "border-transparent bg-pink-500/20 text-pink-900 hover:bg-pink-500/50",
