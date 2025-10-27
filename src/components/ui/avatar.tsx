@@ -32,6 +32,7 @@ const AvatarGroupContext = React.createContext<{
 interface AvatarProps
   extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> {
   size?: keyof typeof avatarVariants;
+  type?: "photo" | "initials";
   fallback?: React.ReactNode;
   src?: string;
   alt?: string;
@@ -45,11 +46,15 @@ interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   AvatarProps
->(({ className, size = "md", fallback, src, alt, children, ...props }, ref) => {
+>(({ className, size = "md", type, fallback, src, alt, children, ...props }, ref) => {
   const { isInGroup, groupSize } = React.useContext(AvatarGroupContext);
 
   // Use group size if inside AvatarGroup and no explicit size is provided
   const effectiveSize = isInGroup && groupSize ? groupSize : size;
+
+  // Handle type prop for Figma compatibility
+  const shouldShowImage = type === "photo" || (type !== "initials" && src);
+  const shouldShowFallback = type === "initials" || (!shouldShowImage && fallback);
 
   return (
     <AvatarPrimitive.Root
@@ -63,7 +68,7 @@ const Avatar = React.forwardRef<
       )}
       {...props}
     >
-      {src && (
+      {shouldShowImage && src && (
         <AvatarPrimitive.Image
           className="aspect-square h-full w-full"
           src={src}
@@ -71,7 +76,7 @@ const Avatar = React.forwardRef<
         />
       )}
       {children}
-      {fallback && (
+      {shouldShowFallback && fallback && (
         <AvatarPrimitive.Fallback
           className={cn(
             "flex h-full w-full items-center justify-center rounded-full",
