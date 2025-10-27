@@ -76,6 +76,7 @@ import {
 } from "@/components/ui/tooltip";
 import { AnalyticsIcon } from "@/components/ui/Icons/AnalyticsIcon";
 import { SidebarSection } from "@/components/ui/sidebar";
+import { Credits } from "@/components/ui/credits";
 
 const headerItems: {
   icon: React.ReactNode;
@@ -1206,6 +1207,7 @@ const Components = () => {
                         <Badge variant="default" dismissible>
                           Badge
                         </Badge>
+                        <Credits value={100} />
                       </div>
                     </ContentBoxContent>
                   </ContentBox>
