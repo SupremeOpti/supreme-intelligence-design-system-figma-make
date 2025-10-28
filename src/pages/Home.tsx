@@ -77,6 +77,7 @@ import {
 import { AnalyticsIcon } from "@/components/ui/Icons/AnalyticsIcon";
 import { SidebarSection } from "@/components/ui/sidebar";
 import { Credits } from "@/components/ui/credits";
+import { Quote } from "@/components/ui/quote";
 
 const headerItems: {
   icon: React.ReactNode;
@@ -1404,6 +1405,21 @@ const Components = () => {
                           Add to library
                         </TooltipContent>
                       </Tooltip>
+                    </ContentBoxContent>
+                  </ContentBox>
+                </section>
+                {/* Quotes */}
+                <section className="space-y-2">
+                  <h2 className="text-3xl font-semold">Quotes</h2>
+                  <ContentBox>
+                    <ContentBoxHeader>
+                      <ContentBoxTitle>Quote Component</ContentBoxTitle>
+                      <ContentBoxDescription>
+                        Quote component for displaying quotes
+                      </ContentBoxDescription>
+                    </ContentBoxHeader>
+                    <ContentBoxContent>
+                      <Quote avatar={<Avatar src="/assets/defaultAvatar.jpg" alt="Default Avatar" fallback="DA" />} quote="Supreme Intelligence is a one-of-a-kind platform that leverages Supreme's decade long experience in life science marketing with millions of proprietary data points and industry benchmarks. Our R&D team leverages advanced AI/ML techniques, achieving over 90% correlation with our Ph.D. scientific marketers to bring you accurate, powerful, and truly data-backed insights to scale your growth." authorName="Sheldon Zhai" authorTitle="Head of Technology & AI" />
                     </ContentBoxContent>
                   </ContentBox>
                 </section>
