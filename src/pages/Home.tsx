@@ -1180,7 +1180,7 @@ const Components = () => {
                         <Badge variant="yellow" dismissible dot>
                           Badge
                         </Badge>
-                        <Badge variant="green" dismissible dot>
+                        <Badge variant="lime" dismissible dot>
                           Badge
                         </Badge>
                         <Badge variant="blue" dismissible dot>
