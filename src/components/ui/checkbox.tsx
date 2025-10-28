@@ -38,26 +38,30 @@ const Checkbox = React.forwardRef<
       ref={ref}
       checked={state === "checked"}
       className={cn(
-        "peer h-4 w-4 shrink-0 rounded-sm border border-neutral-300 bg-white relative",
-        "transition-all duration-300 ease-out",
+        "peer h-4 w-4 shrink-0 rounded-sm border bg-white relative",
+        "transition-all duration-200 ease-out",
+        // Default state
+        "border-neutral-500",
+        // Hover state
         "hover:border-supreme-blue-700 hover:bg-supreme-blue-50",
-        "focus:outline-none focus:ring-4",
-        "disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-neutral-100 disabled:border-neutral-300 disabled:hover:border-neutral-300 disabled:hover:bg-neutral-100",
-        state === "checked" && "bg-supreme-blue-50 border-supreme-blue-700",
-        state === "indeterminate" &&
-          "bg-supreme-blue-50 border-supreme-blue-700",
+        // Focus state
+        "focus:outline-none focus:border-supreme-blue-100 focus:bg-white",
+        // Disabled state
+        "disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:border-neutral-300 disabled:hover:border-neutral-300 disabled:hover:bg-neutral-100",
+        // Checked/Indeterminate states
+        (state === "checked" || state === "indeterminate") && "bg-supreme-blue-50 border-supreme-blue-700",
         className
       )}
       onClick={handleClick}
       {...props}
     >
       {/* Custom indicator that always shows based on our state */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center p-0.5">
         {state === "checked" && (
-          <CheckIcon className="h-4 w-4 text-supreme-blue-700" />
+          <CheckIcon className="h-3 w-3 text-supreme-blue-700" />
         )}
         {state === "indeterminate" && (
-          <MinusIcon className="h-4 w-4 text-supreme-blue-700" />
+          <MinusIcon className="h-3 w-3 text-supreme-blue-700" />
         )}
       </div>
     </CheckboxPrimitive.Root>
