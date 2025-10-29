@@ -78,6 +78,7 @@ import { AnalyticsIcon } from "@/components/ui/Icons/AnalyticsIcon";
 import { SidebarSection } from "@/components/ui/sidebar";
 import { Credits } from "@/components/ui/credits";
 import { Quote } from "@/components/ui/quote";
+import { CreditSelector } from "@/components/ui/credit-selector";
 
 const headerItems: {
   icon: React.ReactNode;
@@ -1420,6 +1421,18 @@ const Components = () => {
                     </ContentBoxHeader>
                     <ContentBoxContent>
                       <Quote avatar={<Avatar src="/assets/defaultAvatar.jpg" alt="Default Avatar" fallback="DA" />} quote="Supreme Intelligence is a one-of-a-kind platform that leverages Supreme's decade long experience in life science marketing with millions of proprietary data points and industry benchmarks. Our R&D team leverages advanced AI/ML techniques, achieving over 90% correlation with our Ph.D. scientific marketers to bring you accurate, powerful, and truly data-backed insights to scale your growth." authorName="Sheldon Zhai" authorTitle="Head of Technology & AI" />
+                    </ContentBoxContent>
+                  </ContentBox>
+                </section>
+                {/* Credit Selector */}
+                <section className="space-y-2">
+                  <h2 className="text-3xl font-semold">Credit Selector</h2>
+                  <ContentBox>
+                    <ContentBoxHeader>
+                      <ContentBoxTitle>Credit Selector Component</ContentBoxTitle>
+                    </ContentBoxHeader>
+                    <ContentBoxContent>
+                      <CreditSelector options={[{ id: "1", label: "100 Credits", credits: 100 }, { id: "2", label: "200 Credits", credits: 200 }, { id: "3", label: "300 Credits", credits: 300 }]} />
                     </ContentBoxContent>
                   </ContentBox>
                 </section>

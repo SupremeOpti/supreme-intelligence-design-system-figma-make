@@ -12,6 +12,7 @@ export * from "./components/ui/credits";
 export * from "./components/ui/quote";
 export * from "./components/ui/radio";
 export * from "./components/ui/divider";
+export * from "./components/ui/credit-selector";
 export * from "./components/ui/input";
 export * from "./components/ui/logo";
 export * from "./components/ui/menubar";
