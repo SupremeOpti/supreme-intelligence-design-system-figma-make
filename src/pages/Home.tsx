@@ -79,6 +79,7 @@ import { SidebarSection } from "@/components/ui/sidebar";
 import { Credits } from "@/components/ui/credits";
 import { Quote } from "@/components/ui/quote";
 import { CreditSelector } from "@/components/ui/credit-selector";
+import DragDrop from "@/components/ui/drag-drop";
 
 const headerItems: {
   icon: React.ReactNode;
@@ -1433,6 +1434,20 @@ const Components = () => {
                     </ContentBoxHeader>
                     <ContentBoxContent>
                       <CreditSelector options={[{ id: "1", label: "100 Credits", credits: 100 }, { id: "2", label: "200 Credits", credits: 200 }, { id: "3", label: "300 Credits", credits: 300 }]} />
+                    </ContentBoxContent>
+                  </ContentBox>
+                </section>
+                {/*drag and drop*/}
+                <section className="space-y-2">
+                  <h2 className="text-3xl font-semold">Drag and Drop</h2>
+                  <ContentBox>
+                    <ContentBoxHeader>
+                      <ContentBoxTitle>Drag and Drop Component</ContentBoxTitle>
+                    </ContentBoxHeader>
+                    <ContentBoxContent>
+                      <DragDrop onFiles={(files) => console.log(files)}
+                        accept=".pdf,.doc,.docx,.txt"
+                        multiple />
                     </ContentBoxContent>
                   </ContentBox>
                 </section>
