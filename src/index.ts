@@ -20,6 +20,7 @@ export * from "./components/ui/page-level";
 export * from "./components/ui/pagination";
 export * from "./components/ui/persona";
 export * from "./components/ui/popover";
+export * from "./components/ui/drag-drop";
 export * from "./components/ui/progress";
 export * from "./components/ui/sidebar";
 export * from "./components/ui/slider";
