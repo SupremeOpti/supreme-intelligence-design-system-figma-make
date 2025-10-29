@@ -1,6 +1,7 @@
 import React from "react";
 import { Toggle } from "../components/ui/toggle";
 import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio";
 
 export function ToggleDemo() {
   const [toggles, setToggles] = React.useState({
@@ -18,7 +19,7 @@ export function ToggleDemo() {
 
   return (
     <div className="p-8 space-y-8">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <div className="flex flex-col gap-4">
           <div>
             <h2 className="text-lg font-semibold mb-4">Toggle States</h2>
@@ -113,6 +114,41 @@ export function ToggleDemo() {
             <Checkbox externalState="checked" />
             <Checkbox externalState="unchecked" />
             <Checkbox externalState="indeterminate" />
+          </div>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold mb-4">Radio</h2>
+          <div className="flex flex-col gap-4">
+            <div className="text-sm text-gray-600">
+              <p>Enabled radio</p>
+            </div>
+            <RadioGroup defaultValue="option1">
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="option1" id="r1" />
+                <label htmlFor="r1">Option 1</label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="option2" id="r2" />
+                <label htmlFor="r2">Option 2</label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="option3" id="r3" />
+                <label htmlFor="r3">Option 3</label>
+              </div>
+            </RadioGroup>
+            <div className="text-sm text-gray-600">
+              <p>Disabled radio</p>
+            </div>
+            <RadioGroup disabled>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="disabled1" id="d1" />
+                <label htmlFor="d1">Disabled Option 1</label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="disabled2" id="d2" />
+                <label htmlFor="d2">Disabled Option 2</label>
+              </div>
+            </RadioGroup>
           </div>
         </div>
       </div>

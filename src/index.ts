@@ -10,6 +10,7 @@ export * from "./components/ui/checkbox";
 export * from "./components/ui/contentbox";
 export * from "./components/ui/credits";
 export * from "./components/ui/quote";
+export * from "./components/ui/radio";
 export * from "./components/ui/divider";
 export * from "./components/ui/input";
 export * from "./components/ui/logo";
