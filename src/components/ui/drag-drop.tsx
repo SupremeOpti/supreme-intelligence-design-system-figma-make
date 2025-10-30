@@ -87,7 +87,7 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
         )}
         {...props}
       >
-        <CloudArrowUpIcon className="w-[224px] h-[224px] text-supreme-blue-600" />
+        <CloudArrowUpIcon className="w-[74px] h-[74px] text-supreme-blue-600" />
         <div className="w-[336px] text-center">
           <p className="text-base leading-6 text-neutral-600">{label}</p>
           <p className="text-xs leading-4 text-neutral-600">
