@@ -5,20 +5,20 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const pageLevelVariants = cva(
-  "flex items-center text-sm font-medium text-muted-foreground gap-1",
+  "flex items-center text-xs font-normal text-neutral-600 opacity-80 gap-1.5",
   {
     variants: {
       variant: {
-        default: "text-muted-foreground",
+        default: "text-neutral-600",
         primary: "text-foreground",
-        secondary: "text-muted-foreground/70",
+        secondary: "text-neutral-600/70",
         brand: "text-supreme-blue-600",
       },
       size: {
         sm: "text-xs",
-        default: "text-sm",
-        lg: "text-base",
-        xl: "text-lg",
+        default: "text-xs",
+        lg: "text-sm",
+        xl: "text-base",
       },
     },
     defaultVariants: {
@@ -52,7 +52,7 @@ const PageLevel = React.forwardRef<HTMLDivElement, PageLevelProps>(
     },
     ref
   ) => {
-    const defaultSeparator = <ChevronRightIcon className="h-4 w-4" />;
+    const defaultSeparator = <ChevronRightIcon className="h-4 w-4 text-neutral-400" />;
     const separatorElement = separator || defaultSeparator;
 
     return (
@@ -62,7 +62,7 @@ const PageLevel = React.forwardRef<HTMLDivElement, PageLevelProps>(
         {...props}
       >
         {showArrow && arrowPosition === "before" && separatorElement}
-        <span className="font-medium">{children || `Page level ${level}`}</span>
+        <span>{children || `Page level ${level}`}</span>
         {showArrow && arrowPosition === "after" && separatorElement}
       </div>
     );
@@ -76,13 +76,13 @@ const PageLevelList = React.forwardRef<
     separator?: React.ReactNode;
   }
 >(({ className, separator, children, ...props }, ref) => {
-  const defaultSeparator = <ChevronRightIcon className="h-4 w-4" />;
+  const defaultSeparator = <ChevronRightIcon className="h-4 w-4 text-neutral-400" />;
   const separatorElement = separator || defaultSeparator;
 
   return (
     <div
       ref={ref}
-      className={cn("flex items-center gap-2", className)}
+      className={cn("flex items-center gap-1.5", className)}
       {...props}
     >
       {React.Children.map(children, (child, index) => (
@@ -105,10 +105,8 @@ const PageLevelItem = React.forwardRef<
   <span
     ref={ref}
     className={cn(
-      "font-medium transition-colors",
-      active
-        ? "text-foreground"
-        : "text-muted-foreground hover:text-foreground",
+      "text-xs leading-4 font-normal text-neutral-600 opacity-80 transition-colors",
+      active && "text-foreground opacity-100",
       className
     )}
     {...props}
