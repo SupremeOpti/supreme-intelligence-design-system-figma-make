@@ -9,6 +9,7 @@ export interface InputProps
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   error?: string;
+  state?: "default" | "active" | "error" | "disabled";
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -22,56 +23,98 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       leftIcon,
       rightIcon,
       error,
+      state,
+      disabled,
       ...props
     },
     ref
   ) => {
+    const isError = state === "error" || Boolean(error);
+    const isActive = state === "active";
+    const isDisabled = state === "disabled" || disabled;
+
     return (
-      <div className="relative w-full">
-        {label && (
-          <label
+      <div className="flex flex-col gap-2 items-start w-full pt-2">
+        <div className="relative w-full">
+          {label && (
+            <label
+              className={cn(
+                "absolute -top-3 left-[10px] z-10 px-1 py-[1px] text-xs font-normal leading-4",
+                isError && "text-destructive bg-white",
+                isActive && "text-supreme-blue-800 bg-white",
+                !isError && !isActive && "text-neutral-500 bg-white",
+                isDisabled && "bg-neutral-200 text-neutral-500"
+              )}
+            >
+              {label}
+              {required && <span className="ml-0.5">*</span>}
+            </label>
+          )}
+
+          <div
             className={cn(
-              "text-sm font-medium bg-white px-1 text-neutral-600 dark:text-supreme-blue-300 mb-1 absolute -top-3 z-10 left-4",
-              error && "text-destructive"
+              "relative flex items-center gap-2 px-3 py-3.5 rounded-md bg-white border",
+              isError
+                ? "border-destructive focus-within:ring-0"
+                : isActive
+                ? "border-supreme-blue-800 focus-within:ring-0"
+                : isDisabled
+                ? "border-neutral-300 bg-neutral-200"
+                : "border-neutral-300 focus-within:ring-2 focus-within:ring-supreme-blue-500"
             )}
           >
-            {label}
-            {required && <span className="text-destructive ml-1">*</span>}
-          </label>
-        )}
-
-        <div className="relative">
-          {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
-              {leftIcon}
-            </div>
-          )}
-
-          <input
-            type={type}
-            className={cn(
-              "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-              leftIcon && "pl-10",
-              rightIcon && "pr-10",
-              error && "border-destructive focus-visible:ring-destructive",
-              className
+            {leftIcon && (
+              <div className="flex items-center justify-center shrink-0 w-5 h-5">
+                {React.isValidElement(leftIcon) &&
+                  React.cloneElement(leftIcon as React.ReactElement<any>, {
+                    className: cn(
+                      "w-[20px] h-[20px]",
+                      isError && "text-destructive",
+                      !isError && "text-neutral-500",
+                      (leftIcon as any).props?.className
+                    ),
+                  })}
+                {!React.isValidElement(leftIcon) && leftIcon}
+              </div>
             )}
-            ref={ref}
-            {...props}
-          />
 
-          {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
-              {rightIcon}
-            </div>
-          )}
+            <input
+              type={type}
+              className={cn(
+                "flex-1 min-w-0 h-auto bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+                className
+              )}
+              ref={ref}
+              disabled={isDisabled}
+              {...props}
+            />
+
+            {rightIcon && (
+              <div className="flex items-center justify-center shrink-0 w-5 h-5">
+                {React.isValidElement(rightIcon) &&
+                  React.cloneElement(rightIcon as React.ReactElement<any>, {
+                    className: cn(
+                      "w-[20px] h-[20px]",
+                      isError && "text-destructive",
+                      !isError && "text-neutral-500",
+                      (rightIcon as any).props?.className
+                    ),
+                  })}
+                {!React.isValidElement(rightIcon) && rightIcon}
+              </div>
+            )}
+          </div>
         </div>
 
-        {hint && !error && (
-          <p className="text-xs text-muted-foreground">{hint}</p>
+        {hint && !isError && (
+          <p className="text-xs leading-3 text-neutral-500">{hint}</p>
         )}
 
-        {error && <p className="text-xs text-destructive">{error}</p>}
+        {isError && (
+          <p className="text-xs leading-3 text-destructive">
+            {error || hint}
+          </p>
+        )}
       </div>
     );
   }
