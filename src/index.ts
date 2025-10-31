@@ -25,6 +25,7 @@ export * from "./components/ui/drag-drop";
 export * from "./components/ui/progress";
 export * from "./components/ui/sidebar";
 export * from "./components/ui/slider";
+export * from "./components/ui/stepper";
 export * from "./components/ui/table";
 export * from "./components/ui/tabs";
 export * from "./components/ui/textarea";

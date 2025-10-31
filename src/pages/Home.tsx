@@ -81,6 +81,7 @@ import { Quote } from "@/components/ui/quote";
 import { CreditSelector } from "@/components/ui/credit-selector";
 import DragDrop from "@/components/ui/drag-drop";
 import { PageHeading } from "@/components/ui/page-heading";
+import { Stepper } from "@/components/ui/stepper";
 
 const headerItems: {
   icon: React.ReactNode;
@@ -1461,6 +1462,18 @@ const Components = () => {
                     </ContentBoxHeader>
                     <ContentBoxContent>
                       <PageHeading heading="Heading Example" description="Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed massa erat, faucibus vel eros et, feugiat euismod erat. Aenean viverra pellentesque nulla, at tempor libero laoreet id. Sed faucibus magna sit am." />
+                    </ContentBoxContent>
+                  </ContentBox>
+                </section>
+                {/* stepper */}
+                <section className="space-y-2">
+                  <h2 className="text-3xl font-semold">Stepper</h2>
+                  <ContentBox className="">
+                    <ContentBoxHeader>
+                      <ContentBoxTitle>Stepper Component</ContentBoxTitle>
+                    </ContentBoxHeader>
+                    <ContentBoxContent>
+                      <Stepper steps={[{ title: "Step 1", step: "done", stepNumber: 1 }, { title: "Step 2", step: "active", stepNumber: 2 }, { title: "Step 3", step: "default", stepNumber: 3 }, { title: "Step 4", step: "default", stepNumber: 4 }]} />
                     </ContentBoxContent>
                   </ContentBox>
                 </section>
