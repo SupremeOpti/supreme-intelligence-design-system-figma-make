@@ -80,6 +80,7 @@ import { Credits } from "@/components/ui/credits";
 import { Quote } from "@/components/ui/quote";
 import { CreditSelector } from "@/components/ui/credit-selector";
 import DragDrop from "@/components/ui/drag-drop";
+import { PageHeading } from "@/components/ui/page-heading";
 
 const headerItems: {
   icon: React.ReactNode;
@@ -1448,6 +1449,18 @@ const Components = () => {
                       <DragDrop onFiles={(files) => console.log(files)}
                         accept=".pdf,.doc,.docx,.txt"
                         multiple />
+                    </ContentBoxContent>
+                  </ContentBox>
+                </section>
+                {/* page-heading */}
+                <section className="space-y-2">
+                  <h2 className="text-3xl font-semold">Page Heading</h2>
+                  <ContentBox>
+                    <ContentBoxHeader>
+                      <ContentBoxTitle>Page Heading Component</ContentBoxTitle>
+                    </ContentBoxHeader>
+                    <ContentBoxContent>
+                      <PageHeading heading="Heading Example" description="Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed massa erat, faucibus vel eros et, feugiat euismod erat. Aenean viverra pellentesque nulla, at tempor libero laoreet id. Sed faucibus magna sit am." />
                     </ContentBoxContent>
                   </ContentBox>
                 </section>

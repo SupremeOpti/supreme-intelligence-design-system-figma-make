@@ -17,6 +17,7 @@ export * from "./components/ui/input";
 export * from "./components/ui/logo";
 export * from "./components/ui/menubar";
 export * from "./components/ui/page-level";
+export * from "./components/ui/page-heading";
 export * from "./components/ui/pagination";
 export * from "./components/ui/persona";
 export * from "./components/ui/popover";
