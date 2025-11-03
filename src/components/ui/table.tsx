@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChevronDownIcon, GlobeAltIcon, ArrowDownIcon, LinkIcon } from "@heroicons/react/24/outline";
+import { GlobeAltIcon, ArrowDownIcon, LinkIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 
 const Table = React.forwardRef<
@@ -78,33 +78,17 @@ TableRow.displayName = "TableRow";
 const TableHead = React.forwardRef<
   HTMLTableCellElement,
   React.ThHTMLAttributes<HTMLTableCellElement> & {
-    sortable?: boolean;
-    sorted?: "asc" | "desc" | false;
-    onSort?: () => void;
   }
->(({ className, sortable, sorted, onSort, children, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <th
     ref={ref}
     className={cn(
       "px-6 py-4 text-left align-middle font-semibold text-sm leading-4 text-neutral-800 [&:has([role=checkbox])]:pr-0",
-      sortable && "cursor-pointer select-none",
       className
     )}
-    onClick={sortable ? onSort : undefined}
     {...props}
   >
-    <div className="flex items-center gap-2">
-      {children}
-      {sortable && (
-        <ChevronDownIcon
-          className={cn(
-            "h-4 w-4 transition-transform",
-            sorted === "asc" && "rotate-180",
-            sorted === false && "opacity-30"
-          )}
-        />
-      )}
-    </div>
+    {children}
   </th>
 ));
 TableHead.displayName = "TableHead";
@@ -153,34 +137,47 @@ TableCheckbox.displayName = "TableCheckbox";
 // TableHeader cell component for table headers with optional checkbox and sort icon
 export interface TableHeaderCellProps {
   showCheckbox?: boolean;
-  rightIcon?: boolean;
-  showText?: boolean;
+  rightIcon?: boolean | React.ReactNode;
+  showText?: string;
   state?: "Default";
   children?: React.ReactNode;
+  selectedRows?: Set<number>;
+  setSelectedRows?: (selectedRows: Set<number>) => void;
+  tableData?: any[];
+  handleHeaderCheckbox?: (checked: boolean) => void;
 }
 
 const TableHeaderCell = React.forwardRef<
   HTMLDivElement,
   TableHeaderCellProps & React.HTMLAttributes<HTMLDivElement>
->(({ className, showCheckbox = true, rightIcon = true, showText = true, state = "Default", children, ...props }, ref) => (
+>(({ className, showCheckbox = true, rightIcon = true, showText = "", state = "Default", selectedRows, setSelectedRows, tableData, handleHeaderCheckbox, ...props }, ref) => (
   <div
     ref={ref}
     className={cn("flex gap-2 items-center", className)}
     {...props}
   >
     {showCheckbox && (
-      <input
-        type="checkbox"
-        className="bg-white border border-neutral-500 rounded-sm shrink-0 size-4"
+      <TableCheckbox
+        checked={
+          selectedRows.size === tableData.length &&
+          tableData.length > 0
+        }
+        onChange={(e) => handleHeaderCheckbox(e.target.checked)}
       />
     )}
-    {showText && children && (
+    {showText && (
       <p className="font-semibold leading-4 relative shrink-0 text-neutral-800 text-sm">
-        {children}
+        {showText}
       </p>
     )}
     {rightIcon && (
-      <ArrowDownIcon className="size-4 relative shrink-0" />
+      typeof rightIcon === "boolean" ? (
+        <ArrowDownIcon className="h-4 w-4 relative shrink-0" />
+      ) : (
+        <div className="relative shrink-0 flex items-center justify-center">
+          {rightIcon}
+        </div>
+      )
     )}
   </div>
 ));
@@ -190,20 +187,25 @@ TableHeaderCell.displayName = "TableHeaderCell";
 export interface TableCellGenericProps {
   showCheckbox?: boolean;
   style?: "Lead Text" | "Text" | "Badge" | "CTA";
-  description?: "False" | "True";
+  description?: boolean;
   state?: "Default";
   title?: string;
   subtitle?: string;
   children?: React.ReactNode;
+  selectedRows?: Set<number>;
+  handleRowCheckbox?: (rowId: number, checked: boolean) => void;
+  rowId?: number;
 }
 
 const TableCellGeneric = React.forwardRef<
   HTMLTableCellElement,
   TableCellGenericProps & React.TdHTMLAttributes<HTMLTableCellElement>
->(({ className, showCheckbox = true, style = "Lead Text", description = "True", state = "Default", title, subtitle, children, ...props }, ref) => {
-  if (style === "Text" && description === "True" && state === "Default") {
+>(({ className, showCheckbox = true, style = "Lead Text", description = true, state = "Default", title, subtitle, selectedRows,
+  handleRowCheckbox,
+  rowId, children, ...props }, ref) => {
+  if (style === "Text" && description === true && state === "Default") {
     return (
-      <td
+      <div
         ref={ref}
         className={cn("flex flex-col gap-1 items-start leading-4 text-sm whitespace-pre-wrap", className)}
         {...props}
@@ -214,13 +216,13 @@ const TableCellGeneric = React.forwardRef<
         <p className="font-normal relative shrink-0 text-neutral-600 w-full">
           {subtitle || "At enim nisi commodo"}
         </p>
-      </td>
+      </div>
     );
   }
-  
-  if (style === "Text" && description === "False" && state === "Default") {
+
+  if (style === "Text" && description === false && state === "Default") {
     return (
-      <td
+      <div
         ref={ref}
         className={cn("flex leading-4 relative text-neutral-600 text-sm whitespace-pre-wrap", className)}
         {...props}
@@ -228,21 +230,50 @@ const TableCellGeneric = React.forwardRef<
         <p className="font-normal relative shrink-0 w-full">
           {children || "Tempor suspendisse amet"}
         </p>
-      </td>
+      </div>
     );
   }
-  
+
+  // CTA style
+  if (style === "CTA" && state === "Default") {
+    return (
+      <div
+        ref={ref}
+        className={cn("flex gap-1.5 items-center", className)}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+
+
+  // Badge style
+  if (style === "Badge" && state === "Default") {
+    return (
+      <div
+        ref={ref}
+        className={cn("flex justify-center gap-1.5 items-center", className)}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+
   // Default: Lead Text style
   return (
-    <td
+    <div
       ref={ref}
       className={cn("flex gap-1.5 items-center", className)}
       {...props}
     >
       {showCheckbox && (
-        <input
-          type="checkbox"
-          className="bg-white border border-neutral-500 rounded-sm shrink-0 size-4"
+        <TableCheckbox
+          checked={selectedRows.has(rowId)}
+          onChange={(e) =>
+            handleRowCheckbox(rowId, e.target.checked)
+          }
         />
       )}
       {children || (
@@ -255,7 +286,7 @@ const TableCellGeneric = React.forwardRef<
           </p>
         </div>
       )}
-    </td>
+    </div>
   );
 });
 TableCellGeneric.displayName = "TableCellGeneric";
@@ -272,12 +303,15 @@ export interface TableCellBenchmarkProps {
   children?: React.ReactNode;
   score?: number;
   scoreColor?: string;
+  selectedRows?: Set<number>;
+  handleRowCheckbox?: (rowId: number, checked: boolean) => void;
+  rowId?: number;
 }
 
 const TableCellBenchmark = React.forwardRef<
   HTMLTableCellElement,
   TableCellBenchmarkProps & React.TdHTMLAttributes<HTMLTableCellElement>
->(({ 
+>(({
   className,
   leftIcon = true,
   showCheckbox = true,
@@ -289,6 +323,9 @@ const TableCellBenchmark = React.forwardRef<
   children,
   score,
   scoreColor = "#6CFFA5",
+  selectedRows,
+  handleRowCheckbox,
+  rowId,
   ...props
 }, ref) => {
   if (style === "Score" && state === "Default") {
@@ -314,7 +351,7 @@ const TableCellBenchmark = React.forwardRef<
       </td>
     );
   }
-  
+
   if (style === "Score" && state === "Hover") {
     return (
       <td
@@ -338,7 +375,7 @@ const TableCellBenchmark = React.forwardRef<
       </td>
     );
   }
-  
+
   if (style === "Lead" && state === "Hover") {
     return (
       <td
@@ -351,9 +388,11 @@ const TableCellBenchmark = React.forwardRef<
       >
         <div className="flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0">
           {showCheckbox && (
-            <input
-              type="checkbox"
-              className="bg-white border border-neutral-500 rounded-sm shrink-0 size-4"
+            <TableCheckbox
+              checked={selectedRows.has(rowId)}
+              onChange={(e) =>
+                handleRowCheckbox(rowId, e.target.checked)
+              }
             />
           )}
           <div className="flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0">
@@ -396,7 +435,7 @@ const TableCellBenchmark = React.forwardRef<
       </td>
     );
   }
-  
+
   // Default: Lead style, Default state
   return (
     <td
@@ -417,13 +456,13 @@ const TableCellBenchmark = React.forwardRef<
         <div className="flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0">
           {leftIcon !== undefined && (
             <div className="flex gap-6 items-center justify-center relative shrink-0 size-4">
-            <div className="overflow-clip relative shrink-0 size-4">
-              {leftIcon === true ? (
-                <GlobeAltIcon className="size-4 text-neutral-900" />
-              ) : leftIcon ? (
-                leftIcon
-              ) : null}
-            </div>
+              <div className="overflow-clip relative shrink-0 size-4">
+                {leftIcon === true ? (
+                  <GlobeAltIcon className="size-4 text-neutral-900" />
+                ) : leftIcon ? (
+                  leftIcon
+                ) : null}
+              </div>
             </div>
           )}
           {children ? (
@@ -467,13 +506,13 @@ const AuditScoreColor = React.forwardRef<
   AuditScoreColorProps & React.HTMLAttributes<HTMLDivElement>
 >(({ className, score = "0-10", lvl = "1", ...props }, ref) => {
   const baseClasses = "border-b border-neutral-300 flex gap-[10px] h-12 items-center justify-center w-[120px]";
-  
+
   const element = (
     <p className="font-normal leading-[18px] relative shrink-0 text-[#4e4c6c] text-sm text-center">
       {score}
     </p>
   );
-  
+
   if (score === "0-10" && lvl === "2") {
     return (
       <div
@@ -487,7 +526,7 @@ const AuditScoreColor = React.forwardRef<
       </div>
     );
   }
-  
+
   if (score === "11-20" && lvl === "1") {
     return (
       <div
@@ -501,7 +540,7 @@ const AuditScoreColor = React.forwardRef<
       </div>
     );
   }
-  
+
   if (score === "11-20" && lvl === "2") {
     return (
       <div
@@ -515,7 +554,7 @@ const AuditScoreColor = React.forwardRef<
       </div>
     );
   }
-  
+
   if (score === "21-30" && lvl === "1") {
     return (
       <div
@@ -529,7 +568,7 @@ const AuditScoreColor = React.forwardRef<
       </div>
     );
   }
-  
+
   if (score === "21-30" && lvl === "2") {
     return (
       <div
@@ -543,7 +582,7 @@ const AuditScoreColor = React.forwardRef<
       </div>
     );
   }
-  
+
   if (score === "31-50" && lvl === "1") {
     return (
       <div
@@ -557,7 +596,7 @@ const AuditScoreColor = React.forwardRef<
       </div>
     );
   }
-  
+
   if (score === "31-50" && lvl === "2") {
     return (
       <div
@@ -571,7 +610,7 @@ const AuditScoreColor = React.forwardRef<
       </div>
     );
   }
-  
+
   // Default: 0-10, lvl 1
   return (
     <div

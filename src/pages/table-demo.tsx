@@ -9,6 +9,8 @@ import {
   TableRow,
   TableCell,
   TableCheckbox,
+  TableHeaderCell,
+  TableCellGeneric,
 } from "../components/ui/table";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
@@ -334,32 +336,25 @@ const TableDemo = () => {
               <Table>
                 <TableHeader>
                   <TableRow className="bg-gray-50 border-b border-gray-200">
-                    <TableHead className="w-12 px-4 py-3 text-left font-medium text-gray-900">
-                      <TableCheckbox
-                        checked={
-                          selectedRows.size === tableData.length &&
-                          tableData.length > 0
-                        }
-                        onChange={(e) => handleHeaderCheckbox(e.target.checked)}
-                      />
+                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={true} showText="Title of the Table"
+                        rightIcon={false}
+                        selectedRows={selectedRows}
+                        setSelectedRows={setSelectedRows}
+                        tableData={tableData}
+                        handleHeaderCheckbox={handleHeaderCheckbox} />
                     </TableHead>
                     <TableHead className="px-4 py-3 text-left font-medium text-gray-900">
-                      Title of the Table
-                      <ChevronDown className="h-4 w-4 inline ml-1" />
+                      <TableHeaderCell showCheckbox={false} showText="Title of the Table" rightIcon={<ChevronDown className="h-4 w-4 inline ml-1" />} />
                     </TableHead>
                     <TableHead className="px-4 py-3 text-left font-medium text-gray-900">
-                      Title of the Table
-                      <ChevronDown className="h-4 w-4 inline ml-1" />
+                      <TableHeaderCell showCheckbox={false} showText="Title of the Table" rightIcon={<ChevronDown className="h-4 w-4 inline ml-1" />} />
                     </TableHead>
                     <TableHead className="px-4 py-3 text-left font-medium text-gray-900">
-                      Title of the Table
-                      <ChevronDown className="h-4 w-4 inline ml-1" />
+                      <TableHeaderCell showCheckbox={false} showText="Title of the Table" rightIcon={false} className="justify-center" />
                     </TableHead>
                     <TableHead className="px-4 py-3 text-left font-medium text-gray-900">
-                      Title of the Table
-                    </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900">
-                      Actions
+                      <TableHeaderCell showCheckbox={false} showText="Actions" rightIcon={false} className="justify-center" />
                     </TableHead>
                   </TableRow>
                 </TableHeader>
@@ -372,54 +367,43 @@ const TableDemo = () => {
                       onClick={() => handleRowClick(row.id, "basic")}
                     >
                       <TableCell className="px-4 py-3">
-                        <TableCheckbox
-                          checked={selectedRows.has(row.id)}
-                          onChange={(e) =>
-                            handleRowCheckbox(row.id, e.target.checked)
-                          }
-                        />
-                      </TableCell>
-                      <TableCell className="px-4 py-3">
-                        <div>
-                          <div className="font-medium text-gray-900">
-                            {row.title}
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            {row.subtitle}
-                          </div>
-                        </div>
+                        <TableCellGeneric title={row.title} subtitle={row.subtitle} showCheckbox={true} style="Lead Text" handleRowCheckbox={handleRowCheckbox} rowId={row.id} selectedRows={selectedRows} />
                       </TableCell>
                       <TableCell className="px-4 py-3 text-gray-900">
-                        {row.column2}
+                        <TableCellGeneric title={row.title} subtitle={row.subtitle} showCheckbox={false} style="Text" />
                       </TableCell>
                       <TableCell className="px-4 py-3 text-gray-900">
-                        {row.column3}
+                        <TableCellGeneric title={row.title} description={false} showCheckbox={false} style="Text" />
                       </TableCell>
                       <TableCell className="px-4 py-3">
-                        <Badge
-                          variant="default"
-                          className="bg-gray-100 text-gray-800 border-gray-200"
-                        >
-                          {row.badge}
-                        </Badge>
+                        <TableCellGeneric description={false} showCheckbox={false} style="Badge">
+                          <Badge
+                            variant="default"
+                            className="bg-gray-100 text-gray-800 border-gray-200"
+                          >
+                            {row.badge}
+                          </Badge>
+                        </TableCellGeneric>
                       </TableCell>
                       <TableCell className="px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <Button
-                            variant="secondary"
-                            size="md"
-                            className="border-gray-300 text-gray-700 hover:bg-gray-50"
-                          >
-                            Link Action
-                          </Button>
-                          <Button
-                            variant="primary"
-                            size="md"
-                            className="bg-gray-900 text-white hover:bg-gray-800"
-                          >
-                            Link Action
-                          </Button>
-                        </div>
+                        <TableCellGeneric description={false} showCheckbox={false} style="CTA">
+                          <div className="flex items-center gap-2">
+                            <Button
+                              variant="secondary"
+                              size="md"
+                              className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                            >
+                              Link Action
+                            </Button>
+                            <Button
+                              variant="primary"
+                              size="md"
+                              className="bg-gray-900 text-white hover:bg-gray-800"
+                            >
+                              Link Action
+                            </Button>
+                          </div>
+                        </TableCellGeneric>
                       </TableCell>
                     </TableRow>
                   ))}
