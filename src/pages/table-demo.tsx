@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ChevronDown, Filter, Globe } from "lucide-react";
+import { ArrowLeft, ChevronDown, Filter } from "lucide-react";
 import {
   Table,
   TableHeader,
@@ -8,9 +8,9 @@ import {
   TableHead,
   TableRow,
   TableCell,
-  TableCheckbox,
   TableHeaderCell,
   TableCellGeneric,
+  TableCellBenchmark,
 } from "../components/ui/table";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
@@ -141,7 +141,7 @@ const TableDemo = () => {
     {
       id: 1,
       companyName: "Becton, Dickinson and Company (BD)",
-      auditScore: "40",
+      auditScore: 40,
       homepage: "0-10",
       about: "21-30",
       contact: "31-50",
@@ -155,7 +155,7 @@ const TableDemo = () => {
     {
       id: 2,
       companyName: "Becton, Dickinson and Company (BD)",
-      auditScore: "40",
+      auditScore: 10,
       homepage: "11-20",
       about: "0-10",
       contact: "11-20",
@@ -169,7 +169,7 @@ const TableDemo = () => {
     {
       id: 3,
       companyName: "Becton, Dickinson and Company (BD)",
-      auditScore: "40",
+      auditScore: 20,
       homepage: "0-10",
       about: "31-50",
       contact: "0-10",
@@ -240,19 +240,6 @@ const TableDemo = () => {
     console.log(`Clicked company: ${companyName}`);
     // You can add navigation here: navigate(`/company/${encodeURIComponent(companyName)}`);
     // Or open in new tab: window.open(`https://example.com/company/${encodeURIComponent(companyName)}`, '_blank');
-  };
-
-  // Get color for score ranges using design system colors
-  const getScoreColor = (score: string) => {
-    const range = score.split("-");
-    const min = parseInt(range[0]);
-    const max = parseInt(range[1]);
-    const avg = (min + max) / 2;
-
-    if (avg <= 15) return "bg-red-500/20 text-red-900 border-red-500/20";
-    if (avg <= 25)
-      return "bg-yellow-500/20 text-yellow-900 border-yellow-500/20";
-    return "bg-green-500/20 text-green-900 border-green-500/20";
   };
 
   return (
@@ -476,39 +463,38 @@ const TableDemo = () => {
               <Table>
                 <TableHeader>
                   <TableRow className="border-b border-gray-200">
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      COMPANY NAME
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="Company Name" rightIcon={false} />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      AUDIT SCORE
-                      <ChevronDown className="h-4 w-4 inline ml-1" />
+                    <TableHead className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
+                      <TableHeaderCell showCheckbox={false} showText="Audit Score" rightIcon={true} className="justify-center" />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      HOMEPAGE
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="Homepage" rightIcon={false} className="justify-center" />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      ABOUT
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="About" rightIcon={false} className="justify-center" />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      CONTACT
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="Contact" rightIcon={false} className="justify-center" />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      VALUE PROP
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="Value Prop" rightIcon={false} className="justify-center" />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      SOCIAL PROOF
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="Social Proof" rightIcon={false} className="justify-center" />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      CTAS
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="CTAs" rightIcon={false} className="justify-center" />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      REVENUE
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="Revenue" rightIcon={false} className="justify-center" />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      EMPLOYEE SIZE
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="Employee Size" rightIcon={false} className="justify-center" />
                     </TableHead>
-                    <TableHead className="px-4 py-3 text-left font-medium text-gray-900 whitespace-nowrap">
-                      MARKET
+                    <TableHead className="px-4 py-3 font-medium text-gray-900">
+                      <TableHeaderCell showCheckbox={false} showText="Market" rightIcon={false} className="justify-center" />
                     </TableHead>
                   </TableRow>
                 </TableHeader>
@@ -518,72 +504,41 @@ const TableDemo = () => {
                       key={row.id}
                       className="border-b border-gray-100 hover:bg-gray-50"
                     >
-                      <TableCell className="px-4 py-3 whitespace-nowrap">
-                        <div className="flex items-center gap-2">
-                          <Globe className="h-4 w-4 text-gray-900" />
-                          <span className="text-blue-600 font-medium">
-                            {row.companyName}
-                          </span>
-                        </div>
+                      <TableCell className="p-0 whitespace-nowrap">
+                        <TableCellBenchmark style="Lead" descriptionText={row.companyName} showCheckbox={false} />
                       </TableCell>
-                      <TableCell className="px-4 py-3 whitespace-nowrap text-center">
-                        <div className="inline-block px-3 py-1 rounded-md border text-sm font-medium bg-green-500/20 text-green-900 border-green-500/20">
-                          {row.auditScore}
-                        </div>
+                      <TableCell className="p-0 whitespace-nowrap text-center">
+                        <TableCellGeneric style="Score" score={row.auditScore} />
                       </TableCell>
                       <TableCell
-                        className={`px-4 py-3 whitespace-nowrap text-center ${getScoreColor(
-                          row.homepage
-                        )}`}
+                        className="p-0 whitespace-nowrap text-center"
                       >
-                        <div className="inline-block px-3 py-1 text-sm font-medium">
-                          {row.homepage}
-                        </div>
+                        <TableCellGeneric style="Range" range={row.homepage} lvl="2" />
                       </TableCell>
                       <TableCell
-                        className={`px-4 py-3 whitespace-nowrap text-center ${getScoreColor(
-                          row.about
-                        )}`}
+                        className="p-0 whitespace-nowrap text-center"
                       >
-                        <div className="inline-block px-3 py-1 text-sm font-medium">
-                          {row.about}
-                        </div>
+                        <TableCellGeneric style="Range" range={row.about} lvl="2" />
                       </TableCell>
                       <TableCell
-                        className={`px-4 py-3 whitespace-nowrap text-center ${getScoreColor(
-                          row.contact
-                        )}`}
+                        className="p-0 whitespace-nowrap text-center"
                       >
-                        <div className="inline-block px-3 py-1 text-sm font-medium">
-                          {row.contact}
-                        </div>
+                        <TableCellGeneric style="Range" range={row.contact} lvl="2" />
                       </TableCell>
                       <TableCell
-                        className={`px-4 py-3 whitespace-nowrap text-center ${getScoreColor(
-                          row.valueProp
-                        )}`}
+                        className="p-0 whitespace-nowrap text-center"
                       >
-                        <div className="inline-block px-3 py-1 text-sm font-medium">
-                          {row.valueProp}
-                        </div>
+                        <TableCellGeneric style="Range" range={row.valueProp} />
                       </TableCell>
                       <TableCell
-                        className={`px-4 py-3 whitespace-nowrap text-center ${getScoreColor(
-                          row.socialProof
-                        )}`}
+                        className="p-0 whitespace-nowrap text-center"
                       >
-                        <div className="inline-block px-3 py-1 text-sm font-medium">
-                          {row.socialProof}
-                        </div>
+                        <TableCellGeneric style="Range" range={row.socialProof} />
                       </TableCell>
                       <TableCell
-                        className={`px-4 py-3 whitespace-nowrap text-center ${getScoreColor(
-                          row.ctas
-                        )}`}
+                        className="p-0 whitespace-nowrap text-center"
                       >
-                        <div className="inline-block px-3 py-1 text-sm font-medium">
-                          {row.ctas}
-                        </div>
+                        <TableCellGeneric style="Range" range={row.ctas} />
                       </TableCell>
                       <TableCell className="px-4 py-3 text-gray-900 whitespace-nowrap">
                         {row.revenue}

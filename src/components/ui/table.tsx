@@ -2,6 +2,16 @@ import * as React from "react";
 import { GlobeAltIcon, ArrowDownIcon, LinkIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 
+// Get color for score ranges using design system colors
+const getScoreColor = (score: number) => {
+  if (1 <= score && score <= 10) return "bg-[#FF8F8F] text-neutral-800";
+  if (11 <= score && score <= 20) return "bg-[#FFB28E] text-neutral-800";
+  if (21 <= score && score <= 30) return "bg-[#FFE15D] text-neutral-800";
+  if (31 <= score && score <= 50) return "bg-[#6CFFA5] text-neutral-800";
+  return "bg-[#FF8F8F] text-neutral-800";
+};
+
+
 const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
@@ -186,7 +196,7 @@ TableHeaderCell.displayName = "TableHeaderCell";
 // TableCellGeneric component for various cell styles
 export interface TableCellGenericProps {
   showCheckbox?: boolean;
-  style?: "Lead Text" | "Text" | "Badge" | "CTA";
+  style?: "Lead Text" | "Text" | "Badge" | "CTA" | "Score" | "Range";
   description?: boolean;
   state?: "Default";
   title?: string;
@@ -195,6 +205,9 @@ export interface TableCellGenericProps {
   selectedRows?: Set<number>;
   handleRowCheckbox?: (rowId: number, checked: boolean) => void;
   rowId?: number;
+  score?: number;
+  range?: string;
+  lvl?: "1" | "2";
 }
 
 const TableCellGeneric = React.forwardRef<
@@ -202,7 +215,19 @@ const TableCellGeneric = React.forwardRef<
   TableCellGenericProps & React.TdHTMLAttributes<HTMLTableCellElement>
 >(({ className, showCheckbox = true, style = "Lead Text", description = true, state = "Default", title, subtitle, selectedRows,
   handleRowCheckbox,
-  rowId, children, ...props }, ref) => {
+  rowId, children, score, range, lvl, ...props }, ref) => {
+  if (style === "Score") {
+    return (
+      <Score score={score} />
+    );
+  }
+
+  if (style === "Range") {
+    return (
+      <Range range={range} lvl={lvl} />
+    )
+  }
+
   if (style === "Text" && description === true && state === "Default") {
     return (
       <div
@@ -317,7 +342,7 @@ const TableCellBenchmark = React.forwardRef<
   showCheckbox = true,
   descriptionText,
   showScore = true,
-  rightIcon = true,
+  rightIcon = false,
   style = "Lead",
   state = "Default",
   children,
@@ -333,7 +358,7 @@ const TableCellBenchmark = React.forwardRef<
       <td
         ref={ref}
         className={cn(
-          "bg-white border-b border-neutral-300 flex gap-2 h-[68px] items-center px-6 py-4",
+          "bg-white flex gap-2 h-[68px] items-center px-6 py-4",
           className
         )}
         {...props}
@@ -357,7 +382,7 @@ const TableCellBenchmark = React.forwardRef<
       <td
         ref={ref}
         className={cn(
-          "bg-violet-50 border-b border-neutral-300 flex gap-2 h-[68px] items-center px-6 py-4",
+          "bg-violet-50 flex gap-2 h-[68px] items-center px-6 py-4",
           className
         )}
         {...props}
@@ -381,7 +406,7 @@ const TableCellBenchmark = React.forwardRef<
       <td
         ref={ref}
         className={cn(
-          "bg-violet-50 border-b border-neutral-300 flex gap-2 items-center px-6 py-4 w-[357px]",
+          "bg-violet-50 flex gap-2 items-center px-6 py-4 w-[357px]",
           className
         )}
         {...props}
@@ -441,7 +466,7 @@ const TableCellBenchmark = React.forwardRef<
     <td
       ref={ref}
       className={cn(
-        "bg-white border-b border-neutral-300 flex gap-2 items-center px-6 py-4 w-[357px]",
+        "bg-white flex gap-2 items-center px-4 py-2 w-[357px]",
         className
       )}
       {...props}
@@ -454,15 +479,9 @@ const TableCellBenchmark = React.forwardRef<
           />
         )}
         <div className="flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0">
-          {leftIcon !== undefined && (
-            <div className="flex gap-6 items-center justify-center relative shrink-0 size-4">
-              <div className="overflow-clip relative shrink-0 size-4">
-                {leftIcon === true ? (
-                  <GlobeAltIcon className="size-4 text-neutral-900" />
-                ) : leftIcon ? (
-                  leftIcon
-                ) : null}
-              </div>
+          {leftIcon === true && (
+            <div className="overflow-clip relative shrink-0 size-4">
+              <GlobeAltIcon className="size-4 text-neutral-900" />
             </div>
           )}
           {children ? (
@@ -479,13 +498,9 @@ const TableCellBenchmark = React.forwardRef<
               )}
             </div>
           )}
-          {rightIcon !== undefined && (
+          {rightIcon === true && (
             <div className="overflow-clip relative shrink-0 size-4">
-              {rightIcon === true ? (
-                <LinkIcon className="size-4 text-supreme-blue-700" />
-              ) : rightIcon ? (
-                rightIcon
-              ) : null}
+              <LinkIcon className="size-4 text-supreme-blue-700" />
             </div>
           )}
         </div>
@@ -496,24 +511,38 @@ const TableCellBenchmark = React.forwardRef<
 TableCellBenchmark.displayName = "TableCellBenchmark";
 
 // AuditScoreColor component for score ranges with color coding
-export interface AuditScoreColorProps {
-  score?: "0-10" | "11-20" | "21-30" | "31-50";
+export interface RangeProps {
+  range?: string;
   lvl?: "1" | "2";
 }
 
-const AuditScoreColor = React.forwardRef<
+const Range = React.forwardRef<
   HTMLDivElement,
-  AuditScoreColorProps & React.HTMLAttributes<HTMLDivElement>
->(({ className, score = "0-10", lvl = "1", ...props }, ref) => {
-  const baseClasses = "border-b border-neutral-300 flex gap-[10px] h-12 items-center justify-center w-[120px]";
+  RangeProps & React.HTMLAttributes<HTMLDivElement>
+>(({ className, range = "0-10", lvl = "1", ...props }, ref) => {
+  const baseClasses = "flex gap-[10px] h-14 items-center justify-center w-[120px]";
 
   const element = (
     <p className="font-normal leading-[18px] relative shrink-0 text-[#4e4c6c] text-sm text-center">
-      {score}
+      {range}
     </p>
   );
 
-  if (score === "0-10" && lvl === "2") {
+  if (range === "0-10" && lvl === "1") {
+    return (
+      <div
+        ref={ref}
+        className={cn("bg-[#ff8f8f]", baseClasses, className)}
+        {...props}
+      >
+        <div className="bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0">
+          {element}
+        </div>
+      </div>
+    );
+  }
+
+  if (range === "0-10" && lvl === "2") {
     return (
       <div
         ref={ref}
@@ -527,7 +556,7 @@ const AuditScoreColor = React.forwardRef<
     );
   }
 
-  if (score === "11-20" && lvl === "1") {
+  if (range === "11-20" && lvl === "1") {
     return (
       <div
         ref={ref}
@@ -541,7 +570,7 @@ const AuditScoreColor = React.forwardRef<
     );
   }
 
-  if (score === "11-20" && lvl === "2") {
+  if (range === "11-20" && lvl === "2") {
     return (
       <div
         ref={ref}
@@ -555,7 +584,7 @@ const AuditScoreColor = React.forwardRef<
     );
   }
 
-  if (score === "21-30" && lvl === "1") {
+  if (range === "21-30" && lvl === "1") {
     return (
       <div
         ref={ref}
@@ -569,7 +598,7 @@ const AuditScoreColor = React.forwardRef<
     );
   }
 
-  if (score === "21-30" && lvl === "2") {
+  if (range === "21-30" && lvl === "2") {
     return (
       <div
         ref={ref}
@@ -583,7 +612,7 @@ const AuditScoreColor = React.forwardRef<
     );
   }
 
-  if (score === "31-50" && lvl === "1") {
+  if (range === "31-50" && lvl === "1") {
     return (
       <div
         ref={ref}
@@ -597,7 +626,7 @@ const AuditScoreColor = React.forwardRef<
     );
   }
 
-  if (score === "31-50" && lvl === "2") {
+  if (range === "31-50" && lvl === "2") {
     return (
       <div
         ref={ref}
@@ -611,78 +640,29 @@ const AuditScoreColor = React.forwardRef<
     );
   }
 
-  // Default: 0-10, lvl 1
-  return (
-    <div
-      ref={ref}
-      className={cn("bg-[#ff8f8f]", baseClasses, className)}
-      {...props}
-    >
-      <div className="bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0">
-        {element}
-      </div>
-    </div>
-  );
 });
-AuditScoreColor.displayName = "AuditScoreColor";
+
+Range.displayName = "Range";
 
 // Simple Score component without opacity layers
 export interface ScoreProps {
-  score?: "0-10" | "11-20" | "21-30" | "31-50";
-  value?: number | string;
+  score?: number;
 }
 
 const Score = React.forwardRef<
   HTMLDivElement,
   ScoreProps & React.HTMLAttributes<HTMLDivElement>
->(({ className, score = "31-50", value, ...props }, ref) => {
+>(({ className, score = 40, ...props }, ref) => {
   const element = (
-    <p className="font-normal leading-4 relative shrink-0 text-neutral-800 text-xs whitespace-pre-wrap w-full">
-      {value || (score === "31-50" ? "40" : score)}
+    <p className={cn("font-normal leading-4 relative shrink-0 text-xs whitespace-pre-wrap w-9 px-2.5 py-0 rounded-[2px]", getScoreColor(score))}>
+      {score}
     </p>
   );
 
-  if (score === "21-30") {
-    return (
-      <div
-        ref={ref}
-        className={cn("bg-[#ffe15d] flex flex-col gap-[10px] items-center justify-center px-2.5 py-0 rounded-[2px] w-9", className)}
-        {...props}
-      >
-        {element}
-      </div>
-    );
-  }
-
-  if (score === "11-20") {
-    return (
-      <div
-        ref={ref}
-        className={cn("bg-[#ffb28e] flex flex-col gap-[10px] items-center justify-center px-2.5 py-0 rounded-[2px] w-9", className)}
-        {...props}
-      >
-        {element}
-      </div>
-    );
-  }
-
-  if (score === "0-10") {
-    return (
-      <div
-        ref={ref}
-        className={cn("bg-[#ff8f8f] flex flex-col gap-[10px] items-center justify-center px-2.5 py-0 rounded-[2px] w-9", className)}
-        {...props}
-      >
-        {element}
-      </div>
-    );
-  }
-
-  // Default: 31-50
   return (
     <div
       ref={ref}
-      className={cn("bg-[#6cffa5] flex flex-col gap-[10px] items-center justify-center px-2.5 py-0 rounded-[2px] w-9", className)}
+      className={cn("flex items-center justify-center", className)}
       {...props}
     >
       {element}
@@ -700,10 +680,7 @@ export {
   TableRow,
   TableCell,
   TableCaption,
-  TableCheckbox,
   TableHeaderCell,
   TableCellGeneric,
   TableCellBenchmark,
-  AuditScoreColor,
-  Score,
 };
