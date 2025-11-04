@@ -683,4 +683,6 @@ export {
   TableHeaderCell,
   TableCellGeneric,
   TableCellBenchmark,
+  Range,
+  Score,
 };
