@@ -16,6 +16,7 @@ import {
   BreadcrumbSeparator,
   CardWithProgress,
   Checkbox,
+  CommonCard,
   ContentBox,
   ContentBoxContent,
   ContentBoxDescription,
@@ -112,7 +113,7 @@ import {
   tabsListVariants,
   tabsTriggerVariants,
   toggleVariants
-} from "./chunk-NHZFCUBC.js";
+} from "./chunk-NLX7QVEQ.js";
 import {
   Avatar,
   AvatarGroup,
@@ -141,6 +142,7 @@ export {
   Button,
   CardWithProgress,
   Checkbox,
+  CommonCard,
   ContentBox,
   ContentBoxContent,
   ContentBoxDescription,

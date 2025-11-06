@@ -54,6 +54,7 @@ __export(index_exports, {
   Button: () => Button,
   CardWithProgress: () => CardWithProgress,
   Checkbox: () => Checkbox,
+  CommonCard: () => CommonCard,
   ContentBox: () => ContentBox,
   ContentBoxContent: () => ContentBoxContent,
   ContentBoxDescription: () => ContentBoxDescription,
@@ -892,7 +893,7 @@ var HighlightCard = React8.forwardRef(({ className, value, title, subtitle, show
   }
 ));
 HighlightCard.displayName = "HighlightCard";
-var HighlightCTACard = React8.forwardRef(({ className, title, value, description, ctaText, onCtaClick, showIcon = true, showDescription = true, showAction = false, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+var HighlightCTACard = React8.forwardRef(({ className, title, value, description, icon, ctaText, onCtaClick, showIcon = true, showDescription = true, showAction = false, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
   "div",
   {
     ref,
@@ -904,7 +905,7 @@ var HighlightCTACard = React8.forwardRef(({ className, title, value, description
     tabIndex: 0,
     children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex gap-3 items-center", children: [
-        showIcon && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "bg-white flex items-center justify-center p-2.5 rounded-full flex-shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_outline5.ArrowTrendingUpIcon, { className: "w-[25px] h-[25px] text-supreme-blue-900" }) }),
+        showIcon && icon ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "text-supreme-blue-900 w-6 h-6 flex items-center justify-center", children: icon }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "bg-white flex items-center justify-center p-2.5 rounded-full flex-shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_outline5.ArrowTrendingUpIcon, { className: "w-[25px] h-[25px] text-supreme-blue-900" }) }),
         title && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: "text-2xl font-semibold text-supreme-blue-900 leading-8 whitespace-pre-wrap", children: title })
       ] }),
       value && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "text-4xl font-bold text-supreme-blue-900 leading-10 whitespace-nowrap", children: value }),
@@ -1015,6 +1016,42 @@ var CardWithProgress = React8.forwardRef(({ className, title, description, progr
   }
 ));
 CardWithProgress.displayName = "CardWithProgress";
+var CommonCard = React8.forwardRef(({
+  className,
+  title,
+  description,
+  icon,
+  footerText,
+  footerAction,
+  headerClassName,
+  titleClassName,
+  descriptionClassName,
+  footerClassName,
+  footerTextClassName,
+  ...props
+}, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+  "div",
+  {
+    ref,
+    className: cn(
+      "bg-white rounded-xl border border-neutral-300 p-6 hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none flex flex-col",
+      className
+    ),
+    ...props,
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: cn("flex items-center gap-3", headerClassName), children: [
+        icon && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "flex-shrink-0", children: icon }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: cn("text-2xl font-semibold text-neutral-800", titleClassName), children: title })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: cn("flex-1"), children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: cn("text-base font-normal text-neutral-600 leading-6", descriptionClassName), children: description }) }),
+      (footerText || footerAction) && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: cn("flex items-center gap-2", footerClassName), children: [
+        footerAction,
+        footerText && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: cn("text-base font-normal text-neutral-600", footerTextClassName), children: footerText })
+      ] })
+    ]
+  }
+));
+CommonCard.displayName = "CommonCard";
 
 // src/components/ui/checkbox.tsx
 var React9 = __toESM(require("react"), 1);
@@ -5485,6 +5522,7 @@ function useIsMobile() {
   Button,
   CardWithProgress,
   Checkbox,
+  CommonCard,
   ContentBox,
   ContentBoxContent,
   ContentBoxDescription,

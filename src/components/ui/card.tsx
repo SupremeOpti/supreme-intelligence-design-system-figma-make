@@ -529,6 +529,71 @@ const CardWithProgress = React.forwardRef<
 ));
 CardWithProgress.displayName = "CardWithProgress";
 
+// Scalable Card Component
+const CommonCard = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & {
+    title: string;
+    description: string;
+    icon?: React.ReactNode;
+    footerText?: string;
+    footerAction?: React.ReactNode;
+    headerClassName?: string;
+    titleClassName?: string;
+    descriptionClassName?: string;
+    footerClassName?: string;
+    footerTextClassName?: string;
+  }
+>(({ 
+  className, 
+  title, 
+  description, 
+  icon,
+  footerText,
+  footerAction,
+  headerClassName,
+  titleClassName,
+  descriptionClassName,
+  footerClassName,
+  footerTextClassName,
+  ...props 
+}, ref) => (
+  <div 
+    ref={ref} 
+    className={cn(
+      "bg-white rounded-xl border border-neutral-300 p-6 hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none flex flex-col",
+      className
+    )} 
+    {...props}
+  >
+    {/* Header: Icon + Title */}
+    <div className={cn("flex items-center gap-3", headerClassName)}>
+      {icon && (
+        <div className="flex-shrink-0">
+          {icon}
+        </div>
+      )}
+      <h3 className={cn("text-2xl font-semibold text-neutral-800", titleClassName)}>{title}</h3>
+    </div>
+    
+    {/* Body: Description */}
+    <div className={cn("flex-1")}>
+      <p className={cn("text-base font-normal text-neutral-600 leading-6", descriptionClassName)}>{description}</p>
+    </div>
+    
+    {/* Footer: Link/Button + Text (optional) */}
+    {(footerText || footerAction) && (
+      <div className={cn("flex items-center gap-2", footerClassName)}>
+        {footerAction}
+        {footerText && (
+          <span className={cn("text-base font-normal text-neutral-600", footerTextClassName)}>{footerText}</span>
+        )}
+      </div>
+    )}
+  </div>
+));
+CommonCard.displayName = "CommonCard";
+
 export {
   InfoCard,
   IconCard,
@@ -541,4 +606,5 @@ export {
   SingleIconCard,
   ContentTypeCard,
   CardWithProgress,
+  CommonCard,
 };

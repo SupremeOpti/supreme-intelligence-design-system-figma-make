@@ -8,7 +8,7 @@ import {
   ContentBoxHeader,
   ContentBoxTitle,
 } from "@/components/ui/contentbox";
-import { EnvelopeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { ArrowTrendingUpIcon, EnvelopeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Avatar, AvatarGroup } from "@/components/ui/avatar";
 import { ToggleDemo } from "@/pages/toggle-demo";
 import { Logo } from "@/components/ui/logo";
@@ -54,7 +54,8 @@ import {
   HowItWorksCard,
   ContentTypeCard,
   SingleIconCard,
-  CardWithProgress
+  CardWithProgress,
+  CommonCard
 } from "@/components/ui/card";
 import BannerDemo from "./banner-demo";
 import { RangeSlider, Slider } from "@/components/ui/slider";
@@ -88,27 +89,27 @@ const headerItems: {
   label: string;
   href: string;
 }[] = [
-  {
-    icon: <HomeIcon className="w-5 h-5" />,
-    label: "Home",
-    href: "/home",
-  },
-  {
-    icon: <AIIcon className="w-5 h-5" />,
-    label: "Curie AI Chat",
-    href: "/curie-ai-chat-demo",
-  },
-  {
-    icon: <AppIcon className="w-5 h-5" />,
-    label: "Apps",
-    href: "/apps",
-  },
-  {
-    icon: <AnalyticsIcon className="w-5 h-5" />,
-    label: "Analytics",
-    href: "/analytics",
-  },
-];
+    {
+      icon: <HomeIcon className="w-5 h-5" />,
+      label: "Home",
+      href: "/home",
+    },
+    {
+      icon: <AIIcon className="w-5 h-5" />,
+      label: "Curie AI Chat",
+      href: "/curie-ai-chat-demo",
+    },
+    {
+      icon: <AppIcon className="w-5 h-5" />,
+      label: "Apps",
+      href: "/apps",
+    },
+    {
+      icon: <AnalyticsIcon className="w-5 h-5" />,
+      label: "Analytics",
+      href: "/analytics",
+    },
+  ];
 
 const sidebarItems: SidebarSection[] = [
   {
@@ -979,6 +980,19 @@ const Components = () => {
                               { label: "Progress 2", value: 30 },
                               { label: "Progress 3", value: 70 },
                             ]}
+                          />
+                        </div>
+                      </div>
+                      {/* Common Card */}
+                      <div className="space-y-4">
+                        <h3 className="text-lg font-medium">Common Card</h3>
+                        <div className="max-w-2xl">
+                          <CommonCard
+                            icon={<ArrowTrendingUpIcon className="w-[25px] h-[25px] text-neutral-800" />}
+                            title="Card Title"
+                            description="Card description text"
+                            headerClassName="mb-4"
+                            titleClassName="text-3xl font-bold"
                           />
                         </div>
                       </div>
