@@ -94,6 +94,8 @@ npm install @supreme-intelligence/design-system
 yarn add @supreme-intelligence/design-system
 # or
 pnpm add @supreme-intelligence/design-system
+# or
+npm install git+https://github.com/SupremeOpti/supreme-intelligence-design-system-figma-make.git
 ```
 
 ### Automatic Tailwind Configuration
