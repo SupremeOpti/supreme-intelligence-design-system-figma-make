@@ -34,7 +34,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const isDisabled = state === "disabled" || disabled;
 
     return (
-      <div className="flex flex-col gap-2 items-start w-full pt-2">
+      <div className="flex flex-col gap-2 items-start w-full">
         <div className="relative w-full">
           {label && (
             <label

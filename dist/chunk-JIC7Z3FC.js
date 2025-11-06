@@ -801,7 +801,7 @@ var Input = React9.forwardRef(
     const isError = state === "error" || Boolean(error);
     const isActive = state === "active";
     const isDisabled = state === "disabled" || disabled;
-    return /* @__PURE__ */ jsxs8("div", { className: "flex flex-col gap-2 items-start w-full pt-2", children: [
+    return /* @__PURE__ */ jsxs8("div", { className: "flex flex-col gap-2 items-start w-full", children: [
       /* @__PURE__ */ jsxs8("div", { className: "relative w-full", children: [
         label && /* @__PURE__ */ jsxs8(
           "label",
