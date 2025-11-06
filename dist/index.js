@@ -274,7 +274,7 @@ var Divider = React4.forwardRef(
         ref,
         className: cn(
           dividerVariants({ variant, className }),
-          orientation === "vertical" && "h-full w-px -translate-x-1/2"
+          orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]"
         ),
         role: "separator",
         "aria-orientation": orientation,
@@ -749,7 +749,6 @@ export {
   bannerVariants,
   buttonVariants,
   cn,
-  dividerVariants,
   pageLevelVariants,
   personaProfileVariants,
   personaVariants,

@@ -168,7 +168,6 @@ __export(index_exports, {
   bannerVariants: () => bannerVariants,
   buttonVariants: () => buttonVariants,
   cn: () => cn,
-  dividerVariants: () => dividerVariants,
   pageLevelVariants: () => pageLevelVariants,
   personaProfileVariants: () => personaProfileVariants,
   personaVariants: () => personaVariants,
@@ -1253,7 +1252,7 @@ var Divider = React14.forwardRef(
         ref,
         className: cn(
           dividerVariants({ variant, className }),
-          orientation === "vertical" && "h-full w-px -translate-x-1/2"
+          orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]"
         ),
         role: "separator",
         "aria-orientation": orientation,
@@ -5600,7 +5599,6 @@ function useIsMobile() {
   bannerVariants,
   buttonVariants,
   cn,
-  dividerVariants,
   pageLevelVariants,
   personaProfileVariants,
   personaVariants,
