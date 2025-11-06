@@ -27,9 +27,11 @@ var avatarTextSizes = {
 var AvatarGroupContext = React.createContext({
   isInGroup: false
 });
-var Avatar = React.forwardRef(({ className, size = "md", fallback, src, alt, children, ...props }, ref) => {
+var Avatar = React.forwardRef(({ className, size = "md", type, fallback, src, alt, children, ...props }, ref) => {
   const { isInGroup, groupSize } = React.useContext(AvatarGroupContext);
   const effectiveSize = isInGroup && groupSize ? groupSize : size;
+  const shouldShowImage = type === "photo" || type !== "initials" && src;
+  const shouldShowFallback = type === "initials" || !shouldShowImage && fallback;
   return /* @__PURE__ */ jsxs(
     AvatarPrimitive.Root,
     {
@@ -43,7 +45,7 @@ var Avatar = React.forwardRef(({ className, size = "md", fallback, src, alt, chi
       ),
       ...props,
       children: [
-        src && /* @__PURE__ */ jsx(
+        shouldShowImage && src && /* @__PURE__ */ jsx(
           AvatarPrimitive.Image,
           {
             className: "aspect-square h-full w-full",
@@ -52,7 +54,7 @@ var Avatar = React.forwardRef(({ className, size = "md", fallback, src, alt, chi
           }
         ),
         children,
-        fallback && /* @__PURE__ */ jsx(
+        shouldShowFallback && fallback && /* @__PURE__ */ jsx(
           AvatarPrimitive.Fallback,
           {
             className: cn(

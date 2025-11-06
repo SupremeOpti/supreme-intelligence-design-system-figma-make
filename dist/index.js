@@ -14,6 +14,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
+  CardWithProgress,
   Checkbox,
   ContentBox,
   ContentBoxContent,
@@ -21,9 +22,11 @@ import {
   ContentBoxFooter,
   ContentBoxHeader,
   ContentBoxTitle,
+  ContentTypeCard,
   CurieAIChatPrompt,
   HighlightCTACard,
   HighlightCard,
+  HowItWorksCard,
   IconCard,
   InfoCard,
   Input,
@@ -57,21 +60,27 @@ import {
   PaginationNext,
   PaginationPrevious,
   Persona,
+  PersonaProfile,
   Popover,
   PopoverContent,
   PopoverTrigger,
   Progress,
+  Range,
   RangeSlider,
+  Score,
+  SingleIconCard,
   Slider,
   TabGroup,
   Table,
   TableBody,
   TableCaption,
   TableCell,
-  TableCheckbox,
+  TableCellBenchmark,
+  TableCellGeneric,
   TableFooter,
   TableHead,
   TableHeader,
+  TableHeaderCell,
   TableRow,
   Tabs,
   TabsContent,
@@ -97,6 +106,7 @@ import {
   badgeVariants,
   bannerVariants,
   pageLevelVariants,
+  personaProfileVariants,
   personaVariants,
   reducer,
   tabsContentVariants,
@@ -105,14 +115,14 @@ import {
   toast,
   toggleVariants,
   useToast
-} from "./chunk-YVFCNOVB.js";
+} from "./chunk-7MVMARUD.js";
 import {
   Avatar,
   AvatarGroup,
   Button,
   Sidebar,
   buttonVariants
-} from "./chunk-SMLB3Y6E.js";
+} from "./chunk-VDON7LNT.js";
 import {
   AIIcon,
   AnalyticsIcon,
@@ -132,12 +142,464 @@ import {
   cn
 } from "./chunk-QWFTKI6L.js";
 
-// src/hooks/use-mobile.tsx
+// src/components/ui/credits.tsx
 import * as React from "react";
+import { BoltIcon } from "@heroicons/react/24/outline";
+import { jsx, jsxs } from "react/jsx-runtime";
+var Credits = React.forwardRef(
+  ({ className, value, label = "Total credits used:", showLabel = true, ...props }, ref) => {
+    return /* @__PURE__ */ jsxs(
+      "div",
+      {
+        ref,
+        className: cn(
+          "flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100",
+          className
+        ),
+        ...props,
+        children: [
+          showLabel && /* @__PURE__ */ jsx("span", { className: "text-xs text-teal-800", children: label }),
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1", children: [
+            /* @__PURE__ */ jsx(BoltIcon, { className: "size-3.5 text-teal-800" }),
+            /* @__PURE__ */ jsx("span", { className: "text-xs font-medium text-teal-800", children: value.toLocaleString() })
+          ] })
+        ]
+      }
+    );
+  }
+);
+Credits.displayName = "Credits";
+
+// src/components/ui/quote.tsx
+import * as React2 from "react";
+import { jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
+var Quote = React2.forwardRef(
+  ({
+    className,
+    quote,
+    authorName,
+    authorTitle,
+    avatar,
+    ...props
+  }, ref) => {
+    return /* @__PURE__ */ jsx2(
+      "div",
+      {
+        ref,
+        className: cn("flex flex-col gap-2.5 w-full max-w-[850px]", className),
+        ...props,
+        children: /* @__PURE__ */ jsxs2("div", { className: "flex flex-col gap-[15px] w-full", children: [
+          /* @__PURE__ */ jsx2("div", { className: "flex flex-col pb-1.5 w-full", children: /* @__PURE__ */ jsx2("div", { className: "bg-supreme-blue-50 flex gap-2.5 items-center justify-center px-6 py-[17px] rounded-[10px] w-full mb-[-6px]", children: /* @__PURE__ */ jsxs2("p", { className: "flex-1 text-base font-normal leading-6 text-neutral-800 whitespace-pre-wrap", children: [
+            '"',
+            quote,
+            '"'
+          ] }) }) }),
+          /* @__PURE__ */ jsxs2("div", { className: "flex gap-2.5 items-center", children: [
+            avatar,
+            /* @__PURE__ */ jsxs2("div", { className: "flex flex-col gap-0.5 text-neutral-800", children: [
+              /* @__PURE__ */ jsx2("div", { className: "flex flex-col justify-center", children: /* @__PURE__ */ jsx2("p", { className: "text-sm font-semibold leading-5", children: authorName }) }),
+              /* @__PURE__ */ jsx2("div", { className: "flex flex-col justify-center", children: /* @__PURE__ */ jsx2("p", { className: "text-xs font-normal leading-4", children: authorTitle }) })
+            ] })
+          ] })
+        ] })
+      }
+    );
+  }
+);
+Quote.displayName = "Quote";
+
+// src/components/ui/radio.tsx
+import * as React3 from "react";
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import { jsx as jsx3 } from "react/jsx-runtime";
+var RadioGroup = React3.forwardRef(({ className, ...props }, ref) => {
+  return /* @__PURE__ */ jsx3(
+    RadioGroupPrimitive.Root,
+    {
+      className: cn("grid gap-2", className),
+      ...props,
+      ref
+    }
+  );
+});
+RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
+var RadioGroupItem = React3.forwardRef(({ className, ...props }, ref) => {
+  return /* @__PURE__ */ jsx3(
+    RadioGroupPrimitive.Item,
+    {
+      ref,
+      className: cn(
+        "aspect-square h-4 w-4 rounded-full border bg-white relative",
+        "transition-all duration-200 ease-out",
+        // Default state
+        "border-neutral-500",
+        // Hover state
+        "hover:border-supreme-blue-700 hover:bg-supreme-blue-50",
+        // Focus state
+        "focus:outline-none focus:border-supreme-blue-100 focus:bg-white",
+        // Disabled state
+        "disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:border-neutral-300 disabled:hover:border-neutral-300 disabled:hover:bg-neutral-100",
+        // Checked state
+        "data-[state=checked]:bg-supreme-blue-50 data-[state=checked]:border-supreme-blue-700",
+        className
+      ),
+      ...props,
+      children: /* @__PURE__ */ jsx3(RadioGroupPrimitive.Indicator, { className: "flex items-center justify-center", children: /* @__PURE__ */ jsx3("div", { className: "h-3 w-3 rounded-full bg-supreme-blue-700" }) })
+    }
+  );
+});
+RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
+
+// src/components/ui/divider.tsx
+import * as React4 from "react";
+import { cva } from "class-variance-authority";
+import { jsx as jsx4 } from "react/jsx-runtime";
+var dividerVariants = cva("h-px -translate-y-1/2", {
+  variants: {
+    variant: {
+      default: "bg-slate-200",
+      "high-contrast": "bg-slate-300",
+      "low-contrast": "bg-slate-100"
+    }
+  },
+  defaultVariants: {
+    variant: "default"
+  }
+});
+var Divider = React4.forwardRef(
+  ({ className, variant, orientation = "horizontal", ...props }, ref) => {
+    return /* @__PURE__ */ jsx4(
+      "div",
+      {
+        ref,
+        className: cn(
+          dividerVariants({ variant, className }),
+          orientation === "vertical" && "h-full w-px -translate-x-1/2"
+        ),
+        role: "separator",
+        "aria-orientation": orientation,
+        ...props
+      }
+    );
+  }
+);
+Divider.displayName = "Divider";
+
+// src/components/ui/credit-selector.tsx
+import * as React5 from "react";
+import { BoltIcon as BoltIcon2 } from "@heroicons/react/24/outline";
+import { jsx as jsx5, jsxs as jsxs3 } from "react/jsx-runtime";
+var CreditOption = React5.forwardRef(
+  ({ id, credits, label, selected = false, disabled = false, className, ...props }, ref) => {
+    return /* @__PURE__ */ jsxs3(
+      "div",
+      {
+        ref,
+        className: cn(
+          "flex items-start justify-between px-[14px] py-4 rounded-lg w-[490px] border",
+          selected ? "border-[#847cf0] bg-supreme-blue-50" : "border-neutral-300 bg-white",
+          disabled && "opacity-50 cursor-not-allowed",
+          className
+        ),
+        ...props,
+        children: [
+          /* @__PURE__ */ jsxs3("div", { className: "flex items-center gap-[14px]", children: [
+            /* @__PURE__ */ jsx5(RadioGroupItem, { id, value: id, disabled }),
+            /* @__PURE__ */ jsxs3("div", { className: "flex items-center gap-1 px-2.5 py-0.5 rounded-full", children: [
+              /* @__PURE__ */ jsx5(BoltIcon2, { className: "h-[18px] w-[18px] text-neutral-600" }),
+              /* @__PURE__ */ jsx5("span", { className: "text-base leading-6 text-neutral-600", children: credits.toLocaleString() })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx5("p", { className: "text-base leading-6 text-neutral-600", children: label })
+        ]
+      }
+    );
+  }
+);
+CreditOption.displayName = "CreditOption";
+var CreditSelector = ({
+  options,
+  value,
+  defaultValue,
+  onValueChange,
+  className
+}) => {
+  return /* @__PURE__ */ jsx5(
+    RadioGroup,
+    {
+      className: cn("flex flex-col gap-3", className),
+      value,
+      defaultValue,
+      onValueChange,
+      children: options.map((opt) => /* @__PURE__ */ jsx5(
+        CreditOption,
+        {
+          id: opt.id,
+          credits: opt.credits,
+          label: opt.label,
+          selected: value ? value === opt.id : defaultValue === opt.id,
+          disabled: opt.disabled,
+          "data-node-id": "3093:829"
+        },
+        opt.id
+      ))
+    }
+  );
+};
+CreditSelector.displayName = "CreditSelector";
+
+// src/components/ui/page-heading.tsx
+import * as React6 from "react";
+import { jsx as jsx6, jsxs as jsxs4 } from "react/jsx-runtime";
+var PageHeading = React6.forwardRef(
+  ({
+    className,
+    heading,
+    description,
+    showDescription = true,
+    ...props
+  }, ref) => {
+    return /* @__PURE__ */ jsx6(
+      "div",
+      {
+        ref,
+        className: cn("flex flex-col items-start w-full", className),
+        ...props,
+        children: /* @__PURE__ */ jsx6("div", { className: "flex flex-col gap-7 items-start justify-center w-full", children: /* @__PURE__ */ jsxs4("div", { className: "flex flex-col gap-2.5 items-start w-full", children: [
+          /* @__PURE__ */ jsx6("h1", { className: "text-3xl leading-9 font-normal text-neutral-950 w-full", children: heading }),
+          showDescription && description && /* @__PURE__ */ jsx6("p", { className: "text-base leading-6 font-normal text-neutral-600 w-full", children: description })
+        ] }) })
+      }
+    );
+  }
+);
+PageHeading.displayName = "PageHeading";
+
+// src/components/ui/drag-drop.tsx
+import * as React7 from "react";
+import { CloudArrowUpIcon } from "@heroicons/react/24/outline";
+import { jsx as jsx7, jsxs as jsxs5 } from "react/jsx-runtime";
+var DragDrop = React7.forwardRef(
+  ({
+    className,
+    onFiles,
+    accept = ".pdf,.doc,.docx,.txt",
+    multiple = true,
+    disabled = false,
+    label = "Click to upload or drag and drop",
+    sublabel = "PDF, DOC, DOCX, TXT up to 10MB (Multiple files allowed)",
+    ...props
+  }, ref) => {
+    const inputRef = React7.useRef(null);
+    const [isDragging, setIsDragging] = React7.useState(false);
+    const openFilePicker = () => {
+      if (disabled) return;
+      inputRef.current?.click();
+    };
+    const handleFiles = (fileList) => {
+      if (!fileList) return;
+      const files = Array.from(fileList);
+      onFiles?.(files);
+    };
+    const onDrop = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setIsDragging(false);
+      if (disabled) return;
+      handleFiles(e.dataTransfer.files);
+    };
+    const onDragOver = (e) => {
+      e.preventDefault();
+      if (disabled) return;
+      setIsDragging(true);
+    };
+    const onDragLeave = (e) => {
+      e.preventDefault();
+      if (disabled) return;
+      setIsDragging(false);
+    };
+    const onInputChange = (e) => {
+      handleFiles(e.target.files);
+      e.target.value = "";
+    };
+    return /* @__PURE__ */ jsxs5(
+      "div",
+      {
+        ref,
+        role: "button",
+        "aria-disabled": disabled,
+        tabIndex: disabled ? -1 : 0,
+        onClick: openFilePicker,
+        onDrop,
+        onDragOver,
+        onDragLeave,
+        className: cn(
+          "flex flex-col items-center justify-center gap-[10px] p-8 w-[718px] max-w-[940px] rounded-none",
+          "border border-dashed",
+          disabled ? "border-neutral-300 cursor-not-allowed opacity-60" : isDragging ? "border-supreme-blue-700 bg-supreme-blue-50" : "border-supreme-blue-600",
+          className
+        ),
+        ...props,
+        children: [
+          /* @__PURE__ */ jsx7(CloudArrowUpIcon, { className: "w-[74px] h-[74px] text-supreme-blue-600" }),
+          /* @__PURE__ */ jsxs5("div", { className: "w-[336px] text-center", children: [
+            /* @__PURE__ */ jsx7("p", { className: "text-base leading-6 text-neutral-600", children: label }),
+            /* @__PURE__ */ jsx7("p", { className: "text-xs leading-4 text-neutral-600", children: sublabel })
+          ] }),
+          /* @__PURE__ */ jsx7(
+            "input",
+            {
+              ref: inputRef,
+              type: "file",
+              className: "hidden",
+              accept,
+              multiple,
+              onChange: onInputChange,
+              disabled,
+              "aria-hidden": true
+            }
+          )
+        ]
+      }
+    );
+  }
+);
+DragDrop.displayName = "DragDrop";
+
+// src/components/ui/stepper.tsx
+import * as React8 from "react";
+import { CheckIcon } from "@heroicons/react/24/outline";
+import { jsx as jsx8, jsxs as jsxs6 } from "react/jsx-runtime";
+var StepperIndicator = React8.forwardRef(({ className, stepNumber, step = "default", ...props }, ref) => {
+  return /* @__PURE__ */ jsx8(
+    "div",
+    {
+      ref,
+      className: cn(
+        "flex flex-col items-center justify-center rounded-full shrink-0 size-[30px]",
+        step === "done" && "bg-indigo-950 border-2 !border-white border-shadow-sm p-[6px]",
+        step === "default" && "bg-indigo-100 border-2 !border-indigo-300 border-shadow-sm p-[10px]",
+        step === "active" && "bg-supreme-blue-500 border-2 !border-white border-shadow-sm p-[10px]",
+        className
+      ),
+      ...props,
+      children: step === "done" ? /* @__PURE__ */ jsx8(CheckIcon, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ jsx8(
+        "p",
+        {
+          className: cn(
+            "font-bold leading-4 text-xs text-center w-full whitespace-pre-wrap",
+            step === "default" && "text-indigo-400",
+            step === "active" && "text-white"
+          ),
+          children: stepNumber || 1
+        }
+      )
+    }
+  );
+});
+StepperIndicator.displayName = "StepperIndicator";
+var StepperItem = React8.forwardRef(
+  ({ className, stepNumber, title, step = "default", showLeftConnector = false, showRightConnector = false, leftConnectorColor, rightConnectorColor, ...props }, ref) => {
+    return /* @__PURE__ */ jsxs6(
+      "div",
+      {
+        ref,
+        className: cn(
+          "flex flex-col gap-2 items-center w-[130px] relative",
+          className
+        ),
+        ...props,
+        children: [
+          showLeftConnector && /* @__PURE__ */ jsx8(
+            "div",
+            {
+              className: cn("h-[2px] absolute top-[15px] left-0 z-0", leftConnectorColor),
+              style: { width: "50px" }
+            }
+          ),
+          /* @__PURE__ */ jsx8(StepperIndicator, { stepNumber, step }),
+          showRightConnector && /* @__PURE__ */ jsx8(
+            "div",
+            {
+              className: cn("h-[2px] absolute top-[15px] right-0 z-0", rightConnectorColor),
+              style: { width: "50px" }
+            }
+          ),
+          /* @__PURE__ */ jsx8(
+            "p",
+            {
+              className: cn(
+                "leading-4 text-xs text-center tracking-normal",
+                step === "done" && "text-neutral-800 font-normal",
+                step === "default" && "text-neutral-500 font-bold",
+                step === "active" && "text-neutral-800 font-bold"
+              ),
+              children: title
+            }
+          )
+        ]
+      }
+    );
+  }
+);
+StepperItem.displayName = "StepperItem";
+var Stepper = React8.forwardRef(
+  ({ className, steps, ...props }, ref) => {
+    return /* @__PURE__ */ jsx8(
+      "div",
+      {
+        ref,
+        className: cn("flex items-center relative", className),
+        ...props,
+        children: steps.map((stepData, index) => {
+          const prevStep = index > 0 ? steps[index - 1] : null;
+          let leftConnectorColor = "";
+          if (prevStep) {
+            if (prevStep.step === "done" && stepData.step === "active") {
+              leftConnectorColor = "bg-gradient-to-r from-indigo-700 to-indigo-500";
+            } else if (prevStep.step === "done" || prevStep.step === "active") {
+              leftConnectorColor = "bg-gradient-to-r from-indigo-300 to-slate-50";
+            } else {
+              leftConnectorColor = "bg-slate-50";
+            }
+          }
+          const nextStep = index < steps.length - 1 ? steps[index + 1] : null;
+          let rightConnectorColor = "";
+          if (nextStep) {
+            if (stepData.step === "done" && nextStep.step === "active") {
+              rightConnectorColor = "bg-gradient-to-r from-indigo-950 to-indigo-700";
+            } else if (stepData.step === "done" || stepData.step === "active") {
+              rightConnectorColor = "bg-gradient-to-r from-indigo-500 to-indigo-300";
+            } else {
+              rightConnectorColor = "bg-slate-50";
+            }
+          }
+          return /* @__PURE__ */ jsx8(
+            StepperItem,
+            {
+              stepNumber: stepData.stepNumber,
+              title: stepData.title,
+              step: stepData.step,
+              showLeftConnector: index > 0,
+              showRightConnector: index < steps.length - 1,
+              leftConnectorColor,
+              rightConnectorColor
+            },
+            index
+          );
+        })
+      }
+    );
+  }
+);
+Stepper.displayName = "Stepper";
+
+// src/hooks/use-mobile.tsx
+import * as React9 from "react";
 var MOBILE_BREAKPOINT = 768;
 function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState(void 0);
-  React.useEffect(() => {
+  const [isMobile, setIsMobile] = React9.useState(void 0);
+  React9.useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
     const onChange = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -171,6 +633,7 @@ export {
   BreadcrumbPage,
   BreadcrumbSeparator,
   Button,
+  CardWithProgress,
   Checkbox,
   ContentBox,
   ContentBoxContent,
@@ -178,13 +641,20 @@ export {
   ContentBoxFooter,
   ContentBoxHeader,
   ContentBoxTitle,
+  ContentTypeCard,
+  CreditOption,
+  CreditSelector,
+  Credits,
   CurieAIChatPrompt,
   DataSourcesIcon,
   DigitalAssetManagementIcon,
+  Divider,
+  DragDrop,
   GoogleIcon,
   HighlightCTACard,
   HighlightCard,
   HomeIcon,
+  HowItWorksCard,
   IconCard,
   InfoCard,
   Input,
@@ -209,6 +679,7 @@ export {
   MenubarTrigger,
   MessageAngle,
   MessageCard,
+  PageHeading,
   PageLevel,
   PageLevelItem,
   PageLevelList,
@@ -222,23 +693,35 @@ export {
   PaletteIcon,
   Persona,
   PersonaIcon,
+  PersonaProfile,
   Popover,
   PopoverContent,
   PopoverTrigger,
   Progress,
+  Quote,
+  RadioGroup,
+  RadioGroupItem,
+  Range,
   RangeSlider,
+  Score,
   Sidebar,
   SidebarIcon,
+  SingleIconCard,
   Slider,
+  Stepper,
+  StepperIndicator,
+  StepperItem,
   TabGroup,
   Table,
   TableBody,
   TableCaption,
   TableCell,
-  TableCheckbox,
+  TableCellBenchmark,
+  TableCellGeneric,
   TableFooter,
   TableHead,
   TableHeader,
+  TableHeaderCell,
   TableRow,
   Tabs,
   TabsContent,
@@ -266,7 +749,9 @@ export {
   bannerVariants,
   buttonVariants,
   cn,
+  dividerVariants,
   pageLevelVariants,
+  personaProfileVariants,
   personaVariants,
   reducer,
   tabsContentVariants,

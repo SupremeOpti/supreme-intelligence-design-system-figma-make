@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as class_variance_authority_types from 'class-variance-authority/types';
 import { VariantProps } from 'class-variance-authority';
+import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import * as _radix_ui_react_context from '@radix-ui/react-context';
 import * as MenubarPrimitive from '@radix-ui/react-menubar';
@@ -28,6 +28,7 @@ declare const avatarVariants: {
 };
 interface AvatarProps extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> {
     size?: keyof typeof avatarVariants;
+    type?: "photo" | "initials";
     fallback?: React.ReactNode;
     src?: string;
     alt?: string;
@@ -40,15 +41,18 @@ declare const Avatar: React.ForwardRefExoticComponent<AvatarProps & React.RefAtt
 declare const AvatarGroup: React.ForwardRefExoticComponent<AvatarGroupProps & React.RefAttributes<HTMLDivElement>>;
 
 declare const badgeVariants: (props?: {
-    variant?: "default" | "foundation" | "red" | "orange" | "yellow" | "green" | "blue" | "indigo" | "purple" | "pink";
+    variant?: "default" | "foundation" | "slate" | "zinc" | "gray" | "red" | "orange" | "amber" | "yellow" | "lime" | "green" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "pink";
 } & class_variance_authority_types.ClassProp) => string;
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeVariants> {
+    showDot?: boolean;
+    showRemove?: boolean;
+    onRemove?: () => void;
     dismissible?: boolean;
     onDismiss?: () => void;
     dot?: boolean;
-    size?: "default" | "foundation";
+    size?: "sm" | "md" | "lg";
 }
-declare function Badge({ className, variant, dismissible, onDismiss, dot, size, children, ...props }: BadgeProps): react_jsx_runtime.JSX.Element;
+declare const Badge: React.ForwardRefExoticComponent<BadgeProps & React.RefAttributes<HTMLDivElement>>;
 
 declare const bannerVariants: (props?: {
     variant?: "default" | "primary" | "secondary" | "dark";
@@ -101,10 +105,13 @@ declare const InfoCard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTM
     title?: string;
     subtitle?: string;
     description?: string;
+    showIcon?: boolean;
 } & React.RefAttributes<HTMLDivElement>>;
 declare const IconCard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
     title: string;
     value?: string | number;
+    showLeftIcon?: boolean;
+    showRightIcon?: boolean;
 } & React.RefAttributes<HTMLDivElement>>;
 declare const MessageAngle: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
     title?: string;
@@ -112,15 +119,16 @@ declare const MessageAngle: React.ForwardRefExoticComponent<React.HTMLAttributes
 } & React.RefAttributes<HTMLDivElement>>;
 declare const MessageCard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
     headerTitle: string;
-    headerIcon?: React.ReactNode;
     mainContent: string;
     nestedTitle: string;
     nestedContent: string;
+    showIcon?: boolean;
 } & React.RefAttributes<HTMLDivElement>>;
 declare const HighlightCard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
     value: string | number;
     title: string;
     subtitle?: string;
+    showIcon?: boolean;
 } & React.RefAttributes<HTMLDivElement>>;
 declare const HighlightCTACard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
     icon?: React.ReactNode;
@@ -129,6 +137,36 @@ declare const HighlightCTACard: React.ForwardRefExoticComponent<React.HTMLAttrib
     description: string;
     ctaText?: string;
     onCtaClick?: () => void;
+    showIcon?: boolean;
+    showDescription?: boolean;
+    showAction?: boolean;
+} & React.RefAttributes<HTMLDivElement>>;
+declare const HowItWorksCard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
+    stepNumber?: number;
+    title: string;
+    description: string;
+    type?: "numbers" | "icons";
+    icon?: React.ReactNode;
+} & React.RefAttributes<HTMLDivElement>>;
+declare const SingleIconCard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
+    title: string;
+    description?: string;
+    icon?: React.ReactNode;
+} & React.RefAttributes<HTMLDivElement>>;
+declare const ContentTypeCard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
+    title: string;
+    description: string;
+    icon?: React.ReactNode;
+    variant?: "default" | "selected" | "hover" | "ghost";
+} & React.RefAttributes<HTMLDivElement>>;
+declare const CardWithProgress: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
+    title: string;
+    description: string;
+    progressItems: Array<{
+        label: string;
+        value: number;
+        badge?: string;
+    }>;
 } & React.RefAttributes<HTMLDivElement>>;
 
 declare const Checkbox: React.ForwardRefExoticComponent<Omit<Omit<CheckboxPrimitive.CheckboxProps & React.RefAttributes<HTMLButtonElement>, "ref">, "checked" | "onCheckedChange"> & {
@@ -149,6 +187,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
     error?: string;
+    state?: "default" | "active" | "error" | "disabled";
 }
 declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
 
@@ -239,6 +278,9 @@ declare const personaVariants: (props?: {
     variant?: "selected" | "default" | "outline";
     size?: "default" | "sm" | "lg";
 } & class_variance_authority_types.ClassProp) => string;
+declare const personaProfileVariants: (props?: {
+    variant?: "selected" | "default" | "ghost" | "hover";
+} & class_variance_authority_types.ClassProp) => string;
 interface PersonaProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof personaVariants> {
     personas?: string[];
     placeholder?: string;
@@ -247,6 +289,15 @@ interface PersonaProps extends React.HTMLAttributes<HTMLDivElement>, VariantProp
     onClick?: () => void;
 }
 declare const Persona: React.ForwardRefExoticComponent<PersonaProps & React.RefAttributes<HTMLDivElement>>;
+interface PersonaProfileProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof personaProfileVariants> {
+    avatar?: React.ReactNode;
+    avatarFallback?: string;
+    name?: string;
+    title?: string;
+    organization?: string;
+    tags?: string[];
+}
+declare const PersonaProfile: React.ForwardRefExoticComponent<PersonaProfileProps & React.RefAttributes<HTMLDivElement>>;
 
 declare const Popover: React.FC<PopoverPrimitive.PopoverProps>;
 declare const PopoverTrigger: React.ForwardRefExoticComponent<PopoverPrimitive.PopoverTriggerProps & React.RefAttributes<HTMLButtonElement>>;
@@ -254,6 +305,10 @@ declare const PopoverContent: React.ForwardRefExoticComponent<Omit<PopoverPrimit
 
 declare const Progress: React.ForwardRefExoticComponent<Omit<ProgressPrimitive.ProgressProps & React.RefAttributes<HTMLDivElement>, "ref"> & {
     indicatorClassName?: string;
+    showLabel?: boolean;
+    labelPosition?: "bottom" | "right";
+    title?: string;
+    badge?: React.ReactNode;
 } & React.RefAttributes<HTMLDivElement>>;
 
 declare const Slider: React.ForwardRefExoticComponent<Omit<SliderPrimitive.SliderProps & React.RefAttributes<HTMLSpanElement>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
@@ -271,37 +326,85 @@ declare const TableRow: React.ForwardRefExoticComponent<React.HTMLAttributes<HTM
     onClick?: () => void;
     clickable?: boolean;
 } & React.RefAttributes<HTMLTableRowElement>>;
-declare const TableHead: React.ForwardRefExoticComponent<React.ThHTMLAttributes<HTMLTableCellElement> & {
-    sortable?: boolean;
-    sorted?: "asc" | "desc" | false;
-    onSort?: () => void;
-} & React.RefAttributes<HTMLTableCellElement>>;
+declare const TableHead: React.ForwardRefExoticComponent<React.ThHTMLAttributes<HTMLTableCellElement> & React.RefAttributes<HTMLTableCellElement>>;
 declare const TableCell: React.ForwardRefExoticComponent<React.TdHTMLAttributes<HTMLTableCellElement> & React.RefAttributes<HTMLTableCellElement>>;
 declare const TableCaption: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLTableCaptionElement> & React.RefAttributes<HTMLTableCaptionElement>>;
-declare const TableCheckbox: React.ForwardRefExoticComponent<React.InputHTMLAttributes<HTMLInputElement> & React.RefAttributes<HTMLInputElement>>;
+interface TableHeaderCellProps {
+    showCheckbox?: boolean;
+    rightIcon?: boolean | React.ReactNode;
+    showText?: string;
+    state?: "Default";
+    children?: React.ReactNode;
+    selectedRows?: Set<number>;
+    setSelectedRows?: (selectedRows: Set<number>) => void;
+    tableData?: any[];
+    handleHeaderCheckbox?: (checked: boolean) => void;
+}
+declare const TableHeaderCell: React.ForwardRefExoticComponent<TableHeaderCellProps & React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+interface TableCellGenericProps {
+    showCheckbox?: boolean;
+    style?: "Lead Text" | "Text" | "Badge" | "CTA" | "Score" | "Range";
+    description?: boolean;
+    state?: "Default";
+    title?: string;
+    subtitle?: string;
+    children?: React.ReactNode;
+    selectedRows?: Set<number>;
+    handleRowCheckbox?: (rowId: number, checked: boolean) => void;
+    rowId?: number;
+    score?: number;
+    range?: string;
+    lvl?: "1" | "2";
+}
+declare const TableCellGeneric: React.ForwardRefExoticComponent<TableCellGenericProps & React.TdHTMLAttributes<HTMLTableCellElement> & React.RefAttributes<HTMLTableCellElement>>;
+interface TableCellBenchmarkProps {
+    leftIcon?: React.ReactNode;
+    showCheckbox?: boolean;
+    descriptionText?: string;
+    showScore?: boolean;
+    rightIcon?: React.ReactNode;
+    style?: "Lead" | "Score";
+    state?: "Default" | "Hover";
+    children?: React.ReactNode;
+    score?: number;
+    scoreColor?: string;
+    selectedRows?: Set<number>;
+    handleRowCheckbox?: (rowId: number, checked: boolean) => void;
+    rowId?: number;
+}
+declare const TableCellBenchmark: React.ForwardRefExoticComponent<TableCellBenchmarkProps & React.TdHTMLAttributes<HTMLTableCellElement> & React.RefAttributes<HTMLTableCellElement>>;
+interface RangeProps {
+    range?: string;
+    lvl?: "1" | "2";
+}
+declare const Range: React.ForwardRefExoticComponent<RangeProps & React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+interface ScoreProps {
+    score?: number;
+}
+declare const Score: React.ForwardRefExoticComponent<ScoreProps & React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
 
 declare const tabsListVariants: (props?: {
-    variant?: "default" | "supreme-blue" | "card";
+    variant?: "default" | "filled" | "supreme-blue" | "card" | "outlined" | "selector";
     size?: "default" | "sm" | "lg";
 } & class_variance_authority_types.ClassProp) => string;
 declare const tabsTriggerVariants: (props?: {
-    variant?: "default" | "supreme-blue" | "card";
+    variant?: "default" | "filled" | "supreme-blue" | "card" | "outlined" | "selector";
     size?: "default" | "sm" | "lg";
 } & class_variance_authority_types.ClassProp) => string;
 declare const tabsContentVariants: (props?: {
-    variant?: "default" | "supreme-blue" | "card";
+    variant?: "default" | "filled" | "supreme-blue" | "card" | "outlined" | "selector";
 } & class_variance_authority_types.ClassProp) => string;
 declare const Tabs: React.ForwardRefExoticComponent<TabsPrimitive.TabsProps & React.RefAttributes<HTMLDivElement>>;
 declare const TabsList: React.ForwardRefExoticComponent<Omit<TabsPrimitive.TabsListProps & React.RefAttributes<HTMLDivElement>, "ref"> & VariantProps<(props?: {
-    variant?: "default" | "supreme-blue" | "card";
+    variant?: "default" | "filled" | "supreme-blue" | "card" | "outlined" | "selector";
     size?: "default" | "sm" | "lg";
 } & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLDivElement>>;
 declare const TabsTrigger: React.ForwardRefExoticComponent<Omit<TabsPrimitive.TabsTriggerProps & React.RefAttributes<HTMLButtonElement>, "ref"> & VariantProps<(props?: {
-    variant?: "default" | "supreme-blue" | "card";
+    variant?: "default" | "filled" | "supreme-blue" | "card" | "outlined" | "selector";
     size?: "default" | "sm" | "lg";
 } & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLButtonElement>>;
 declare const TabsContent: React.ForwardRefExoticComponent<Omit<TabsPrimitive.TabsContentProps & React.RefAttributes<HTMLDivElement>, "ref"> & VariantProps<(props?: {
-    variant?: "default" | "supreme-blue" | "card";
+    variant?: "default" | "filled" | "supreme-blue" | "card" | "outlined" | "selector";
 } & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLDivElement>>;
 interface TabGroupProps {
     tabs: Array<{
@@ -326,6 +429,7 @@ interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
     hint?: string;
     error?: string;
     labelClassName?: string;
+    state?: "default" | "active" | "error";
 }
 declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
 
@@ -384,4 +488,4 @@ interface CurieAIChatPromptProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 declare const CurieAIChatPrompt: React.ForwardRefExoticComponent<CurieAIChatPromptProps & React.RefAttributes<HTMLDivElement>>;
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, AnnouncementCard, Avatar, AvatarGroup, Badge, type BadgeProps, Banner, type BannerProps, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, type ButtonProps, Checkbox, ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxFooter, ContentBoxHeader, ContentBoxTitle, CurieAIChatPrompt, type CurieAIChatPromptProps, HighlightCTACard, HighlightCard, IconCard, InfoCard, Input, type InputProps, Logo, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, MessageAngle, MessageCard, PageLevel, PageLevelItem, PageLevelList, type PageLevelProps, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, Persona, type PersonaProps, Popover, PopoverContent, PopoverTrigger, Progress, RangeSlider, Slider, TabGroup, Table, TableBody, TableCaption, TableCell, TableCheckbox, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, type TextareaProps, Toast, ToastAction, type ToastActionElement, ToastActions, ToastClose, ToastContent, ToastDescription, ToastIcon, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, badgeVariants, bannerVariants, buttonVariants, pageLevelVariants, personaVariants, tabsContentVariants, tabsListVariants, tabsTriggerVariants, toggleVariants };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, AnnouncementCard, Avatar, AvatarGroup, Badge, type BadgeProps, Banner, type BannerProps, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, type ButtonProps, CardWithProgress, Checkbox, ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxFooter, ContentBoxHeader, ContentBoxTitle, ContentTypeCard, CurieAIChatPrompt, type CurieAIChatPromptProps, HighlightCTACard, HighlightCard, HowItWorksCard, IconCard, InfoCard, Input, type InputProps, Logo, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, MessageAngle, MessageCard, PageLevel, PageLevelItem, PageLevelList, type PageLevelProps, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, Persona, PersonaProfile, type PersonaProfileProps, type PersonaProps, Popover, PopoverContent, PopoverTrigger, Progress, Range, type RangeProps, RangeSlider, Score, type ScoreProps, SingleIconCard, Slider, TabGroup, Table, TableBody, TableCaption, TableCell, TableCellBenchmark, type TableCellBenchmarkProps, TableCellGeneric, type TableCellGenericProps, TableFooter, TableHead, TableHeader, TableHeaderCell, type TableHeaderCellProps, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, type TextareaProps, Toast, ToastAction, type ToastActionElement, ToastActions, ToastClose, ToastContent, ToastDescription, ToastIcon, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, badgeVariants, bannerVariants, buttonVariants, pageLevelVariants, personaProfileVariants, personaVariants, tabsContentVariants, tabsListVariants, tabsTriggerVariants, toggleVariants };

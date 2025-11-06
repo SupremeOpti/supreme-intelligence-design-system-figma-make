@@ -626,9 +626,11 @@ var avatarTextSizes = {
 var AvatarGroupContext = React4.createContext({
   isInGroup: false
 });
-var Avatar = React4.forwardRef(({ className, size = "md", fallback, src, alt, children, ...props }, ref) => {
+var Avatar = React4.forwardRef(({ className, size = "md", type, fallback, src, alt, children, ...props }, ref) => {
   const { isInGroup, groupSize } = React4.useContext(AvatarGroupContext);
   const effectiveSize = isInGroup && groupSize ? groupSize : size;
+  const shouldShowImage = type === "photo" || type !== "initials" && src;
+  const shouldShowFallback = type === "initials" || !shouldShowImage && fallback;
   return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
     AvatarPrimitive.Root,
     {
@@ -642,7 +644,7 @@ var Avatar = React4.forwardRef(({ className, size = "md", fallback, src, alt, ch
       ),
       ...props,
       children: [
-        src && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+        shouldShowImage && src && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
           AvatarPrimitive.Image,
           {
             className: "aspect-square h-full w-full",
@@ -651,7 +653,7 @@ var Avatar = React4.forwardRef(({ className, size = "md", fallback, src, alt, ch
           }
         ),
         children,
-        fallback && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+        shouldShowFallback && fallback && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
           AvatarPrimitive.Fallback,
           {
             className: cn(
