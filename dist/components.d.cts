@@ -181,6 +181,8 @@ declare const CommonCard: React.ForwardRefExoticComponent<React.HTMLAttributes<H
     descriptionClassName?: string;
     footerClassName?: string;
     footerTextClassName?: string;
+    badge?: string;
+    disabled?: boolean;
 } & React.RefAttributes<HTMLDivElement>>;
 
 declare const Checkbox: React.ForwardRefExoticComponent<Omit<Omit<CheckboxPrimitive.CheckboxProps & React.RefAttributes<HTMLButtonElement>, "ref">, "checked" | "onCheckedChange"> & {

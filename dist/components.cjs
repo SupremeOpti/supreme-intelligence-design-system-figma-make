@@ -996,6 +996,8 @@ var CommonCard = React8.forwardRef(({
   descriptionClassName,
   footerClassName,
   footerTextClassName,
+  badge,
+  disabled,
   ...props
 }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
   "div",
@@ -1003,13 +1005,15 @@ var CommonCard = React8.forwardRef(({
     ref,
     className: cn(
       "bg-white rounded-xl border border-neutral-300 p-6 hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none flex flex-col",
+      disabled && "opacity-50",
       className
     ),
     ...props,
     children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: cn("flex items-center gap-3", headerClassName), children: [
         icon && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "flex-shrink-0", children: icon }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: cn("text-2xl font-semibold text-neutral-800", titleClassName), children: title })
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: cn("text-2xl font-semibold text-neutral-800", titleClassName), children: title }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Badge, { variant: "default", className: "text-gray-600 text-xs", children: badge })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: cn("flex-1"), children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: cn("text-base font-normal text-neutral-600 leading-6", descriptionClassName), children: description }) }),
       (footerText || footerAction) && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: cn("flex items-center gap-2", footerClassName), children: [

@@ -990,9 +990,11 @@ const Components = () => {
                           <CommonCard
                             icon={<ArrowTrendingUpIcon className="w-[25px] h-[25px] text-neutral-800" />}
                             title="Card Title"
+                            badge="Coming Soon"
                             description="Card description text"
                             headerClassName="mb-4"
                             titleClassName="text-3xl font-bold"
+                            disabled={false}
                           />
                         </div>
                       </div>
