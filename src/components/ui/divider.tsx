@@ -28,7 +28,7 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
         ref={ref}
         className={cn(
           dividerVariants({ variant, className }),
-          orientation === "vertical" && "h-full w-px -translate-x-1/2"
+          orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
         )}
         role="separator"
         aria-orientation={orientation}
@@ -39,4 +39,4 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
 )
 Divider.displayName = "Divider"
 
-export { Divider, dividerVariants }
+export { Divider }
