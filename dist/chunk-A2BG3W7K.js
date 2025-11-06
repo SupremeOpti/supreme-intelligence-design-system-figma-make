@@ -601,7 +601,7 @@ var HowItWorksCard = React6.forwardRef(({ className, stepNumber, title, descript
   }
 ));
 HowItWorksCard.displayName = "HowItWorksCard";
-var SingleIconCard = React6.forwardRef(({ className, title, description, icon, ...props }, ref) => /* @__PURE__ */ jsxs6(
+var SingleIconCard = React6.forwardRef(({ className, title, description, titleClassName, descriptionClassName, icon, ...props }, ref) => /* @__PURE__ */ jsxs6(
   "div",
   {
     ref,
@@ -614,8 +614,8 @@ var SingleIconCard = React6.forwardRef(({ className, title, description, icon, .
     children: [
       icon || /* @__PURE__ */ jsx6(UsersIcon, { className: "w-[60px] h-[60px] text-neutral-900" }),
       /* @__PURE__ */ jsxs6("div", { className: "flex flex-col gap-1.5 items-start text-center w-full", children: [
-        /* @__PURE__ */ jsx6("h3", { className: "text-lg font-semibold text-neutral-900 w-full leading-7", children: title }),
-        description && /* @__PURE__ */ jsx6("p", { className: "text-base font-normal text-neutral-600 w-full leading-6", children: description })
+        /* @__PURE__ */ jsx6("h3", { className: cn("text-lg font-semibold text-neutral-900 w-full leading-7", titleClassName), children: title }),
+        description && /* @__PURE__ */ jsx6("p", { className: cn("text-base font-normal text-neutral-600 w-full leading-6", descriptionClassName), children: description })
       ] })
     ]
   }

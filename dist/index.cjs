@@ -941,7 +941,7 @@ var HowItWorksCard = React8.forwardRef(({ className, stepNumber, title, descript
   }
 ));
 HowItWorksCard.displayName = "HowItWorksCard";
-var SingleIconCard = React8.forwardRef(({ className, title, description, icon, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+var SingleIconCard = React8.forwardRef(({ className, title, description, titleClassName, descriptionClassName, icon, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
   "div",
   {
     ref,
@@ -954,8 +954,8 @@ var SingleIconCard = React8.forwardRef(({ className, title, description, icon, .
     children: [
       icon || /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_outline5.UsersIcon, { className: "w-[60px] h-[60px] text-neutral-900" }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex flex-col gap-1.5 items-start text-center w-full", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: "text-lg font-semibold text-neutral-900 w-full leading-7", children: title }),
-        description && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "text-base font-normal text-neutral-600 w-full leading-6", children: description })
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: cn("text-lg font-semibold text-neutral-900 w-full leading-7", titleClassName), children: title }),
+        description && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: cn("text-base font-normal text-neutral-600 w-full leading-6", descriptionClassName), children: description })
       ] })
     ]
   }

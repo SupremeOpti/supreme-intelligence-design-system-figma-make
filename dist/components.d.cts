@@ -151,6 +151,8 @@ declare const HowItWorksCard: React.ForwardRefExoticComponent<React.HTMLAttribut
 declare const SingleIconCard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
     title: string;
     description?: string;
+    titleClassName?: string;
+    descriptionClassName?: string;
     icon?: React.ReactNode;
 } & React.RefAttributes<HTMLDivElement>>;
 declare const ContentTypeCard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {

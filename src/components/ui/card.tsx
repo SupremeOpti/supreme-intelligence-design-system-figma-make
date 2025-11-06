@@ -322,19 +322,19 @@ const HighlightCTACard = React.forwardRef<
         </h3>
       )}
     </div>
-    
+
     {/* Value - only show if value is provided */}
     {value && <div className="text-4xl font-bold text-supreme-blue-900 leading-10 whitespace-nowrap">
       {value}
     </div>}
-    
+
     {/* Description */}
     {showDescription && (
       <p className="text-base font-normal text-neutral-600 leading-6 w-full whitespace-pre-wrap">
         {description}
       </p>
     )}
-    
+
     {/* CTA Button */}
     {showAction && (
       <button
@@ -359,12 +359,12 @@ const HowItWorksCard = React.forwardRef<
     icon?: React.ReactNode;
   }
 >(({ className, stepNumber, title, description, type = "numbers", icon, ...props }, ref) => (
-  <div 
-    ref={ref} 
+  <div
+    ref={ref}
     className={cn(
       "flex flex-col gap-2.5 items-center w-[233px] border border-neutral-300 p-6 rounded-xl hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none",
       className
-    )} 
+    )}
     {...props}
   >
     <div className="flex flex-col gap-3.5 items-center justify-center shrink-0 w-full">
@@ -396,28 +396,30 @@ const SingleIconCard = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & {
     title: string;
     description?: string;
+    titleClassName?: string;
+    descriptionClassName?: string;
     icon?: React.ReactNode;
   }
->(({ className, title, description, icon, ...props }, ref) => (
-  <div 
-    ref={ref} 
+>(({ className, title, description, titleClassName, descriptionClassName, icon, ...props }, ref) => (
+  <div
+    ref={ref}
     className={cn(
       "bg-white rounded-2xl p-5 flex flex-col items-center gap-5 hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none",
       className
-    )} 
-    tabIndex={0} 
+    )}
+    tabIndex={0}
     {...props}
   >
     {/* Icon container */}
-      {icon || <UsersIcon className="w-[60px] h-[60px] text-neutral-900" />}
-    
+    {icon || <UsersIcon className="w-[60px] h-[60px] text-neutral-900" />}
+
     {/* Content */}
     <div className="flex flex-col gap-1.5 items-start text-center w-full">
-      <h3 className="text-lg font-semibold text-neutral-900 w-full leading-7">
+      <h3 className={cn("text-lg font-semibold text-neutral-900 w-full leading-7", titleClassName)}>
         {title}
       </h3>
       {description && (
-        <p className="text-base font-normal text-neutral-600 w-full leading-6">
+        <p className={cn("text-base font-normal text-neutral-600 w-full leading-6", descriptionClassName)}>
           {description}
         </p>
       )}
@@ -437,7 +439,7 @@ const ContentTypeCard = React.forwardRef<
   }
 >(({ className, title, description, icon, variant = "default", ...props }, ref) => {
   const baseClasses = "flex flex-col gap-2.5 items-start rounded-lg";
-  
+
   const variantClasses = {
     default: "bg-white border border-neutral-300 p-4",
     selected: "bg-supreme-blue-50 border-2 border-supreme-blue-300 p-4",
@@ -446,13 +448,13 @@ const ContentTypeCard = React.forwardRef<
   };
 
   return (
-    <div 
-      ref={ref} 
+    <div
+      ref={ref}
       className={cn(
         baseClasses,
         variantClasses[variant],
         className
-      )} 
+      )}
       {...props}
     >
       <div className="flex gap-2.5 items-start relative shrink-0 w-full">
@@ -486,12 +488,12 @@ const CardWithProgress = React.forwardRef<
     }>;
   }
 >(({ className, title, description, progressItems, ...props }, ref) => (
-  <div 
-    ref={ref} 
+  <div
+    ref={ref}
     className={cn(
       "bg-white border border-slate-300 rounded-xl p-6 w-[481px] flex flex-col gap-2.5 items-start",
       className
-    )} 
+    )}
     {...props}
   >
     {/* Header */}
@@ -501,12 +503,12 @@ const CardWithProgress = React.forwardRef<
         {title}
       </h3>
     </div>
-    
+
     {/* Description */}
     <p className="text-base font-normal text-neutral-600 leading-6 w-full whitespace-pre-wrap">
       {description}
     </p>
-    
+
     {/* Progress Items */}
     <div className="flex flex-col gap-2.5 w-full">
       {progressItems.map((item, index) => (
@@ -542,10 +544,10 @@ const CommonCard = React.forwardRef<
     footerClassName?: string;
     footerTextClassName?: string;
   }
->(({ 
-  className, 
-  title, 
-  description, 
+>(({
+  className,
+  title,
+  description,
   icon,
   footerText,
   footerAction,
@@ -554,14 +556,14 @@ const CommonCard = React.forwardRef<
   descriptionClassName,
   footerClassName,
   footerTextClassName,
-  ...props 
+  ...props
 }, ref) => (
-  <div 
-    ref={ref} 
+  <div
+    ref={ref}
     className={cn(
       "bg-white rounded-xl border border-neutral-300 p-6 hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none flex flex-col",
       className
-    )} 
+    )}
     {...props}
   >
     {/* Header: Icon + Title */}
@@ -573,12 +575,12 @@ const CommonCard = React.forwardRef<
       )}
       <h3 className={cn("text-2xl font-semibold text-neutral-800", titleClassName)}>{title}</h3>
     </div>
-    
+
     {/* Body: Description */}
     <div className={cn("flex-1")}>
       <p className={cn("text-base font-normal text-neutral-600 leading-6", descriptionClassName)}>{description}</p>
     </div>
-    
+
     {/* Footer: Link/Button + Text (optional) */}
     {(footerText || footerAction) && (
       <div className={cn("flex items-center gap-2", footerClassName)}>
