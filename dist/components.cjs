@@ -1187,7 +1187,7 @@ var Input = React11.forwardRef(
                 {
                   type,
                   className: cn(
-                    "flex-1 min-w-0 h-auto bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+                    "flex-1 text-sm min-w-0 h-auto bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
                     className
                   ),
                   ref,
