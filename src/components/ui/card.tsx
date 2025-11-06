@@ -287,7 +287,7 @@ const HighlightCTACard = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & {
     icon?: React.ReactNode;
     title?: string;
-    value: string | number;
+    value?: string | number;
     description: string;
     ctaText?: string;
     onCtaClick?: () => void;
@@ -319,10 +319,10 @@ const HighlightCTACard = React.forwardRef<
       )}
     </div>
     
-    {/* Value */}
-    <div className="text-4xl font-bold text-supreme-blue-900 leading-10 whitespace-nowrap">
+    {/* Value - only show if value is provided */}
+    {value && <div className="text-4xl font-bold text-supreme-blue-900 leading-10 whitespace-nowrap">
       {value}
-    </div>
+    </div>}
     
     {/* Description */}
     {showDescription && (

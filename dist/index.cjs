@@ -907,7 +907,7 @@ var HighlightCTACard = React8.forwardRef(({ className, title, value, description
         showIcon && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "bg-white flex items-center justify-center p-2.5 rounded-full flex-shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_outline5.ArrowTrendingUpIcon, { className: "w-[25px] h-[25px] text-supreme-blue-900" }) }),
         title && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: "text-2xl font-semibold text-supreme-blue-900 leading-8 whitespace-pre-wrap", children: title })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "text-4xl font-bold text-supreme-blue-900 leading-10 whitespace-nowrap", children: value }),
+      value && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "text-4xl font-bold text-supreme-blue-900 leading-10 whitespace-nowrap", children: value }),
       showDescription && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "text-base font-normal text-neutral-600 leading-6 w-full whitespace-pre-wrap", children: description }),
       showAction && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         "button",

@@ -133,7 +133,7 @@ declare const HighlightCard: React.ForwardRefExoticComponent<React.HTMLAttribute
 declare const HighlightCTACard: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
     icon?: React.ReactNode;
     title?: string;
-    value: string | number;
+    value?: string | number;
     description: string;
     ctaText?: string;
     onCtaClick?: () => void;
