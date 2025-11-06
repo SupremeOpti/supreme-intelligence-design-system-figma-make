@@ -295,7 +295,7 @@ const HighlightCTACard = React.forwardRef<
     showDescription?: boolean;
     showAction?: boolean;
   }
->(({ className, title, value, description, ctaText, onCtaClick, showIcon = true, showDescription = true, showAction = false, ...props }, ref) => (
+>(({ className, title, value, description, icon, ctaText, onCtaClick, showIcon = true, showDescription = true, showAction = false, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
@@ -307,7 +307,11 @@ const HighlightCTACard = React.forwardRef<
   >
     {/* Icon and Title */}
     <div className="flex gap-3 items-center">
-      {showIcon && (
+      {showIcon && icon ? (
+        <div className="text-supreme-blue-900 w-6 h-6 flex items-center justify-center">
+          {icon}
+        </div>
+      ) : (
         <div className="bg-white flex items-center justify-center p-2.5 rounded-full flex-shrink-0">
           <ArrowTrendingUpIcon className="w-[25px] h-[25px] text-supreme-blue-900" />
         </div>
