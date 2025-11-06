@@ -295,11 +295,11 @@ const HighlightCTACard = React.forwardRef<
     showDescription?: boolean;
     showAction?: boolean;
   }
->(({ className, title, value, description, ctaText, onCtaClick, showIcon = true, showDescription = true, showAction = true, ...props }, ref) => (
+>(({ className, title, value, description, ctaText, onCtaClick, showIcon = true, showDescription = true, showAction = false, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      "bg-supreme-blue-50 rounded-xl p-6 flex flex-col gap-3.5 items-start justify-center hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none",
+      "rounded-xl p-6 flex flex-col gap-3.5 items-start justify-center hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none",
       className
     )}
     {...props}
@@ -434,7 +434,7 @@ const ContentTypeCard = React.forwardRef<
     variant?: "default" | "selected" | "hover" | "ghost";
   }
 >(({ className, title, description, icon, variant = "default", ...props }, ref) => {
-  const baseClasses = "flex flex-col gap-2.5 items-start rounded-lg w-[236px]";
+  const baseClasses = "flex flex-col gap-2.5 items-start rounded-lg";
   
   const variantClasses = {
     default: "bg-white border border-neutral-300 p-4",

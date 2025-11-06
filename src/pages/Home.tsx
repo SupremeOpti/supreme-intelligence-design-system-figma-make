@@ -899,7 +899,9 @@ const Components = () => {
                             value="9999M"
                             description="Sapien orci id vitae justo elit sem dictums sed eu. Elementum hac volutpat amet."
                             ctaText="See More Details"
+                            showAction={true}
                             onCtaClick={() => console.log("CTA clicked")}
+                            className="bg-supreme-blue-50 "
                           />
                         </div>
                       </div>
