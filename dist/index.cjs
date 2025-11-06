@@ -1232,7 +1232,7 @@ RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
 var React14 = __toESM(require("react"), 1);
 var import_class_variance_authority4 = require("class-variance-authority");
 var import_jsx_runtime14 = require("react/jsx-runtime");
-var dividerVariants = (0, import_class_variance_authority4.cva)("h-px -translate-y-1/2", {
+var dividerVariants = (0, import_class_variance_authority4.cva)("", {
   variants: {
     variant: {
       default: "bg-slate-200",

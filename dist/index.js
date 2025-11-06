@@ -254,7 +254,7 @@ RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
 import * as React4 from "react";
 import { cva } from "class-variance-authority";
 import { jsx as jsx4 } from "react/jsx-runtime";
-var dividerVariants = cva("h-px -translate-y-1/2", {
+var dividerVariants = cva("", {
   variants: {
     variant: {
       default: "bg-slate-200",
