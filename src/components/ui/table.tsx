@@ -355,7 +355,7 @@ const TableCellBenchmark = React.forwardRef<
 }, ref) => {
   if (style === "Score" && state === "Default") {
     return (
-      <td
+      <div
         ref={ref}
         className={cn(
           "bg-white flex gap-2 h-[68px] items-center px-6 py-4",
@@ -373,13 +373,13 @@ const TableCellBenchmark = React.forwardRef<
             </p>
           </div>
         )}
-      </td>
+      </div>
     );
   }
 
   if (style === "Score" && state === "Hover") {
     return (
-      <td
+      <div
         ref={ref}
         className={cn(
           "bg-violet-50 flex gap-2 h-[68px] items-center px-6 py-4",
@@ -397,13 +397,13 @@ const TableCellBenchmark = React.forwardRef<
             </p>
           </div>
         )}
-      </td>
+      </div>
     );
   }
 
   if (style === "Lead" && state === "Hover") {
     return (
-      <td
+      <div
         ref={ref}
         className={cn(
           "bg-violet-50 flex gap-2 items-center px-6 py-4 w-[357px]",
@@ -457,13 +457,13 @@ const TableCellBenchmark = React.forwardRef<
             )}
           </div>
         </div>
-      </td>
+      </div>
     );
   }
 
   // Default: Lead style, Default state
   return (
-    <td
+    <div
       ref={ref}
       className={cn(
         "bg-white flex gap-2 items-center px-4 py-2 w-[357px]",
@@ -505,7 +505,7 @@ const TableCellBenchmark = React.forwardRef<
           )}
         </div>
       </div>
-    </td>
+    </div>
   );
 });
 TableCellBenchmark.displayName = "TableCellBenchmark";
