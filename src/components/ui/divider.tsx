@@ -2,7 +2,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-const dividerVariants = cva("h-px -translate-y-1/2", {
+const dividerVariants = cva("", {
   variants: {
     variant: {
       default: "bg-slate-200",
