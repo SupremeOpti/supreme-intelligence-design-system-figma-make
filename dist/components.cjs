@@ -860,12 +860,12 @@ var HighlightCard = React8.forwardRef(({ className, value, title, subtitle, show
   }
 ));
 HighlightCard.displayName = "HighlightCard";
-var HighlightCTACard = React8.forwardRef(({ className, title, value, description, ctaText, onCtaClick, showIcon = true, showDescription = true, showAction = true, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+var HighlightCTACard = React8.forwardRef(({ className, title, value, description, ctaText, onCtaClick, showIcon = true, showDescription = true, showAction = false, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
   "div",
   {
     ref,
     className: cn(
-      "bg-supreme-blue-50 rounded-xl p-6 flex flex-col gap-3.5 items-start justify-center hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none",
+      "rounded-xl p-6 flex flex-col gap-3.5 items-start justify-center hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none",
       className
     ),
     ...props,
@@ -929,7 +929,7 @@ var SingleIconCard = React8.forwardRef(({ className, title, description, icon, .
 ));
 SingleIconCard.displayName = "SingleIconCard";
 var ContentTypeCard = React8.forwardRef(({ className, title, description, icon, variant = "default", ...props }, ref) => {
-  const baseClasses = "flex flex-col gap-2.5 items-start rounded-lg w-[236px]";
+  const baseClasses = "flex flex-col gap-2.5 items-start rounded-lg";
   const variantClasses = {
     default: "bg-white border border-neutral-300 p-4",
     selected: "bg-supreme-blue-50 border-2 border-supreme-blue-300 p-4",
