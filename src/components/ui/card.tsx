@@ -402,16 +402,14 @@ const SingleIconCard = React.forwardRef<
   <div 
     ref={ref} 
     className={cn(
-      "bg-white rounded-2xl p-5 w-[399px] flex flex-col items-center gap-5 hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none",
+      "bg-white rounded-2xl p-5 flex flex-col items-center gap-5 hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none",
       className
     )} 
     tabIndex={0} 
     {...props}
   >
     {/* Icon container */}
-    <div className="size-[60px] shrink-0 flex items-center justify-center">
-      {icon || <UsersIcon className="w-15 h-15 text-neutral-900" />}
-    </div>
+      {icon || <UsersIcon className="w-[60px] h-[60px] text-neutral-900" />}
     
     {/* Content */}
     <div className="flex flex-col gap-1.5 items-start text-center w-full">
