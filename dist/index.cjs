@@ -691,7 +691,7 @@ var Progress = React7.forwardRef(({ className, value, indicatorClassName, showLa
               ProgressPrimitive.Indicator,
               {
                 className: cn(
-                  "h-full rounded-full bg-supreme-blue-600 transition-all",
+                  "h-full rounded-full bg-supreme-blue-600 transition-all duration-500 ease-out",
                   indicatorClassName
                 ),
                 style: {
