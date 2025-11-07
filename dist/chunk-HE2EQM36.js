@@ -3,7 +3,7 @@ import {
   SidebarIcon,
   SupremeIcon,
   cn
-} from "./chunk-QWFTKI6L.js";
+} from "./chunk-WJVRHA4Y.js";
 
 // src/components/ui/avatar.tsx
 import * as React from "react";
@@ -169,17 +169,46 @@ var Button = React2.forwardRef(
 Button.displayName = "Button";
 
 // src/components/ui/sidebar.tsx
-import * as React3 from "react";
+import * as React4 from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+
+// src/components/ui/Icons/MicrosoftIcon.tsx
+import * as React3 from "react";
 import { jsx as jsx3, jsxs as jsxs3 } from "react/jsx-runtime";
-var Sidebar = React3.forwardRef(
+var MicrosoftIcon = React3.forwardRef(
+  ({ className, size = 24, ...props }, ref) => /* @__PURE__ */ jsxs3(
+    "svg",
+    {
+      ref,
+      "aria-hidden": "true",
+      focusable: "false",
+      role: "img",
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      className: cn("shrink-0", className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx3("rect", { width: "10.5", height: "10.5", x: "1", y: "1", fill: "#F25022", rx: "1.5" }),
+        /* @__PURE__ */ jsx3("rect", { width: "10.5", height: "10.5", x: "12.5", y: "1", fill: "#7FBA00", rx: "1.5" }),
+        /* @__PURE__ */ jsx3("rect", { width: "10.5", height: "10.5", x: "1", y: "12.5", fill: "#00A4EF", rx: "1.5" }),
+        /* @__PURE__ */ jsx3("rect", { width: "10.5", height: "10.5", x: "12.5", y: "12.5", fill: "#FFB900", rx: "1.5" })
+      ]
+    }
+  )
+);
+MicrosoftIcon.displayName = "MicrosoftIcon";
+
+// src/components/ui/sidebar.tsx
+import { jsx as jsx4, jsxs as jsxs4 } from "react/jsx-runtime";
+var Sidebar = React4.forwardRef(
   ({ className, items, ...props }, ref) => {
     const navigate = useNavigate();
-    const [expandedSections, setExpandedSections] = React3.useState(
+    const [expandedSections, setExpandedSections] = React4.useState(
       new Set(items.map((section) => section.id))
     );
-    const [isCollapsed, setIsCollapsed] = React3.useState(false);
+    const [isCollapsed, setIsCollapsed] = React4.useState(false);
     const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
     const handleSectionToggle = (sectionId) => {
       const newExpandedSections = new Set(expandedSections);
@@ -216,7 +245,7 @@ var Sidebar = React3.forwardRef(
       };
     };
     const sizeClasses = getSizeClasses();
-    return /* @__PURE__ */ jsxs3(
+    return /* @__PURE__ */ jsxs4(
       "div",
       {
         ref,
@@ -228,7 +257,7 @@ var Sidebar = React3.forwardRef(
         ),
         ...props,
         children: [
-          /* @__PURE__ */ jsx3("div", { className: "pb-7", children: /* @__PURE__ */ jsxs3(
+          /* @__PURE__ */ jsx4("div", { className: "pb-7", children: /* @__PURE__ */ jsxs4(
             "div",
             {
               className: cn(
@@ -236,17 +265,17 @@ var Sidebar = React3.forwardRef(
                 isCollapsed && "justify-center"
               ),
               children: [
-                /* @__PURE__ */ jsx3(
+                /* @__PURE__ */ jsx4(
                   "div",
                   {
                     className: cn(
                       "transition-all duration-500 ease-in-out overflow-hidden",
                       isCollapsed ? "w-0 opacity-0" : "w-auto opacity-100"
                     ),
-                    children: /* @__PURE__ */ jsx3(SupremeIcon, {})
+                    children: /* @__PURE__ */ jsx4(SupremeIcon, {})
                   }
                 ),
-                /* @__PURE__ */ jsx3(
+                /* @__PURE__ */ jsx4(
                   "button",
                   {
                     onClick: toggleCollapse,
@@ -255,7 +284,7 @@ var Sidebar = React3.forwardRef(
                       isCollapsed && "rotate-180"
                     ),
                     "aria-label": isCollapsed ? "Expand sidebar" : "Collapse sidebar",
-                    children: /* @__PURE__ */ jsx3(
+                    children: /* @__PURE__ */ jsx4(
                       SidebarIcon,
                       {
                         size: 24,
@@ -267,9 +296,9 @@ var Sidebar = React3.forwardRef(
               ]
             }
           ) }),
-          /* @__PURE__ */ jsx3("div", { className: "w-full h-[1px] bg-slate-200" }),
-          /* @__PURE__ */ jsx3("div", { className: "flex-col flex h-full gap-20 pt-7", children: items.map((section) => /* @__PURE__ */ jsxs3("div", { className: "mb-4", children: [
-            section.isCollapsible ? /* @__PURE__ */ jsxs3(
+          /* @__PURE__ */ jsx4("div", { className: "w-full h-[1px] bg-slate-200" }),
+          /* @__PURE__ */ jsx4("div", { className: "flex-col flex h-full gap-20 pt-7", children: items.map((section) => /* @__PURE__ */ jsxs4("div", { className: "mb-4", children: [
+            section.isCollapsible ? /* @__PURE__ */ jsxs4(
               "button",
               {
                 onClick: () => handleSectionToggle(section.id),
@@ -280,7 +309,7 @@ var Sidebar = React3.forwardRef(
                   isCollapsed && "justify-center px-2"
                 ),
                 children: [
-                  /* @__PURE__ */ jsx3(
+                  /* @__PURE__ */ jsx4(
                     ChevronDownIcon,
                     {
                       className: cn(
@@ -290,7 +319,7 @@ var Sidebar = React3.forwardRef(
                       )
                     }
                   ),
-                  /* @__PURE__ */ jsx3(
+                  /* @__PURE__ */ jsx4(
                     "span",
                     {
                       className: cn(
@@ -302,7 +331,7 @@ var Sidebar = React3.forwardRef(
                   )
                 ]
               }
-            ) : /* @__PURE__ */ jsx3(
+            ) : /* @__PURE__ */ jsx4(
               "div",
               {
                 className: cn(
@@ -312,16 +341,16 @@ var Sidebar = React3.forwardRef(
                 children: !isCollapsed && section.title
               }
             ),
-            /* @__PURE__ */ jsx3(
+            /* @__PURE__ */ jsx4(
               "div",
               {
                 className: cn(
                   "overflow-hidden transition-all duration-500 ease-in-out",
                   expandedSections.has(section.id) || !section.isCollapsible ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                 ),
-                children: /* @__PURE__ */ jsx3("div", { className: "space-y-1", children: section.items.map((item) => {
+                children: /* @__PURE__ */ jsx4("div", { className: "space-y-1", children: section.items.map((item) => {
                   const isActive = isItemActive(item);
-                  return /* @__PURE__ */ jsx3(
+                  return /* @__PURE__ */ jsx4(
                     "button",
                     {
                       onClick: () => handleItemClick(item),
@@ -331,7 +360,7 @@ var Sidebar = React3.forwardRef(
                         isActive && "text-slate-600 font-semibold",
                         isCollapsed && "justify-center"
                       ),
-                      children: /* @__PURE__ */ jsxs3(
+                      children: /* @__PURE__ */ jsxs4(
                         "div",
                         {
                           className: cn(
@@ -341,7 +370,7 @@ var Sidebar = React3.forwardRef(
                             isActive && "bg-white border border-slate-200"
                           ),
                           children: [
-                            item.icon && /* @__PURE__ */ jsx3(
+                            item.icon && /* @__PURE__ */ jsx4(
                               "span",
                               {
                                 className: cn(
@@ -352,7 +381,7 @@ var Sidebar = React3.forwardRef(
                                 children: item.icon
                               }
                             ),
-                            /* @__PURE__ */ jsx3(
+                            /* @__PURE__ */ jsx4(
                               "span",
                               {
                                 className: cn(

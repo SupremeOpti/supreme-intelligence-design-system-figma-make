@@ -116,14 +116,14 @@ import {
   toast,
   toggleVariants,
   useToast
-} from "./chunk-75D4SC5O.js";
+} from "./chunk-P7LW4KSI.js";
 import {
   Avatar,
   AvatarGroup,
   Button,
   Sidebar,
   buttonVariants
-} from "./chunk-VDON7LNT.js";
+} from "./chunk-HE2EQM36.js";
 import {
   AIIcon,
   AnalyticsIcon,
@@ -141,7 +141,7 @@ import {
   SidebarIcon,
   VectorIcon,
   cn
-} from "./chunk-QWFTKI6L.js";
+} from "./chunk-WJVRHA4Y.js";
 
 // src/components/ui/credits.tsx
 import * as React from "react";
@@ -349,10 +349,153 @@ var CreditSelector = ({
 };
 CreditSelector.displayName = "CreditSelector";
 
-// src/components/ui/page-heading.tsx
+// src/components/ui/authForm.tsx
 import * as React6 from "react";
 import { jsx as jsx6, jsxs as jsxs4 } from "react/jsx-runtime";
-var PageHeading = React6.forwardRef(
+var AuthForm = React6.forwardRef(
+  ({ className, withCard = false, ...props }, ref) => {
+    return /* @__PURE__ */ jsx6(
+      "div",
+      {
+        ref,
+        className: cn(
+          "flex w-full max-w-[440px] flex-col items-center gap-10 text-center",
+          withCard && "rounded-3xl border border-neutral-200 bg-white px-10 py-12 shadow-lg",
+          className
+        ),
+        ...props
+      }
+    );
+  }
+);
+AuthForm.displayName = "AuthForm";
+var AuthFormHeader = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsx6(
+    "div",
+    {
+      ref,
+      className: cn(
+        "flex w-full flex-col items-center gap-3 text-center",
+        className
+      ),
+      ...props
+    }
+  )
+);
+AuthFormHeader.displayName = "AuthFormHeader";
+var AuthFormTitle = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsx6(
+    "h1",
+    {
+      ref,
+      className: cn(
+        "text-4xl font-semibold leading-[40px] tracking-tight text-supreme-blue-900",
+        className
+      ),
+      ...props
+    }
+  )
+);
+AuthFormTitle.displayName = "AuthFormTitle";
+var AuthFormSubtitle = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsx6(
+    "p",
+    {
+      ref,
+      className: cn(
+        "text-base font-medium leading-6 text-neutral-700",
+        className
+      ),
+      ...props
+    }
+  )
+);
+AuthFormSubtitle.displayName = "AuthFormSubtitle";
+var AuthFormDescription = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsx6(
+    "p",
+    {
+      ref,
+      className: cn(
+        "max-w-[360px] text-base leading-6 text-neutral-600",
+        className
+      ),
+      ...props
+    }
+  )
+);
+AuthFormDescription.displayName = "AuthFormDescription";
+var AuthFormBody = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsx6(
+    "div",
+    {
+      ref,
+      className: cn("flex w-full flex-col gap-4", className),
+      ...props
+    }
+  )
+);
+AuthFormBody.displayName = "AuthFormBody";
+var AuthFormActions = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsx6(
+    "div",
+    {
+      ref,
+      className: cn("flex w-full flex-col gap-3", className),
+      ...props
+    }
+  )
+);
+AuthFormActions.displayName = "AuthFormActions";
+var AuthFormPrimary = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsx6("div", { ref, className: cn("w-full", className), ...props })
+);
+AuthFormPrimary.displayName = "AuthFormPrimary";
+var AuthFormDivider = React6.forwardRef(
+  ({ className, label = "OR", ...props }, ref) => /* @__PURE__ */ jsxs4(
+    "div",
+    {
+      ref,
+      className: cn(
+        "flex w-full items-center gap-3 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500",
+        className
+      ),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx6("span", { className: "h-px flex-1 bg-neutral-200" }),
+        /* @__PURE__ */ jsx6("span", { children: label }),
+        /* @__PURE__ */ jsx6("span", { className: "h-px flex-1 bg-neutral-200" })
+      ]
+    }
+  )
+);
+AuthFormDivider.displayName = "AuthFormDivider";
+var AuthFormFooter = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsx6(
+    "div",
+    {
+      ref,
+      className: cn("flex flex-col items-center gap-2 text-sm text-neutral-500", className),
+      ...props
+    }
+  )
+);
+AuthFormFooter.displayName = "AuthFormFooter";
+var AuthFormComponent = AuthForm;
+AuthFormComponent.Header = AuthFormHeader;
+AuthFormComponent.Title = AuthFormTitle;
+AuthFormComponent.Subtitle = AuthFormSubtitle;
+AuthFormComponent.Description = AuthFormDescription;
+AuthFormComponent.Body = AuthFormBody;
+AuthFormComponent.Primary = AuthFormPrimary;
+AuthFormComponent.Actions = AuthFormActions;
+AuthFormComponent.Divider = AuthFormDivider;
+AuthFormComponent.Footer = AuthFormFooter;
+
+// src/components/ui/page-heading.tsx
+import * as React7 from "react";
+import { jsx as jsx7, jsxs as jsxs5 } from "react/jsx-runtime";
+var PageHeading = React7.forwardRef(
   ({
     className,
     heading,
@@ -360,15 +503,15 @@ var PageHeading = React6.forwardRef(
     showDescription = true,
     ...props
   }, ref) => {
-    return /* @__PURE__ */ jsx6(
+    return /* @__PURE__ */ jsx7(
       "div",
       {
         ref,
         className: cn("flex flex-col items-start w-full", className),
         ...props,
-        children: /* @__PURE__ */ jsx6("div", { className: "flex flex-col gap-7 items-start justify-center w-full", children: /* @__PURE__ */ jsxs4("div", { className: "flex flex-col gap-2.5 items-start w-full", children: [
-          /* @__PURE__ */ jsx6("h1", { className: "text-3xl leading-9 font-normal text-neutral-950 w-full", children: heading }),
-          showDescription && description && /* @__PURE__ */ jsx6("p", { className: "text-base leading-6 font-normal text-neutral-600 w-full", children: description })
+        children: /* @__PURE__ */ jsx7("div", { className: "flex flex-col gap-7 items-start justify-center w-full", children: /* @__PURE__ */ jsxs5("div", { className: "flex flex-col gap-2.5 items-start w-full", children: [
+          /* @__PURE__ */ jsx7("h1", { className: "text-3xl leading-9 font-normal text-neutral-950 w-full", children: heading }),
+          showDescription && description && /* @__PURE__ */ jsx7("p", { className: "text-base leading-6 font-normal text-neutral-600 w-full", children: description })
         ] }) })
       }
     );
@@ -377,10 +520,10 @@ var PageHeading = React6.forwardRef(
 PageHeading.displayName = "PageHeading";
 
 // src/components/ui/drag-drop.tsx
-import * as React7 from "react";
+import * as React8 from "react";
 import { CloudArrowUpIcon } from "@heroicons/react/24/outline";
-import { jsx as jsx7, jsxs as jsxs5 } from "react/jsx-runtime";
-var DragDrop = React7.forwardRef(
+import { jsx as jsx8, jsxs as jsxs6 } from "react/jsx-runtime";
+var DragDrop = React8.forwardRef(
   ({
     className,
     onFiles,
@@ -391,8 +534,8 @@ var DragDrop = React7.forwardRef(
     sublabel = "PDF, DOC, DOCX, TXT up to 10MB (Multiple files allowed)",
     ...props
   }, ref) => {
-    const inputRef = React7.useRef(null);
-    const [isDragging, setIsDragging] = React7.useState(false);
+    const inputRef = React8.useRef(null);
+    const [isDragging, setIsDragging] = React8.useState(false);
     const openFilePicker = () => {
       if (disabled) return;
       inputRef.current?.click();
@@ -423,7 +566,7 @@ var DragDrop = React7.forwardRef(
       handleFiles(e.target.files);
       e.target.value = "";
     };
-    return /* @__PURE__ */ jsxs5(
+    return /* @__PURE__ */ jsxs6(
       "div",
       {
         ref,
@@ -442,12 +585,12 @@ var DragDrop = React7.forwardRef(
         ),
         ...props,
         children: [
-          /* @__PURE__ */ jsx7(CloudArrowUpIcon, { className: "w-[74px] h-[74px] text-supreme-blue-600" }),
-          /* @__PURE__ */ jsxs5("div", { className: "w-[336px] text-center", children: [
-            /* @__PURE__ */ jsx7("p", { className: "text-base leading-6 text-neutral-600", children: label }),
-            /* @__PURE__ */ jsx7("p", { className: "text-xs leading-4 text-neutral-600", children: sublabel })
+          /* @__PURE__ */ jsx8(CloudArrowUpIcon, { className: "w-[74px] h-[74px] text-supreme-blue-600" }),
+          /* @__PURE__ */ jsxs6("div", { className: "w-[336px] text-center", children: [
+            /* @__PURE__ */ jsx8("p", { className: "text-base leading-6 text-neutral-600", children: label }),
+            /* @__PURE__ */ jsx8("p", { className: "text-xs leading-4 text-neutral-600", children: sublabel })
           ] }),
-          /* @__PURE__ */ jsx7(
+          /* @__PURE__ */ jsx8(
             "input",
             {
               ref: inputRef,
@@ -468,11 +611,11 @@ var DragDrop = React7.forwardRef(
 DragDrop.displayName = "DragDrop";
 
 // src/components/ui/stepper.tsx
-import * as React8 from "react";
+import * as React9 from "react";
 import { CheckIcon } from "@heroicons/react/24/outline";
-import { jsx as jsx8, jsxs as jsxs6 } from "react/jsx-runtime";
-var StepperIndicator = React8.forwardRef(({ className, stepNumber, step = "default", ...props }, ref) => {
-  return /* @__PURE__ */ jsx8(
+import { jsx as jsx9, jsxs as jsxs7 } from "react/jsx-runtime";
+var StepperIndicator = React9.forwardRef(({ className, stepNumber, step = "default", ...props }, ref) => {
+  return /* @__PURE__ */ jsx9(
     "div",
     {
       ref,
@@ -484,7 +627,7 @@ var StepperIndicator = React8.forwardRef(({ className, stepNumber, step = "defau
         className
       ),
       ...props,
-      children: step === "done" ? /* @__PURE__ */ jsx8(CheckIcon, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ jsx8(
+      children: step === "done" ? /* @__PURE__ */ jsx9(CheckIcon, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ jsx9(
         "p",
         {
           className: cn(
@@ -499,9 +642,9 @@ var StepperIndicator = React8.forwardRef(({ className, stepNumber, step = "defau
   );
 });
 StepperIndicator.displayName = "StepperIndicator";
-var StepperItem = React8.forwardRef(
+var StepperItem = React9.forwardRef(
   ({ className, stepNumber, title, step = "default", showLeftConnector = false, showRightConnector = false, leftConnectorColor, rightConnectorColor, ...props }, ref) => {
-    return /* @__PURE__ */ jsxs6(
+    return /* @__PURE__ */ jsxs7(
       "div",
       {
         ref,
@@ -511,22 +654,22 @@ var StepperItem = React8.forwardRef(
         ),
         ...props,
         children: [
-          showLeftConnector && /* @__PURE__ */ jsx8(
+          showLeftConnector && /* @__PURE__ */ jsx9(
             "div",
             {
               className: cn("h-[2px] absolute top-[15px] left-0 z-0", leftConnectorColor),
               style: { width: "50px" }
             }
           ),
-          /* @__PURE__ */ jsx8(StepperIndicator, { stepNumber, step }),
-          showRightConnector && /* @__PURE__ */ jsx8(
+          /* @__PURE__ */ jsx9(StepperIndicator, { stepNumber, step }),
+          showRightConnector && /* @__PURE__ */ jsx9(
             "div",
             {
               className: cn("h-[2px] absolute top-[15px] right-0 z-0", rightConnectorColor),
               style: { width: "50px" }
             }
           ),
-          /* @__PURE__ */ jsx8(
+          /* @__PURE__ */ jsx9(
             "p",
             {
               className: cn(
@@ -544,9 +687,9 @@ var StepperItem = React8.forwardRef(
   }
 );
 StepperItem.displayName = "StepperItem";
-var Stepper = React8.forwardRef(
+var Stepper = React9.forwardRef(
   ({ className, steps, ...props }, ref) => {
-    return /* @__PURE__ */ jsx8(
+    return /* @__PURE__ */ jsx9(
       "div",
       {
         ref,
@@ -575,7 +718,7 @@ var Stepper = React8.forwardRef(
               rightConnectorColor = "bg-slate-50";
             }
           }
-          return /* @__PURE__ */ jsx8(
+          return /* @__PURE__ */ jsx9(
             StepperItem,
             {
               stepNumber: stepData.stepNumber,
@@ -596,11 +739,11 @@ var Stepper = React8.forwardRef(
 Stepper.displayName = "Stepper";
 
 // src/hooks/use-mobile.tsx
-import * as React9 from "react";
+import * as React10 from "react";
 var MOBILE_BREAKPOINT = 768;
 function useIsMobile() {
-  const [isMobile, setIsMobile] = React9.useState(void 0);
-  React9.useEffect(() => {
+  const [isMobile, setIsMobile] = React10.useState(void 0);
+  React10.useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
     const onChange = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -621,6 +764,16 @@ export {
   AnnouncementCard,
   AppIcon,
   AudiencesIcon,
+  AuthFormComponent as AuthForm,
+  AuthFormActions,
+  AuthFormBody,
+  AuthFormDescription,
+  AuthFormDivider,
+  AuthFormFooter,
+  AuthFormHeader,
+  AuthFormPrimary,
+  AuthFormSubtitle,
+  AuthFormTitle,
   Avatar,
   AvatarGroup,
   Badge,

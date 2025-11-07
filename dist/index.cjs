@@ -39,6 +39,16 @@ __export(index_exports, {
   AnnouncementCard: () => AnnouncementCard,
   AppIcon: () => AppIcon,
   AudiencesIcon: () => AudiencesIcon,
+  AuthForm: () => AuthFormComponent,
+  AuthFormActions: () => AuthFormActions,
+  AuthFormBody: () => AuthFormBody,
+  AuthFormDescription: () => AuthFormDescription,
+  AuthFormDivider: () => AuthFormDivider,
+  AuthFormFooter: () => AuthFormFooter,
+  AuthFormHeader: () => AuthFormHeader,
+  AuthFormPrimary: () => AuthFormPrimary,
+  AuthFormSubtitle: () => AuthFormSubtitle,
+  AuthFormTitle: () => AuthFormTitle,
   Avatar: () => Avatar,
   AvatarGroup: () => AvatarGroup,
   Badge: () => Badge,
@@ -2602,17 +2612,160 @@ var Logo = React17.forwardRef(
 );
 Logo.displayName = "Logo";
 
-// src/components/ui/menubar.tsx
+// src/components/ui/authForm.tsx
 var React18 = __toESM(require("react"), 1);
+var import_jsx_runtime18 = require("react/jsx-runtime");
+var AuthForm = React18.forwardRef(
+  ({ className, withCard = false, ...props }, ref) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+      "div",
+      {
+        ref,
+        className: cn(
+          "flex w-full max-w-[440px] flex-col items-center gap-10 text-center",
+          withCard && "rounded-3xl border border-neutral-200 bg-white px-10 py-12 shadow-lg",
+          className
+        ),
+        ...props
+      }
+    );
+  }
+);
+AuthForm.displayName = "AuthForm";
+var AuthFormHeader = React18.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    "div",
+    {
+      ref,
+      className: cn(
+        "flex w-full flex-col items-center gap-3 text-center",
+        className
+      ),
+      ...props
+    }
+  )
+);
+AuthFormHeader.displayName = "AuthFormHeader";
+var AuthFormTitle = React18.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    "h1",
+    {
+      ref,
+      className: cn(
+        "text-4xl font-semibold leading-[40px] tracking-tight text-supreme-blue-900",
+        className
+      ),
+      ...props
+    }
+  )
+);
+AuthFormTitle.displayName = "AuthFormTitle";
+var AuthFormSubtitle = React18.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    "p",
+    {
+      ref,
+      className: cn(
+        "text-base font-medium leading-6 text-neutral-700",
+        className
+      ),
+      ...props
+    }
+  )
+);
+AuthFormSubtitle.displayName = "AuthFormSubtitle";
+var AuthFormDescription = React18.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    "p",
+    {
+      ref,
+      className: cn(
+        "max-w-[360px] text-base leading-6 text-neutral-600",
+        className
+      ),
+      ...props
+    }
+  )
+);
+AuthFormDescription.displayName = "AuthFormDescription";
+var AuthFormBody = React18.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    "div",
+    {
+      ref,
+      className: cn("flex w-full flex-col gap-4", className),
+      ...props
+    }
+  )
+);
+AuthFormBody.displayName = "AuthFormBody";
+var AuthFormActions = React18.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    "div",
+    {
+      ref,
+      className: cn("flex w-full flex-col gap-3", className),
+      ...props
+    }
+  )
+);
+AuthFormActions.displayName = "AuthFormActions";
+var AuthFormPrimary = React18.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { ref, className: cn("w-full", className), ...props })
+);
+AuthFormPrimary.displayName = "AuthFormPrimary";
+var AuthFormDivider = React18.forwardRef(
+  ({ className, label = "OR", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+    "div",
+    {
+      ref,
+      className: cn(
+        "flex w-full items-center gap-3 text-sm font-medium uppercase tracking-[0.2em] text-neutral-500",
+        className
+      ),
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "h-px flex-1 bg-neutral-200" }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { children: label }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "h-px flex-1 bg-neutral-200" })
+      ]
+    }
+  )
+);
+AuthFormDivider.displayName = "AuthFormDivider";
+var AuthFormFooter = React18.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    "div",
+    {
+      ref,
+      className: cn("flex flex-col items-center gap-2 text-sm text-neutral-500", className),
+      ...props
+    }
+  )
+);
+AuthFormFooter.displayName = "AuthFormFooter";
+var AuthFormComponent = AuthForm;
+AuthFormComponent.Header = AuthFormHeader;
+AuthFormComponent.Title = AuthFormTitle;
+AuthFormComponent.Subtitle = AuthFormSubtitle;
+AuthFormComponent.Description = AuthFormDescription;
+AuthFormComponent.Body = AuthFormBody;
+AuthFormComponent.Primary = AuthFormPrimary;
+AuthFormComponent.Actions = AuthFormActions;
+AuthFormComponent.Divider = AuthFormDivider;
+AuthFormComponent.Footer = AuthFormFooter;
+
+// src/components/ui/menubar.tsx
+var React19 = __toESM(require("react"), 1);
 var MenubarPrimitive = __toESM(require("@radix-ui/react-menubar"), 1);
 var import_lucide_react = require("lucide-react");
-var import_jsx_runtime18 = require("react/jsx-runtime");
+var import_jsx_runtime19 = require("react/jsx-runtime");
 var MenubarMenu = MenubarPrimitive.Menu;
 var MenubarGroup = MenubarPrimitive.Group;
 var MenubarPortal = MenubarPrimitive.Portal;
 var MenubarSub = MenubarPrimitive.Sub;
 var MenubarRadioGroup = MenubarPrimitive.RadioGroup;
-var Menubar = React18.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+var Menubar = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
   MenubarPrimitive.Root,
   {
     ref,
@@ -2624,7 +2777,7 @@ var Menubar = React18.forwardRef(({ className, ...props }, ref) => /* @__PURE__ 
   }
 ));
 Menubar.displayName = MenubarPrimitive.Root.displayName;
-var MenubarTrigger = React18.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+var MenubarTrigger = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
   MenubarPrimitive.Trigger,
   {
     ref,
@@ -2636,7 +2789,7 @@ var MenubarTrigger = React18.forwardRef(({ className, ...props }, ref) => /* @__
   }
 ));
 MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName;
-var MenubarSubTrigger = React18.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+var MenubarSubTrigger = React19.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
   MenubarPrimitive.SubTrigger,
   {
     ref,
@@ -2648,12 +2801,12 @@ var MenubarSubTrigger = React18.forwardRef(({ className, inset, children, ...pro
     ...props,
     children: [
       children,
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_lucide_react.ChevronRight, { className: "ml-auto h-4 w-4" })
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(import_lucide_react.ChevronRight, { className: "ml-auto h-4 w-4" })
     ]
   }
 ));
 MenubarSubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName;
-var MenubarSubContent = React18.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+var MenubarSubContent = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
   MenubarPrimitive.SubContent,
   {
     ref,
@@ -2665,8 +2818,8 @@ var MenubarSubContent = React18.forwardRef(({ className, ...props }, ref) => /* 
   }
 ));
 MenubarSubContent.displayName = MenubarPrimitive.SubContent.displayName;
-var MenubarContent = React18.forwardRef(
-  ({ className, align = "start", alignOffset = -4, sideOffset = 8, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(MenubarPrimitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+var MenubarContent = React19.forwardRef(
+  ({ className, align = "start", alignOffset = -4, sideOffset = 8, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(MenubarPrimitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
     MenubarPrimitive.Content,
     {
       ref,
@@ -2682,7 +2835,7 @@ var MenubarContent = React18.forwardRef(
   ) })
 );
 MenubarContent.displayName = MenubarPrimitive.Content.displayName;
-var MenubarItem = React18.forwardRef(({ className, inset, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+var MenubarItem = React19.forwardRef(({ className, inset, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
   MenubarPrimitive.Item,
   {
     ref,
@@ -2695,7 +2848,7 @@ var MenubarItem = React18.forwardRef(({ className, inset, ...props }, ref) => /*
   }
 ));
 MenubarItem.displayName = MenubarPrimitive.Item.displayName;
-var MenubarCheckboxItem = React18.forwardRef(({ className, children, checked, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+var MenubarCheckboxItem = React19.forwardRef(({ className, children, checked, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
   MenubarPrimitive.CheckboxItem,
   {
     ref,
@@ -2706,13 +2859,13 @@ var MenubarCheckboxItem = React18.forwardRef(({ className, children, checked, ..
     checked,
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(MenubarPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_lucide_react.Check, { className: "h-4 w-4" }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(MenubarPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(import_lucide_react.Check, { className: "h-4 w-4" }) }) }),
       children
     ]
   }
 ));
 MenubarCheckboxItem.displayName = MenubarPrimitive.CheckboxItem.displayName;
-var MenubarRadioItem = React18.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+var MenubarRadioItem = React19.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
   MenubarPrimitive.RadioItem,
   {
     ref,
@@ -2722,13 +2875,13 @@ var MenubarRadioItem = React18.forwardRef(({ className, children, ...props }, re
     ),
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(MenubarPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_lucide_react.Circle, { className: "h-2 w-2 fill-current" }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(MenubarPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(import_lucide_react.Circle, { className: "h-2 w-2 fill-current" }) }) }),
       children
     ]
   }
 ));
 MenubarRadioItem.displayName = MenubarPrimitive.RadioItem.displayName;
-var MenubarLabel = React18.forwardRef(({ className, inset, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+var MenubarLabel = React19.forwardRef(({ className, inset, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
   MenubarPrimitive.Label,
   {
     ref,
@@ -2741,7 +2894,7 @@ var MenubarLabel = React18.forwardRef(({ className, inset, ...props }, ref) => /
   }
 ));
 MenubarLabel.displayName = MenubarPrimitive.Label.displayName;
-var MenubarSeparator = React18.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+var MenubarSeparator = React19.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
   MenubarPrimitive.Separator,
   {
     ref,
@@ -2754,7 +2907,7 @@ var MenubarShortcut = ({
   className,
   ...props
 }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
     "span",
     {
       className: cn(
@@ -2768,10 +2921,10 @@ var MenubarShortcut = ({
 MenubarShortcut.displayname = "MenubarShortcut";
 
 // src/components/ui/page-level.tsx
-var React19 = __toESM(require("react"), 1);
+var React20 = __toESM(require("react"), 1);
 var import_outline9 = require("@heroicons/react/24/outline");
 var import_class_variance_authority5 = require("class-variance-authority");
-var import_jsx_runtime19 = require("react/jsx-runtime");
+var import_jsx_runtime20 = require("react/jsx-runtime");
 var pageLevelVariants = (0, import_class_variance_authority5.cva)(
   "flex items-center text-xs font-normal text-neutral-600 opacity-80 gap-1.5",
   {
@@ -2795,7 +2948,7 @@ var pageLevelVariants = (0, import_class_variance_authority5.cva)(
     }
   }
 );
-var PageLevel = React19.forwardRef(
+var PageLevel = React20.forwardRef(
   ({
     className,
     variant,
@@ -2807,9 +2960,9 @@ var PageLevel = React19.forwardRef(
     children,
     ...props
   }, ref) => {
-    const defaultSeparator = /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(import_outline9.ChevronRightIcon, { className: "h-4 w-4 text-neutral-400" });
+    const defaultSeparator = /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(import_outline9.ChevronRightIcon, { className: "h-4 w-4 text-neutral-400" });
     const separatorElement = separator || defaultSeparator;
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
       "div",
       {
         ref,
@@ -2817,7 +2970,7 @@ var PageLevel = React19.forwardRef(
         ...props,
         children: [
           showArrow && arrowPosition === "before" && separatorElement,
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("span", { children: children || `Page level ${level}` }),
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: children || `Page level ${level}` }),
           showArrow && arrowPosition === "after" && separatorElement
         ]
       }
@@ -2825,24 +2978,24 @@ var PageLevel = React19.forwardRef(
   }
 );
 PageLevel.displayName = "PageLevel";
-var PageLevelList = React19.forwardRef(({ className, separator, children, ...props }, ref) => {
-  const defaultSeparator = /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(import_outline9.ChevronRightIcon, { className: "h-4 w-4 text-neutral-400" });
+var PageLevelList = React20.forwardRef(({ className, separator, children, ...props }, ref) => {
+  const defaultSeparator = /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(import_outline9.ChevronRightIcon, { className: "h-4 w-4 text-neutral-400" });
   const separatorElement = separator || defaultSeparator;
-  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
     "div",
     {
       ref,
       className: cn("flex items-center gap-1.5", className),
       ...props,
-      children: React19.Children.map(children, (child, index) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(React19.Fragment, { children: [
+      children: React20.Children.map(children, (child, index) => /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(React20.Fragment, { children: [
         child,
-        index < React19.Children.count(children) - 1 && separatorElement
+        index < React20.Children.count(children) - 1 && separatorElement
       ] }, index))
     }
   );
 });
 PageLevelList.displayName = "PageLevelList";
-var PageLevelItem = React19.forwardRef(({ className, active = false, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+var PageLevelItem = React20.forwardRef(({ className, active = false, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
   "span",
   {
     ref,
@@ -2857,9 +3010,9 @@ var PageLevelItem = React19.forwardRef(({ className, active = false, ...props },
 PageLevelItem.displayName = "PageLevelItem";
 
 // src/components/ui/page-heading.tsx
-var React20 = __toESM(require("react"), 1);
-var import_jsx_runtime20 = require("react/jsx-runtime");
-var PageHeading = React20.forwardRef(
+var React21 = __toESM(require("react"), 1);
+var import_jsx_runtime21 = require("react/jsx-runtime");
+var PageHeading = React21.forwardRef(
   ({
     className,
     heading,
@@ -2867,15 +3020,15 @@ var PageHeading = React20.forwardRef(
     showDescription = true,
     ...props
   }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
       "div",
       {
         ref,
         className: cn("flex flex-col items-start w-full", className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "flex flex-col gap-7 items-start justify-center w-full", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex flex-col gap-2.5 items-start w-full", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h1", { className: "text-3xl leading-9 font-normal text-neutral-950 w-full", children: heading }),
-          showDescription && description && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("p", { className: "text-base leading-6 font-normal text-neutral-600 w-full", children: description })
+        children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "flex flex-col gap-7 items-start justify-center w-full", children: /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex flex-col gap-2.5 items-start w-full", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("h1", { className: "text-3xl leading-9 font-normal text-neutral-950 w-full", children: heading }),
+          showDescription && description && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-base leading-6 font-normal text-neutral-600 w-full", children: description })
         ] }) })
       }
     );
@@ -2884,10 +3037,10 @@ var PageHeading = React20.forwardRef(
 PageHeading.displayName = "PageHeading";
 
 // src/components/ui/pagination.tsx
-var React21 = __toESM(require("react"), 1);
+var React22 = __toESM(require("react"), 1);
 var import_lucide_react2 = require("lucide-react");
-var import_jsx_runtime21 = require("react/jsx-runtime");
-var Pagination = ({ className, ...props }) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+var import_jsx_runtime22 = require("react/jsx-runtime");
+var Pagination = ({ className, ...props }) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
   "nav",
   {
     role: "navigation",
@@ -2897,7 +3050,7 @@ var Pagination = ({ className, ...props }) => /* @__PURE__ */ (0, import_jsx_run
   }
 );
 Pagination.displayName = "Pagination";
-var PaginationContent = React21.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+var PaginationContent = React22.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
   "ul",
   {
     ref,
@@ -2906,14 +3059,14 @@ var PaginationContent = React21.forwardRef(({ className, ...props }, ref) => /* 
   }
 ));
 PaginationContent.displayName = "PaginationContent";
-var PaginationItem = React21.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("li", { ref, className: cn("", className), ...props }));
+var PaginationItem = React22.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("li", { ref, className: cn("", className), ...props }));
 PaginationItem.displayName = "PaginationItem";
 var PaginationLink = ({
   className,
   isActive,
   size = "icon",
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
   "a",
   {
     "aria-current": isActive ? "page" : void 0,
@@ -2933,54 +3086,54 @@ PaginationLink.displayName = "PaginationLink";
 var PaginationPrevious = ({
   className,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
   PaginationLink,
   {
     "aria-label": "Go to previous page",
     size: "default",
     className: cn("!rounded-l-lg !border-l-2", className),
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(import_lucide_react2.ChevronLeft, { className: "h-4 w-4" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(import_lucide_react2.ChevronLeft, { className: "h-4 w-4" })
   }
 );
 PaginationPrevious.displayName = "PaginationPrevious";
 var PaginationNext = ({
   className,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
   PaginationLink,
   {
     "aria-label": "Go to next page",
     size: "default",
     className: cn("!rounded-r-lg !border-r-2", className),
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(import_lucide_react2.ChevronRight, { className: "h-4 w-4" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(import_lucide_react2.ChevronRight, { className: "h-4 w-4" })
   }
 );
 PaginationNext.displayName = "PaginationNext";
 var PaginationEllipsis = ({
   className,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
   "span",
   {
     "aria-hidden": true,
     className: cn("flex h-10 w-10 items-center justify-center border-x-1 border-y-2 border-neutral-200", className),
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(import_lucide_react2.MoreHorizontal, { className: "h-4 w-4" }),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("span", { className: "sr-only", children: "More pages" })
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(import_lucide_react2.MoreHorizontal, { className: "h-4 w-4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "sr-only", children: "More pages" })
     ]
   }
 );
 PaginationEllipsis.displayName = "PaginationEllipsis";
 
 // src/components/ui/persona.tsx
-var React22 = __toESM(require("react"), 1);
+var React23 = __toESM(require("react"), 1);
 var import_lucide_react3 = require("lucide-react");
 var import_class_variance_authority6 = require("class-variance-authority");
-var import_jsx_runtime22 = require("react/jsx-runtime");
-var UserIcon = ({ className, ...props }) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+var import_jsx_runtime23 = require("react/jsx-runtime");
+var UserIcon = ({ className, ...props }) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
   "svg",
   {
     width: "21",
@@ -2990,7 +3143,7 @@ var UserIcon = ({ className, ...props }) => /* @__PURE__ */ (0, import_jsx_runti
     xmlns: "http://www.w3.org/2000/svg",
     className,
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       "path",
       {
         d: "M4.48467 16.6946C5.03216 15.4047 6.31043 14.5 7.8 14.5H13.2C14.6896 14.5 15.9678 15.4047 16.5153 16.6946M14.1 7.75C14.1 9.73822 12.4882 11.35 10.5 11.35C8.51177 11.35 6.9 9.73822 6.9 7.75C6.9 5.76177 8.51177 4.15 10.5 4.15C12.4882 4.15 14.1 5.76177 14.1 7.75ZM19.5 10C19.5 14.9706 15.4706 19 10.5 19C5.52944 19 1.5 14.9706 1.5 10C1.5 5.02944 5.52944 1 10.5 1C15.4706 1 19.5 5.02944 19.5 10Z",
@@ -3039,7 +3192,7 @@ var personaProfileVariants = (0, import_class_variance_authority6.cva)(
     }
   }
 );
-var Persona = React22.forwardRef(
+var Persona = React23.forwardRef(
   ({
     className,
     variant,
@@ -3052,7 +3205,7 @@ var Persona = React22.forwardRef(
     ...props
   }, ref) => {
     const displayText = personas.length > 0 ? personas.join(" + ") : placeholder;
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
       "div",
       {
         className: cn(
@@ -3063,16 +3216,16 @@ var Persona = React22.forwardRef(
         onClick,
         ...props,
         children: [
-          showLeftIcon && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(UserIcon, { className: "h-4 w-4 text-[#272080] flex-shrink-0" }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "flex-1 text-sm font-medium truncate", children: displayText }),
-          showRightIcon && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(import_lucide_react3.ChevronDown, { className: "h-4 w-4 text-[#272080] flex-shrink-0" })
+          showLeftIcon && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(UserIcon, { className: "h-4 w-4 text-[#272080] flex-shrink-0" }),
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { className: "flex-1 text-sm font-medium truncate", children: displayText }),
+          showRightIcon && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_lucide_react3.ChevronDown, { className: "h-4 w-4 text-[#272080] flex-shrink-0" })
         ]
       }
     );
   }
 );
 Persona.displayName = "Persona";
-var PersonaProfile = React22.forwardRef(
+var PersonaProfile = React23.forwardRef(
   ({
     className,
     variant,
@@ -3084,26 +3237,26 @@ var PersonaProfile = React22.forwardRef(
     tags = [],
     ...props
   }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
       "div",
       {
         className: cn(personaProfileVariants({ variant, className })),
         ref,
         ...props,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex flex-1 gap-3 items-start", children: [
-            avatar || /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "bg-supreme-blue-700 overflow-hidden rounded-full shrink-0 size-10 relative flex items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "font-sans font-normal leading-7 text-lg text-white text-center tracking-normal whitespace-nowrap", children: avatarFallback }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex flex-1 flex-col gap-1.5 items-start min-h-0 min-w-0", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "font-sans font-semibold leading-6 text-neutral-900 text-base w-full", children: name }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "font-sans font-normal leading-4 text-neutral-600 text-sm w-full", children: title }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "flex gap-[5px] items-center w-full", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex flex-1 gap-[5px] items-center min-h-0 min-w-0", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(import_lucide_react3.Building2, { className: "size-3.5 text-neutral-900" }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "font-sans font-normal leading-4 text-neutral-600 text-xs", children: organization })
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "flex flex-1 gap-3 items-start", children: [
+            avatar || /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "bg-supreme-blue-700 overflow-hidden rounded-full shrink-0 size-10 relative flex items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("p", { className: "font-sans font-normal leading-7 text-lg text-white text-center tracking-normal whitespace-nowrap", children: avatarFallback }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "flex flex-1 flex-col gap-1.5 items-start min-h-0 min-w-0", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("p", { className: "font-sans font-semibold leading-6 text-neutral-900 text-base w-full", children: name }),
+              /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("p", { className: "font-sans font-normal leading-4 text-neutral-600 text-sm w-full", children: title }),
+              /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "flex gap-[5px] items-center w-full", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "flex flex-1 gap-[5px] items-center min-h-0 min-w-0", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_lucide_react3.Building2, { className: "size-3.5 text-neutral-900" }),
+                /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("p", { className: "font-sans font-normal leading-4 text-neutral-600 text-xs", children: organization })
               ] }) }),
-              tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "flex flex-wrap gap-1 items-start w-full", children: tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Badge, { variant: "default", className: "bg-gray-100 text-gray-600 text-xs px-1.5 py-0.5 rounded-full", children: tag }, index)) })
+              tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "flex flex-wrap gap-1 items-start w-full", children: tags.map((tag, index) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Badge, { variant: "default", className: "bg-gray-100 text-gray-600 text-xs px-1.5 py-0.5 rounded-full", children: tag }, index)) })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: cn("relative shrink-0 size-6", variant === "selected" ? "opacity-100" : "opacity-0"), children: variant === "selected" && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(import_lucide_react3.CheckCircle, { className: "size-6 text-supreme-blue-700" }) })
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: cn("relative shrink-0 size-6", variant === "selected" ? "opacity-100" : "opacity-0"), children: variant === "selected" && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_lucide_react3.CheckCircle, { className: "size-6 text-supreme-blue-700" }) })
         ]
       }
     );
@@ -3112,12 +3265,12 @@ var PersonaProfile = React22.forwardRef(
 PersonaProfile.displayName = "PersonaProfile";
 
 // src/components/ui/popover.tsx
-var React23 = __toESM(require("react"), 1);
+var React24 = __toESM(require("react"), 1);
 var PopoverPrimitive = __toESM(require("@radix-ui/react-popover"), 1);
-var import_jsx_runtime23 = require("react/jsx-runtime");
+var import_jsx_runtime24 = require("react/jsx-runtime");
 var Popover = PopoverPrimitive.Root;
 var PopoverTrigger = PopoverPrimitive.Trigger;
-var PopoverContent = React23.forwardRef(({ className, align = "center", sideOffset = 4, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(PopoverPrimitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
+var PopoverContent = React24.forwardRef(({ className, align = "center", sideOffset = 4, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(PopoverPrimitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
   PopoverPrimitive.Content,
   {
     ref,
@@ -3133,10 +3286,10 @@ var PopoverContent = React23.forwardRef(({ className, align = "center", sideOffs
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
 // src/components/ui/drag-drop.tsx
-var React24 = __toESM(require("react"), 1);
+var React25 = __toESM(require("react"), 1);
 var import_outline10 = require("@heroicons/react/24/outline");
-var import_jsx_runtime24 = require("react/jsx-runtime");
-var DragDrop = React24.forwardRef(
+var import_jsx_runtime25 = require("react/jsx-runtime");
+var DragDrop = React25.forwardRef(
   ({
     className,
     onFiles,
@@ -3147,8 +3300,8 @@ var DragDrop = React24.forwardRef(
     sublabel = "PDF, DOC, DOCX, TXT up to 10MB (Multiple files allowed)",
     ...props
   }, ref) => {
-    const inputRef = React24.useRef(null);
-    const [isDragging, setIsDragging] = React24.useState(false);
+    const inputRef = React25.useRef(null);
+    const [isDragging, setIsDragging] = React25.useState(false);
     const openFilePicker = () => {
       if (disabled) return;
       inputRef.current?.click();
@@ -3179,7 +3332,7 @@ var DragDrop = React24.forwardRef(
       handleFiles(e.target.files);
       e.target.value = "";
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(
       "div",
       {
         ref,
@@ -3198,12 +3351,12 @@ var DragDrop = React24.forwardRef(
         ),
         ...props,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_outline10.CloudArrowUpIcon, { className: "w-[74px] h-[74px] text-supreme-blue-600" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "w-[336px] text-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "text-base leading-6 text-neutral-600", children: label }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "text-xs leading-4 text-neutral-600", children: sublabel })
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_outline10.CloudArrowUpIcon, { className: "w-[74px] h-[74px] text-supreme-blue-600" }),
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "w-[336px] text-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-base leading-6 text-neutral-600", children: label }),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-xs leading-4 text-neutral-600", children: sublabel })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
             "input",
             {
               ref: inputRef,
@@ -3224,44 +3377,13 @@ var DragDrop = React24.forwardRef(
 DragDrop.displayName = "DragDrop";
 
 // src/components/ui/sidebar.tsx
-var React25 = __toESM(require("react"), 1);
+var React27 = __toESM(require("react"), 1);
 var import_react_router_dom = require("react-router-dom");
 var import_outline11 = require("@heroicons/react/24/outline");
 
 // src/components/ui/Icons/AIIcon.tsx
-var import_jsx_runtime25 = require("react/jsx-runtime");
-var AIIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
-        "path",
-        {
-          d: "M6.8335 18.8887V15.4443M6.8335 8.55566V5.11133M5.11133 6.8335H8.55566M5.11133 17.1665H8.55566M12.6889 5.8002L11.4942 8.9062C11.3 9.4113 11.2028 9.66385 11.0518 9.87628C10.9179 10.0646 10.7534 10.2291 10.5651 10.3629C10.3527 10.514 10.1002 10.6111 9.59507 10.8054L6.48906 12L9.59507 13.1946C10.1002 13.3889 10.3527 13.486 10.5651 13.6371C10.7534 13.7709 10.9179 13.9354 11.0518 14.1237C11.2028 14.3362 11.3 14.5887 11.4942 15.0938L12.6889 18.1998L13.8835 15.0938C14.0778 14.5887 14.1749 14.3362 14.3259 14.1237C14.4598 13.9354 14.6243 13.7709 14.8126 13.6371C15.025 13.486 15.2776 13.3889 15.7827 13.1946L18.8887 12L15.7827 10.8054C15.2776 10.6111 15.025 10.514 14.8126 10.3629C14.6243 10.2291 14.4598 10.0646 14.3259 9.87628C14.1749 9.66385 14.0778 9.4113 13.8835 8.9062L12.6889 5.8002Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/AnalyticsIcon.tsx
 var import_jsx_runtime26 = require("react/jsx-runtime");
-var AnalyticsIcon = ({
+var AIIcon = ({
   size = 24,
   className,
   ...props
@@ -3279,8 +3401,7 @@ var AnalyticsIcon = ({
       children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
         "path",
         {
-          opacity: "0.8",
-          d: "M17.5847 17.9337V13.0471M12 17.9337V10.9529M6.4153 17.9337L6.4153 15.1414M12.982 7.48163L16.59 8.83464M11.1614 7.74231L7.25316 10.6735M18.3251 8.46722C18.7341 8.87615 18.7341 9.53915 18.3251 9.94808C17.9162 10.357 17.2532 10.357 16.8443 9.94808C16.4353 9.53915 16.4353 8.87615 16.8443 8.46722C17.2532 8.05828 17.9162 8.05828 18.3251 8.46722ZM7.15573 10.5615C7.56466 10.9704 7.56466 11.6334 7.15573 12.0423C6.7468 12.4513 6.08379 12.4513 5.67486 12.0423C5.26593 11.6334 5.26593 10.9704 5.67486 10.5615C6.08379 10.1525 6.7468 10.1525 7.15573 10.5615ZM12.7404 6.37295C13.1494 6.78188 13.1494 7.44489 12.7404 7.85382C12.3315 8.26275 11.6685 8.26275 11.2596 7.85382C10.8506 7.44489 10.8506 6.78188 11.2596 6.37295C11.6685 5.96402 12.3315 5.96402 12.7404 6.37295Z",
+          d: "M6.8335 18.8887V15.4443M6.8335 8.55566V5.11133M5.11133 6.8335H8.55566M5.11133 17.1665H8.55566M12.6889 5.8002L11.4942 8.9062C11.3 9.4113 11.2028 9.66385 11.0518 9.87628C10.9179 10.0646 10.7534 10.2291 10.5651 10.3629C10.3527 10.514 10.1002 10.6111 9.59507 10.8054L6.48906 12L9.59507 13.1946C10.1002 13.3889 10.3527 13.486 10.5651 13.6371C10.7534 13.7709 10.9179 13.9354 11.0518 14.1237C11.2028 14.3362 11.3 14.5887 11.4942 15.0938L12.6889 18.1998L13.8835 15.0938C14.0778 14.5887 14.1749 14.3362 14.3259 14.1237C14.4598 13.9354 14.6243 13.7709 14.8126 13.6371C15.025 13.486 15.2776 13.3889 15.7827 13.1946L18.8887 12L15.7827 10.8054C15.2776 10.6111 15.025 10.514 14.8126 10.3629C14.6243 10.2291 14.4598 10.0646 14.3259 9.87628C14.1749 9.66385 14.0778 9.4113 13.8835 8.9062L12.6889 5.8002Z",
           stroke: "currentColor",
           strokeWidth: "1.5",
           strokeLinecap: "round",
@@ -3291,9 +3412,9 @@ var AnalyticsIcon = ({
   );
 };
 
-// src/components/ui/Icons/AppIcon.tsx
+// src/components/ui/Icons/AnalyticsIcon.tsx
 var import_jsx_runtime27 = require("react/jsx-runtime");
-var AppIcon = ({
+var AnalyticsIcon = ({
   size = 24,
   className,
   ...props
@@ -3312,7 +3433,7 @@ var AppIcon = ({
         "path",
         {
           opacity: "0.8",
-          d: "M18.8887 9.9334H5.11133M13.3777 15.7888L15.0999 14.0666L13.3777 12.3444M10.6223 12.3444L8.9001 14.0666L10.6223 15.7888M5.11133 9.10676L5.11133 14.8932C5.11133 16.0506 5.11133 16.6293 5.33657 17.0714C5.53471 17.4603 5.85086 17.7764 6.23971 17.9746C6.68178 18.1998 7.26048 18.1998 8.41789 18.1998H15.5821C16.7395 18.1998 17.3182 18.1998 17.7603 17.9746C18.1491 17.7764 18.4653 17.4603 18.6634 17.0714C18.8887 16.6293 18.8887 16.0506 18.8887 14.8932V9.10676C18.8887 7.94935 18.8887 7.37065 18.6634 6.92858C18.4653 6.53972 18.1491 6.22357 17.7603 6.02544C17.3182 5.80019 16.7395 5.80019 15.5821 5.80019L8.41789 5.80019C7.26049 5.80019 6.68178 5.80019 6.23971 6.02544C5.85086 6.22357 5.53471 6.53972 5.33657 6.92858C5.11133 7.37065 5.11133 7.94935 5.11133 9.10676Z",
+          d: "M17.5847 17.9337V13.0471M12 17.9337V10.9529M6.4153 17.9337L6.4153 15.1414M12.982 7.48163L16.59 8.83464M11.1614 7.74231L7.25316 10.6735M18.3251 8.46722C18.7341 8.87615 18.7341 9.53915 18.3251 9.94808C17.9162 10.357 17.2532 10.357 16.8443 9.94808C16.4353 9.53915 16.4353 8.87615 16.8443 8.46722C17.2532 8.05828 17.9162 8.05828 18.3251 8.46722ZM7.15573 10.5615C7.56466 10.9704 7.56466 11.6334 7.15573 12.0423C6.7468 12.4513 6.08379 12.4513 5.67486 12.0423C5.26593 11.6334 5.26593 10.9704 5.67486 10.5615C6.08379 10.1525 6.7468 10.1525 7.15573 10.5615ZM12.7404 6.37295C13.1494 6.78188 13.1494 7.44489 12.7404 7.85382C12.3315 8.26275 11.6685 8.26275 11.2596 7.85382C10.8506 7.44489 10.8506 6.78188 11.2596 6.37295C11.6685 5.96402 12.3315 5.96402 12.7404 6.37295Z",
           stroke: "currentColor",
           strokeWidth: "1.5",
           strokeLinecap: "round",
@@ -3323,9 +3444,9 @@ var AppIcon = ({
   );
 };
 
-// src/components/ui/Icons/AudiencesIcon.tsx
+// src/components/ui/Icons/AppIcon.tsx
 var import_jsx_runtime28 = require("react/jsx-runtime");
-var AudiencesIcon = ({
+var AppIcon = ({
   size = 24,
   className,
   ...props
@@ -3344,7 +3465,7 @@ var AudiencesIcon = ({
         "path",
         {
           opacity: "0.8",
-          d: "M7.20747 17.3335C7.64366 16.3059 8.66205 15.5851 9.84879 15.5851H14.151C15.3377 15.5851 16.3561 16.3059 16.7923 17.3336M14.868 10.2074C14.868 11.7914 13.5839 13.0755 11.9999 13.0755C10.4159 13.0755 9.13176 11.7914 9.13176 10.2074C9.13176 8.62341 10.4159 7.33931 11.9999 7.33931C13.5839 7.33931 14.868 8.62341 14.868 10.2074ZM19.1702 12C19.1702 15.96 15.9599 19.1703 11.9999 19.1703C8.03984 19.1703 4.82959 15.96 4.82959 12C4.82959 8.03996 8.03984 4.82971 11.9999 4.82971C15.9599 4.82971 19.1702 8.03996 19.1702 12Z",
+          d: "M18.8887 9.9334H5.11133M13.3777 15.7888L15.0999 14.0666L13.3777 12.3444M10.6223 12.3444L8.9001 14.0666L10.6223 15.7888M5.11133 9.10676L5.11133 14.8932C5.11133 16.0506 5.11133 16.6293 5.33657 17.0714C5.53471 17.4603 5.85086 17.7764 6.23971 17.9746C6.68178 18.1998 7.26048 18.1998 8.41789 18.1998H15.5821C16.7395 18.1998 17.3182 18.1998 17.7603 17.9746C18.1491 17.7764 18.4653 17.4603 18.6634 17.0714C18.8887 16.6293 18.8887 16.0506 18.8887 14.8932V9.10676C18.8887 7.94935 18.8887 7.37065 18.6634 6.92858C18.4653 6.53972 18.1491 6.22357 17.7603 6.02544C17.3182 5.80019 16.7395 5.80019 15.5821 5.80019L8.41789 5.80019C7.26049 5.80019 6.68178 5.80019 6.23971 6.02544C5.85086 6.22357 5.53471 6.53972 5.33657 6.92858C5.11133 7.37065 5.11133 7.94935 5.11133 9.10676Z",
           stroke: "currentColor",
           strokeWidth: "1.5",
           strokeLinecap: "round",
@@ -3355,9 +3476,9 @@ var AudiencesIcon = ({
   );
 };
 
-// src/components/ui/Icons/BrandGuidelinesIcon.tsx
+// src/components/ui/Icons/AudiencesIcon.tsx
 var import_jsx_runtime29 = require("react/jsx-runtime");
-var BrandGuidelinesIcon = ({
+var AudiencesIcon = ({
   size = 24,
   className,
   ...props
@@ -3376,7 +3497,7 @@ var BrandGuidelinesIcon = ({
         "path",
         {
           opacity: "0.8",
-          d: "M17.6078 12.3739V8.11195C17.6078 6.85569 17.6078 6.22756 17.3633 5.74774C17.1482 5.32567 16.8051 4.98252 16.383 4.76746C15.9032 4.52298 15.2751 4.52298 14.0188 4.52298H9.2335C7.97724 4.52298 7.34912 4.52298 6.86929 4.76746C6.44722 4.98252 6.10407 5.32567 5.88902 5.74774C5.64453 6.22756 5.64453 6.85569 5.64453 8.11195V15.8881C5.64453 17.1443 5.64453 17.7724 5.88902 18.2523C6.10407 18.6743 6.44722 19.0175 6.86929 19.2325C7.34912 19.477 7.97724 19.477 9.2335 19.477H11.6261M13.1216 11.2523H8.63534M10.1307 14.2431H8.63534M14.617 8.26149H8.63534M13.4954 17.2339L14.9908 18.7293L18.3555 15.3647",
+          d: "M7.20747 17.3335C7.64366 16.3059 8.66205 15.5851 9.84879 15.5851H14.151C15.3377 15.5851 16.3561 16.3059 16.7923 17.3336M14.868 10.2074C14.868 11.7914 13.5839 13.0755 11.9999 13.0755C10.4159 13.0755 9.13176 11.7914 9.13176 10.2074C9.13176 8.62341 10.4159 7.33931 11.9999 7.33931C13.5839 7.33931 14.868 8.62341 14.868 10.2074ZM19.1702 12C19.1702 15.96 15.9599 19.1703 11.9999 19.1703C8.03984 19.1703 4.82959 15.96 4.82959 12C4.82959 8.03996 8.03984 4.82971 11.9999 4.82971C15.9599 4.82971 19.1702 8.03996 19.1702 12Z",
           stroke: "currentColor",
           strokeWidth: "1.5",
           strokeLinecap: "round",
@@ -3387,9 +3508,9 @@ var BrandGuidelinesIcon = ({
   );
 };
 
-// src/components/ui/Icons/DataSourcesIcon.tsx
+// src/components/ui/Icons/BrandGuidelinesIcon.tsx
 var import_jsx_runtime30 = require("react/jsx-runtime");
-var DataSourcesIcon = ({
+var BrandGuidelinesIcon = ({
   size = 24,
   className,
   ...props
@@ -3408,6 +3529,38 @@ var DataSourcesIcon = ({
         "path",
         {
           opacity: "0.8",
+          d: "M17.6078 12.3739V8.11195C17.6078 6.85569 17.6078 6.22756 17.3633 5.74774C17.1482 5.32567 16.8051 4.98252 16.383 4.76746C15.9032 4.52298 15.2751 4.52298 14.0188 4.52298H9.2335C7.97724 4.52298 7.34912 4.52298 6.86929 4.76746C6.44722 4.98252 6.10407 5.32567 5.88902 5.74774C5.64453 6.22756 5.64453 6.85569 5.64453 8.11195V15.8881C5.64453 17.1443 5.64453 17.7724 5.88902 18.2523C6.10407 18.6743 6.44722 19.0175 6.86929 19.2325C7.34912 19.477 7.97724 19.477 9.2335 19.477H11.6261M13.1216 11.2523H8.63534M10.1307 14.2431H8.63534M14.617 8.26149H8.63534M13.4954 17.2339L14.9908 18.7293L18.3555 15.3647",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/DataSourcesIcon.tsx
+var import_jsx_runtime31 = require("react/jsx-runtime");
+var DataSourcesIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+        "path",
+        {
+          opacity: "0.8",
           d: "M6.2625 16.3031V16.1597C6.2625 14.9547 6.2625 14.3522 6.49701 13.892C6.70328 13.4871 7.03243 13.158 7.43727 12.9517C7.89752 12.7172 8.50001 12.7172 9.705 12.7172H14.295C15.5 12.7172 16.1025 12.7172 16.5627 12.9517C16.9676 13.158 17.2967 13.4871 17.503 13.892C17.7375 14.3522 17.7375 14.9547 17.7375 16.1597V16.3031M6.2625 16.3031C5.47032 16.3031 4.82812 16.9453 4.82812 17.7375C4.82812 18.5297 5.47032 19.1719 6.2625 19.1719C7.05468 19.1719 7.69688 18.5297 7.69688 17.7375C7.69688 16.9453 7.05468 16.3031 6.2625 16.3031ZM17.7375 16.3031C16.9453 16.3031 16.3031 16.9453 16.3031 17.7375C16.3031 18.5297 16.9453 19.1719 17.7375 19.1719C18.5297 19.1719 19.1719 18.5297 19.1719 17.7375C19.1719 16.9453 18.5297 16.3031 17.7375 16.3031ZM12 16.3031C11.2078 16.3031 10.5656 16.9453 10.5656 17.7375C10.5656 18.5297 11.2078 19.1719 12 19.1719C12.7922 19.1719 13.4344 18.5297 13.4344 17.7375C13.4344 16.9453 12.7922 16.3031 12 16.3031ZM12 16.3031V9.13125M7.69688 9.13125H16.3031C16.9715 9.13125 17.3056 9.13125 17.5692 9.02206C17.9207 8.87648 18.1999 8.59725 18.3455 8.24579C18.4547 7.98219 18.4547 7.64802 18.4547 6.97969C18.4547 6.31135 18.4547 5.97719 18.3455 5.71359C18.1999 5.36213 17.9207 5.08289 17.5692 4.93731C17.3056 4.82812 16.9715 4.82812 16.3031 4.82812H7.69688C7.02854 4.82812 6.69437 4.82812 6.43078 4.93731C6.07931 5.08289 5.80008 5.36213 5.6545 5.71359C5.54531 5.97719 5.54531 6.31135 5.54531 6.97969C5.54531 7.64802 5.54531 7.98219 5.6545 8.24579C5.80008 8.59725 6.07931 8.87648 6.43078 9.02206C6.69437 9.13125 7.02854 9.13125 7.69688 9.13125Z",
           stroke: "currentColor",
           strokeWidth: "1.5",
@@ -3420,9 +3573,9 @@ var DataSourcesIcon = ({
 };
 
 // src/components/ui/Icons/DigitalAssetManagementIcon.tsx
-var import_jsx_runtime31 = require("react/jsx-runtime");
+var import_jsx_runtime32 = require("react/jsx-runtime");
 var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
     "svg",
     {
       width: size,
@@ -3432,8 +3585,8 @@ var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
       xmlns: "http://www.w3.org/2000/svg",
       className: cn(className),
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("g", { opacity: "0.8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("g", { opacity: "0.8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
           "path",
           {
             d: "M9.34727 5.36816H6.54716C6.13447 5.36816 5.92813 5.36816 5.7705 5.44848C5.63185 5.51912 5.51912 5.63185 5.44848 5.7705C5.36816 5.92813 5.36816 6.13447 5.36816 6.54716V9.34727C5.36816 9.75995 5.36816 9.9663 5.44848 10.1239C5.51912 10.2626 5.63185 10.3753 5.7705 10.4459C5.92813 10.5263 6.13447 10.5263 6.54716 10.5263H9.34727C9.75995 10.5263 9.9663 10.5263 10.1239 10.4459C10.2626 10.3753 10.3753 10.2626 10.4459 10.1239C10.5263 9.9663 10.5263 9.75995 10.5263 9.34727V6.54716C10.5263 6.13447 10.5263 5.92813 10.4459 5.7705C10.3753 5.63185 10.2626 5.51912 10.1239 5.44848C9.9663 5.36816 9.75995 5.36816 9.34727 5.36816Z",
@@ -3443,7 +3596,7 @@ var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
             strokeLinejoin: "round"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
           "path",
           {
             d: "M17.4528 5.36816H14.6527C14.24 5.36816 14.0337 5.36816 13.8761 5.44848C13.7374 5.51912 13.6247 5.63185 13.5541 5.7705C13.4737 5.92813 13.4737 6.13447 13.4737 6.54716V9.34727C13.4737 9.75995 13.4737 9.9663 13.5541 10.1239C13.6247 10.2626 13.7374 10.3753 13.8761 10.4459C14.0337 10.5263 14.24 10.5263 14.6527 10.5263H17.4528C17.8655 10.5263 18.0719 10.5263 18.2295 10.4459C18.3681 10.3753 18.4809 10.2626 18.5515 10.1239C18.6318 9.9663 18.6318 9.75995 18.6318 9.34727V6.54716C18.6318 6.13447 18.6318 5.92813 18.5515 5.7705C18.4809 5.63185 18.3681 5.51912 18.2295 5.44848C18.0719 5.36816 17.8655 5.36816 17.4528 5.36816Z",
@@ -3453,7 +3606,7 @@ var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
             strokeLinejoin: "round"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
           "path",
           {
             d: "M17.4528 13.4737H14.6527C14.24 13.4737 14.0337 13.4737 13.8761 13.5541C13.7374 13.6247 13.6247 13.7374 13.5541 13.8761C13.4737 14.0337 13.4737 14.24 13.4737 14.6527V17.4528C13.4737 17.8655 13.4737 18.0719 13.5541 18.2295C13.6247 18.3681 13.7374 18.4809 13.8761 18.5515C14.0337 18.6318 14.24 18.6318 14.6527 18.6318H17.4528C17.8655 18.6318 18.0719 18.6318 18.2295 18.5515C18.3681 18.4809 18.4809 18.3681 18.5515 18.2295C18.6318 18.0719 18.6318 17.8655 18.6318 17.4528V14.6527C18.6318 14.24 18.6318 14.0337 18.5515 13.8761C18.4809 13.7374 18.3681 13.6247 18.2295 13.5541C18.0719 13.4737 17.8655 13.4737 17.4528 13.4737Z",
@@ -3463,7 +3616,7 @@ var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
             strokeLinejoin: "round"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
           "path",
           {
             d: "M9.34727 13.4737H6.54716C6.13447 13.4737 5.92813 13.4737 5.7705 13.5541C5.63185 13.6247 5.51912 13.7374 5.44848 13.8761C5.36816 14.0337 5.36816 14.24 5.36816 14.6527V17.4528C5.36816 17.8655 5.36816 18.0719 5.44848 18.2295C5.51912 18.3681 5.63185 18.4809 5.7705 18.5515C5.92813 18.6318 6.13447 18.6318 6.54716 18.6318H9.34727C9.75995 18.6318 9.9663 18.6318 10.1239 18.5515C10.2626 18.4809 10.3753 18.3681 10.4459 18.2295C10.5263 18.0719 10.5263 17.8655 10.5263 17.4528V14.6527C10.5263 14.24 10.5263 14.0337 10.4459 13.8761C10.3753 13.7374 10.2626 13.6247 10.1239 13.5541C9.9663 13.4737 9.75995 13.4737 9.34727 13.4737Z",
@@ -3479,13 +3632,13 @@ var DigitalAssetManagementIcon = ({ size = 24, className, ...props }) => {
 };
 
 // src/components/ui/Icons/GoogleIcon.tsx
-var import_jsx_runtime32 = require("react/jsx-runtime");
+var import_jsx_runtime33 = require("react/jsx-runtime");
 var GoogleIcon = ({
   size = 24,
   className,
   ...props
 }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
     "svg",
     {
       width: size,
@@ -3496,7 +3649,7 @@ var GoogleIcon = ({
       className: cn(className),
       ...props,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
           "path",
           {
             d: "M10 0.507812C12.4741 0.507812 14.7249 1.43864 16.4443 2.95898L13.9658 5.4375C12.8873 4.54785 11.5085 4.00781 10 4.00781C6.54843 4.00781 3.75 6.80624 3.75 10.2578C3.75 13.7094 6.54843 16.5078 10 16.5078C12.7212 16.5078 15.0282 14.7655 15.8867 12.3408L16.0049 12.0078H10.25V8.50781H18.75V8.54883H19.5957C19.6943 9.10437 19.75 9.6749 19.75 10.2578C19.75 15.6422 15.3844 20.0078 10 20.0078C4.61557 20.0078 0.25 15.6422 0.25 10.2578C0.25 4.87338 4.61557 0.507812 10 0.507812Z",
@@ -3505,21 +3658,21 @@ var GoogleIcon = ({
             "stroke-width": "0.5"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
           "path",
           {
             d: "M1.153 5.60331L4.4385 8.01281C5.3275 5.81181 7.4805 4.25781 10 4.25781C11.5295 4.25781 12.921 4.83481 13.9805 5.77731L16.809 2.94881C15.023 1.28431 12.634 0.257812 10 0.257812C6.159 0.257812 2.828 2.42631 1.153 5.60331Z",
             fill: "#FF3D00"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
           "path",
           {
             d: "M10 20.2578C12.583 20.2578 14.93 19.2693 16.7045 17.6618L13.6095 15.0428C12.572 15.8323 11.3038 16.2592 10 16.2578C7.399 16.2578 5.1905 14.5993 4.3585 12.2848L1.0975 14.7973C2.7525 18.0358 6.1135 20.2578 10 20.2578Z",
             fill: "#4CAF50"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
           "path",
           {
             d: "M19.8055 8.29931H19V8.25781H10V12.2578H15.6515C15.2571 13.366 14.5467 14.3344 13.608 15.0433L13.6095 15.0423L16.7045 17.6613C16.4855 17.8603 20 15.2578 20 10.2578C20 9.58731 19.931 8.93281 19.8055 8.29931Z",
@@ -3532,40 +3685,8 @@ var GoogleIcon = ({
 };
 
 // src/components/ui/Icons/HomeIcon.tsx
-var import_jsx_runtime33 = require("react/jsx-runtime");
-var HomeIcon = ({
-  size = 24,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
-    "svg",
-    {
-      width: size,
-      height: size,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      className: cn(className),
-      ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
-        "path",
-        {
-          opacity: "0.8",
-          d: "M8.93837 16.1076H15.0616M11.2481 5.21128L6.05691 9.2489C5.70989 9.5188 5.53639 9.65375 5.41139 9.82275C5.30066 9.97246 5.21818 10.1411 5.16799 10.3204C5.11133 10.5228 5.11133 10.7426 5.11133 11.1823V16.7199C5.11133 17.5773 5.11133 18.0059 5.27818 18.3334C5.42494 18.6214 5.65913 18.8556 5.94717 19.0024C6.27463 19.1692 6.7033 19.1692 7.56063 19.1692H16.4394C17.2967 19.1692 17.7254 19.1692 18.0528 19.0024C18.3409 18.8556 18.5751 18.6214 18.7218 18.3334C18.8887 18.0059 18.8887 17.5773 18.8887 16.7199V11.1823C18.8887 10.7426 18.8887 10.5228 18.832 10.3204C18.7818 10.1411 18.6993 9.97246 18.5886 9.82275C18.4636 9.65375 18.2901 9.5188 17.9431 9.2489L12.7519 5.21128C12.483 5.00213 12.3485 4.89755 12.2 4.85735C12.069 4.82189 11.931 4.82189 11.8 4.85735C11.6515 4.89755 11.517 5.00213 11.2481 5.21128Z",
-          stroke: "currentColor",
-          strokeWidth: "1.5",
-          strokeLinecap: "round",
-          strokeLinejoin: "round"
-        }
-      )
-    }
-  );
-};
-
-// src/components/ui/Icons/KnowledgeBaseIcon.tsx
 var import_jsx_runtime34 = require("react/jsx-runtime");
-var KnowledgeBaseIcon = ({
+var HomeIcon = ({
   size = 24,
   className,
   ...props
@@ -3584,7 +3705,7 @@ var KnowledgeBaseIcon = ({
         "path",
         {
           opacity: "0.8",
-          d: "M7.23281 14.0431C6.59816 14.0431 6.28084 14.0431 6.03053 13.9394C5.69678 13.8012 5.43162 13.536 5.29338 13.2023C5.1897 12.952 5.1897 12.6346 5.1897 12V7.36895C5.1897 6.60612 5.1897 6.2247 5.33815 5.93334C5.46874 5.67705 5.67711 5.46868 5.9334 5.33809C6.22477 5.18964 6.60618 5.18964 7.36901 5.18964H12.0001C12.6347 5.18964 12.952 5.18964 13.2023 5.29332C13.5361 5.43156 13.8012 5.69672 13.9395 6.03047C14.0432 6.28078 14.0432 6.5981 14.0432 7.23275M12.1363 18.8104H16.6311C17.3939 18.8104 17.7754 18.8104 18.0667 18.6619C18.323 18.5313 18.5314 18.3229 18.662 18.0667C18.8104 17.7753 18.8104 17.3939 18.8104 16.631V12.1362C18.8104 11.3734 18.8104 10.992 18.662 10.7006C18.5314 10.4443 18.323 10.2359 18.0667 10.1053C17.7754 9.95689 17.3939 9.95689 16.6311 9.95689H12.1363C11.3734 9.95689 10.992 9.95689 10.7007 10.1053C10.4444 10.2359 10.236 10.4443 10.1054 10.7006C9.95695 10.992 9.95695 11.3734 9.95695 12.1362V16.631C9.95695 17.3939 9.95695 17.7753 10.1054 18.0667C10.236 18.3229 10.4444 18.5313 10.7007 18.6619C10.992 18.8104 11.3734 18.8104 12.1363 18.8104Z",
+          d: "M8.93837 16.1076H15.0616M11.2481 5.21128L6.05691 9.2489C5.70989 9.5188 5.53639 9.65375 5.41139 9.82275C5.30066 9.97246 5.21818 10.1411 5.16799 10.3204C5.11133 10.5228 5.11133 10.7426 5.11133 11.1823V16.7199C5.11133 17.5773 5.11133 18.0059 5.27818 18.3334C5.42494 18.6214 5.65913 18.8556 5.94717 19.0024C6.27463 19.1692 6.7033 19.1692 7.56063 19.1692H16.4394C17.2967 19.1692 17.7254 19.1692 18.0528 19.0024C18.3409 18.8556 18.5751 18.6214 18.7218 18.3334C18.8887 18.0059 18.8887 17.5773 18.8887 16.7199V11.1823C18.8887 10.7426 18.8887 10.5228 18.832 10.3204C18.7818 10.1411 18.6993 9.97246 18.5886 9.82275C18.4636 9.65375 18.2901 9.5188 17.9431 9.2489L12.7519 5.21128C12.483 5.00213 12.3485 4.89755 12.2 4.85735C12.069 4.82189 11.931 4.82189 11.8 4.85735C11.6515 4.89755 11.517 5.00213 11.2481 5.21128Z",
           stroke: "currentColor",
           strokeWidth: "1.5",
           strokeLinecap: "round",
@@ -3595,9 +3716,9 @@ var KnowledgeBaseIcon = ({
   );
 };
 
-// src/components/ui/Icons/LinkedInIcon.tsx
+// src/components/ui/Icons/KnowledgeBaseIcon.tsx
 var import_jsx_runtime35 = require("react/jsx-runtime");
-var LinkedInIcon = ({
+var KnowledgeBaseIcon = ({
   size = 24,
   className,
   ...props
@@ -3615,17 +3736,21 @@ var LinkedInIcon = ({
       children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
         "path",
         {
-          d: "M7.44 5.25784C7.43974 5.78827 7.22877 6.29687 6.85351 6.67176C6.47825 7.04664 5.96944 7.2571 5.439 7.25684C4.90857 7.25657 4.39997 7.0456 4.02508 6.67034C3.6502 6.29508 3.43974 5.78627 3.44 5.25584C3.44027 4.7254 3.65124 4.2168 4.0265 3.84192C4.40176 3.46703 4.91057 3.25657 5.441 3.25684C5.97144 3.2571 6.48004 3.46807 6.85492 3.84333C7.22981 4.21859 7.44027 4.7274 7.44 5.25784ZM7.5 8.73784H3.5V21.2578H7.5V8.73784ZM13.82 8.73784H9.84V21.2578H13.78V14.6878C13.78 11.0278 18.55 10.6878 18.55 14.6878V21.2578H22.5V13.3278C22.5 7.15784 15.44 7.38784 13.78 10.4178L13.82 8.73784Z",
-          fill: "#0A66C2"
+          opacity: "0.8",
+          d: "M7.23281 14.0431C6.59816 14.0431 6.28084 14.0431 6.03053 13.9394C5.69678 13.8012 5.43162 13.536 5.29338 13.2023C5.1897 12.952 5.1897 12.6346 5.1897 12V7.36895C5.1897 6.60612 5.1897 6.2247 5.33815 5.93334C5.46874 5.67705 5.67711 5.46868 5.9334 5.33809C6.22477 5.18964 6.60618 5.18964 7.36901 5.18964H12.0001C12.6347 5.18964 12.952 5.18964 13.2023 5.29332C13.5361 5.43156 13.8012 5.69672 13.9395 6.03047C14.0432 6.28078 14.0432 6.5981 14.0432 7.23275M12.1363 18.8104H16.6311C17.3939 18.8104 17.7754 18.8104 18.0667 18.6619C18.323 18.5313 18.5314 18.3229 18.662 18.0667C18.8104 17.7753 18.8104 17.3939 18.8104 16.631V12.1362C18.8104 11.3734 18.8104 10.992 18.662 10.7006C18.5314 10.4443 18.323 10.2359 18.0667 10.1053C17.7754 9.95689 17.3939 9.95689 16.6311 9.95689H12.1363C11.3734 9.95689 10.992 9.95689 10.7007 10.1053C10.4444 10.2359 10.236 10.4443 10.1054 10.7006C9.95695 10.992 9.95695 11.3734 9.95695 12.1362V16.631C9.95695 17.3939 9.95695 17.7753 10.1054 18.0667C10.236 18.3229 10.4444 18.5313 10.7007 18.6619C10.992 18.8104 11.3734 18.8104 12.1363 18.8104Z",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
         }
       )
     }
   );
 };
 
-// src/components/ui/Icons/PersonaIcon.tsx
+// src/components/ui/Icons/LinkedInIcon.tsx
 var import_jsx_runtime36 = require("react/jsx-runtime");
-var PersonaIcon = ({
+var LinkedInIcon = ({
   size = 24,
   className,
   ...props
@@ -3643,6 +3768,232 @@ var PersonaIcon = ({
       children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
         "path",
         {
+          d: "M7.44 5.25784C7.43974 5.78827 7.22877 6.29687 6.85351 6.67176C6.47825 7.04664 5.96944 7.2571 5.439 7.25684C4.90857 7.25657 4.39997 7.0456 4.02508 6.67034C3.6502 6.29508 3.43974 5.78627 3.44 5.25584C3.44027 4.7254 3.65124 4.2168 4.0265 3.84192C4.40176 3.46703 4.91057 3.25657 5.441 3.25684C5.97144 3.2571 6.48004 3.46807 6.85492 3.84333C7.22981 4.21859 7.44027 4.7274 7.44 5.25784ZM7.5 8.73784H3.5V21.2578H7.5V8.73784ZM13.82 8.73784H9.84V21.2578H13.78V14.6878C13.78 11.0278 18.55 10.6878 18.55 14.6878V21.2578H22.5V13.3278C22.5 7.15784 15.44 7.38784 13.78 10.4178L13.82 8.73784Z",
+          fill: "#0A66C2"
+        }
+      )
+    }
+  );
+};
+
+// src/components/ui/Icons/MicrosoftIcon.tsx
+var React26 = __toESM(require("react"), 1);
+var import_jsx_runtime37 = require("react/jsx-runtime");
+var MicrosoftIcon = React26.forwardRef(
+  ({ className, size = 24, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(
+    "svg",
+    {
+      ref,
+      "aria-hidden": "true",
+      focusable: "false",
+      role: "img",
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      className: cn("shrink-0", className),
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("rect", { width: "10.5", height: "10.5", x: "1", y: "1", fill: "#F25022", rx: "1.5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("rect", { width: "10.5", height: "10.5", x: "12.5", y: "1", fill: "#7FBA00", rx: "1.5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("rect", { width: "10.5", height: "10.5", x: "1", y: "12.5", fill: "#00A4EF", rx: "1.5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("rect", { width: "10.5", height: "10.5", x: "12.5", y: "12.5", fill: "#FFB900", rx: "1.5" })
+      ]
+    }
+  )
+);
+MicrosoftIcon.displayName = "MicrosoftIcon";
+
+// src/components/ui/Icons/SupremeIcon.tsx
+var import_jsx_runtime38 = require("react/jsx-runtime");
+var SupremeIcon = ({
+  size,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)(
+    "svg",
+    {
+      width: size || "70",
+      height: size || "81",
+      viewBox: "0 0 70 81",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("g", { "clip-path": "url(#clip0_536_983)", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M5.73686 38.0134C6.0443 40.6284 6.69265 42.8018 7.68191 44.5417C8.66908 46.2774 10.1958 47.6318 12.2643 48.5987C14.3306 49.5676 17.0935 50.0511 20.5506 50.0511C24.8716 50.0511 28.1259 49.3676 30.3177 48.0007C32.5096 46.6317 33.6034 44.4562 33.6034 41.4724C33.6034 39.5053 32.8944 37.9384 31.4743 36.7694C30.0542 35.6004 28.2806 34.7169 26.1515 34.1168C24.0224 33.5188 21.0442 32.8499 17.2168 32.1102C11.9401 31.1267 7.64217 30.0806 4.32722 28.9763C2.78163 28.4595 1.34062 27.776 0 26.9405V37.3237H4.95256C5.3834 37.3216 5.64483 37.5529 5.73686 38.0134Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M65.3246 0V6.51164C65.3246 6.81378 65.0799 7.05758 64.7767 7.05758H51.9059C51.6026 7.05758 51.3579 6.81378 51.3579 6.51164V0H39.7503C43.0255 3.13809 45.0501 7.41598 45.8239 12.8337V12.9253C45.8239 13.3858 45.5918 13.6171 45.1295 13.6171H31.7986C31.3657 13.6171 31.1189 13.3858 31.0582 12.9253C30.7194 9.94353 29.3913 7.66811 27.0782 6.09906C24.7651 4.53002 21.63 3.74862 17.6792 3.74862C14.1614 3.74862 11.3693 4.37999 9.30085 5.63856C7.23449 6.89921 6.19922 8.82041 6.19922 11.4042C6.19922 13.2192 6.89358 14.6715 8.28231 15.7613C9.67103 16.8532 11.4216 17.6908 13.536 18.2743C15.6484 18.8598 18.543 19.4745 22.2156 20.1184C27.6157 21.1331 32.0057 22.1854 35.3855 23.2794C38.7632 24.3692 41.6724 26.2153 44.111 28.8137C46.5475 31.4101 47.7669 34.9878 47.7669 39.5345C47.7669 44.0229 46.6647 47.8444 44.4582 50.995C43.8245 51.8993 43.1029 52.7328 42.3124 53.5121H51.3035V26.8071V14.7528C51.3035 14.261 51.5503 14.0151 52.0439 14.0151H64.6344C65.128 14.0151 65.3748 14.261 65.3748 14.7528V26.8071V53.5121H69.3381V0H65.3246Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M24.6831 68.7379C24.1247 68.5254 23.6876 68.2045 23.3718 67.7752C23.0539 67.3439 22.8845 66.8063 22.8594 66.1624C22.8594 66.0999 22.8907 66.0666 22.9535 66.0666H24.6622C24.7187 66.0666 24.7521 66.0957 24.7626 66.1562C24.8023 66.4917 24.886 66.7709 25.0136 66.9959C25.1411 67.2189 25.3377 67.3939 25.6013 67.5168C25.8669 67.6419 26.2224 67.7044 26.6658 67.7044C27.2221 67.7044 27.6404 67.6169 27.9228 67.4398C28.2051 67.2626 28.3453 66.9834 28.3453 66.6C28.3453 66.3479 28.2532 66.1458 28.0713 65.9957C27.8893 65.8457 27.6614 65.7311 27.3874 65.654C27.1134 65.5769 26.7307 65.4915 26.2392 65.3956C25.5615 65.2685 25.0073 65.1352 24.5827 64.9935C24.1561 64.8518 23.7901 64.6142 23.4847 64.2829C23.1794 63.9516 23.0267 63.4953 23.0267 62.9139C23.0267 62.3971 23.1585 61.9471 23.4199 61.5678C23.6813 61.1886 24.0641 60.8969 24.566 60.6926C25.0679 60.4905 25.6703 60.3884 26.373 60.3884C27.3853 60.3884 28.1989 60.5947 28.8137 61.0073C29.4286 61.4199 29.7988 62.0575 29.9201 62.9202V62.9327C29.9201 62.991 29.8908 63.0223 29.8302 63.0223H28.1173C28.0608 63.0223 28.0294 62.9931 28.0211 62.9327C27.9772 62.5492 27.8078 62.2575 27.5087 62.0554C27.2117 61.8533 26.808 61.7533 26.2998 61.7533C25.8481 61.7533 25.4883 61.8345 25.2227 61.9971C24.9571 62.1596 24.8232 62.4055 24.8232 62.7389C24.8232 62.9722 24.9132 63.1598 25.091 63.2994C25.2708 63.4411 25.4946 63.5474 25.7665 63.6224C26.0384 63.6974 26.4107 63.7766 26.8833 63.8599C27.5777 63.9891 28.1424 64.1246 28.5753 64.2662C29.0103 64.4059 29.3847 64.6434 29.6984 64.9768C30.0121 65.3102 30.169 65.7707 30.169 66.3541C30.169 66.9313 30.0268 67.4231 29.7444 67.8273C29.46 68.2337 29.0543 68.54 28.5251 68.7463C27.996 68.9546 27.3644 69.0588 26.6344 69.0588C25.8899 69.0567 25.2394 68.9505 24.6831 68.7379Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M31.4049 68.7275C31.0828 68.54 30.8339 68.267 30.6583 67.9086C30.4805 67.5502 30.3926 67.1272 30.3926 66.6375V65.356L30.3696 62.8535C30.3696 62.791 30.401 62.7597 30.4637 62.7597H32.0825C32.1453 62.7597 32.1766 62.791 32.1766 62.8535L32.1536 65.356V66.6125C32.1536 66.8292 32.1934 67.0209 32.2729 67.1876C32.3523 67.3543 32.4611 67.4814 32.6033 67.571C32.7434 67.6606 32.9045 67.7044 33.0822 67.7044C33.3081 67.7044 33.5235 67.6335 33.7243 67.4939C33.9272 67.3522 34.0924 67.1397 34.2221 66.8542C34.3518 66.5667 34.4166 66.2187 34.4166 65.8082V65.3581L34.3936 62.8556C34.3936 62.793 34.425 62.7618 34.4877 62.7618H36.1295C36.1922 62.7618 36.2257 62.793 36.2257 62.8556L36.2027 65.6894V68.7733C36.2027 68.8358 36.1713 68.8671 36.1086 68.8671H34.5735C34.5149 68.8671 34.4835 68.8358 34.4835 68.7733L34.5128 68.0982C34.2953 68.3753 34.0129 68.5962 33.6699 68.7629C33.3269 68.9296 32.9484 69.013 32.5364 69.013C32.1034 69.0088 31.727 68.915 31.4049 68.7275Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M41.6448 63.0514C42.0443 63.3265 42.3455 63.7016 42.5504 64.1787C42.7554 64.6538 42.8558 65.1935 42.8558 65.7936C42.8558 66.3875 42.747 66.9251 42.5274 67.4085C42.3099 67.8919 41.9962 68.2753 41.5863 68.5587C41.1784 68.8421 40.7037 68.9817 40.1641 68.9817C39.4258 68.9817 38.8444 68.7337 38.4198 68.2399L38.4366 70.7841C38.4366 70.8466 38.4052 70.88 38.3424 70.88H36.7236C36.6609 70.88 36.6274 70.8487 36.6274 70.7841L36.6504 66.3854L36.6274 62.8514C36.6274 62.7889 36.6588 62.7576 36.7236 62.7576H38.3299C38.3884 62.7576 38.4198 62.7889 38.4198 62.8514L38.3905 63.4682C38.6039 63.2035 38.8653 62.9993 39.1707 62.8556C39.476 62.7118 39.819 62.6389 40.1996 62.6389C40.7643 62.6389 41.2454 62.7764 41.6448 63.0514ZM40.689 67.3064C40.9191 66.9855 41.0341 66.5146 41.0341 65.8895C41.0341 65.2164 40.9212 64.7101 40.6953 64.3663C40.4694 64.0224 40.1369 63.8495 39.7019 63.8495C39.2627 63.8495 38.928 64.0162 38.7001 64.3475C38.4721 64.6788 38.3571 65.1706 38.3571 65.8186C38.3571 66.4521 38.47 66.9376 38.6959 67.2772C38.9218 67.6169 39.2459 67.7877 39.6663 67.7877C40.1181 67.7877 40.459 67.6273 40.689 67.3064Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M43.2363 68.865C43.1736 68.865 43.1401 68.8338 43.1401 68.7713L43.1757 65.8061L43.1401 62.8535C43.1401 62.791 43.1715 62.7597 43.2363 62.7597H44.8196C44.8781 62.7597 44.9095 62.791 44.9095 62.8535L44.8677 63.7912C45.1019 63.439 45.4094 63.1723 45.7942 62.9868C46.1769 62.8035 46.5994 62.7118 47.0595 62.7118C47.1515 62.7118 47.2498 62.7222 47.3565 62.741C47.4109 62.7535 47.4402 62.7889 47.4402 62.8472V63.9745C47.4402 64.0329 47.4109 64.0641 47.3502 64.0641C47.3147 64.0641 47.2749 64.062 47.231 64.0579C47.1871 64.0537 47.1453 64.0516 47.1055 64.0516C46.6768 64.0516 46.2982 64.1308 45.9678 64.2892C45.6394 64.4475 45.3801 64.683 45.1939 64.9976C45.0078 65.3123 44.9137 65.6957 44.9137 66.1499V68.7713C44.9137 68.8338 44.8823 68.865 44.8196 68.865H43.2363Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M49.0212 66.175C49.0567 66.748 49.1885 67.1689 49.4144 67.4356C49.6402 67.7023 49.9686 67.8357 50.4015 67.8357C51.0478 67.8357 51.4473 67.5189 51.5978 66.8876C51.6104 66.8334 51.6439 66.8042 51.6982 66.8042H53.2271C53.2585 66.8042 53.2836 66.8105 53.3024 66.8209C53.3212 66.8334 53.3275 66.848 53.3233 66.8688C53.2794 67.2564 53.133 67.6148 52.8841 67.9419C52.6331 68.2712 52.2943 68.5316 51.8635 68.7275C51.4326 68.9234 50.939 69.0213 50.3785 69.0213C49.7113 69.0213 49.1425 68.8859 48.6677 68.615C48.193 68.3441 47.8332 67.969 47.5906 67.4877C47.3459 67.0084 47.2246 66.4562 47.2246 65.8311C47.2246 65.1831 47.3501 64.6163 47.599 64.1329C47.85 63.6474 48.2076 63.2723 48.6761 63.0056C49.1446 62.7389 49.7009 62.6055 50.343 62.6055C51.006 62.6055 51.5727 62.7451 52.0412 63.0264C52.5118 63.3077 52.8694 63.7078 53.1183 64.2267C53.3672 64.7476 53.4969 65.3644 53.5073 66.0791C53.5073 66.1416 53.476 66.1729 53.4132 66.1729H49.0212V66.175ZM49.5001 64.0954C49.2868 64.3079 49.1446 64.6247 49.0693 65.0477H51.5811C51.5414 64.6872 51.4201 64.3871 51.2151 64.1433C51.0101 63.8995 50.7236 63.7787 50.3555 63.7787C49.9979 63.7787 49.7134 63.8849 49.5001 64.0954Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M62.8417 66.6729L62.8647 68.7712C62.8647 68.8338 62.8334 68.865 62.7706 68.865H61.1518C61.0891 68.865 61.0577 68.8338 61.0577 68.7712L61.0807 66.6729V65.0122C61.0807 64.6517 61.0117 64.3808 60.8758 64.1975C60.7398 64.0141 60.5453 63.9224 60.2964 63.9224C60.1249 63.9224 59.9576 63.9974 59.7924 64.1454C59.6272 64.2933 59.4912 64.5121 59.3845 64.7976C59.2779 65.0851 59.2235 65.4227 59.2235 65.8144V65.9207V66.6729L59.2465 68.7712C59.2465 68.8338 59.2151 68.865 59.1503 68.865H57.5315C57.4688 68.865 57.4353 68.8338 57.4353 68.7712L57.4583 66.6729V65.0122C57.4583 64.6475 57.3914 64.3746 57.2554 64.1933C57.1216 64.012 56.9271 63.9203 56.6719 63.9203C56.4962 63.9203 56.3289 63.9953 56.1637 64.1433C55.9985 64.2912 55.8646 64.51 55.758 64.7955C55.6534 65.083 55.6011 65.4227 55.6011 65.8186V66.6729L55.6241 68.7712C55.6241 68.8338 55.5927 68.865 55.53 68.865H53.8882C53.8255 68.865 53.792 68.8338 53.792 68.7712L53.815 66.6729V62.8535C53.815 62.791 53.8464 62.7597 53.9091 62.7597H55.4442C55.5028 62.7597 55.5342 62.791 55.5342 62.8535L55.5049 63.5286C55.7224 63.2244 55.9755 62.9952 56.2599 62.843C56.5464 62.6909 56.8811 62.6138 57.2659 62.6138C57.703 62.6138 58.0711 62.7097 58.3702 62.8993C58.6693 63.0889 58.891 63.3765 59.0332 63.7641C59.28 63.3327 59.5498 63.0347 59.8468 62.866C60.1417 62.6972 60.4888 62.6138 60.8841 62.6138C61.5157 62.6138 61.9989 62.8097 62.3335 63.2014C62.6681 63.5932 62.8354 64.187 62.8354 64.9872V66.6729H62.8417Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M64.8893 66.175C64.9249 66.748 65.0566 67.1689 65.2825 67.4356C65.5084 67.7023 65.8368 67.8357 66.2697 67.8357C66.9159 67.8357 67.3154 67.5189 67.466 66.8876C67.4786 66.8334 67.512 66.8042 67.5664 66.8042H69.0952C69.1266 66.8042 69.1517 66.8105 69.1705 66.8209C69.1894 66.8334 69.1956 66.848 69.1915 66.8688C69.1475 67.2564 69.0011 67.6148 68.7522 67.9419C68.5013 68.2712 68.1625 68.5316 67.7316 68.7275C67.3008 68.9234 66.8072 69.0213 66.2467 69.0213C65.5795 69.0213 65.0106 68.8859 64.5359 68.615C64.0611 68.3441 63.7014 67.969 63.4588 67.4877C63.2141 67.0084 63.0928 66.4562 63.0928 65.8311C63.0928 65.1831 63.2183 64.6163 63.4671 64.1329C63.7181 63.6474 64.0758 63.2723 64.5442 63.0056C65.0127 62.7389 65.5691 62.6055 66.2111 62.6055C66.8741 62.6055 67.4409 62.7451 67.9094 63.0264C68.38 63.3077 68.7376 63.7078 68.9865 64.2267C69.2354 64.7476 69.365 65.3644 69.3755 66.0791C69.3755 66.1416 69.3441 66.1729 69.2814 66.1729H64.8893V66.175ZM65.3662 64.0954C65.1529 64.3079 65.0106 64.6247 64.9353 65.0477H67.4472C67.4074 64.6872 67.2861 64.3871 67.0812 64.1433C66.8762 63.8995 66.5897 63.7787 66.2216 63.7787C65.864 63.7787 65.5795 63.8849 65.3662 64.0954Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M12.4921 78.6606C12.4293 78.6606 12.3979 78.6294 12.3979 78.5669L12.4335 74.5099L12.3979 70.4549C12.3979 70.3924 12.4293 70.3591 12.4921 70.3591H14.1108C14.1736 70.3591 14.205 70.3903 14.205 70.4549L14.1694 74.5099L14.205 78.5669C14.205 78.6294 14.1736 78.6606 14.1108 78.6606H12.4921Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M20.5503 76.0622L20.5734 78.5648C20.5734 78.6273 20.542 78.6585 20.4792 78.6585H18.8605C18.7977 78.6585 18.7663 78.6273 18.7663 78.5648L18.7893 76.0622V74.8057C18.7893 74.589 18.7496 74.3973 18.6701 74.2306C18.5907 74.0639 18.4798 73.9368 18.3397 73.8472C18.1996 73.7576 18.0385 73.7138 17.8607 73.7138C17.6349 73.7138 17.4194 73.7847 17.2187 73.9243C17.0158 74.0639 16.8506 74.2785 16.7209 74.564C16.5912 74.8516 16.5264 75.1995 16.5264 75.61V76.0622L16.5494 78.5648C16.5494 78.6273 16.518 78.6585 16.4553 78.6585H14.8135C14.7507 78.6585 14.7173 78.6273 14.7173 78.5648L14.7403 75.7309V72.647C14.7403 72.5845 14.7717 72.5532 14.8344 72.5532H16.3695C16.4281 72.5532 16.4595 72.5845 16.4595 72.647L16.4302 73.3221C16.6477 73.045 16.93 72.8241 17.273 72.6574C17.616 72.4907 17.9946 72.4073 18.4066 72.4073C18.8395 72.4073 19.216 72.5011 19.5381 72.6887C19.8602 72.8762 20.1091 73.1492 20.2847 73.5076C20.4625 73.866 20.5503 74.289 20.5503 74.7786V76.0622Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M22.3888 78.5835C22.0834 78.4543 21.8366 78.2439 21.6505 77.9584C21.4643 77.6729 21.3702 77.3104 21.3702 76.8707L21.3828 74.4744V73.8097H20.6801C20.6173 73.8097 20.5859 73.7784 20.5859 73.7159V72.6491C20.5859 72.5866 20.6173 72.5553 20.6801 72.5553H21.3765L21.3702 71.1196C21.3702 71.0571 21.4016 71.0258 21.4643 71.0258H23.0601C23.1229 71.0258 23.1542 71.0571 23.1542 71.1196L23.148 72.5553H24.5221C24.5848 72.5553 24.6183 72.5866 24.6183 72.6491V73.7159C24.6183 73.7784 24.5869 73.8097 24.5221 73.8097H23.1417V74.4682L23.1542 76.8228C23.1542 77.0707 23.2107 77.2479 23.3237 77.3541C23.4366 77.4583 23.5976 77.5104 23.8089 77.5104C24.0347 77.5104 24.2648 77.4771 24.499 77.4104C24.5074 77.4062 24.5158 77.4041 24.5283 77.4041C24.5513 77.4041 24.5702 77.4125 24.5848 77.4271C24.5994 77.4437 24.6057 77.4646 24.6057 77.4916V78.4585C24.6057 78.5106 24.5827 78.546 24.5346 78.5648C24.1142 78.7065 23.7336 78.7773 23.3927 78.7773C23.0308 78.7794 22.6941 78.7127 22.3888 78.5835Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M26.3102 75.9684C26.3458 76.5415 26.4775 76.9624 26.7034 77.2291C26.9293 77.4958 27.2577 77.6292 27.6906 77.6292C28.3369 77.6292 28.7363 77.3124 28.8869 76.6811C28.8995 76.6269 28.9329 76.5977 28.9873 76.5977H30.5161C30.5475 76.5977 30.5726 76.604 30.5914 76.6144C30.6103 76.6269 30.6165 76.6415 30.6124 76.6623C30.5684 77.0499 30.422 77.4083 30.1731 77.7354C29.9222 78.0647 29.5834 78.3251 29.1525 78.521C28.7217 78.7169 28.2281 78.8148 27.6676 78.8148C27.0004 78.8148 26.4315 78.6794 25.9568 78.4085C25.482 78.1376 25.1223 77.7625 24.8797 77.2812C24.635 76.8019 24.5137 76.2497 24.5137 75.6246C24.5137 74.9766 24.6392 74.4098 24.888 73.9264C25.139 73.4409 25.4967 73.0658 25.9651 72.7991C26.4336 72.5324 26.99 72.399 27.632 72.399C28.295 72.399 28.8618 72.5386 29.3303 72.8199C29.8009 73.1012 30.1585 73.5013 30.4074 74.0202C30.6563 74.5411 30.7859 75.1579 30.7964 75.8726C30.7964 75.9351 30.765 75.9664 30.7023 75.9664H26.3102V75.9684ZM26.7892 73.891C26.5758 74.1035 26.4336 74.4202 26.3583 74.8432H28.8702C28.8304 74.4827 28.7091 74.1827 28.5042 73.9389C28.2992 73.6951 28.0127 73.5742 27.6446 73.5742C27.2869 73.5722 27.0025 73.6784 26.7892 73.891Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M31.2398 78.6606C31.177 78.6606 31.1436 78.6294 31.1436 78.5669L31.1791 74.5099L31.1436 70.4549C31.1436 70.3924 31.1749 70.3591 31.2398 70.3591H32.8104C32.8732 70.3591 32.9067 70.3903 32.9067 70.4549L32.8711 74.5099L32.9067 78.5669C32.9067 78.6294 32.8753 78.6606 32.8104 78.6606H31.2398Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M33.5239 78.6606C33.4612 78.6606 33.4277 78.6294 33.4277 78.5669L33.4633 74.5099L33.4277 70.4549C33.4277 70.3924 33.4591 70.3591 33.5239 70.3591H35.0946C35.1574 70.3591 35.1908 70.3903 35.1908 70.4549L35.1553 74.5099L35.1908 78.5669C35.1908 78.6294 35.1595 78.6606 35.0946 78.6606H33.5239Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M35.7866 71.9594C35.7239 71.9594 35.6904 71.9281 35.6904 71.8656V70.4549C35.6904 70.3924 35.7218 70.3591 35.7866 70.3591H37.4054C37.4682 70.3591 37.5016 70.3903 37.5016 70.4549V71.8656C37.5016 71.9281 37.4703 71.9594 37.4054 71.9594H35.7866ZM35.7866 78.6606C35.7239 78.6606 35.6904 78.6294 35.6904 78.5669L35.7134 75.6142L35.6904 72.6491C35.6904 72.5866 35.7218 72.5553 35.7866 72.5553H37.4054C37.4682 72.5553 37.5016 72.5866 37.5016 72.6491L37.4786 75.6142L37.5016 78.5669C37.5016 78.6294 37.4703 78.6606 37.4054 78.6606H35.7866Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M39.0829 78.2251C38.6667 77.9584 38.3509 77.5938 38.1397 77.1312C37.9263 76.6686 37.8218 76.1456 37.8218 75.5663C37.8218 74.9933 37.9305 74.4723 38.1501 74.0014C38.3676 73.5305 38.6814 73.1575 39.0913 72.8845C39.4991 72.6095 39.9739 72.472 40.5135 72.472C40.8899 72.472 41.2288 72.5345 41.5257 72.6616C41.8227 72.7887 42.0779 72.9762 42.287 73.2242L42.2577 72.6491C42.2577 72.5866 42.287 72.5553 42.3477 72.5553H43.9435C44.0062 72.5553 44.0376 72.5866 44.0376 72.6491L44.0146 75.6976V78.496C44.0146 79.019 43.9016 79.4691 43.6758 79.8483C43.4499 80.2276 43.1111 80.5214 42.6614 80.7256C42.2117 80.9319 41.6533 81.034 40.9924 81.034C40.4445 81.0423 39.9572 80.9736 39.5263 80.8277C39.0955 80.6818 38.7525 80.4589 38.4973 80.1609C38.2422 79.8629 38.0999 79.4941 38.0728 79.0544V79.0419C38.0728 78.9857 38.102 78.9586 38.1627 78.9586H39.7396C39.794 78.9586 39.8296 78.9878 39.84 79.0482C39.8756 79.3087 39.9969 79.5087 40.2039 79.6504C40.411 79.79 40.6933 79.8608 41.0552 79.8608C41.4609 79.8608 41.7788 79.7442 42.013 79.5129C42.2473 79.2816 42.3644 78.9357 42.3644 78.471V77.7709C42.1574 78.048 41.9064 78.2585 41.6094 78.4064C41.3124 78.5523 40.9757 78.6252 40.6034 78.6252C40.0032 78.6252 39.4991 78.4918 39.0829 78.2251ZM42.3205 75.5642C42.3205 74.9349 42.2034 74.4557 41.9712 74.1264C41.7391 73.7972 41.4023 73.6305 40.961 73.6305C40.5281 73.6305 40.1998 73.7889 39.976 74.1077C39.7522 74.4265 39.6393 74.887 39.6393 75.4934C39.6393 76.1414 39.7522 76.6311 39.976 76.9645C40.1998 77.2958 40.5239 77.4625 40.9485 77.4625C41.8646 77.4625 42.3205 76.8311 42.3205 75.5642Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M46.1164 75.9684C46.1519 76.5415 46.2837 76.9624 46.5096 77.2291C46.7355 77.4958 47.0638 77.6292 47.4967 77.6292C48.143 77.6292 48.5425 77.3124 48.6931 76.6811C48.7056 76.6269 48.7391 76.5977 48.7934 76.5977H50.3223C50.3537 76.5977 50.3788 76.604 50.3976 76.6144C50.4164 76.6269 50.4227 76.6415 50.4185 76.6623C50.3746 77.0499 50.2282 77.4083 49.9793 77.7354C49.7283 78.0647 49.3895 78.3251 48.9587 78.521C48.5278 78.7169 48.0342 78.8148 47.4737 78.8148C46.8066 78.8148 46.2377 78.6794 45.7629 78.4085C45.2882 78.1376 44.9284 77.7625 44.6858 77.2812C44.4411 76.8019 44.3198 76.2497 44.3198 75.6246C44.3198 74.9766 44.4453 74.4098 44.6942 73.9264C44.9452 73.4409 45.3028 73.0658 45.7713 72.7991C46.2398 72.5324 46.7961 72.399 47.4382 72.399C48.1012 72.399 48.668 72.5386 49.1364 72.8199C49.607 73.1012 49.9647 73.5013 50.2135 74.0202C50.4624 74.5411 50.5921 75.1579 50.6026 75.8726C50.6026 75.9351 50.5712 75.9664 50.5084 75.9664H46.1164V75.9684ZM46.5953 73.891C46.382 74.1035 46.2398 74.4202 46.1645 74.8432H48.6763C48.6366 74.4827 48.5153 74.1827 48.3103 73.9389C48.1054 73.6951 47.8188 73.5742 47.4507 73.5742C47.0931 73.5722 46.8087 73.6784 46.5953 73.891Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M56.7242 76.0622L56.7472 78.5648C56.7472 78.6273 56.7158 78.6585 56.6531 78.6585H55.0343C54.9715 78.6585 54.9402 78.6273 54.9402 78.5648L54.9632 76.0622V74.8057C54.9632 74.589 54.9234 74.3973 54.844 74.2306C54.7645 74.0639 54.6536 73.9368 54.5135 73.8472C54.3734 73.7576 54.2123 73.7138 54.0346 73.7138C53.8087 73.7138 53.5933 73.7847 53.3925 73.9243C53.1896 74.0639 53.0244 74.2785 52.8947 74.564C52.7651 74.8516 52.7002 75.1995 52.7002 75.61V76.0622L52.7232 78.5648C52.7232 78.6273 52.6919 78.6585 52.6291 78.6585H50.9873C50.9246 78.6585 50.8911 78.6273 50.8911 78.5648L50.9141 75.7309V72.647C50.9141 72.5845 50.9455 72.5532 51.0082 72.5532H52.5434C52.6019 72.5532 52.6333 72.5845 52.6333 72.647L52.604 73.3221C52.8215 73.045 53.1039 72.8241 53.4469 72.6574C53.7899 72.4907 54.1684 72.4073 54.5804 72.4073C55.0134 72.4073 55.3898 72.5011 55.7119 72.6887C56.034 72.8762 56.2829 73.1492 56.4586 73.5076C56.6363 73.866 56.7242 74.289 56.7242 74.7786V76.0622Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M58.4288 78.4231C57.9582 78.1626 57.5985 77.7917 57.3475 77.3104C57.0965 76.8311 56.9731 76.2685 56.9731 75.6246C56.9731 74.9766 57.0986 74.4098 57.3475 73.9222C57.5985 73.4367 57.9603 73.0617 58.4372 72.7949C58.914 72.5303 59.4808 72.3969 60.1396 72.3969C60.6562 72.3969 61.1121 72.4886 61.5116 72.672C61.9111 72.8554 62.2269 73.1158 62.4632 73.4513C62.6995 73.7868 62.8397 74.1764 62.8836 74.6182V74.6307C62.8836 74.6578 62.8752 74.6807 62.8564 74.6953C62.8397 74.712 62.8146 74.7182 62.7874 74.7182H61.3234C61.2648 74.7182 61.2313 74.689 61.223 74.6286C61.1602 74.2931 61.0285 74.0348 60.8319 73.8576C60.6353 73.6805 60.4052 73.5909 60.1396 73.5909C59.6878 73.5951 59.3532 73.7618 59.1336 74.0952C58.914 74.4265 58.8053 74.9307 58.8053 75.6059C58.8053 76.306 58.9161 76.8165 59.1378 77.1395C59.3595 77.4625 59.7004 77.6229 60.1605 77.6229C60.4659 77.6229 60.7189 77.5167 60.9155 77.3062C61.1142 77.0957 61.2334 76.7936 61.2732 76.4019C61.2774 76.3393 61.3087 76.306 61.3673 76.306H62.8669C62.8982 76.306 62.9233 76.3143 62.9422 76.3289C62.961 76.3456 62.9672 76.3664 62.9631 76.3935C62.9233 76.8561 62.7769 77.2708 62.526 77.6375C62.2729 78.0042 61.9383 78.2918 61.52 78.4981C61.1017 78.7023 60.629 78.8065 60.0999 78.8065C59.4578 78.8148 58.8994 78.6835 58.4288 78.4231Z",
+              fill: "black"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+            "path",
+            {
+              d: "M64.8893 75.9684C64.9249 76.5415 65.0566 76.9624 65.2825 77.2291C65.5084 77.4958 65.8368 77.6292 66.2697 77.6292C66.9159 77.6292 67.3154 77.3124 67.466 76.6811C67.4786 76.6269 67.512 76.5977 67.5664 76.5977H69.0952C69.1266 76.5977 69.1517 76.604 69.1705 76.6144C69.1894 76.6269 69.1956 76.6415 69.1915 76.6623C69.1475 77.0499 69.0011 77.4083 68.7522 77.7354C68.5013 78.0647 68.1625 78.3251 67.7316 78.521C67.3008 78.7169 66.8072 78.8148 66.2467 78.8148C65.5795 78.8148 65.0106 78.6794 64.5359 78.4085C64.0611 78.1376 63.7014 77.7625 63.4588 77.2812C63.2141 76.8019 63.0928 76.2497 63.0928 75.6246C63.0928 74.9766 63.2183 74.4098 63.4671 73.9264C63.7181 73.4409 64.0758 73.0658 64.5442 72.7991C65.0127 72.5324 65.5691 72.399 66.2111 72.399C66.8741 72.399 67.4409 72.5386 67.9094 72.8199C68.38 73.1012 68.7376 73.5013 68.9865 74.0202C69.2354 74.5411 69.365 75.1579 69.3755 75.8726C69.3755 75.9351 69.3441 75.9664 69.2814 75.9664H64.8893V75.9684ZM65.3662 73.891C65.1529 74.1035 65.0106 74.4202 64.9353 74.8432H67.4472C67.4074 74.4827 67.2861 74.1827 67.0812 73.9389C66.8762 73.6951 66.5897 73.5742 66.2216 73.5742C65.864 73.5722 65.5795 73.6784 65.3662 73.891Z",
+              fill: "black"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("clipPath", { id: "clip0_536_983", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("rect", { width: "70", height: "81", fill: "white" }) }) })
+      ]
+    }
+  );
+};
+
+// src/components/ui/Icons/PersonaIcon.tsx
+var import_jsx_runtime39 = require("react/jsx-runtime");
+var PersonaIcon = ({
+  size = 24,
+  className,
+  ...props
+}) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      className: cn(className),
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+        "path",
+        {
           d: "M5.98467 18.6946C6.53216 17.4047 7.81043 16.5 9.3 16.5H14.7C16.1896 16.5 17.4678 17.4047 18.0153 18.6946M15.6 9.75C15.6 11.7382 13.9882 13.35 12 13.35C10.0118 13.35 8.4 11.7382 8.4 9.75C8.4 7.76177 10.0118 6.15 12 6.15C13.9882 6.15 15.6 7.76177 15.6 9.75ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
           stroke: "currentColor",
           strokeWidth: "1.43406",
@@ -3655,13 +4006,13 @@ var PersonaIcon = ({
 };
 
 // src/components/ui/Icons/PaletteIcon.tsx
-var import_jsx_runtime37 = require("react/jsx-runtime");
+var import_jsx_runtime40 = require("react/jsx-runtime");
 var PaletteIcon = ({
   size = 24,
   className,
   ...props
 }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
     "svg",
     {
       width: size,
@@ -3671,7 +4022,7 @@ var PaletteIcon = ({
       xmlns: "http://www.w3.org/2000/svg",
       className: cn(className),
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
         "path",
         {
           d: "M12 22C10.6333 22 9.34167 21.7373 8.125 21.212C6.90833 20.6867 5.846 19.97 4.938 19.062C4.03 18.154 3.31333 17.0917 2.788 15.875C2.26267 14.6583 2 13.3667 2 12C2 10.6167 2.271 9.31667 2.813 8.1C3.355 6.88333 4.08833 5.825 5.013 4.925C5.93767 4.025 7.01667 3.31267 8.25 2.788C9.48333 2.26333 10.8 2.00067 12.2 2C13.5333 2 14.7917 2.22933 15.975 2.688C17.1583 3.14667 18.196 3.78 19.088 4.588C19.98 5.396 20.6883 6.35433 21.213 7.463C21.7377 8.57167 22 9.76733 22 11.05C22 12.9667 21.4167 14.4377 20.25 15.463C19.0833 16.4883 17.6667 17.0007 16 17H14.15C14 17 13.896 17.0417 13.838 17.125C13.78 17.2083 13.7507 17.3 13.75 17.4C13.75 17.6 13.875 17.8877 14.125 18.263C14.375 18.6383 14.5 19.0673 14.5 19.55C14.5 20.3833 14.271 21 13.813 21.4C13.355 21.8 12.7507 22 12 22ZM6.5 13C6.93333 13 7.29167 12.8583 7.575 12.575C7.85833 12.2917 8 11.9333 8 11.5C8 11.0667 7.85833 10.7083 7.575 10.425C7.29167 10.1417 6.93333 10 6.5 10C6.06667 10 5.70833 10.1417 5.425 10.425C5.14167 10.7083 5 11.0667 5 11.5C5 11.9333 5.14167 12.2917 5.425 12.575C5.70833 12.8583 6.06667 13 6.5 13ZM9.5 9C9.93333 9 10.2917 8.85833 10.575 8.575C10.8583 8.29167 11 7.93333 11 7.5C11 7.06667 10.8583 6.70833 10.575 6.425C10.2917 6.14167 9.93333 6 9.5 6C9.06667 6 8.70833 6.14167 8.425 6.425C8.14167 6.70833 8 7.06667 8 7.5C8 7.93333 8.14167 8.29167 8.425 8.575C8.70833 8.85833 9.06667 9 9.5 9ZM14.5 9C14.9333 9 15.2917 8.85833 15.575 8.575C15.8583 8.29167 16 7.93333 16 7.5C16 7.06667 15.8583 6.70833 15.575 6.425C15.2917 6.14167 14.9333 6 14.5 6C14.0667 6 13.7083 6.14167 13.425 6.425C13.1417 6.70833 13 7.06667 13 7.5C13 7.93333 13.1417 8.29167 13.425 8.575C13.7083 8.85833 14.0667 9 14.5 9ZM17.5 13C17.9333 13 18.2917 12.8583 18.575 12.575C18.8583 12.2917 19 11.9333 19 11.5C19 11.0667 18.8583 10.7083 18.575 10.425C18.2917 10.1417 17.9333 10 17.5 10C17.0667 10 16.7083 10.1417 16.425 10.425C16.1417 10.7083 16 11.0667 16 11.5C16 11.9333 16.1417 12.2917 16.425 12.575C16.7083 12.8583 17.0667 13 17.5 13ZM12 20C12.15 20 12.271 19.9583 12.363 19.875C12.455 19.7917 12.5007 19.6833 12.5 19.55C12.5 19.3167 12.375 19.0417 12.125 18.725C11.875 18.4083 11.75 17.9333 11.75 17.3C11.75 16.6 11.9917 16.0417 12.475 15.625C12.9583 15.2083 13.55 15 14.25 15H16C17.1 15 18.0417 14.6793 18.825 14.038C19.6083 13.3967 20 12.4007 20 11.05C20 9.03333 19.2293 7.354 17.688 6.012C16.1467 4.67 14.3173 3.99933 12.2 4C9.93333 4 8 4.775 6.4 6.325C4.8 7.875 4 9.76667 4 12C4 14.2167 4.77933 16.1043 6.338 17.663C7.89667 19.2217 9.784 20.0007 12 20Z",
@@ -3683,13 +4034,13 @@ var PaletteIcon = ({
 };
 
 // src/components/ui/Icons/SidebarIcon.tsx
-var import_jsx_runtime38 = require("react/jsx-runtime");
+var import_jsx_runtime41 = require("react/jsx-runtime");
 var SidebarIcon = ({
   size = 24,
   className,
   ...props
 }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
     "svg",
     {
       width: size,
@@ -3699,7 +4050,7 @@ var SidebarIcon = ({
       xmlns: "http://www.w3.org/2000/svg",
       className: cn(className),
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
         "path",
         {
           d: "M9.46419 2.14258C9.46419 1.72836 9.12841 1.39258 8.71419 1.39258C8.29998 1.39258 7.96419 1.72836 7.96419 2.14258H9.46419ZM7.96419 21.8574C7.96419 22.2716 8.29998 22.6074 8.71419 22.6074C9.12841 22.6074 9.46419 22.2716 9.46419 21.8574H7.96419ZM3.93666 21.4993L3.59617 22.1675H3.59617L3.93666 21.4993ZM2.50071 20.0633L3.16896 19.7228L3.16896 19.7228L2.50071 20.0633ZM21.4993 20.0633L20.831 19.7228V19.7228L21.4993 20.0633ZM20.0633 21.4993L19.7228 20.831H19.7228L20.0633 21.4993ZM20.0633 2.50071L19.7228 3.16896L19.7228 3.16896L20.0633 2.50071ZM21.4993 3.93666L22.1675 3.59617V3.59617L21.4993 3.93666ZM3.93666 2.50071L4.27715 3.16896L3.93666 2.50071ZM2.50071 3.93666L3.16896 4.27715L2.50071 3.93666ZM16.8099 10.1778C17.1028 9.88489 17.1028 9.41001 16.8099 9.11713C16.517 8.82425 16.0421 8.82427 15.7492 9.11718L16.8099 10.1778ZM13.9271 12.0001L13.3968 11.4698C13.1039 11.7627 13.1039 12.2376 13.3968 12.5304L13.9271 12.0001ZM15.7493 14.8829C16.0422 15.1758 16.517 15.1758 16.8099 14.8829C17.1028 14.59 17.1028 14.1151 16.8099 13.8222L15.7493 14.8829ZM8.71419 2.14258H7.96419V21.8574H8.71419H9.46419V2.14258H8.71419ZM7.39987 2.14258V2.89258H16.6001V2.14258V1.39258H7.39987V2.14258ZM21.8574 7.39987H21.1074V16.6001H21.8574H22.6074V7.39987H21.8574ZM16.6001 21.8574V21.1074H7.39987V21.8574V22.6074H16.6001V21.8574ZM2.14258 16.6001H2.89258V7.39987H2.14258H1.39258V16.6001H2.14258ZM7.39987 21.8574V21.1074C6.46738 21.1074 5.81312 21.1068 5.30283 21.0651C4.8013 21.0242 4.50524 20.9473 4.27715 20.831L3.93666 21.4993L3.59617 22.1675C4.07095 22.4095 4.58639 22.5116 5.18068 22.5602C5.76622 22.608 6.49213 22.6074 7.39987 22.6074V21.8574ZM2.14258 16.6001H1.39258C1.39258 17.5079 1.39199 18.2338 1.43984 18.8193C1.48839 19.4136 1.59054 19.929 1.83246 20.4038L2.50071 20.0633L3.16896 19.7228C3.05275 19.4948 2.97583 19.1987 2.93485 18.6972C2.89316 18.1869 2.89258 17.5326 2.89258 16.6001H2.14258ZM3.93666 21.4993L4.27715 20.831C3.80001 20.5879 3.41208 20.2 3.16896 19.7228L2.50071 20.0633L1.83245 20.4038C2.21938 21.1632 2.83678 21.7806 3.59617 22.1675L3.93666 21.4993ZM21.8574 16.6001H21.1074C21.1074 17.5326 21.1068 18.1869 21.0651 18.6972C21.0242 19.1987 20.9473 19.4948 20.831 19.7228L21.4993 20.0633L22.1675 20.4038C22.4095 19.929 22.5116 19.4136 22.5602 18.8193C22.608 18.2338 22.6074 17.5079 22.6074 16.6001H21.8574ZM16.6001 21.8574V22.6074C17.5079 22.6074 18.2338 22.608 18.8193 22.5602C19.4136 22.5116 19.929 22.4095 20.4038 22.1675L20.0633 21.4993L19.7228 20.831C19.4948 20.9473 19.1987 21.0242 18.6972 21.0651C18.1869 21.1068 17.5326 21.1074 16.6001 21.1074V21.8574ZM21.4993 20.0633L20.831 19.7228C20.5879 20.2 20.2 20.5879 19.7228 20.831L20.0633 21.4993L20.4038 22.1675C21.1632 21.7806 21.7806 21.1632 22.1675 20.4038L21.4993 20.0633ZM16.6001 2.14258V2.89258C17.5326 2.89258 18.1869 2.89316 18.6972 2.93485C19.1987 2.97583 19.4948 3.05275 19.7228 3.16896L20.0633 2.50071L20.4038 1.83246C19.929 1.59054 19.4136 1.48839 18.8193 1.43984C18.2338 1.39199 17.5079 1.39258 16.6001 1.39258V2.14258ZM21.8574 7.39987H22.6074C22.6074 6.49213 22.608 5.76622 22.5602 5.18068C22.5116 4.58639 22.4095 4.07095 22.1675 3.59617L21.4993 3.93666L20.831 4.27715C20.9473 4.50524 21.0242 4.8013 21.0651 5.30283C21.1068 5.81312 21.1074 6.46738 21.1074 7.39987H21.8574ZM20.0633 2.50071L19.7228 3.16896C20.2 3.41208 20.5879 3.80001 20.831 4.27715L21.4993 3.93666L22.1675 3.59617C21.7806 2.83678 21.1632 2.21938 20.4038 1.83245L20.0633 2.50071ZM7.39987 2.14258V1.39258C6.49213 1.39258 5.76622 1.39199 5.18068 1.43984C4.58639 1.48839 4.07095 1.59054 3.59617 1.83245L3.93666 2.50071L4.27715 3.16896C4.50524 3.05275 4.8013 2.97583 5.30283 2.93485C5.81312 2.89316 6.46738 2.89258 7.39987 2.89258V2.14258ZM2.14258 7.39987H2.89258C2.89258 6.46738 2.89316 5.81312 2.93485 5.30283C2.97583 4.8013 3.05275 4.50524 3.16896 4.27715L2.50071 3.93666L1.83245 3.59617C1.59054 4.07095 1.48839 4.58639 1.43984 5.18068C1.39199 5.76622 1.39258 6.49213 1.39258 7.39987H2.14258ZM3.93666 2.50071L3.59617 1.83245C2.83678 2.21938 2.21938 2.83678 1.83245 3.59617L2.50071 3.93666L3.16896 4.27715C3.41208 3.80001 3.80001 3.41208 4.27715 3.16896L3.93666 2.50071ZM16.2796 9.64748L15.7492 9.11718L13.3968 11.4698L13.9271 12.0001L14.4575 12.5304L16.8099 10.1778L16.2796 9.64748ZM13.9271 12.0001L13.3968 12.5304L15.7493 14.8829L16.2796 14.3525L16.8099 13.8222L14.4575 11.4698L13.9271 12.0001Z",
@@ -3711,13 +4062,13 @@ var SidebarIcon = ({
 };
 
 // src/components/ui/Icons/VectorIcon.tsx
-var import_jsx_runtime39 = require("react/jsx-runtime");
+var import_jsx_runtime42 = require("react/jsx-runtime");
 var VectorIcon = ({
   size = 24,
   className,
   ...props
 }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
     "svg",
     {
       width: size,
@@ -3727,7 +4078,7 @@ var VectorIcon = ({
       xmlns: "http://www.w3.org/2000/svg",
       className: cn(className),
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
         "path",
         {
           d: "M9.25 9.25L9.29149 9.22926C9.86461 8.9427 10.5099 9.46034 10.3545 10.082L9.64549 12.918C9.49009 13.5397 10.1354 14.0573 10.7085 13.7707L10.75 13.75M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10ZM10 6.25H10.0075V6.2575H10V6.25Z",
@@ -3741,186 +4092,15 @@ var VectorIcon = ({
   );
 };
 
-// src/components/ui/Icons/SupremeIcon.tsx
-var import_jsx_runtime40 = require("react/jsx-runtime");
-var SupremeIcon = ({
-  size,
-  className,
-  ...props
-}) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
-    "svg",
-    {
-      width: size || "70",
-      height: size || "81",
-      viewBox: "0 0 70 81",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("g", { "clip-path": "url(#clip0_536_983)", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M5.73686 38.0134C6.0443 40.6284 6.69265 42.8018 7.68191 44.5417C8.66908 46.2774 10.1958 47.6318 12.2643 48.5987C14.3306 49.5676 17.0935 50.0511 20.5506 50.0511C24.8716 50.0511 28.1259 49.3676 30.3177 48.0007C32.5096 46.6317 33.6034 44.4562 33.6034 41.4724C33.6034 39.5053 32.8944 37.9384 31.4743 36.7694C30.0542 35.6004 28.2806 34.7169 26.1515 34.1168C24.0224 33.5188 21.0442 32.8499 17.2168 32.1102C11.9401 31.1267 7.64217 30.0806 4.32722 28.9763C2.78163 28.4595 1.34062 27.776 0 26.9405V37.3237H4.95256C5.3834 37.3216 5.64483 37.5529 5.73686 38.0134Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M65.3246 0V6.51164C65.3246 6.81378 65.0799 7.05758 64.7767 7.05758H51.9059C51.6026 7.05758 51.3579 6.81378 51.3579 6.51164V0H39.7503C43.0255 3.13809 45.0501 7.41598 45.8239 12.8337V12.9253C45.8239 13.3858 45.5918 13.6171 45.1295 13.6171H31.7986C31.3657 13.6171 31.1189 13.3858 31.0582 12.9253C30.7194 9.94353 29.3913 7.66811 27.0782 6.09906C24.7651 4.53002 21.63 3.74862 17.6792 3.74862C14.1614 3.74862 11.3693 4.37999 9.30085 5.63856C7.23449 6.89921 6.19922 8.82041 6.19922 11.4042C6.19922 13.2192 6.89358 14.6715 8.28231 15.7613C9.67103 16.8532 11.4216 17.6908 13.536 18.2743C15.6484 18.8598 18.543 19.4745 22.2156 20.1184C27.6157 21.1331 32.0057 22.1854 35.3855 23.2794C38.7632 24.3692 41.6724 26.2153 44.111 28.8137C46.5475 31.4101 47.7669 34.9878 47.7669 39.5345C47.7669 44.0229 46.6647 47.8444 44.4582 50.995C43.8245 51.8993 43.1029 52.7328 42.3124 53.5121H51.3035V26.8071V14.7528C51.3035 14.261 51.5503 14.0151 52.0439 14.0151H64.6344C65.128 14.0151 65.3748 14.261 65.3748 14.7528V26.8071V53.5121H69.3381V0H65.3246Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M24.6831 68.7379C24.1247 68.5254 23.6876 68.2045 23.3718 67.7752C23.0539 67.3439 22.8845 66.8063 22.8594 66.1624C22.8594 66.0999 22.8907 66.0666 22.9535 66.0666H24.6622C24.7187 66.0666 24.7521 66.0957 24.7626 66.1562C24.8023 66.4917 24.886 66.7709 25.0136 66.9959C25.1411 67.2189 25.3377 67.3939 25.6013 67.5168C25.8669 67.6419 26.2224 67.7044 26.6658 67.7044C27.2221 67.7044 27.6404 67.6169 27.9228 67.4398C28.2051 67.2626 28.3453 66.9834 28.3453 66.6C28.3453 66.3479 28.2532 66.1458 28.0713 65.9957C27.8893 65.8457 27.6614 65.7311 27.3874 65.654C27.1134 65.5769 26.7307 65.4915 26.2392 65.3956C25.5615 65.2685 25.0073 65.1352 24.5827 64.9935C24.1561 64.8518 23.7901 64.6142 23.4847 64.2829C23.1794 63.9516 23.0267 63.4953 23.0267 62.9139C23.0267 62.3971 23.1585 61.9471 23.4199 61.5678C23.6813 61.1886 24.0641 60.8969 24.566 60.6926C25.0679 60.4905 25.6703 60.3884 26.373 60.3884C27.3853 60.3884 28.1989 60.5947 28.8137 61.0073C29.4286 61.4199 29.7988 62.0575 29.9201 62.9202V62.9327C29.9201 62.991 29.8908 63.0223 29.8302 63.0223H28.1173C28.0608 63.0223 28.0294 62.9931 28.0211 62.9327C27.9772 62.5492 27.8078 62.2575 27.5087 62.0554C27.2117 61.8533 26.808 61.7533 26.2998 61.7533C25.8481 61.7533 25.4883 61.8345 25.2227 61.9971C24.9571 62.1596 24.8232 62.4055 24.8232 62.7389C24.8232 62.9722 24.9132 63.1598 25.091 63.2994C25.2708 63.4411 25.4946 63.5474 25.7665 63.6224C26.0384 63.6974 26.4107 63.7766 26.8833 63.8599C27.5777 63.9891 28.1424 64.1246 28.5753 64.2662C29.0103 64.4059 29.3847 64.6434 29.6984 64.9768C30.0121 65.3102 30.169 65.7707 30.169 66.3541C30.169 66.9313 30.0268 67.4231 29.7444 67.8273C29.46 68.2337 29.0543 68.54 28.5251 68.7463C27.996 68.9546 27.3644 69.0588 26.6344 69.0588C25.8899 69.0567 25.2394 68.9505 24.6831 68.7379Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M31.4049 68.7275C31.0828 68.54 30.8339 68.267 30.6583 67.9086C30.4805 67.5502 30.3926 67.1272 30.3926 66.6375V65.356L30.3696 62.8535C30.3696 62.791 30.401 62.7597 30.4637 62.7597H32.0825C32.1453 62.7597 32.1766 62.791 32.1766 62.8535L32.1536 65.356V66.6125C32.1536 66.8292 32.1934 67.0209 32.2729 67.1876C32.3523 67.3543 32.4611 67.4814 32.6033 67.571C32.7434 67.6606 32.9045 67.7044 33.0822 67.7044C33.3081 67.7044 33.5235 67.6335 33.7243 67.4939C33.9272 67.3522 34.0924 67.1397 34.2221 66.8542C34.3518 66.5667 34.4166 66.2187 34.4166 65.8082V65.3581L34.3936 62.8556C34.3936 62.793 34.425 62.7618 34.4877 62.7618H36.1295C36.1922 62.7618 36.2257 62.793 36.2257 62.8556L36.2027 65.6894V68.7733C36.2027 68.8358 36.1713 68.8671 36.1086 68.8671H34.5735C34.5149 68.8671 34.4835 68.8358 34.4835 68.7733L34.5128 68.0982C34.2953 68.3753 34.0129 68.5962 33.6699 68.7629C33.3269 68.9296 32.9484 69.013 32.5364 69.013C32.1034 69.0088 31.727 68.915 31.4049 68.7275Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M41.6448 63.0514C42.0443 63.3265 42.3455 63.7016 42.5504 64.1787C42.7554 64.6538 42.8558 65.1935 42.8558 65.7936C42.8558 66.3875 42.747 66.9251 42.5274 67.4085C42.3099 67.8919 41.9962 68.2753 41.5863 68.5587C41.1784 68.8421 40.7037 68.9817 40.1641 68.9817C39.4258 68.9817 38.8444 68.7337 38.4198 68.2399L38.4366 70.7841C38.4366 70.8466 38.4052 70.88 38.3424 70.88H36.7236C36.6609 70.88 36.6274 70.8487 36.6274 70.7841L36.6504 66.3854L36.6274 62.8514C36.6274 62.7889 36.6588 62.7576 36.7236 62.7576H38.3299C38.3884 62.7576 38.4198 62.7889 38.4198 62.8514L38.3905 63.4682C38.6039 63.2035 38.8653 62.9993 39.1707 62.8556C39.476 62.7118 39.819 62.6389 40.1996 62.6389C40.7643 62.6389 41.2454 62.7764 41.6448 63.0514ZM40.689 67.3064C40.9191 66.9855 41.0341 66.5146 41.0341 65.8895C41.0341 65.2164 40.9212 64.7101 40.6953 64.3663C40.4694 64.0224 40.1369 63.8495 39.7019 63.8495C39.2627 63.8495 38.928 64.0162 38.7001 64.3475C38.4721 64.6788 38.3571 65.1706 38.3571 65.8186C38.3571 66.4521 38.47 66.9376 38.6959 67.2772C38.9218 67.6169 39.2459 67.7877 39.6663 67.7877C40.1181 67.7877 40.459 67.6273 40.689 67.3064Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M43.2363 68.865C43.1736 68.865 43.1401 68.8338 43.1401 68.7713L43.1757 65.8061L43.1401 62.8535C43.1401 62.791 43.1715 62.7597 43.2363 62.7597H44.8196C44.8781 62.7597 44.9095 62.791 44.9095 62.8535L44.8677 63.7912C45.1019 63.439 45.4094 63.1723 45.7942 62.9868C46.1769 62.8035 46.5994 62.7118 47.0595 62.7118C47.1515 62.7118 47.2498 62.7222 47.3565 62.741C47.4109 62.7535 47.4402 62.7889 47.4402 62.8472V63.9745C47.4402 64.0329 47.4109 64.0641 47.3502 64.0641C47.3147 64.0641 47.2749 64.062 47.231 64.0579C47.1871 64.0537 47.1453 64.0516 47.1055 64.0516C46.6768 64.0516 46.2982 64.1308 45.9678 64.2892C45.6394 64.4475 45.3801 64.683 45.1939 64.9976C45.0078 65.3123 44.9137 65.6957 44.9137 66.1499V68.7713C44.9137 68.8338 44.8823 68.865 44.8196 68.865H43.2363Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M49.0212 66.175C49.0567 66.748 49.1885 67.1689 49.4144 67.4356C49.6402 67.7023 49.9686 67.8357 50.4015 67.8357C51.0478 67.8357 51.4473 67.5189 51.5978 66.8876C51.6104 66.8334 51.6439 66.8042 51.6982 66.8042H53.2271C53.2585 66.8042 53.2836 66.8105 53.3024 66.8209C53.3212 66.8334 53.3275 66.848 53.3233 66.8688C53.2794 67.2564 53.133 67.6148 52.8841 67.9419C52.6331 68.2712 52.2943 68.5316 51.8635 68.7275C51.4326 68.9234 50.939 69.0213 50.3785 69.0213C49.7113 69.0213 49.1425 68.8859 48.6677 68.615C48.193 68.3441 47.8332 67.969 47.5906 67.4877C47.3459 67.0084 47.2246 66.4562 47.2246 65.8311C47.2246 65.1831 47.3501 64.6163 47.599 64.1329C47.85 63.6474 48.2076 63.2723 48.6761 63.0056C49.1446 62.7389 49.7009 62.6055 50.343 62.6055C51.006 62.6055 51.5727 62.7451 52.0412 63.0264C52.5118 63.3077 52.8694 63.7078 53.1183 64.2267C53.3672 64.7476 53.4969 65.3644 53.5073 66.0791C53.5073 66.1416 53.476 66.1729 53.4132 66.1729H49.0212V66.175ZM49.5001 64.0954C49.2868 64.3079 49.1446 64.6247 49.0693 65.0477H51.5811C51.5414 64.6872 51.4201 64.3871 51.2151 64.1433C51.0101 63.8995 50.7236 63.7787 50.3555 63.7787C49.9979 63.7787 49.7134 63.8849 49.5001 64.0954Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M62.8417 66.6729L62.8647 68.7712C62.8647 68.8338 62.8334 68.865 62.7706 68.865H61.1518C61.0891 68.865 61.0577 68.8338 61.0577 68.7712L61.0807 66.6729V65.0122C61.0807 64.6517 61.0117 64.3808 60.8758 64.1975C60.7398 64.0141 60.5453 63.9224 60.2964 63.9224C60.1249 63.9224 59.9576 63.9974 59.7924 64.1454C59.6272 64.2933 59.4912 64.5121 59.3845 64.7976C59.2779 65.0851 59.2235 65.4227 59.2235 65.8144V65.9207V66.6729L59.2465 68.7712C59.2465 68.8338 59.2151 68.865 59.1503 68.865H57.5315C57.4688 68.865 57.4353 68.8338 57.4353 68.7712L57.4583 66.6729V65.0122C57.4583 64.6475 57.3914 64.3746 57.2554 64.1933C57.1216 64.012 56.9271 63.9203 56.6719 63.9203C56.4962 63.9203 56.3289 63.9953 56.1637 64.1433C55.9985 64.2912 55.8646 64.51 55.758 64.7955C55.6534 65.083 55.6011 65.4227 55.6011 65.8186V66.6729L55.6241 68.7712C55.6241 68.8338 55.5927 68.865 55.53 68.865H53.8882C53.8255 68.865 53.792 68.8338 53.792 68.7712L53.815 66.6729V62.8535C53.815 62.791 53.8464 62.7597 53.9091 62.7597H55.4442C55.5028 62.7597 55.5342 62.791 55.5342 62.8535L55.5049 63.5286C55.7224 63.2244 55.9755 62.9952 56.2599 62.843C56.5464 62.6909 56.8811 62.6138 57.2659 62.6138C57.703 62.6138 58.0711 62.7097 58.3702 62.8993C58.6693 63.0889 58.891 63.3765 59.0332 63.7641C59.28 63.3327 59.5498 63.0347 59.8468 62.866C60.1417 62.6972 60.4888 62.6138 60.8841 62.6138C61.5157 62.6138 61.9989 62.8097 62.3335 63.2014C62.6681 63.5932 62.8354 64.187 62.8354 64.9872V66.6729H62.8417Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M64.8893 66.175C64.9249 66.748 65.0566 67.1689 65.2825 67.4356C65.5084 67.7023 65.8368 67.8357 66.2697 67.8357C66.9159 67.8357 67.3154 67.5189 67.466 66.8876C67.4786 66.8334 67.512 66.8042 67.5664 66.8042H69.0952C69.1266 66.8042 69.1517 66.8105 69.1705 66.8209C69.1894 66.8334 69.1956 66.848 69.1915 66.8688C69.1475 67.2564 69.0011 67.6148 68.7522 67.9419C68.5013 68.2712 68.1625 68.5316 67.7316 68.7275C67.3008 68.9234 66.8072 69.0213 66.2467 69.0213C65.5795 69.0213 65.0106 68.8859 64.5359 68.615C64.0611 68.3441 63.7014 67.969 63.4588 67.4877C63.2141 67.0084 63.0928 66.4562 63.0928 65.8311C63.0928 65.1831 63.2183 64.6163 63.4671 64.1329C63.7181 63.6474 64.0758 63.2723 64.5442 63.0056C65.0127 62.7389 65.5691 62.6055 66.2111 62.6055C66.8741 62.6055 67.4409 62.7451 67.9094 63.0264C68.38 63.3077 68.7376 63.7078 68.9865 64.2267C69.2354 64.7476 69.365 65.3644 69.3755 66.0791C69.3755 66.1416 69.3441 66.1729 69.2814 66.1729H64.8893V66.175ZM65.3662 64.0954C65.1529 64.3079 65.0106 64.6247 64.9353 65.0477H67.4472C67.4074 64.6872 67.2861 64.3871 67.0812 64.1433C66.8762 63.8995 66.5897 63.7787 66.2216 63.7787C65.864 63.7787 65.5795 63.8849 65.3662 64.0954Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M12.4921 78.6606C12.4293 78.6606 12.3979 78.6294 12.3979 78.5669L12.4335 74.5099L12.3979 70.4549C12.3979 70.3924 12.4293 70.3591 12.4921 70.3591H14.1108C14.1736 70.3591 14.205 70.3903 14.205 70.4549L14.1694 74.5099L14.205 78.5669C14.205 78.6294 14.1736 78.6606 14.1108 78.6606H12.4921Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M20.5503 76.0622L20.5734 78.5648C20.5734 78.6273 20.542 78.6585 20.4792 78.6585H18.8605C18.7977 78.6585 18.7663 78.6273 18.7663 78.5648L18.7893 76.0622V74.8057C18.7893 74.589 18.7496 74.3973 18.6701 74.2306C18.5907 74.0639 18.4798 73.9368 18.3397 73.8472C18.1996 73.7576 18.0385 73.7138 17.8607 73.7138C17.6349 73.7138 17.4194 73.7847 17.2187 73.9243C17.0158 74.0639 16.8506 74.2785 16.7209 74.564C16.5912 74.8516 16.5264 75.1995 16.5264 75.61V76.0622L16.5494 78.5648C16.5494 78.6273 16.518 78.6585 16.4553 78.6585H14.8135C14.7507 78.6585 14.7173 78.6273 14.7173 78.5648L14.7403 75.7309V72.647C14.7403 72.5845 14.7717 72.5532 14.8344 72.5532H16.3695C16.4281 72.5532 16.4595 72.5845 16.4595 72.647L16.4302 73.3221C16.6477 73.045 16.93 72.8241 17.273 72.6574C17.616 72.4907 17.9946 72.4073 18.4066 72.4073C18.8395 72.4073 19.216 72.5011 19.5381 72.6887C19.8602 72.8762 20.1091 73.1492 20.2847 73.5076C20.4625 73.866 20.5503 74.289 20.5503 74.7786V76.0622Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M22.3888 78.5835C22.0834 78.4543 21.8366 78.2439 21.6505 77.9584C21.4643 77.6729 21.3702 77.3104 21.3702 76.8707L21.3828 74.4744V73.8097H20.6801C20.6173 73.8097 20.5859 73.7784 20.5859 73.7159V72.6491C20.5859 72.5866 20.6173 72.5553 20.6801 72.5553H21.3765L21.3702 71.1196C21.3702 71.0571 21.4016 71.0258 21.4643 71.0258H23.0601C23.1229 71.0258 23.1542 71.0571 23.1542 71.1196L23.148 72.5553H24.5221C24.5848 72.5553 24.6183 72.5866 24.6183 72.6491V73.7159C24.6183 73.7784 24.5869 73.8097 24.5221 73.8097H23.1417V74.4682L23.1542 76.8228C23.1542 77.0707 23.2107 77.2479 23.3237 77.3541C23.4366 77.4583 23.5976 77.5104 23.8089 77.5104C24.0347 77.5104 24.2648 77.4771 24.499 77.4104C24.5074 77.4062 24.5158 77.4041 24.5283 77.4041C24.5513 77.4041 24.5702 77.4125 24.5848 77.4271C24.5994 77.4437 24.6057 77.4646 24.6057 77.4916V78.4585C24.6057 78.5106 24.5827 78.546 24.5346 78.5648C24.1142 78.7065 23.7336 78.7773 23.3927 78.7773C23.0308 78.7794 22.6941 78.7127 22.3888 78.5835Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M26.3102 75.9684C26.3458 76.5415 26.4775 76.9624 26.7034 77.2291C26.9293 77.4958 27.2577 77.6292 27.6906 77.6292C28.3369 77.6292 28.7363 77.3124 28.8869 76.6811C28.8995 76.6269 28.9329 76.5977 28.9873 76.5977H30.5161C30.5475 76.5977 30.5726 76.604 30.5914 76.6144C30.6103 76.6269 30.6165 76.6415 30.6124 76.6623C30.5684 77.0499 30.422 77.4083 30.1731 77.7354C29.9222 78.0647 29.5834 78.3251 29.1525 78.521C28.7217 78.7169 28.2281 78.8148 27.6676 78.8148C27.0004 78.8148 26.4315 78.6794 25.9568 78.4085C25.482 78.1376 25.1223 77.7625 24.8797 77.2812C24.635 76.8019 24.5137 76.2497 24.5137 75.6246C24.5137 74.9766 24.6392 74.4098 24.888 73.9264C25.139 73.4409 25.4967 73.0658 25.9651 72.7991C26.4336 72.5324 26.99 72.399 27.632 72.399C28.295 72.399 28.8618 72.5386 29.3303 72.8199C29.8009 73.1012 30.1585 73.5013 30.4074 74.0202C30.6563 74.5411 30.7859 75.1579 30.7964 75.8726C30.7964 75.9351 30.765 75.9664 30.7023 75.9664H26.3102V75.9684ZM26.7892 73.891C26.5758 74.1035 26.4336 74.4202 26.3583 74.8432H28.8702C28.8304 74.4827 28.7091 74.1827 28.5042 73.9389C28.2992 73.6951 28.0127 73.5742 27.6446 73.5742C27.2869 73.5722 27.0025 73.6784 26.7892 73.891Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M31.2398 78.6606C31.177 78.6606 31.1436 78.6294 31.1436 78.5669L31.1791 74.5099L31.1436 70.4549C31.1436 70.3924 31.1749 70.3591 31.2398 70.3591H32.8104C32.8732 70.3591 32.9067 70.3903 32.9067 70.4549L32.8711 74.5099L32.9067 78.5669C32.9067 78.6294 32.8753 78.6606 32.8104 78.6606H31.2398Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M33.5239 78.6606C33.4612 78.6606 33.4277 78.6294 33.4277 78.5669L33.4633 74.5099L33.4277 70.4549C33.4277 70.3924 33.4591 70.3591 33.5239 70.3591H35.0946C35.1574 70.3591 35.1908 70.3903 35.1908 70.4549L35.1553 74.5099L35.1908 78.5669C35.1908 78.6294 35.1595 78.6606 35.0946 78.6606H33.5239Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M35.7866 71.9594C35.7239 71.9594 35.6904 71.9281 35.6904 71.8656V70.4549C35.6904 70.3924 35.7218 70.3591 35.7866 70.3591H37.4054C37.4682 70.3591 37.5016 70.3903 37.5016 70.4549V71.8656C37.5016 71.9281 37.4703 71.9594 37.4054 71.9594H35.7866ZM35.7866 78.6606C35.7239 78.6606 35.6904 78.6294 35.6904 78.5669L35.7134 75.6142L35.6904 72.6491C35.6904 72.5866 35.7218 72.5553 35.7866 72.5553H37.4054C37.4682 72.5553 37.5016 72.5866 37.5016 72.6491L37.4786 75.6142L37.5016 78.5669C37.5016 78.6294 37.4703 78.6606 37.4054 78.6606H35.7866Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M39.0829 78.2251C38.6667 77.9584 38.3509 77.5938 38.1397 77.1312C37.9263 76.6686 37.8218 76.1456 37.8218 75.5663C37.8218 74.9933 37.9305 74.4723 38.1501 74.0014C38.3676 73.5305 38.6814 73.1575 39.0913 72.8845C39.4991 72.6095 39.9739 72.472 40.5135 72.472C40.8899 72.472 41.2288 72.5345 41.5257 72.6616C41.8227 72.7887 42.0779 72.9762 42.287 73.2242L42.2577 72.6491C42.2577 72.5866 42.287 72.5553 42.3477 72.5553H43.9435C44.0062 72.5553 44.0376 72.5866 44.0376 72.6491L44.0146 75.6976V78.496C44.0146 79.019 43.9016 79.4691 43.6758 79.8483C43.4499 80.2276 43.1111 80.5214 42.6614 80.7256C42.2117 80.9319 41.6533 81.034 40.9924 81.034C40.4445 81.0423 39.9572 80.9736 39.5263 80.8277C39.0955 80.6818 38.7525 80.4589 38.4973 80.1609C38.2422 79.8629 38.0999 79.4941 38.0728 79.0544V79.0419C38.0728 78.9857 38.102 78.9586 38.1627 78.9586H39.7396C39.794 78.9586 39.8296 78.9878 39.84 79.0482C39.8756 79.3087 39.9969 79.5087 40.2039 79.6504C40.411 79.79 40.6933 79.8608 41.0552 79.8608C41.4609 79.8608 41.7788 79.7442 42.013 79.5129C42.2473 79.2816 42.3644 78.9357 42.3644 78.471V77.7709C42.1574 78.048 41.9064 78.2585 41.6094 78.4064C41.3124 78.5523 40.9757 78.6252 40.6034 78.6252C40.0032 78.6252 39.4991 78.4918 39.0829 78.2251ZM42.3205 75.5642C42.3205 74.9349 42.2034 74.4557 41.9712 74.1264C41.7391 73.7972 41.4023 73.6305 40.961 73.6305C40.5281 73.6305 40.1998 73.7889 39.976 74.1077C39.7522 74.4265 39.6393 74.887 39.6393 75.4934C39.6393 76.1414 39.7522 76.6311 39.976 76.9645C40.1998 77.2958 40.5239 77.4625 40.9485 77.4625C41.8646 77.4625 42.3205 76.8311 42.3205 75.5642Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M46.1164 75.9684C46.1519 76.5415 46.2837 76.9624 46.5096 77.2291C46.7355 77.4958 47.0638 77.6292 47.4967 77.6292C48.143 77.6292 48.5425 77.3124 48.6931 76.6811C48.7056 76.6269 48.7391 76.5977 48.7934 76.5977H50.3223C50.3537 76.5977 50.3788 76.604 50.3976 76.6144C50.4164 76.6269 50.4227 76.6415 50.4185 76.6623C50.3746 77.0499 50.2282 77.4083 49.9793 77.7354C49.7283 78.0647 49.3895 78.3251 48.9587 78.521C48.5278 78.7169 48.0342 78.8148 47.4737 78.8148C46.8066 78.8148 46.2377 78.6794 45.7629 78.4085C45.2882 78.1376 44.9284 77.7625 44.6858 77.2812C44.4411 76.8019 44.3198 76.2497 44.3198 75.6246C44.3198 74.9766 44.4453 74.4098 44.6942 73.9264C44.9452 73.4409 45.3028 73.0658 45.7713 72.7991C46.2398 72.5324 46.7961 72.399 47.4382 72.399C48.1012 72.399 48.668 72.5386 49.1364 72.8199C49.607 73.1012 49.9647 73.5013 50.2135 74.0202C50.4624 74.5411 50.5921 75.1579 50.6026 75.8726C50.6026 75.9351 50.5712 75.9664 50.5084 75.9664H46.1164V75.9684ZM46.5953 73.891C46.382 74.1035 46.2398 74.4202 46.1645 74.8432H48.6763C48.6366 74.4827 48.5153 74.1827 48.3103 73.9389C48.1054 73.6951 47.8188 73.5742 47.4507 73.5742C47.0931 73.5722 46.8087 73.6784 46.5953 73.891Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M56.7242 76.0622L56.7472 78.5648C56.7472 78.6273 56.7158 78.6585 56.6531 78.6585H55.0343C54.9715 78.6585 54.9402 78.6273 54.9402 78.5648L54.9632 76.0622V74.8057C54.9632 74.589 54.9234 74.3973 54.844 74.2306C54.7645 74.0639 54.6536 73.9368 54.5135 73.8472C54.3734 73.7576 54.2123 73.7138 54.0346 73.7138C53.8087 73.7138 53.5933 73.7847 53.3925 73.9243C53.1896 74.0639 53.0244 74.2785 52.8947 74.564C52.7651 74.8516 52.7002 75.1995 52.7002 75.61V76.0622L52.7232 78.5648C52.7232 78.6273 52.6919 78.6585 52.6291 78.6585H50.9873C50.9246 78.6585 50.8911 78.6273 50.8911 78.5648L50.9141 75.7309V72.647C50.9141 72.5845 50.9455 72.5532 51.0082 72.5532H52.5434C52.6019 72.5532 52.6333 72.5845 52.6333 72.647L52.604 73.3221C52.8215 73.045 53.1039 72.8241 53.4469 72.6574C53.7899 72.4907 54.1684 72.4073 54.5804 72.4073C55.0134 72.4073 55.3898 72.5011 55.7119 72.6887C56.034 72.8762 56.2829 73.1492 56.4586 73.5076C56.6363 73.866 56.7242 74.289 56.7242 74.7786V76.0622Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M58.4288 78.4231C57.9582 78.1626 57.5985 77.7917 57.3475 77.3104C57.0965 76.8311 56.9731 76.2685 56.9731 75.6246C56.9731 74.9766 57.0986 74.4098 57.3475 73.9222C57.5985 73.4367 57.9603 73.0617 58.4372 72.7949C58.914 72.5303 59.4808 72.3969 60.1396 72.3969C60.6562 72.3969 61.1121 72.4886 61.5116 72.672C61.9111 72.8554 62.2269 73.1158 62.4632 73.4513C62.6995 73.7868 62.8397 74.1764 62.8836 74.6182V74.6307C62.8836 74.6578 62.8752 74.6807 62.8564 74.6953C62.8397 74.712 62.8146 74.7182 62.7874 74.7182H61.3234C61.2648 74.7182 61.2313 74.689 61.223 74.6286C61.1602 74.2931 61.0285 74.0348 60.8319 73.8576C60.6353 73.6805 60.4052 73.5909 60.1396 73.5909C59.6878 73.5951 59.3532 73.7618 59.1336 74.0952C58.914 74.4265 58.8053 74.9307 58.8053 75.6059C58.8053 76.306 58.9161 76.8165 59.1378 77.1395C59.3595 77.4625 59.7004 77.6229 60.1605 77.6229C60.4659 77.6229 60.7189 77.5167 60.9155 77.3062C61.1142 77.0957 61.2334 76.7936 61.2732 76.4019C61.2774 76.3393 61.3087 76.306 61.3673 76.306H62.8669C62.8982 76.306 62.9233 76.3143 62.9422 76.3289C62.961 76.3456 62.9672 76.3664 62.9631 76.3935C62.9233 76.8561 62.7769 77.2708 62.526 77.6375C62.2729 78.0042 61.9383 78.2918 61.52 78.4981C61.1017 78.7023 60.629 78.8065 60.0999 78.8065C59.4578 78.8148 58.8994 78.6835 58.4288 78.4231Z",
-              fill: "black"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-            "path",
-            {
-              d: "M64.8893 75.9684C64.9249 76.5415 65.0566 76.9624 65.2825 77.2291C65.5084 77.4958 65.8368 77.6292 66.2697 77.6292C66.9159 77.6292 67.3154 77.3124 67.466 76.6811C67.4786 76.6269 67.512 76.5977 67.5664 76.5977H69.0952C69.1266 76.5977 69.1517 76.604 69.1705 76.6144C69.1894 76.6269 69.1956 76.6415 69.1915 76.6623C69.1475 77.0499 69.0011 77.4083 68.7522 77.7354C68.5013 78.0647 68.1625 78.3251 67.7316 78.521C67.3008 78.7169 66.8072 78.8148 66.2467 78.8148C65.5795 78.8148 65.0106 78.6794 64.5359 78.4085C64.0611 78.1376 63.7014 77.7625 63.4588 77.2812C63.2141 76.8019 63.0928 76.2497 63.0928 75.6246C63.0928 74.9766 63.2183 74.4098 63.4671 73.9264C63.7181 73.4409 64.0758 73.0658 64.5442 72.7991C65.0127 72.5324 65.5691 72.399 66.2111 72.399C66.8741 72.399 67.4409 72.5386 67.9094 72.8199C68.38 73.1012 68.7376 73.5013 68.9865 74.0202C69.2354 74.5411 69.365 75.1579 69.3755 75.8726C69.3755 75.9351 69.3441 75.9664 69.2814 75.9664H64.8893V75.9684ZM65.3662 73.891C65.1529 74.1035 65.0106 74.4202 64.9353 74.8432H67.4472C67.4074 74.4827 67.2861 74.1827 67.0812 73.9389C66.8762 73.6951 66.5897 73.5742 66.2216 73.5742C65.864 73.5722 65.5795 73.6784 65.3662 73.891Z",
-              fill: "black"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("clipPath", { id: "clip0_536_983", children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("rect", { width: "70", height: "81", fill: "white" }) }) })
-      ]
-    }
-  );
-};
-
 // src/components/ui/sidebar.tsx
-var import_jsx_runtime41 = require("react/jsx-runtime");
-var Sidebar = React25.forwardRef(
+var import_jsx_runtime43 = require("react/jsx-runtime");
+var Sidebar = React27.forwardRef(
   ({ className, items, ...props }, ref) => {
     const navigate = (0, import_react_router_dom.useNavigate)();
-    const [expandedSections, setExpandedSections] = React25.useState(
+    const [expandedSections, setExpandedSections] = React27.useState(
       new Set(items.map((section) => section.id))
     );
-    const [isCollapsed, setIsCollapsed] = React25.useState(false);
+    const [isCollapsed, setIsCollapsed] = React27.useState(false);
     const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
     const handleSectionToggle = (sectionId) => {
       const newExpandedSections = new Set(expandedSections);
@@ -3957,7 +4137,7 @@ var Sidebar = React25.forwardRef(
       };
     };
     const sizeClasses = getSizeClasses();
-    return /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(
       "div",
       {
         ref,
@@ -3969,7 +4149,7 @@ var Sidebar = React25.forwardRef(
         ),
         ...props,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "pb-7", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "pb-7", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(
             "div",
             {
               className: cn(
@@ -3977,17 +4157,17 @@ var Sidebar = React25.forwardRef(
                 isCollapsed && "justify-center"
               ),
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
                   "div",
                   {
                     className: cn(
                       "transition-all duration-500 ease-in-out overflow-hidden",
                       isCollapsed ? "w-0 opacity-0" : "w-auto opacity-100"
                     ),
-                    children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SupremeIcon, {})
+                    children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(SupremeIcon, {})
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
                   "button",
                   {
                     onClick: toggleCollapse,
@@ -3996,7 +4176,7 @@ var Sidebar = React25.forwardRef(
                       isCollapsed && "rotate-180"
                     ),
                     "aria-label": isCollapsed ? "Expand sidebar" : "Collapse sidebar",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+                    children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
                       SidebarIcon,
                       {
                         size: 24,
@@ -4008,9 +4188,9 @@ var Sidebar = React25.forwardRef(
               ]
             }
           ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "w-full h-[1px] bg-slate-200" }),
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "flex-col flex h-full gap-20 pt-7", children: items.map((section) => /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "mb-4", children: [
-            section.isCollapsible ? /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "w-full h-[1px] bg-slate-200" }),
+          /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "flex-col flex h-full gap-20 pt-7", children: items.map((section) => /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "mb-4", children: [
+            section.isCollapsible ? /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(
               "button",
               {
                 onClick: () => handleSectionToggle(section.id),
@@ -4021,7 +4201,7 @@ var Sidebar = React25.forwardRef(
                   isCollapsed && "justify-center px-2"
                 ),
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
                     import_outline11.ChevronDownIcon,
                     {
                       className: cn(
@@ -4031,7 +4211,7 @@ var Sidebar = React25.forwardRef(
                       )
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
                     "span",
                     {
                       className: cn(
@@ -4043,7 +4223,7 @@ var Sidebar = React25.forwardRef(
                   )
                 ]
               }
-            ) : /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+            ) : /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
               "div",
               {
                 className: cn(
@@ -4053,16 +4233,16 @@ var Sidebar = React25.forwardRef(
                 children: !isCollapsed && section.title
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
               "div",
               {
                 className: cn(
                   "overflow-hidden transition-all duration-500 ease-in-out",
                   expandedSections.has(section.id) || !section.isCollapsible ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                 ),
-                children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "space-y-1", children: section.items.map((item) => {
+                children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "space-y-1", children: section.items.map((item) => {
                   const isActive = isItemActive(item);
-                  return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
                     "button",
                     {
                       onClick: () => handleItemClick(item),
@@ -4072,7 +4252,7 @@ var Sidebar = React25.forwardRef(
                         isActive && "text-slate-600 font-semibold",
                         isCollapsed && "justify-center"
                       ),
-                      children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(
+                      children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(
                         "div",
                         {
                           className: cn(
@@ -4082,7 +4262,7 @@ var Sidebar = React25.forwardRef(
                             isActive && "bg-white border border-slate-200"
                           ),
                           children: [
-                            item.icon && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+                            item.icon && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
                               "span",
                               {
                                 className: cn(
@@ -4093,7 +4273,7 @@ var Sidebar = React25.forwardRef(
                                 children: item.icon
                               }
                             ),
-                            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+                            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
                               "span",
                               {
                                 className: cn(
@@ -4123,10 +4303,10 @@ var Sidebar = React25.forwardRef(
 Sidebar.displayName = "Sidebar";
 
 // src/components/ui/slider.tsx
-var React26 = __toESM(require("react"), 1);
+var React28 = __toESM(require("react"), 1);
 var SliderPrimitive = __toESM(require("@radix-ui/react-slider"), 1);
-var import_jsx_runtime42 = require("react/jsx-runtime");
-var Slider = React26.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(
+var import_jsx_runtime44 = require("react/jsx-runtime");
+var Slider = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(
   SliderPrimitive.Root,
   {
     ref,
@@ -4136,13 +4316,13 @@ var Slider = React26.forwardRef(({ className, ...props }, ref) => /* @__PURE__ *
     ),
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SliderPrimitive.Track, { className: "relative h-2 w-full grow overflow-hidden rounded-full bg-neutral-200", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SliderPrimitive.Range, { className: "absolute h-full bg-supreme-blue-600 rounded-full" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SliderPrimitive.Thumb, { className: "block h-6 w-6 rounded-full border-2 border-supreme-blue-600 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(SliderPrimitive.Track, { className: "relative h-2 w-full grow overflow-hidden rounded-full bg-neutral-200", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(SliderPrimitive.Range, { className: "absolute h-full bg-supreme-blue-600 rounded-full" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(SliderPrimitive.Thumb, { className: "block h-6 w-6 rounded-full border-2 border-supreme-blue-600 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })
     ]
   }
 ));
 Slider.displayName = SliderPrimitive.Root.displayName;
-var RangeSlider = React26.forwardRef(({ className, defaultValue, value, onValueChange, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(
+var RangeSlider = React28.forwardRef(({ className, defaultValue, value, onValueChange, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(
   SliderPrimitive.Root,
   {
     ref,
@@ -4155,20 +4335,20 @@ var RangeSlider = React26.forwardRef(({ className, defaultValue, value, onValueC
     onValueChange,
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SliderPrimitive.Track, { className: "relative h-2 w-full grow overflow-hidden rounded-full bg-neutral-200", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SliderPrimitive.Range, { className: "absolute h-full bg-supreme-blue-600 rounded-full" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SliderPrimitive.Thumb, { className: "block h-6 w-6 rounded-full border-2 border-supreme-blue-600 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" }),
-      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SliderPrimitive.Thumb, { className: "block h-6 w-6 rounded-full border-2 border-supreme-blue-600 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(SliderPrimitive.Track, { className: "relative h-2 w-full grow overflow-hidden rounded-full bg-neutral-200", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(SliderPrimitive.Range, { className: "absolute h-full bg-supreme-blue-600 rounded-full" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(SliderPrimitive.Thumb, { className: "block h-6 w-6 rounded-full border-2 border-supreme-blue-600 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" }),
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(SliderPrimitive.Thumb, { className: "block h-6 w-6 rounded-full border-2 border-supreme-blue-600 bg-white shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" })
     ]
   }
 ));
 RangeSlider.displayName = "RangeSlider";
 
 // src/components/ui/stepper.tsx
-var React27 = __toESM(require("react"), 1);
+var React29 = __toESM(require("react"), 1);
 var import_outline12 = require("@heroicons/react/24/outline");
-var import_jsx_runtime43 = require("react/jsx-runtime");
-var StepperIndicator = React27.forwardRef(({ className, stepNumber, step = "default", ...props }, ref) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+var import_jsx_runtime45 = require("react/jsx-runtime");
+var StepperIndicator = React29.forwardRef(({ className, stepNumber, step = "default", ...props }, ref) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
     "div",
     {
       ref,
@@ -4180,7 +4360,7 @@ var StepperIndicator = React27.forwardRef(({ className, stepNumber, step = "defa
         className
       ),
       ...props,
-      children: step === "done" ? /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_outline12.CheckIcon, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+      children: step === "done" ? /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_outline12.CheckIcon, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
         "p",
         {
           className: cn(
@@ -4195,9 +4375,9 @@ var StepperIndicator = React27.forwardRef(({ className, stepNumber, step = "defa
   );
 });
 StepperIndicator.displayName = "StepperIndicator";
-var StepperItem = React27.forwardRef(
+var StepperItem = React29.forwardRef(
   ({ className, stepNumber, title, step = "default", showLeftConnector = false, showRightConnector = false, leftConnectorColor, rightConnectorColor, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(
       "div",
       {
         ref,
@@ -4207,22 +4387,22 @@ var StepperItem = React27.forwardRef(
         ),
         ...props,
         children: [
-          showLeftConnector && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+          showLeftConnector && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
             "div",
             {
               className: cn("h-[2px] absolute top-[15px] left-0 z-0", leftConnectorColor),
               style: { width: "50px" }
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(StepperIndicator, { stepNumber, step }),
-          showRightConnector && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(StepperIndicator, { stepNumber, step }),
+          showRightConnector && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
             "div",
             {
               className: cn("h-[2px] absolute top-[15px] right-0 z-0", rightConnectorColor),
               style: { width: "50px" }
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
             "p",
             {
               className: cn(
@@ -4240,9 +4420,9 @@ var StepperItem = React27.forwardRef(
   }
 );
 StepperItem.displayName = "StepperItem";
-var Stepper = React27.forwardRef(
+var Stepper = React29.forwardRef(
   ({ className, steps, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
       "div",
       {
         ref,
@@ -4271,7 +4451,7 @@ var Stepper = React27.forwardRef(
               rightConnectorColor = "bg-slate-50";
             }
           }
-          return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+          return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
             StepperItem,
             {
               stepNumber: stepData.stepNumber,
@@ -4292,9 +4472,9 @@ var Stepper = React27.forwardRef(
 Stepper.displayName = "Stepper";
 
 // src/components/ui/table.tsx
-var React28 = __toESM(require("react"), 1);
+var React30 = __toESM(require("react"), 1);
 var import_outline13 = require("@heroicons/react/24/outline");
-var import_jsx_runtime44 = require("react/jsx-runtime");
+var import_jsx_runtime46 = require("react/jsx-runtime");
 var getScoreColor = (score) => {
   if (1 <= score && score <= 10) return "bg-[#FF8F8F] text-neutral-800";
   if (11 <= score && score <= 20) return "bg-[#FFB28E] text-neutral-800";
@@ -4302,7 +4482,7 @@ var getScoreColor = (score) => {
   if (31 <= score && score <= 50) return "bg-[#6CFFA5] text-neutral-800";
   return "bg-[#FF8F8F] text-neutral-800";
 };
-var Table = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "relative w-full overflow-auto", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var Table = React30.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "relative w-full overflow-auto", children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
   "table",
   {
     ref,
@@ -4311,7 +4491,7 @@ var Table = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */
   }
 ) }));
 Table.displayName = "Table";
-var TableHeader = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var TableHeader = React30.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
   "thead",
   {
     ref,
@@ -4320,7 +4500,7 @@ var TableHeader = React28.forwardRef(({ className, ...props }, ref) => /* @__PUR
   }
 ));
 TableHeader.displayName = "TableHeader";
-var TableBody = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var TableBody = React30.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
   "tbody",
   {
     ref,
@@ -4329,7 +4509,7 @@ var TableBody = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE_
   }
 ));
 TableBody.displayName = "TableBody";
-var TableFooter = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var TableFooter = React30.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
   "tfoot",
   {
     ref,
@@ -4341,7 +4521,7 @@ var TableFooter = React28.forwardRef(({ className, ...props }, ref) => /* @__PUR
   }
 ));
 TableFooter.displayName = "TableFooter";
-var TableRow = React28.forwardRef(({ className, onClick, clickable, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var TableRow = React30.forwardRef(({ className, onClick, clickable, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
   "tr",
   {
     ref,
@@ -4355,7 +4535,7 @@ var TableRow = React28.forwardRef(({ className, onClick, clickable, ...props }, 
   }
 ));
 TableRow.displayName = "TableRow";
-var TableHead = React28.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var TableHead = React30.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
   "th",
   {
     ref,
@@ -4368,7 +4548,7 @@ var TableHead = React28.forwardRef(({ className, children, ...props }, ref) => /
   }
 ));
 TableHead.displayName = "TableHead";
-var TableCell = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var TableCell = React30.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
   "td",
   {
     ref,
@@ -4377,7 +4557,7 @@ var TableCell = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE_
   }
 ));
 TableCell.displayName = "TableCell";
-var TableCaption = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var TableCaption = React30.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
   "caption",
   {
     ref,
@@ -4386,7 +4566,7 @@ var TableCaption = React28.forwardRef(({ className, ...props }, ref) => /* @__PU
   }
 ));
 TableCaption.displayName = "TableCaption";
-var TableCheckbox = React28.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var TableCheckbox = React30.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
   "input",
   {
     ref,
@@ -4399,27 +4579,27 @@ var TableCheckbox = React28.forwardRef(({ className, ...props }, ref) => /* @__P
   }
 ));
 TableCheckbox.displayName = "TableCheckbox";
-var TableHeaderCell = React28.forwardRef(({ className, showCheckbox = true, rightIcon = true, showText = "", state = "Default", selectedRows, setSelectedRows, tableData, handleHeaderCheckbox, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(
+var TableHeaderCell = React30.forwardRef(({ className, showCheckbox = true, rightIcon = true, showText = "", state = "Default", selectedRows, setSelectedRows, tableData, handleHeaderCheckbox, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)(
   "div",
   {
     ref,
     className: cn("flex gap-2 items-center", className),
     ...props,
     children: [
-      showCheckbox && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+      showCheckbox && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
         TableCheckbox,
         {
           checked: selectedRows.size === tableData.length && tableData.length > 0,
           onChange: (e) => handleHeaderCheckbox(e.target.checked)
         }
       ),
-      showText && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-semibold leading-4 relative shrink-0 text-neutral-800 text-sm", children: showText }),
-      rightIcon && (typeof rightIcon === "boolean" ? /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_outline13.ArrowDownIcon, { className: "h-4 w-4 relative shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "relative shrink-0 flex items-center justify-center", children: rightIcon }))
+      showText && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-semibold leading-4 relative shrink-0 text-neutral-800 text-sm", children: showText }),
+      rightIcon && (typeof rightIcon === "boolean" ? /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(import_outline13.ArrowDownIcon, { className: "h-4 w-4 relative shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "relative shrink-0 flex items-center justify-center", children: rightIcon }))
     ]
   }
 ));
 TableHeaderCell.displayName = "TableHeaderCell";
-var TableCellGeneric = React28.forwardRef(({
+var TableCellGeneric = React30.forwardRef(({
   className,
   showCheckbox = true,
   style = "Lead Text",
@@ -4437,38 +4617,38 @@ var TableCellGeneric = React28.forwardRef(({
   ...props
 }, ref) => {
   if (style === "Score") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Score, { score });
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(Score, { score });
   }
   if (style === "Range") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Range2, { range, lvl });
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(Range2, { range, lvl });
   }
   if (style === "Text" && description === true && state === "Default") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)(
       "div",
       {
         ref,
         className: cn("flex flex-col gap-1 items-start leading-4 text-sm whitespace-pre-wrap", className),
         ...props,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-medium relative shrink-0 text-neutral-800 w-full", children: title || "Tempor suspendisse amet" }),
-          /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-normal relative shrink-0 text-neutral-600 w-full", children: subtitle || "At enim nisi commodo" })
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-medium relative shrink-0 text-neutral-800 w-full", children: title || "Tempor suspendisse amet" }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-normal relative shrink-0 text-neutral-600 w-full", children: subtitle || "At enim nisi commodo" })
         ]
       }
     );
   }
   if (style === "Text" && description === false && state === "Default") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
         className: cn("flex leading-4 relative text-neutral-600 text-sm whitespace-pre-wrap", className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-normal relative shrink-0 w-full", children: children || "Tempor suspendisse amet" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-normal relative shrink-0 w-full", children: children || "Tempor suspendisse amet" })
       }
     );
   }
   if (style === "CTA" && state === "Default") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
@@ -4479,7 +4659,7 @@ var TableCellGeneric = React28.forwardRef(({
     );
   }
   if (style === "Badge" && state === "Default") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
@@ -4489,30 +4669,30 @@ var TableCellGeneric = React28.forwardRef(({
       }
     );
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)(
     "div",
     {
       ref,
       className: cn("flex gap-1.5 items-center", className),
       ...props,
       children: [
-        showCheckbox && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+        showCheckbox && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
           TableCheckbox,
           {
             checked: selectedRows.has(rowId),
             onChange: (e) => handleRowCheckbox(rowId, e.target.checked)
           }
         ),
-        children || /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex flex-1 flex-col gap-1 items-start leading-4 text-sm whitespace-pre-wrap", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-medium relative shrink-0 text-neutral-800 w-full", children: title || "Tempor suspendisse amet" }),
-          /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-normal relative shrink-0 text-neutral-600 w-full", children: subtitle || "At enim nisi commodo" })
+        children || /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "flex flex-1 flex-col gap-1 items-start leading-4 text-sm whitespace-pre-wrap", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-medium relative shrink-0 text-neutral-800 w-full", children: title || "Tempor suspendisse amet" }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-normal relative shrink-0 text-neutral-600 w-full", children: subtitle || "At enim nisi commodo" })
         ] })
       ]
     }
   );
 });
 TableCellGeneric.displayName = "TableCellGeneric";
-var TableCellBenchmark = React28.forwardRef(({
+var TableCellBenchmark = React30.forwardRef(({
   className,
   leftIcon = true,
   showCheckbox = true,
@@ -4530,7 +4710,7 @@ var TableCellBenchmark = React28.forwardRef(({
   ...props
 }, ref) => {
   if (style === "Score" && state === "Default") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
@@ -4539,19 +4719,19 @@ var TableCellBenchmark = React28.forwardRef(({
           className
         ),
         ...props,
-        children: showScore && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+        children: showScore && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
           "div",
           {
             className: "flex flex-col gap-[10px] items-center justify-center px-2.5 py-0 rounded-[2px] shrink-0 w-9",
             style: { backgroundColor: scoreColor },
-            children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-xs leading-4 text-neutral-800", children: score || 40 })
+            children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "text-xs leading-4 text-neutral-800", children: score || 40 })
           }
         )
       }
     );
   }
   if (style === "Score" && state === "Hover") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
@@ -4560,19 +4740,19 @@ var TableCellBenchmark = React28.forwardRef(({
           className
         ),
         ...props,
-        children: showScore && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+        children: showScore && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
           "div",
           {
             className: "flex flex-col gap-[10px] items-center justify-center px-2.5 py-0 rounded-[2px] shrink-0 w-9",
             style: { backgroundColor: scoreColor },
-            children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-xs leading-4 text-neutral-800", children: score || 40 })
+            children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "text-xs leading-4 text-neutral-800", children: score || 40 })
           }
         )
       }
     );
   }
   if (style === "Lead" && state === "Hover") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
@@ -4581,27 +4761,27 @@ var TableCellBenchmark = React28.forwardRef(({
           className
         ),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0", children: [
-          showCheckbox && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0", children: [
+          showCheckbox && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
             TableCheckbox,
             {
               checked: selectedRows.has(rowId),
               onChange: (e) => handleRowCheckbox(rowId, e.target.checked)
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0", children: [
-            leftIcon !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "flex gap-6 items-end relative shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "overflow-clip relative shrink-0 size-4", children: leftIcon === true ? /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_outline13.GlobeAltIcon, { className: "size-4 text-neutral-900" }) : leftIcon ? leftIcon : null }) }),
-            children ? children : /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex flex-1 flex-col gap-1 items-start leading-4 text-sm whitespace-pre-wrap", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-medium relative shrink-0 text-supreme-blue-700 w-full", children: "Company Name Here" }),
-              descriptionText && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-normal relative shrink-0 text-neutral-500 w-full", children: descriptionText })
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0", children: [
+            leftIcon !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "flex gap-6 items-end relative shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "overflow-clip relative shrink-0 size-4", children: leftIcon === true ? /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(import_outline13.GlobeAltIcon, { className: "size-4 text-neutral-900" }) : leftIcon ? leftIcon : null }) }),
+            children ? children : /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "flex flex-1 flex-col gap-1 items-start leading-4 text-sm whitespace-pre-wrap", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-medium relative shrink-0 text-supreme-blue-700 w-full", children: "Company Name Here" }),
+              descriptionText && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-normal relative shrink-0 text-neutral-500 w-full", children: descriptionText })
             ] }),
-            rightIcon !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "overflow-clip relative shrink-0 size-4", children: rightIcon === true ? /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_outline13.LinkIcon, { className: "size-4 text-supreme-blue-700" }) : rightIcon ? rightIcon : null })
+            rightIcon !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "overflow-clip relative shrink-0 size-4", children: rightIcon === true ? /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(import_outline13.LinkIcon, { className: "size-4 text-supreme-blue-700" }) : rightIcon ? rightIcon : null })
           ] })
         ] })
       }
     );
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
     "div",
     {
       ref,
@@ -4610,123 +4790,123 @@ var TableCellBenchmark = React28.forwardRef(({
         className
       ),
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0", children: [
-        showCheckbox && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0", children: [
+        showCheckbox && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
           "input",
           {
             type: "checkbox",
             className: "bg-white border border-neutral-500 rounded-sm shrink-0 size-4"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0", children: [
-          leftIcon === true && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "overflow-clip relative shrink-0 size-4", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_outline13.GlobeAltIcon, { className: "size-4 text-neutral-900" }) }),
-          children ? children : /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex flex-1 flex-col gap-1 items-start leading-4 text-sm whitespace-pre-wrap", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-medium relative shrink-0 text-supreme-blue-700 w-full", children: "Company Name Here" }),
-            descriptionText && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-normal relative shrink-0 text-neutral-500 w-full", children: descriptionText })
+        /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "flex flex-1 gap-2 items-center min-h-px min-w-px shrink-0", children: [
+          leftIcon === true && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "overflow-clip relative shrink-0 size-4", children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(import_outline13.GlobeAltIcon, { className: "size-4 text-neutral-900" }) }),
+          children ? children : /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "flex flex-1 flex-col gap-1 items-start leading-4 text-sm whitespace-pre-wrap", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-medium relative shrink-0 text-supreme-blue-700 w-full", children: "Company Name Here" }),
+            descriptionText && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-normal relative shrink-0 text-neutral-500 w-full", children: descriptionText })
           ] }),
-          rightIcon === true && /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "overflow-clip relative shrink-0 size-4", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_outline13.LinkIcon, { className: "size-4 text-supreme-blue-700" }) })
+          rightIcon === true && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "overflow-clip relative shrink-0 size-4", children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(import_outline13.LinkIcon, { className: "size-4 text-supreme-blue-700" }) })
         ] })
       ] })
     }
   );
 });
 TableCellBenchmark.displayName = "TableCellBenchmark";
-var Range2 = React28.forwardRef(({ className, range = "0-10", lvl = "1", ...props }, ref) => {
+var Range2 = React30.forwardRef(({ className, range = "0-10", lvl = "1", ...props }, ref) => {
   const baseClasses = "flex gap-[10px] h-14 items-center justify-center w-[120px]";
-  const element = /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "font-normal leading-[18px] relative shrink-0 text-[#4e4c6c] text-sm text-center", children: range });
+  const element = /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "font-normal leading-[18px] relative shrink-0 text-[#4e4c6c] text-sm text-center", children: range });
   if (range === "0-10" && lvl === "1") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
         className: cn("bg-[#ff8f8f]", baseClasses, className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
       }
     );
   }
   if (range === "0-10" && lvl === "2") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
         className: cn("bg-[#ff8f8f]", baseClasses, className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "bg-[rgba(255,255,255,0.8)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "bg-[rgba(255,255,255,0.8)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
       }
     );
   }
   if (range === "11-20" && lvl === "1") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
         className: cn("bg-[#ffb28e]", baseClasses, className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
       }
     );
   }
   if (range === "11-20" && lvl === "2") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
         className: cn("bg-[#ffb28e]", baseClasses, className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "bg-[rgba(255,255,255,0.8)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "bg-[rgba(255,255,255,0.8)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
       }
     );
   }
   if (range === "21-30" && lvl === "1") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
         className: cn("bg-[#ffe15d]", baseClasses, className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
       }
     );
   }
   if (range === "21-30" && lvl === "2") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
         className: cn("bg-[#ffe15d]", baseClasses, className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "bg-[rgba(255,255,255,0.8)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "bg-[rgba(255,255,255,0.8)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
       }
     );
   }
   if (range === "31-50" && lvl === "1") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
         className: cn("bg-[#6cffa5]", baseClasses, className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "bg-[rgba(255,255,255,0.5)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
       }
     );
   }
   if (range === "31-50" && lvl === "2") {
-    return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
       "div",
       {
         ref,
         className: cn("bg-[#6cffa5]", baseClasses, className),
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "bg-[rgba(255,255,255,0.8)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
+        children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "bg-[rgba(255,255,255,0.8)] flex flex-1 gap-[10px] h-full items-center justify-center min-h-px min-w-px relative shrink-0", children: element })
       }
     );
   }
 });
 Range2.displayName = "Range";
-var Score = React28.forwardRef(({ className, score = 40, ...props }, ref) => {
-  const element = /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: cn("font-normal leading-4 relative shrink-0 text-xs whitespace-pre-wrap w-9 px-2.5 py-0 rounded-[2px]", getScoreColor(score)), children: score });
-  return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
+var Score = React30.forwardRef(({ className, score = 40, ...props }, ref) => {
+  const element = /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: cn("font-normal leading-4 relative shrink-0 text-xs whitespace-pre-wrap w-9 px-2.5 py-0 rounded-[2px]", getScoreColor(score)), children: score });
+  return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
     "div",
     {
       ref,
@@ -4739,10 +4919,10 @@ var Score = React28.forwardRef(({ className, score = 40, ...props }, ref) => {
 Score.displayName = "Score";
 
 // src/components/ui/tabs.tsx
-var React29 = __toESM(require("react"), 1);
+var React31 = __toESM(require("react"), 1);
 var TabsPrimitive = __toESM(require("@radix-ui/react-tabs"), 1);
 var import_class_variance_authority7 = require("class-variance-authority");
-var import_jsx_runtime45 = require("react/jsx-runtime");
+var import_jsx_runtime47 = require("react/jsx-runtime");
 var tabsListVariants = (0, import_class_variance_authority7.cva)(
   "inline-flex h-10 items-center justify-center bg-muted text-muted-foreground",
   {
@@ -4810,7 +4990,7 @@ var tabsContentVariants = (0, import_class_variance_authority7.cva)(
   }
 );
 var Tabs = TabsPrimitive.Root;
-var TabsList = React29.forwardRef(({ className, variant, size, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+var TabsList = React31.forwardRef(({ className, variant, size, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
   TabsPrimitive.List,
   {
     ref,
@@ -4819,7 +4999,7 @@ var TabsList = React29.forwardRef(({ className, variant, size, ...props }, ref) 
   }
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
-var TabsTrigger = React29.forwardRef(({ className, variant, size, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+var TabsTrigger = React31.forwardRef(({ className, variant, size, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
   TabsPrimitive.Trigger,
   {
     ref,
@@ -4828,7 +5008,7 @@ var TabsTrigger = React29.forwardRef(({ className, variant, size, ...props }, re
   }
 ));
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
-var TabsContent = React29.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+var TabsContent = React31.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
   TabsPrimitive.Content,
   {
     ref,
@@ -4837,7 +5017,7 @@ var TabsContent = React29.forwardRef(({ className, variant, ...props }, ref) => 
   }
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
-var TabGroup = React29.forwardRef(({
+var TabGroup = React31.forwardRef(({
   tabs,
   defaultValue,
   value,
@@ -4847,7 +5027,7 @@ var TabGroup = React29.forwardRef(({
   className,
   orientation = "horizontal"
 }, ref) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { ref, className: cn("w-full", className), children: /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("div", { ref, className: cn("w-full", className), children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)(
     Tabs,
     {
       defaultValue,
@@ -4856,7 +5036,7 @@ var TabGroup = React29.forwardRef(({
       orientation,
       className: "w-full",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(TabsList, { variant, size, className: "w-full", children: tabs.map((tab) => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(TabsList, { variant, size, className: "w-full", children: tabs.map((tab) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
           TabsTrigger,
           {
             value: tab.value,
@@ -4868,7 +5048,7 @@ var TabGroup = React29.forwardRef(({
           },
           tab.value
         )) }),
-        tabs.map((tab) => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(TabsContent, { value: tab.value, variant, children: tab.content }, tab.value))
+        tabs.map((tab) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(TabsContent, { value: tab.value, variant, children: tab.content }, tab.value))
       ]
     }
   ) });
@@ -4876,9 +5056,9 @@ var TabGroup = React29.forwardRef(({
 TabGroup.displayName = "TabGroup";
 
 // src/components/ui/textarea.tsx
-var React30 = __toESM(require("react"), 1);
-var import_jsx_runtime46 = require("react/jsx-runtime");
-var Textarea = React30.forwardRef(
+var React32 = __toESM(require("react"), 1);
+var import_jsx_runtime48 = require("react/jsx-runtime");
+var Textarea = React32.forwardRef(
   ({
     className,
     label,
@@ -4891,8 +5071,8 @@ var Textarea = React30.forwardRef(
   }, ref) => {
     const isError = state === "error" || Boolean(error);
     const isActive = state === "active";
-    return /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "relative", children: [
-      label && /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "relative", children: [
+      label && /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)(
         "label",
         {
           className: cn(
@@ -4902,11 +5082,11 @@ var Textarea = React30.forwardRef(
           ),
           children: [
             label,
-            required && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("span", { className: "text-destructive", children: " *" })
+            required && /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("span", { className: "text-destructive", children: " *" })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(
         "textarea",
         {
           className: cn(
@@ -4918,177 +5098,252 @@ var Textarea = React30.forwardRef(
           ...props
         }
       ),
-      hint && !isError && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "text-xs leading-4 text-neutral-500", children: hint }),
-      isError && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "text-xs leading-4 text-destructive", children: error || hint })
+      hint && !isError && /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("p", { className: "text-xs leading-4 text-neutral-500", children: hint }),
+      isError && /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("p", { className: "text-xs leading-4 text-destructive", children: error || hint })
     ] });
   }
 );
 Textarea.displayName = "Textarea";
 
 // src/components/ui/toast.tsx
-var React31 = __toESM(require("react"), 1);
+var React33 = __toESM(require("react"), 1);
 var ToastPrimitives = __toESM(require("@radix-ui/react-toast"), 1);
 var import_class_variance_authority8 = require("class-variance-authority");
 var import_outline14 = require("@heroicons/react/24/outline");
-var import_jsx_runtime47 = require("react/jsx-runtime");
+var import_jsx_runtime49 = require("react/jsx-runtime");
 var ToastProvider = ToastPrimitives.Provider;
-var ToastViewport = React31.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
+var toastVariants = (0, import_class_variance_authority8.cva)(
+  "group pointer-events-auto relative flex w-full items-start gap-4 overflow-hidden rounded-lg border p-4 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
+  {
+    variants: {
+      variant: {
+        default: "border-neutral-300 bg-white",
+        primary: "border-supreme-blue-300 bg-supreme-blue-50",
+        error: "border-red-600 bg-red-50",
+        warning: "border-orange-300 bg-orange-50",
+        success: "border-green-300 bg-green-50"
+      },
+      size: {
+        floating: "max-w-full sm:max-w-xl lg:max-w-3xl",
+        "full-width": "max-w-full items-center gap-4 rounded-none border-b border-l-0 border-r-0 border-t-0"
+      }
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "floating"
+    }
+  }
+);
+var TOAST_DEFAULT_VARIANT = "default";
+var TOAST_DEFAULT_SIZE = "floating";
+var ToastContext = React33.createContext({
+  variant: TOAST_DEFAULT_VARIANT,
+  size: TOAST_DEFAULT_SIZE
+});
+var useToastContext = () => React33.useContext(ToastContext);
+var ToastViewport = React33.forwardRef(({ className, size = TOAST_DEFAULT_SIZE, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
   ToastPrimitives.Viewport,
   {
     ref,
+    "data-size": size,
     className: cn(
-      "fixed top-0 z-[100] max-h-screen w-1/2 p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-1/2",
-      variant === "success" && "bg-transparent border-green-500 text-green-500",
-      variant === "info" && "bg-transparent border-blue-500 text-blue-500",
-      variant === "warning" && "bg-transparent border-yellow-500 text-yellow-500",
-      variant === "destructive" && "bg-transparent border-red-500 text-red-500",
+      "fixed top-0 z-[100] flex w-full flex-col gap-3 p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:p-6",
+      size === "floating" && "sm:max-w-xl lg:max-w-3xl",
+      size === "full-width" && "sm:w-full",
       className
     ),
     ...props
   }
 ));
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
-var toastVariants = (0, import_class_variance_authority8.cva)(
-  "group pointer-events-auto relative flex w-full items-start space-x-4 overflow-hidden rounded-md border border-neutral-300 bg-white p-6 pr-8 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
-  {
-    variants: {
-      variant: {
-        default: "border-neutral-300 bg-white text-foreground",
-        destructive: "destructive group border-destructive bg-destructive text-destructive-foreground",
-        info: "border-neutral-300 bg-blue-100 text-blue-500",
-        success: "border-green-300 bg-green-100 text-green-500",
-        warning: "border-yellow-300 bg-yellow-100 text-yellow-500"
-      }
-    },
-    defaultVariants: {
-      variant: "default"
-    }
-  }
-);
-var Toast = React31.forwardRef(({ className, variant, ...props }, ref) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
+var Toast = React33.forwardRef(({ className, variant, size, ...props }, ref) => {
+  const toastVariant = variant ?? TOAST_DEFAULT_VARIANT;
+  const toastSize = size ?? TOAST_DEFAULT_SIZE;
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(ToastContext.Provider, { value: { variant: toastVariant, size: toastSize }, children: /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
     ToastPrimitives.Root,
     {
       ref,
-      className: cn(toastVariants({ variant }), className),
+      "data-variant": toastVariant,
+      "data-size": toastSize,
+      className: cn(
+        toastVariants({ variant: toastVariant, size: toastSize }),
+        className
+      ),
+      ...props
+    }
+  ) });
+});
+Toast.displayName = ToastPrimitives.Root.displayName;
+var ToastIcon = React33.forwardRef(({ className, variant, size, children, ...props }, ref) => {
+  const context = useToastContext();
+  const iconVariant = variant ?? context.variant;
+  const iconSize = size ?? context.size;
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+    "div",
+    {
+      ref,
+      className: cn(
+        "flex shrink-0 items-center justify-center gap-2.5 rounded-lg border p-2.5",
+        iconSize === "full-width" && "gap-0 border-0 p-0",
+        iconVariant === "default" && iconSize === "floating" && "border-neutral-200",
+        iconVariant === "primary" && iconSize === "floating" && "border-supreme-blue-200",
+        iconVariant === "error" && iconSize === "floating" && "border-red-200",
+        iconVariant === "warning" && iconSize === "floating" && "border-orange-200",
+        iconVariant === "success" && iconSize === "floating" && "border-green-200",
+        className
+      ),
+      ...props,
+      children: children ?? /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+        import_outline14.InformationCircleIcon,
+        {
+          className: cn(
+            "h-6 w-6 shrink-0",
+            iconVariant === "default" && "text-neutral-900",
+            iconVariant === "primary" && "text-supreme-blue-700",
+            iconVariant === "error" && "text-red-800",
+            iconVariant === "warning" && "text-orange-800",
+            iconVariant === "success" && "text-green-700"
+          )
+        }
+      )
+    }
+  );
+});
+ToastIcon.displayName = "ToastIcon";
+var ToastContent = React33.forwardRef(({ className, size, ...props }, ref) => {
+  const context = useToastContext();
+  const contentSize = size ?? context.size;
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+    "div",
+    {
+      ref,
+      className: cn(
+        "relative flex min-h-px min-w-px flex-1 flex-col items-start gap-1.5",
+        contentSize === "full-width" && "sm:flex-row sm:items-center sm:justify-between sm:gap-6",
+        className
+      ),
       ...props
     }
   );
 });
-Toast.displayName = ToastPrimitives.Root.displayName;
-var ToastIcon = React31.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
-  "div",
-  {
-    ref,
-    className: cn(
-      "flex-shrink-0 w-10 h-10 rounded-sm border bg-white flex items-center justify-center",
-      variant === "success" && "bg-transparent border-green-500 text-green-500",
-      variant === "info" && "bg-transparent border-blue-500 text-blue-500",
-      variant === "warning" && "bg-transparent border-yellow-500 text-yellow-500",
-      variant === "destructive" && "bg-transparent border-red-500 text-red-500",
-      className
-    ),
-    ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
-      VectorIcon,
-      {
-        className: cn(
-          "w-5 h-5",
-          variant === "success" && "text-green-500",
-          variant === "info" && "text-blue-500",
-          variant === "warning" && "text-yellow-500",
-          variant === "destructive" && "text-red-500"
-        )
-      }
-    )
-  }
-));
-ToastIcon.displayName = "ToastIcon";
-var ToastContent = React31.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("div", { ref, className: cn("flex-1", className), ...props }));
 ToastContent.displayName = "ToastContent";
-var ToastAction = React31.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
-  ToastPrimitives.Action,
-  {
-    ref,
-    className: cn(
-      "inline-flex h-8 shrink-0 items-center justify-center rounded-md bg-transparent text-sm font-medium ring-offset-background transition-colors focus:outline-none",
-      className
-    ),
-    ...props
-  }
-));
+var ToastAction = React33.forwardRef(({ className, variant, ...props }, ref) => {
+  const context = useToastContext();
+  const actionVariant = variant ?? context.variant;
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+    ToastPrimitives.Action,
+    {
+      ref,
+      className: cn(
+        "inline-flex h-8 shrink-0 items-center justify-center rounded-md bg-transparent text-sm font-medium ring-offset-background transition-colors focus:outline-none",
+        actionVariant === "default" && "text-neutral-500",
+        actionVariant === "primary" && "text-supreme-blue-700",
+        actionVariant === "error" && "text-red-700",
+        actionVariant === "warning" && "text-orange-800",
+        actionVariant === "success" && "text-green-700",
+        className
+      ),
+      ...props
+    }
+  );
+});
 ToastAction.displayName = ToastPrimitives.Action.displayName;
-var ToastClose = React31.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
-  ToastPrimitives.Close,
-  {
-    ref,
-    className: cn(
-      "absolute right-2 top-2 rounded-md p-1 text-foreground hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600",
-      className
-    ),
-    "toast-close": "",
-    ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
-      import_outline14.XMarkIcon,
-      {
-        className: cn(
-          "h-6 w-6",
-          variant === "success" && "text-green-500",
-          variant === "info" && "text-blue-500",
-          variant === "warning" && "text-yellow-500",
-          variant === "destructive" && "text-red-500"
-        )
-      }
-    )
-  }
-));
+var ToastClose = React33.forwardRef(({ className, variant, size, ...props }, ref) => {
+  const context = useToastContext();
+  const closeVariant = variant ?? context.variant;
+  const closeSize = size ?? context.size;
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+    ToastPrimitives.Close,
+    {
+      ref,
+      className: cn(
+        "h-6 w-6 rounded-md p-1 transition-opacity",
+        closeSize === "floating" ? "absolute right-2.5 top-2 opacity-0 group-hover:opacity-100" : "relative ml-3 flex items-center justify-center opacity-100",
+        className
+      ),
+      "toast-close": "",
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+        import_outline14.XMarkIcon,
+        {
+          className: cn(
+            "h-6 w-6",
+            closeVariant === "default" && "text-neutral-900",
+            closeVariant === "primary" && "text-supreme-blue-700",
+            closeVariant === "error" && "text-red-800",
+            closeVariant === "warning" && "text-orange-800",
+            closeVariant === "success" && "text-green-700"
+          )
+        }
+      )
+    }
+  );
+});
 ToastClose.displayName = ToastPrimitives.Close.displayName;
-var ToastTitle = React31.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
-  ToastPrimitives.Title,
-  {
-    ref,
-    className: cn(
-      "text-sm font-semibold text-foreground",
-      variant === "success" && "text-green-500",
-      variant === "info" && "text-blue-500",
-      variant === "warning" && "text-yellow-500",
-      variant === "destructive" && "text-red-500",
-      className
-    ),
-    ...props
-  }
-));
+var ToastTitle = React33.forwardRef(({ className, variant, ...props }, ref) => {
+  const context = useToastContext();
+  const titleVariant = variant ?? context.variant;
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+    ToastPrimitives.Title,
+    {
+      ref,
+      className: cn(
+        "text-base font-semibold leading-6",
+        titleVariant === "default" && "text-neutral-900",
+        titleVariant === "primary" && "text-supreme-blue-700",
+        titleVariant === "error" && "text-red-800",
+        titleVariant === "warning" && "text-orange-800",
+        titleVariant === "success" && "text-green-700",
+        className
+      ),
+      ...props
+    }
+  );
+});
 ToastTitle.displayName = ToastPrimitives.Title.displayName;
-var ToastDescription = React31.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
-  ToastPrimitives.Description,
-  {
-    ref,
-    className: cn(
-      "text-sm text-muted-foreground",
-      variant === "success" && "text-green-500",
-      variant === "info" && "text-blue-500",
-      variant === "warning" && "text-yellow-500",
-      variant === "destructive" && "text-red-500",
-      className
-    ),
-    ...props
-  }
-));
+var ToastDescription = React33.forwardRef(({ className, variant, ...props }, ref) => {
+  const context = useToastContext();
+  const descriptionVariant = variant ?? context.variant;
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+    ToastPrimitives.Description,
+    {
+      ref,
+      className: cn(
+        "text-base font-normal leading-6",
+        descriptionVariant === "default" && "text-neutral-500",
+        descriptionVariant === "primary" && "text-supreme-blue-700",
+        descriptionVariant === "error" && "text-red-700",
+        descriptionVariant === "warning" && "text-orange-800",
+        descriptionVariant === "success" && "text-green-700",
+        className
+      ),
+      ...props
+    }
+  );
+});
 ToastDescription.displayName = ToastPrimitives.Description.displayName;
-var ToastActions = React31.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(
-  "div",
-  {
-    ref,
-    className: cn("flex items-center text-sm gap-2", className),
-    ...props
-  }
-));
+var ToastActions = React33.forwardRef(({ className, size, ...props }, ref) => {
+  const context = useToastContext();
+  const actionsSize = size ?? context.size;
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+    "div",
+    {
+      ref,
+      className: cn(
+        "flex flex-wrap gap-1.5",
+        actionsSize === "full-width" ? "items-center justify-end gap-3" : "items-start",
+        className
+      ),
+      ...props
+    }
+  );
+});
 ToastActions.displayName = "ToastActions";
 
 // src/hooks/use-toast.ts
-var React32 = __toESM(require("react"), 1);
+var React34 = __toESM(require("react"), 1);
 var TOAST_LIMIT = 1;
-var TOAST_REMOVE_DELAY = 1e4;
+var TOAST_REMOVE_DELAY = 3e4;
 var toastTimeouts = /* @__PURE__ */ new Map();
 var addToRemoveQueue = (toastId) => {
   if (toastTimeouts.has(toastId)) {
@@ -5184,8 +5439,8 @@ function toast({ ...props }) {
   };
 }
 function useToast() {
-  const [state, setState] = React32.useState(memoryState);
-  React32.useEffect(() => {
+  const [state, setState] = React34.useState(memoryState);
+  React34.useEffect(() => {
     listeners.push(setState);
     return () => {
       const index = listeners.indexOf(setState);
@@ -5202,40 +5457,42 @@ function useToast() {
 }
 
 // src/components/ui/toaster.tsx
-var import_jsx_runtime48 = require("react/jsx-runtime");
+var import_jsx_runtime50 = require("react/jsx-runtime");
 function Toaster() {
   const { toasts } = useToast();
-  return /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)(ToastProvider, { children: [
+  const viewportSize = toasts.some((toast2) => toast2.size === "full-width") ? "full-width" : "floating";
+  return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(ToastProvider, { children: [
     toasts.map(function({
       id,
       title,
       description,
       action,
+      size,
       children,
       variant,
       ...props
     }) {
-      return /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)(Toast, { ...props, variant, className: "w-full flex", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(ToastIcon, { variant }),
-        /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "flex gap-1 flex-col", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)(ToastContent, { children: [
-            title && /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(ToastTitle, { variant, children: title }),
-            description && /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(ToastDescription, { variant, children: description })
+      return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(Toast, { ...props, variant, size, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(ToastIcon, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(ToastContent, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { className: "flex flex-col gap-1.5", children: [
+            title && /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(ToastTitle, { children: title }),
+            description && /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(ToastDescription, { children: description })
           ] }),
           action
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(ToastClose, { variant })
+        /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(ToastClose, {})
       ] }, id);
     }),
-    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(ToastViewport, {})
+    /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(ToastViewport, { size: viewportSize })
   ] });
 }
 
 // src/components/ui/toggle.tsx
-var React33 = __toESM(require("react"), 1);
+var React35 = __toESM(require("react"), 1);
 var TogglePrimitive = __toESM(require("@radix-ui/react-toggle"), 1);
 var import_class_variance_authority9 = require("class-variance-authority");
-var import_jsx_runtime49 = require("react/jsx-runtime");
+var import_jsx_runtime51 = require("react/jsx-runtime");
 var toggleVariants = (0, import_class_variance_authority9.cva)(
   "inline-flex items-center justify-center rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative",
   {
@@ -5258,7 +5515,7 @@ var toggleVariants = (0, import_class_variance_authority9.cva)(
     }
   }
 );
-var Toggle = React33.forwardRef(
+var Toggle = React35.forwardRef(
   ({
     className,
     variant,
@@ -5281,7 +5538,7 @@ var Toggle = React33.forwardRef(
       }
       return isChecked ? "bg-white" : "bg-[#403A9A]";
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
       TogglePrimitive.Root,
       {
         ref,
@@ -5292,7 +5549,7 @@ var Toggle = React33.forwardRef(
         defaultPressed,
         onPressedChange,
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
           "div",
           {
             className: cn(
@@ -5310,13 +5567,13 @@ var Toggle = React33.forwardRef(
 Toggle.displayName = TogglePrimitive.Root.displayName;
 
 // src/components/ui/tooltip.tsx
-var React34 = __toESM(require("react"), 1);
+var React36 = __toESM(require("react"), 1);
 var TooltipPrimitive = __toESM(require("@radix-ui/react-tooltip"), 1);
-var import_jsx_runtime50 = require("react/jsx-runtime");
+var import_jsx_runtime52 = require("react/jsx-runtime");
 var TooltipProvider = TooltipPrimitive.Provider;
 var Tooltip = TooltipPrimitive.Root;
 var TooltipTrigger = TooltipPrimitive.Trigger;
-var TooltipContent = React34.forwardRef(({ className, sideOffset = 4, arrowDirection = "bottom", side, ...props }, ref) => {
+var TooltipContent = React36.forwardRef(({ className, sideOffset = 4, arrowDirection = "bottom", side, ...props }, ref) => {
   const getSide = () => {
     if (side) return side;
     switch (arrowDirection) {
@@ -5346,7 +5603,7 @@ var TooltipContent = React34.forwardRef(({ className, sideOffset = 4, arrowDirec
         return "absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-supreme-blue-950";
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)(
     TooltipPrimitive.Content,
     {
       ref,
@@ -5359,7 +5616,7 @@ var TooltipContent = React34.forwardRef(({ className, sideOffset = 4, arrowDirec
       ...props,
       children: [
         props.children,
-        /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("div", { className: getArrowClasses() })
+        /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { className: getArrowClasses() })
       ]
     }
   );
@@ -5367,11 +5624,11 @@ var TooltipContent = React34.forwardRef(({ className, sideOffset = 4, arrowDirec
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
 // src/components/ui/curie-ai-chat-prompt.tsx
-var React35 = __toESM(require("react"), 1);
+var React37 = __toESM(require("react"), 1);
 var import_outline15 = require("@heroicons/react/24/outline");
 var import_outline16 = require("@heroicons/react/24/outline");
-var import_jsx_runtime51 = require("react/jsx-runtime");
-var CurieAIChatPrompt = React35.forwardRef(
+var import_jsx_runtime53 = require("react/jsx-runtime");
+var CurieAIChatPrompt = React37.forwardRef(
   ({
     onSend,
     onAdd,
@@ -5382,9 +5639,9 @@ var CurieAIChatPrompt = React35.forwardRef(
     className,
     ...props
   }, ref) => {
-    const [message, setMessage] = React35.useState("");
-    const [selectedPersona, setSelectedPersona] = React35.useState(personas[0]);
-    const [isPersonasOpen, setIsPersonasOpen] = React35.useState(false);
+    const [message, setMessage] = React37.useState("");
+    const [selectedPersona, setSelectedPersona] = React37.useState(personas[0]);
+    const [isPersonasOpen, setIsPersonasOpen] = React37.useState(false);
     const handleSend = () => {
       if (message.trim() && onSend) {
         onSend(message.trim());
@@ -5404,7 +5661,7 @@ var CurieAIChatPrompt = React35.forwardRef(
         onPersonasChange(persona);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(
       "div",
       {
         ref,
@@ -5414,21 +5671,21 @@ var CurieAIChatPrompt = React35.forwardRef(
         ),
         ...props,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)("div", { className: "flex flex-col items-center space-y-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)("div", { className: "flex items-center space-x-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex flex-col items-center space-y-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex items-center space-x-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(
                 AIIcon,
                 {
                   className: "text-supreme-blue-700 w-7 h-7",
                   fill: "currentColor"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime51.jsx)("h1", { className: "text-2xl font-semibold text-supreme-blue-700", children: "Curie AI" })
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("h1", { className: "text-2xl font-semibold text-supreme-blue-700", children: "Curie AI" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime51.jsx)("h2", { className: "text-3xl font-medium text-neutral-700", children: "What would you like to discover?" })
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("h2", { className: "text-3xl font-medium text-neutral-700", children: "What would you like to discover?" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime51.jsx)("div", { className: "relative w-full max-w-4xl", children: /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)("div", { className: "relative bg-white rounded-2xl shadow-lg border border-neutral-200 p-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "relative w-full max-w-4xl", children: /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "relative bg-white rounded-2xl shadow-lg border border-neutral-200 p-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(
               "textarea",
               {
                 value: message,
@@ -5439,19 +5696,19 @@ var CurieAIChatPrompt = React35.forwardRef(
                 className: "w-full h-16 resize-none border-none outline-none text-base placeholder:text-neutral-400 focus:ring-0 focus:outline-none disabled:opacity-50"
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)("div", { className: "flex items-center justify-between pt-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)("div", { className: "flex items-center space-x-3", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex items-center justify-between pt-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex items-center space-x-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(
                   Button,
                   {
                     variant: "secondary",
                     onClick: onAdd,
                     disabled,
                     size: "icon",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(import_outline15.PlusIcon, { className: "w-6 h-6 text-black" })
+                    children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(import_outline15.PlusIcon, { className: "w-6 h-6 text-black" })
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime51.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)(
+                /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(
                   Button,
                   {
                     onClick: () => setIsPersonasOpen(!isPersonasOpen),
@@ -5459,20 +5716,20 @@ var CurieAIChatPrompt = React35.forwardRef(
                     size: "default",
                     variant: "secondary",
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(PersonaIcon, { size: 24 }),
-                      /* @__PURE__ */ (0, import_jsx_runtime51.jsx)("span", { className: "text-sm font-medium text-black", children: selectedPersona }),
-                      /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(import_outline15.ChevronDownIcon, { className: "w-4 h-4 text-black" })
+                      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(PersonaIcon, { size: 24 }),
+                      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("span", { className: "text-sm font-medium text-black", children: selectedPersona }),
+                      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(import_outline15.ChevronDownIcon, { className: "w-4 h-4 text-black" })
                     ]
                   }
                 ) })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(
                 Button,
                 {
                   onClick: handleSend,
                   size: "icon",
                   disabled: disabled || !message.trim(),
-                  children: /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(import_outline16.ArrowUpIcon, { className: "w-6 h-6 text-white" })
+                  children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(import_outline16.ArrowUpIcon, { className: "w-6 h-6 text-white" })
                 }
               )
             ] })
@@ -5485,11 +5742,11 @@ var CurieAIChatPrompt = React35.forwardRef(
 CurieAIChatPrompt.displayName = "CurieAIChatPrompt";
 
 // src/hooks/use-mobile.tsx
-var React36 = __toESM(require("react"), 1);
+var React38 = __toESM(require("react"), 1);
 var MOBILE_BREAKPOINT = 768;
 function useIsMobile() {
-  const [isMobile, setIsMobile] = React36.useState(void 0);
-  React36.useEffect(() => {
+  const [isMobile, setIsMobile] = React38.useState(void 0);
+  React38.useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
     const onChange = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -5511,6 +5768,16 @@ function useIsMobile() {
   AnnouncementCard,
   AppIcon,
   AudiencesIcon,
+  AuthForm,
+  AuthFormActions,
+  AuthFormBody,
+  AuthFormDescription,
+  AuthFormDivider,
+  AuthFormFooter,
+  AuthFormHeader,
+  AuthFormPrimary,
+  AuthFormSubtitle,
+  AuthFormTitle,
   Avatar,
   AvatarGroup,
   Badge,

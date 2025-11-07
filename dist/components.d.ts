@@ -450,27 +450,45 @@ interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
 declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
 
 declare const ToastProvider: React.FC<ToastPrimitives.ToastProviderProps>;
-declare const ToastViewport: React.ForwardRefExoticComponent<Omit<ToastPrimitives.ToastViewportProps & React.RefAttributes<HTMLOListElement>, "ref"> & VariantProps<(props?: {
-    variant?: "default" | "destructive" | "info" | "success" | "warning";
-} & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLOListElement>>;
+declare const toastVariants: (props?: {
+    variant?: "default" | "primary" | "error" | "warning" | "success";
+    size?: "full-width" | "floating";
+} & class_variance_authority_types.ClassProp) => string;
+type ToastSize = NonNullable<VariantProps<typeof toastVariants>["size"]>;
+declare const ToastViewport: React.ForwardRefExoticComponent<Omit<ToastPrimitives.ToastViewportProps & React.RefAttributes<HTMLOListElement>, "ref"> & {
+    size?: ToastSize;
+} & React.RefAttributes<HTMLOListElement>>;
 declare const Toast: React.ForwardRefExoticComponent<Omit<ToastPrimitives.ToastProps & React.RefAttributes<HTMLLIElement>, "ref"> & VariantProps<(props?: {
-    variant?: "default" | "destructive" | "info" | "success" | "warning";
+    variant?: "default" | "primary" | "error" | "warning" | "success";
+    size?: "full-width" | "floating";
 } & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLLIElement>>;
 declare const ToastIcon: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & VariantProps<(props?: {
-    variant?: "default" | "destructive" | "info" | "success" | "warning";
+    variant?: "default" | "primary" | "error" | "warning" | "success";
+    size?: "full-width" | "floating";
 } & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLDivElement>>;
-declare const ToastContent: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
-declare const ToastAction: React.ForwardRefExoticComponent<Omit<ToastPrimitives.ToastActionProps & React.RefAttributes<HTMLButtonElement>, "ref"> & React.RefAttributes<HTMLButtonElement>>;
+declare const ToastContent: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
+    size?: ToastSize;
+} & React.RefAttributes<HTMLDivElement>>;
+declare const ToastAction: React.ForwardRefExoticComponent<Omit<ToastPrimitives.ToastActionProps & React.RefAttributes<HTMLButtonElement>, "ref"> & VariantProps<(props?: {
+    variant?: "default" | "primary" | "error" | "warning" | "success";
+    size?: "full-width" | "floating";
+} & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLButtonElement>>;
 declare const ToastClose: React.ForwardRefExoticComponent<Omit<ToastPrimitives.ToastCloseProps & React.RefAttributes<HTMLButtonElement>, "ref"> & VariantProps<(props?: {
-    variant?: "default" | "destructive" | "info" | "success" | "warning";
+    variant?: "default" | "primary" | "error" | "warning" | "success";
+    size?: "full-width" | "floating";
 } & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLButtonElement>>;
 declare const ToastTitle: React.ForwardRefExoticComponent<Omit<ToastPrimitives.ToastTitleProps & React.RefAttributes<HTMLDivElement>, "ref"> & VariantProps<(props?: {
-    variant?: "default" | "destructive" | "info" | "success" | "warning";
+    variant?: "default" | "primary" | "error" | "warning" | "success";
+    size?: "full-width" | "floating";
 } & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLDivElement>>;
 declare const ToastDescription: React.ForwardRefExoticComponent<Omit<ToastPrimitives.ToastDescriptionProps & React.RefAttributes<HTMLDivElement>, "ref"> & VariantProps<(props?: {
-    variant?: "default" | "destructive" | "info" | "success" | "warning";
+    variant?: "default" | "primary" | "error" | "warning" | "success";
+    size?: "full-width" | "floating";
 } & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLDivElement>>;
-declare const ToastActions: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+declare const ToastActions: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & VariantProps<(props?: {
+    variant?: "default" | "primary" | "error" | "warning" | "success";
+    size?: "full-width" | "floating";
+} & class_variance_authority_types.ClassProp) => string> & React.RefAttributes<HTMLDivElement>>;
 type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
 type ToastActionElement = React.ReactElement<typeof ToastAction>;
 

@@ -113,15 +113,15 @@ import {
   tabsListVariants,
   tabsTriggerVariants,
   toggleVariants
-} from "./chunk-75D4SC5O.js";
+} from "./chunk-P7LW4KSI.js";
 import {
   Avatar,
   AvatarGroup,
   Button,
   Sidebar,
   buttonVariants
-} from "./chunk-VDON7LNT.js";
-import "./chunk-QWFTKI6L.js";
+} from "./chunk-HE2EQM36.js";
+import "./chunk-WJVRHA4Y.js";
 export {
   Accordion,
   AccordionContent,

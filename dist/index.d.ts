@@ -69,6 +69,35 @@ interface CreditSelectorProps {
 }
 declare const CreditSelector: React.FC<CreditSelectorProps>;
 
+type AuthFormElement = HTMLDivElement;
+interface AuthFormProps extends React.HTMLAttributes<AuthFormElement> {
+    withCard?: boolean;
+}
+declare const AuthFormHeader: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+declare const AuthFormTitle: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLHeadingElement> & React.RefAttributes<HTMLHeadingElement>>;
+declare const AuthFormSubtitle: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLParagraphElement> & React.RefAttributes<HTMLParagraphElement>>;
+declare const AuthFormDescription: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLParagraphElement> & React.RefAttributes<HTMLParagraphElement>>;
+declare const AuthFormBody: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+declare const AuthFormActions: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+declare const AuthFormPrimary: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+interface AuthFormDividerProps extends React.HTMLAttributes<HTMLDivElement> {
+    label?: string;
+}
+declare const AuthFormDivider: React.ForwardRefExoticComponent<AuthFormDividerProps & React.RefAttributes<HTMLDivElement>>;
+declare const AuthFormFooter: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+type AuthFormComponent = React.ForwardRefExoticComponent<AuthFormProps & React.RefAttributes<AuthFormElement>> & {
+    Header: typeof AuthFormHeader;
+    Title: typeof AuthFormTitle;
+    Subtitle: typeof AuthFormSubtitle;
+    Description: typeof AuthFormDescription;
+    Body: typeof AuthFormBody;
+    Primary: typeof AuthFormPrimary;
+    Actions: typeof AuthFormActions;
+    Divider: typeof AuthFormDivider;
+    Footer: typeof AuthFormFooter;
+};
+declare const AuthFormComponent: AuthFormComponent;
+
 interface PageHeadingProps extends React.HTMLAttributes<HTMLDivElement> {
     heading: string;
     description?: string;
@@ -155,4 +184,4 @@ declare function useToast(): {
     toasts: Toast[];
 };
 
-export { CreditOption, type CreditOptionProps, CreditSelector, type CreditSelectorProps, Credits, type CreditsProps, Divider, type DividerProps, DragDrop, type DragDropProps, PageHeading, type PageHeadingProps, Quote, type QuoteProps, RadioGroup, RadioGroupItem, Stepper, StepperIndicator, type StepperIndicatorProps, StepperItem, type StepperItemProps, type StepperProps, ToastActionElement, ToastProps, cn, reducer, toast, useIsMobile, useToast };
+export { AuthFormComponent as AuthForm, AuthFormActions, AuthFormBody, AuthFormDescription, AuthFormDivider, type AuthFormDividerProps, AuthFormFooter, AuthFormHeader, AuthFormPrimary, type AuthFormProps, AuthFormSubtitle, AuthFormTitle, CreditOption, type CreditOptionProps, CreditSelector, type CreditSelectorProps, Credits, type CreditsProps, Divider, type DividerProps, DragDrop, type DragDropProps, PageHeading, type PageHeadingProps, Quote, type QuoteProps, RadioGroup, RadioGroupItem, Stepper, StepperIndicator, type StepperIndicatorProps, StepperItem, type StepperItemProps, type StepperProps, ToastActionElement, ToastProps, cn, reducer, toast, useIsMobile, useToast };

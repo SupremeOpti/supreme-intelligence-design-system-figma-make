@@ -3,11 +3,11 @@ import {
   Avatar,
   Button,
   Sidebar
-} from "./chunk-VDON7LNT.js";
+} from "./chunk-HE2EQM36.js";
 import {
   SupremeIcon,
   cn
-} from "./chunk-QWFTKI6L.js";
+} from "./chunk-WJVRHA4Y.js";
 
 // src/components/ui/header.tsx
 import { useState as useState2, useEffect as useEffect2, useRef } from "react";

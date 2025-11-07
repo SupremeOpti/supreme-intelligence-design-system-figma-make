@@ -16,7 +16,7 @@ import {
   SidebarIcon,
   SupremeIcon,
   VectorIcon
-} from "./chunk-QWFTKI6L.js";
+} from "./chunk-WJVRHA4Y.js";
 export {
   AIIcon,
   AnalyticsIcon,
