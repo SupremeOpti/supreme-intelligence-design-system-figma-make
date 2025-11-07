@@ -83,6 +83,7 @@ import { CreditSelector } from "@/components/ui/credit-selector";
 import DragDrop from "@/components/ui/drag-drop";
 import { PageHeading } from "@/components/ui/page-heading";
 import { Stepper } from "@/components/ui/stepper";
+import { Briefcase, Target, Link2 } from "lucide-react";
 
 const headerItems: {
   icon: React.ReactNode;
@@ -987,15 +988,11 @@ const Components = () => {
                       <div className="space-y-4">
                         <h3 className="text-lg font-medium">Common Card</h3>
                         <div className="max-w-2xl">
-                          <CommonCard
-                            icon={<ArrowTrendingUpIcon className="w-[25px] h-[25px] text-neutral-800" />}
-                            title="Card Title"
-                            badge="Coming Soon"
-                            description="Card description text"
-                            headerClassName="mb-4"
-                            titleClassName="text-3xl font-bold"
-                            disabled={false}
-                          />
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl text-left">
+                            <CommonCard title="Strategic Initiatives" description="Automatically identify key initiatives from news, filings, and public data" className='p-4 gap-2 rounded-lg' titleClassName="text-base" descriptionClassName="text-sm text-muted-foreground" icon={<Target className="h-5 w-5 text-primary" />} />
+                            <CommonCard title="Capability Mapping" description="AI-powered alignment scoring between initiatives and your capabilities" className='p-4 gap-2 rounded-lg' titleClassName="text-base" descriptionClassName="text-sm text-muted-foreground" icon={<Link2 className="h-5 w-5 text-primary" />} />
+                            <CommonCard title="Ready-to-Use Assets" description="Instantly match relevant case studies, whitepapers, and proof points" className='p-4 gap-2 rounded-lg' titleClassName="text-base" descriptionClassName="text-sm text-muted-foreground" badge='Coming Soon' disabled={true} icon={<Briefcase className="h-5 w-5 text-primary" />} />
+                          </div>
                         </div>
                       </div>
                     </ContentBoxContent>

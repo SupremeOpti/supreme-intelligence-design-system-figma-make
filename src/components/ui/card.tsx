@@ -565,7 +565,7 @@ const CommonCard = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "bg-white rounded-xl border border-neutral-300 p-6 hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-pointer outline-none flex flex-col",
+      "bg-white rounded-xl border border-neutral-300 p-6 hover:shadow-lg transition-all duration-200 focus:ring-2 focus:ring-supreme-blue-100 focus:outline-none cursor-default outline-none flex flex-col",
       disabled && "opacity-50",
       className
     )}
@@ -579,9 +579,9 @@ const CommonCard = React.forwardRef<
         </div>
       )}
       <h3 className={cn("text-2xl font-semibold text-neutral-800", titleClassName)}>{title}</h3>
-      <Badge variant="default" className="text-gray-600 text-xs">
+      {badge && <Badge variant="default" className="text-gray-600 text-xs text-center">
         {badge}
-      </Badge>
+      </Badge>}
     </div>
 
     {/* Body: Description */}
