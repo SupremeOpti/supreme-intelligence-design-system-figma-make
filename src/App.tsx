@@ -12,6 +12,7 @@ import BannerDemo from "./pages/banner-demo";
 import TableDemo from "./pages/table-demo";
 import NotFound from "./pages/NotFound";
 import SidebarDemo from "./pages/sidebar-demo";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/" element={<Index />} />
             <Route path="/home" element={<Home />} />
             <Route path="/design-tokens" element={<DesignTokens />} />

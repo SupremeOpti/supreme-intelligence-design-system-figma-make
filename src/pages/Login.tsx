@@ -1,151 +1,317 @@
-import { useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+
+import {
+  AuthForm,
+  AuthFormActions,
+  AuthFormBody,
+  AuthFormDescription,
+  AuthFormDivider,
+  AuthFormFooter,
+  AuthFormHeader,
+  AuthFormPrimary,
+  AuthFormSubtitle,
+  AuthFormTitle,
+} from "@/components/ui/authForm";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  GoogleIcon,
+  MicrosoftIcon,
+  SupremeIcon,
+} from "@/components/ui/Icons";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useAuth } from "../contexts/AuthContext";
-import AuthForm from "../components/ui/authForm";
-import { Logo } from "@/components/ui/logo";
 
 const Login: React.FC = () => {
   const [mode, setMode] = useState<"login" | "signup">("login");
+  const [formValues, setFormValues] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  // Redirect if already authenticated
   if (isAuthenticated) {
     navigate("/");
     return null;
   }
 
+  const copy = useMemo(
+    () =>
+      mode === "signup"
+        ? {
+            title: "Create Account",
+            subtitle: "Welcome to Supreme Intelligence.",
+            description:
+              "Create your account to access powerful, data-driven insights tailored for the life sciences industry.",
+            primaryCta: "Create Account",
+            footerPrompt: "Already have an account?",
+            footerAction: "Sign in",
+            socialGoogle: "Continue with Google",
+            socialMicrosoft: "Continue with Microsoft",
+          }
+        : {
+            title: "Welcome Back",
+            subtitle: "",
+            description: "",
+            primaryCta: "Log In",
+            footerPrompt: "Don't you have an account?",
+            footerAction: "Get Started Now",
+            socialGoogle: "Log In with Google",
+            socialMicrosoft: "Log In with Microsoft",
+          },
+    [mode]
+  );
+
   const handleSuccess = () => {
-    console.log("Authentication successful!");
-    // Redirect to index page after successful login
     navigate("/");
   };
 
-  const handleSubmit = async (data: {
-    email: string;
-    password: string;
-    fullName?: string;
-    confirmPassword?: string;
-    rememberMe?: boolean;
-  }) => {
-    console.log("Form submitted:", data);
-    console.log("Remember me:", data.rememberMe);
-
+  const submitAuth = async () => {
+    setIsSubmitting(true);
     try {
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 800));
 
-      // Here you would typically make an API call to authenticate
-      // For demo purposes, we'll simulate a successful login
       if (mode === "signup") {
-        // Create new user
-        const newUser = {
+        login({
           id: Date.now().toString(),
-          email: data.email,
-          fullName: data.fullName || "",
-        };
-        login(newUser);
+          email: formValues.email,
+          fullName: formValues.fullName,
+        });
       } else {
-        // Login existing user (simulate)
-        const existingUser = {
-          id: "1",
-          email: data.email,
+        login({
+          id: "demo-user",
+          email: formValues.email,
           fullName: "Demo User",
-        };
-        login(existingUser);
+        });
       }
 
-      // Only call onSuccess after successful authentication
       handleSuccess();
-    } catch (error) {
-      console.error("Authentication failed:", error);
-      // Handle error appropriately
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  const handleGoogle = async () => {
-    console.log("Google sign-in");
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!formValues.email || !formValues.password) {
+      return;
+    }
+
+    if (mode === "signup") {
+      if (!formValues.fullName.trim()) {
+        return;
+      }
+
+      if (formValues.password !== formValues.confirmPassword) {
+        return;
+      }
+    }
+
+    await submitAuth();
+  };
+
+  const handleModeChange = (nextMode: "login" | "signup") => {
+    setMode(nextMode);
+  };
+
+  const handleSocialSignIn = async (provider: "google" | "microsoft") => {
+    setIsSubmitting(true);
     try {
-      // Simulate Google OAuth
       await new Promise((resolve) => setTimeout(resolve, 500));
 
-      // Create demo user for Google login
-      const googleUser = {
-        id: "google-" + Date.now(),
-        email: "user@gmail.com",
-        fullName: "Google User",
-      };
-      login(googleUser);
+      login({
+        id: `${provider}-${Date.now()}`,
+        email: provider === "google" ? "user@gmail.com" : "user@microsoft.com",
+        fullName: provider === "google" ? "Google User" : "Microsoft User",
+      });
 
-      // Redirect after successful authentication
       handleSuccess();
-    } catch (error) {
-      console.error("Google sign-in failed:", error);
-      throw error;
+    } finally {
+      setIsSubmitting(false);
     }
-  };
-
-  const handleLinkedIn = async () => {
-    console.log("LinkedIn sign-in");
-    try {
-      // Simulate LinkedIn OAuth
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
-      // Create demo user for LinkedIn login
-      const linkedInUser = {
-        id: "linkedin-" + Date.now(),
-        email: "user@linkedin.com",
-        fullName: "LinkedIn User",
-      };
-      login(linkedInUser);
-
-      // Redirect after successful authentication
-      handleSuccess();
-    } catch (error) {
-      console.error("LinkedIn sign-in failed:", error);
-      throw error;
-    }
-  };
-
-  const handleModeChange = (newMode: "login" | "signup") => {
-    setMode(newMode);
-  };
-
-  const handleRememberMeChange = (checked: boolean) => {
-    setRememberMe(checked);
-    console.log("Remember me changed:", checked);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-supreme-blue-50 to-supreme-blue-100">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-2xl">
-        {/* Header */}
-        <div className="flex flex-col items-center justify-center pt-8 pb-6">
-          <Logo variant="supreme" />
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            {mode === "login" ? "Welcome Back" : "Create An Account"}
-          </h1>
-          <p className="text-slate-600 w-[60%] mx-auto text-sm text-center leading-relaxed">
-            {mode === "login"
-              ? "Sign in to access the Supreme Intelligence platform"
-              : "Unlock the future of life sciences with AI-powered insights and data-driven decision making"}
-          </p>
-        </div>
+    <div className="flex min-h-screen items-center justify-center bg-neutral-50 px-4 py-12">
+      <AuthForm className="items-stretch gap-8 text-center">
+        <AuthForm.Header className="gap-4">
+          <SupremeIcon size={78} />
+          <AuthForm.Title>{copy.title}</AuthForm.Title>
+          {copy.subtitle ? <AuthFormSubtitle>{copy.subtitle}</AuthFormSubtitle> : null}
+          {copy.description ? (
+            <AuthFormDescription>{copy.description}</AuthFormDescription>
+          ) : null}
+        </AuthForm.Header>
 
-        {/* Auth Form */}
-        <AuthForm
-          mode={mode}
-          onSuccess={handleSuccess}
-          onModeChange={handleModeChange}
-          onSubmit={handleSubmit}
-          onGoogleLogin={handleGoogle}
-          onLinkedInLogin={handleLinkedIn}
-          showTerms={true}
-          onRememberMeChange={handleRememberMeChange}
-          rememberMe={rememberMe}
-        />
-      </div>
+        <form className="flex w-full flex-col gap-6" onSubmit={handleSubmit}>
+          <AuthFormBody>
+            {mode === "signup" && (
+              <Input
+                label="Name"
+                placeholder="Enter your full name"
+                value={formValues.fullName}
+                onChange={(event) =>
+                  setFormValues((prev) => ({
+                    ...prev,
+                    fullName: event.target.value,
+                  }))
+                }
+                required
+              />
+            )}
+            <Input
+              label={mode === "signup" ? "Business Email Address" : "Email Address"}
+              type="email"
+              placeholder="you@company.com"
+              value={formValues.email}
+              onChange={(event) =>
+                setFormValues((prev) => ({
+                  ...prev,
+                  email: event.target.value,
+                }))
+              }
+              required
+            />
+            <Input
+              label={mode === "signup" ? "New Password" : "Password"}
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter your password"
+              value={formValues.password}
+              onChange={(event) =>
+                setFormValues((prev) => ({
+                  ...prev,
+                  password: event.target.value,
+                }))
+              }
+              required
+              minLength={6}
+              rightIcon={
+                showPassword ? (
+                  <EyeSlashIcon
+                    className="cursor-pointer text-supreme-blue-700"
+                    onClick={() => setShowPassword(false)}
+                  />
+                ) : (
+                  <EyeIcon
+                    className="cursor-pointer text-supreme-blue-700"
+                    onClick={() => setShowPassword(true)}
+                  />
+                )
+              }
+            />
+            {mode === "signup" && (
+              <Input
+                label="Confirm Password"
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Re-enter your password"
+                value={formValues.confirmPassword}
+                onChange={(event) =>
+                  setFormValues((prev) => ({
+                    ...prev,
+                    confirmPassword: event.target.value,
+                  }))
+                }
+                required
+                minLength={6}
+                rightIcon={
+                  showConfirmPassword ? (
+                    <EyeSlashIcon
+                      className="cursor-pointer text-supreme-blue-700"
+                      onClick={() => setShowConfirmPassword(false)}
+                    />
+                  ) : (
+                    <EyeIcon
+                      className="cursor-pointer text-supreme-blue-700"
+                      onClick={() => setShowConfirmPassword(true)}
+                    />
+                  )
+                }
+              />
+            )}
+          </AuthFormBody>
+
+          {mode === "login" && (
+            <div className="flex items-center justify-between text-sm text-neutral-600">
+              <label className="flex items-center gap-2">
+                <Checkbox
+                  externalState={rememberMe ? "checked" : "unchecked"}
+                  onClick={() => setRememberMe((prev) => !prev)}
+                  className="h-5 w-5"
+                />
+                Remember me
+              </label>
+              <button
+                type="button"
+                className="text-supreme-blue-700 underline-offset-4 hover:underline"
+              >
+                Forgot your password?
+              </button>
+            </div>
+          )}
+
+          <AuthFormPrimary>
+            <Button
+              type="submit"
+              variant="primary-stroke"
+              size="xl"
+              className="w-full"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Please wait..." : copy.primaryCta}
+            </Button>
+          </AuthFormPrimary>
+
+          <AuthFormFooter className="text-sm text-neutral-600">
+            <span>
+              {copy.footerPrompt}{" "}
+              <button
+                type="button"
+                className="text-supreme-blue-700 underline-offset-4 hover:underline"
+                onClick={() => handleModeChange(mode === "signup" ? "login" : "signup")}
+              >
+                {copy.footerAction}
+              </button>
+            </span>
+          </AuthFormFooter>
+        </form>
+
+        <AuthFormDivider className="uppercase tracking-[0.2em] text-neutral-500" />
+
+        <AuthFormActions>
+          <Button
+            type="button"
+            variant="secondary"
+            size="xl"
+            className="w-full justify-center"
+            onClick={() => handleSocialSignIn("google")}
+            disabled={isSubmitting}
+          >
+            <GoogleIcon className="h-6 w-6" />
+            {copy.socialGoogle}
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            size="xl"
+            className="w-full justify-center"
+            onClick={() => handleSocialSignIn("microsoft")}
+            disabled={isSubmitting}
+          >
+            <MicrosoftIcon className="h-6 w-6" />
+            {copy.socialMicrosoft}
+          </Button>
+        </AuthFormActions>
+      </AuthForm>
     </div>
   );
 };

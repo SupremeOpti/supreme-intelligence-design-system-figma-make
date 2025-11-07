@@ -15,6 +15,7 @@ export * from "./components/ui/divider";
 export * from "./components/ui/credit-selector";
 export * from "./components/ui/input";
 export * from "./components/ui/logo";
+export * from "./components/ui/authForm";
 export * from "./components/ui/menubar";
 export * from "./components/ui/page-level";
 export * from "./components/ui/page-heading";

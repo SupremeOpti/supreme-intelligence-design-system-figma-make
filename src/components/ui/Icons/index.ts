@@ -10,6 +10,8 @@ export * from "./GoogleIcon";
 export * from "./HomeIcon";
 export * from "./KnowledgeBaseIcon";
 export * from "./LinkedInIcon";
+export * from "./MicrosoftIcon";
+export * from "./SupremeIcon";
 export * from "./PersonaIcon";
 export * from "./PaletteIcon";
 export * from "./SidebarIcon";
