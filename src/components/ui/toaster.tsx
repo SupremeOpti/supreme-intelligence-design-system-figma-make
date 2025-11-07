@@ -8,11 +8,13 @@ import {
   ToastViewport,
   ToastIcon,
   ToastContent,
-  ToastActions,
 } from "@/components/ui/toast";
 
 export function Toaster() {
   const { toasts } = useToast();
+  const viewportSize = toasts.some((toast) => toast.size === "full-width")
+    ? "full-width"
+    : "floating";
   return (
     <ToastProvider>
       {toasts.map(function ({
@@ -20,29 +22,26 @@ export function Toaster() {
         title,
         description,
         action,
+        size,
         children,
         variant,
         ...props
       }) {
         return (
-          <Toast key={id} {...props} variant={variant} className="w-full flex">
-            <ToastIcon variant={variant} />
-            <div className="flex gap-1 flex-col">
-              <ToastContent>
-                {title && <ToastTitle variant={variant}>{title}</ToastTitle>}
-                {description && (
-                  <ToastDescription variant={variant}>
-                    {description}
-                  </ToastDescription>
-                )}
-              </ToastContent>
+          <Toast key={id} {...props} variant={variant} size={size}>
+            <ToastIcon />
+            <ToastContent>
+              <div className="flex flex-col gap-1.5">
+                {title && <ToastTitle>{title}</ToastTitle>}
+                {description && <ToastDescription>{description}</ToastDescription>}
+              </div>
               {action}
-            </div>
-            <ToastClose variant={variant} />
+            </ToastContent>
+            <ToastClose />
           </Toast>
         );
       })}
-      <ToastViewport />
+      <ToastViewport size={viewportSize} />
     </ToastProvider>
   );
 }

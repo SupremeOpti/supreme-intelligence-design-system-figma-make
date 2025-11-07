@@ -19,6 +19,7 @@ export default function ToastDemo() {
       title: "We've just released a new feature",
       description: "Pretium at ullamcorper aliquam sed. Lectus nunc cursus scelerisque ut praesent morbi convallis nibh.",
       variant: "success",
+      size: "floating",
       action: (
         <ToastActions>
           <ToastAction altText="Dismiss" onClick={() => dismiss("custom-toast")}>
