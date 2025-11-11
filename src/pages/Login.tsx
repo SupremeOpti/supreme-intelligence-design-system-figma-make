@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/Icons";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useAuth } from "../contexts/AuthContext";
+import { Footer } from "@/components";
 
 const Login: React.FC = () => {
   const [mode, setMode] = useState<"login" | "signup">("login");
@@ -142,7 +143,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-neutral-50 px-4 py-12">
+    <div className="flex min-h-screen flex-col items-center justify-between bg-neutral-50 px-4 pt-12">
       <AuthForm className="items-stretch gap-8 text-center">
         <AuthForm.Header className="gap-4">
           <SupremeIcon size={78} />
@@ -312,6 +313,7 @@ const Login: React.FC = () => {
           </Button>
         </AuthFormActions>
       </AuthForm>
+      <Footer />
     </div>
   );
 };
