@@ -25,6 +25,8 @@ import {
   ContentBoxTitle,
   ContentTypeCard,
   CurieAIChatPrompt,
+  Dropdown,
+  Footer,
   HighlightCTACard,
   HighlightCard,
   HowItWorksCard,
@@ -113,7 +115,7 @@ import {
   tabsListVariants,
   tabsTriggerVariants,
   toggleVariants
-} from "./chunk-P7LW4KSI.js";
+} from "./chunk-KTZUTOT4.js";
 import {
   Avatar,
   AvatarGroup,
@@ -151,6 +153,8 @@ export {
   ContentBoxTitle,
   ContentTypeCard,
   CurieAIChatPrompt,
+  Dropdown,
+  Footer,
   HighlightCTACard,
   HighlightCard,
   HowItWorksCard,

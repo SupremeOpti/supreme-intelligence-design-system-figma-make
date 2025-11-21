@@ -80,6 +80,8 @@ __export(index_exports, {
   DigitalAssetManagementIcon: () => DigitalAssetManagementIcon,
   Divider: () => Divider,
   DragDrop: () => DragDrop,
+  Dropdown: () => Dropdown,
+  Footer: () => Footer,
   GoogleIcon: () => GoogleIcon,
   HighlightCTACard: () => HighlightCTACard,
   HighlightCard: () => HighlightCard,
@@ -3297,7 +3299,7 @@ var DragDrop = React25.forwardRef(
     multiple = true,
     disabled = false,
     label = "Click to upload or drag and drop",
-    sublabel = "PDF, DOC, DOCX, TXT up to 10MB (Multiple files allowed)",
+    sublabel = `PDF, DOC, DOCX, TXT up to 10MB${multiple ? " (Multiple files allowed)" : ""}`,
     ...props
   }, ref) => {
     const inputRef = React25.useRef(null);
@@ -3344,7 +3346,7 @@ var DragDrop = React25.forwardRef(
         onDragOver,
         onDragLeave,
         className: cn(
-          "flex flex-col items-center justify-center gap-[10px] p-8 w-[718px] max-w-[940px] rounded-none",
+          "flex flex-col items-center justify-center gap-[10px] p-8 rounded-lg",
           "border border-dashed",
           disabled ? "border-neutral-300 cursor-not-allowed opacity-60" : isDragging ? "border-supreme-blue-700 bg-supreme-blue-50" : "border-supreme-blue-600",
           className
@@ -5741,12 +5743,282 @@ var CurieAIChatPrompt = React37.forwardRef(
 );
 CurieAIChatPrompt.displayName = "CurieAIChatPrompt";
 
-// src/hooks/use-mobile.tsx
+// src/components/ui/footer.tsx
 var React38 = __toESM(require("react"), 1);
+var import_jsx_runtime54 = require("react/jsx-runtime");
+var Footer = React38.forwardRef(
+  ({
+    className,
+    copyright = `Supreme Optimization \xA9 ${(/* @__PURE__ */ new Date()).getFullYear()}. All rights Reserved`,
+    links = [{ label: "Terms and Conditions", href: "#" }],
+    ...props
+  }, ref) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+      "footer",
+      {
+        ref,
+        className: cn(
+          "flex w-full justify-center border-t border-slate-200 bg-slate-50",
+          "py-3.5 text-xs font-normal leading-4 tracking-normal text-[#4e4c6c]",
+          className
+        ),
+        ...props,
+        children: /* @__PURE__ */ (0, import_jsx_runtime54.jsxs)("div", { className: "flex w-full max-w-[1261px] flex-wrap items-center justify-center gap-9 px-4 text-center sm:flex-nowrap", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime54.jsx)("span", { className: "shrink-0", children: copyright }),
+          links.map(
+            ({ label, href, onClick }) => href ? /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+              "a",
+              {
+                href,
+                onClick,
+                className: "shrink-0 text-[#4e4c6c] hover:text-supreme-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-supreme-blue-500 focus-visible:ring-offset-2",
+                children: label
+              },
+              label
+            ) : /* @__PURE__ */ (0, import_jsx_runtime54.jsx)("span", { className: "shrink-0", children: label }, label)
+          )
+        ] })
+      }
+    );
+  }
+);
+Footer.displayName = "Footer";
+
+// src/components/ui/dropdown.tsx
+var React39 = __toESM(require("react"), 1);
+var import_outline17 = require("@heroicons/react/24/outline");
+var import_jsx_runtime55 = require("react/jsx-runtime");
+var renderOptionIcon = (option, className) => {
+  if (option.icon) {
+    if (React39.isValidElement(option.icon)) {
+      return React39.cloneElement(option.icon, {
+        className: cn("h-4 w-4", className, option.icon.props?.className)
+      });
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("span", { className: cn("h-4 w-4", className), children: option.icon });
+  }
+  if (option.iconSrc) {
+    return /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+      "img",
+      {
+        src: option.iconSrc,
+        alt: "",
+        className: cn("h-4 w-4 shrink-0", className),
+        "aria-hidden": "true"
+      }
+    );
+  }
+  return null;
+};
+var Dropdown = React39.forwardRef(
+  ({
+    className,
+    options,
+    value,
+    defaultValue,
+    onChange,
+    placeholder = "Search",
+    triggerPlaceholder = "Select an option",
+    searchPlaceholder = "Search",
+    searchable = true,
+    searchValue,
+    onSearchChange,
+    emptyState = /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("p", { className: "px-2 py-3 text-center text-sm text-neutral-500", children: "No results found" }),
+    footerOption,
+    renderOptionMeta,
+    maxVisibleOptions = 8,
+    closeOnSelect = true,
+    disabled = false,
+    ...props
+  }, ref) => {
+    const [open, setOpen] = React39.useState(false);
+    const [internalValue, setInternalValue] = React39.useState(
+      defaultValue
+    );
+    const [internalSearch, setInternalSearch] = React39.useState("");
+    const currentValue = value ?? internalValue;
+    const currentSearch = searchValue !== void 0 ? searchValue : internalSearch;
+    const selectedOption = React39.useMemo(
+      () => options.find((option) => option.id === currentValue),
+      [options, currentValue]
+    );
+    const handleSearchChange = (event) => {
+      const next = event.target.value;
+      if (!searchable) {
+        return;
+      }
+      if (searchValue === void 0) {
+        setInternalSearch(next);
+      }
+      onSearchChange?.(next);
+    };
+    const filteredOptions = React39.useMemo(() => {
+      if (!searchable || !currentSearch.trim()) {
+        return options;
+      }
+      const query = currentSearch.trim().toLowerCase();
+      return options.filter(
+        (option) => option.label.toLowerCase().includes(query)
+      );
+    }, [options, currentSearch, searchable]);
+    const visibleOptions = React39.useMemo(() => {
+      if (maxVisibleOptions <= 0) {
+        return filteredOptions;
+      }
+      return filteredOptions.slice(0, maxVisibleOptions);
+    }, [filteredOptions, maxVisibleOptions]);
+    const hasMore = maxVisibleOptions > 0 && filteredOptions.length > visibleOptions.length;
+    const handleOptionSelect = (option) => {
+      if (value === void 0) {
+        setInternalValue(option.id);
+      }
+      if (searchable && searchValue === void 0) {
+        setInternalSearch("");
+      }
+      onChange?.(option.id, option);
+      if (closeOnSelect) {
+        setOpen(false);
+      }
+    };
+    const renderOptionContent = (option, isSelected) => {
+      const icon = renderOptionIcon(option);
+      return /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(import_jsx_runtime55.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("span", { className: "flex min-w-0 flex-1 items-center gap-2", children: [
+          icon && /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("span", { className: "flex h-4 w-4 items-center justify-center", children: icon }),
+          /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("span", { className: "truncate text-sm font-medium", children: option.label }),
+          renderOptionMeta && /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("span", { className: "ml-auto truncate text-xs text-neutral-500", children: renderOptionMeta(option) })
+        ] }),
+        isSelected && /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(import_outline17.CheckIcon, { className: "h-4 w-4 shrink-0 text-neutral-900" })
+      ] });
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(
+      Popover,
+      {
+        open,
+        onOpenChange: (nextOpen) => {
+          if (!disabled) {
+            setOpen(nextOpen);
+          }
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(PopoverTrigger, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(
+            "button",
+            {
+              ref,
+              type: "button",
+              className: cn(
+                "flex w-[267px] items-center justify-between gap-2 rounded-md border border-neutral-300 bg-white px-3 py-3 text-sm text-neutral-700 transition-colors",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-supreme-blue-500 focus-visible:ring-offset-2",
+                disabled && "cursor-not-allowed bg-neutral-100 text-neutral-400",
+                className
+              ),
+              "aria-haspopup": "listbox",
+              "aria-expanded": open,
+              disabled,
+              ...props,
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("span", { className: "flex min-w-0 flex-1 items-center gap-2", children: selectedOption ? /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(import_jsx_runtime55.Fragment, { children: [
+                  renderOptionIcon(selectedOption, "h-4 w-4 shrink-0"),
+                  /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("span", { className: "truncate font-medium text-neutral-900", children: selectedOption.label })
+                ] }) : /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("span", { className: "truncate text-neutral-500", children: triggerPlaceholder }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(import_outline17.ChevronUpDownIcon, { className: "h-5 w-5 text-neutral-500" })
+              ]
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(
+            PopoverContent,
+            {
+              className: cn(
+                "w-[267px] overflow-hidden rounded-md border border-neutral-200 bg-white p-0 shadow-lg",
+                !searchable && "pt-2"
+              ),
+              align: "start",
+              children: [
+                searchable && /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("div", { className: "border-b border-neutral-200 p-2.5", children: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+                  Input,
+                  {
+                    placeholder: placeholder ?? searchPlaceholder,
+                    value: currentSearch,
+                    onChange: handleSearchChange,
+                    leftIcon: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(import_outline17.MagnifyingGlassIcon, {}),
+                    className: "py-0 text-sm",
+                    "aria-label": searchPlaceholder,
+                    autoFocus: true
+                  }
+                ) }),
+                /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(
+                  "div",
+                  {
+                    className: cn(
+                      "flex max-h-80 flex-col gap-2 overflow-y-auto px-2.5 py-2",
+                      filteredOptions.length === 0 && "py-0"
+                    ),
+                    role: "listbox",
+                    "aria-activedescendant": currentValue ? `dropdown-option-${currentValue}` : void 0,
+                    children: [
+                      filteredOptions.length === 0 && emptyState,
+                      visibleOptions.map((option) => {
+                        const isSelected = option.id === currentValue;
+                        return /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+                          "button",
+                          {
+                            id: `dropdown-option-${option.id}`,
+                            type: "button",
+                            onClick: () => handleOptionSelect(option),
+                            className: cn(
+                              "flex w-full items-center justify-between gap-2 rounded-md p-1.5 text-left transition-colors",
+                              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-supreme-blue-500 focus-visible:ring-offset-0",
+                              isSelected ? "bg-supreme-blue-50 text-neutral-900" : "text-neutral-600 hover:bg-slate-50"
+                            ),
+                            role: "option",
+                            "aria-selected": isSelected,
+                            children: renderOptionContent(option, isSelected)
+                          },
+                          option.id
+                        );
+                      }),
+                      hasMore && /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: "px-1 text-xs text-neutral-500", children: [
+                        "Showing ",
+                        visibleOptions.length,
+                        " of ",
+                        filteredOptions.length
+                      ] })
+                    ]
+                  }
+                ),
+                footerOption && /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("div", { className: "border-t border-neutral-300 px-2.5 py-2", children: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: () => handleOptionSelect(footerOption),
+                    className: cn(
+                      "flex w-full items-center gap-2 rounded-md p-1.5 text-left text-neutral-600 transition-colors",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-supreme-blue-500 focus-visible:ring-offset-0 hover:bg-slate-50"
+                    ),
+                    role: "option",
+                    "aria-selected": footerOption.id === currentValue,
+                    children: /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(import_jsx_runtime55.Fragment, { children: [
+                      renderOptionIcon(footerOption, "h-4 w-4 shrink-0"),
+                      /* @__PURE__ */ (0, import_jsx_runtime55.jsx)("span", { className: "truncate text-sm font-medium", children: footerOption.label })
+                    ] })
+                  }
+                ) })
+              ]
+            }
+          )
+        ]
+      }
+    );
+  }
+);
+Dropdown.displayName = "Dropdown";
+
+// src/hooks/use-mobile.tsx
+var React40 = __toESM(require("react"), 1);
 var MOBILE_BREAKPOINT = 768;
 function useIsMobile() {
-  const [isMobile, setIsMobile] = React38.useState(void 0);
-  React38.useEffect(() => {
+  const [isMobile, setIsMobile] = React40.useState(void 0);
+  React40.useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
     const onChange = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -5809,6 +6081,8 @@ function useIsMobile() {
   DigitalAssetManagementIcon,
   Divider,
   DragDrop,
+  Dropdown,
+  Footer,
   GoogleIcon,
   HighlightCTACard,
   HighlightCard,

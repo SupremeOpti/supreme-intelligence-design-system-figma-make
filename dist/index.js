@@ -25,6 +25,8 @@ import {
   ContentBoxTitle,
   ContentTypeCard,
   CurieAIChatPrompt,
+  Dropdown,
+  Footer,
   HighlightCTACard,
   HighlightCard,
   HowItWorksCard,
@@ -116,7 +118,7 @@ import {
   toast,
   toggleVariants,
   useToast
-} from "./chunk-P7LW4KSI.js";
+} from "./chunk-KTZUTOT4.js";
 import {
   Avatar,
   AvatarGroup,
@@ -531,7 +533,7 @@ var DragDrop = React8.forwardRef(
     multiple = true,
     disabled = false,
     label = "Click to upload or drag and drop",
-    sublabel = "PDF, DOC, DOCX, TXT up to 10MB (Multiple files allowed)",
+    sublabel = `PDF, DOC, DOCX, TXT up to 10MB${multiple ? " (Multiple files allowed)" : ""}`,
     ...props
   }, ref) => {
     const inputRef = React8.useRef(null);
@@ -578,7 +580,7 @@ var DragDrop = React8.forwardRef(
         onDragOver,
         onDragLeave,
         className: cn(
-          "flex flex-col items-center justify-center gap-[10px] p-8 w-[718px] max-w-[940px] rounded-none",
+          "flex flex-col items-center justify-center gap-[10px] p-8 rounded-lg",
           "border border-dashed",
           disabled ? "border-neutral-300 cursor-not-allowed opacity-60" : isDragging ? "border-supreme-blue-700 bg-supreme-blue-50" : "border-supreme-blue-600",
           className
@@ -805,6 +807,8 @@ export {
   DigitalAssetManagementIcon,
   Divider,
   DragDrop,
+  Dropdown,
+  Footer,
   GoogleIcon,
   HighlightCTACard,
   HighlightCard,

@@ -27,3 +27,4 @@ export * from "./components/ui/toggle";
 export * from "./components/ui/tooltip";
 export * from "./components/ui/curie-ai-chat-prompt";
 export * from "./components/ui/footer";
+export * from "./components/ui/dropdown";

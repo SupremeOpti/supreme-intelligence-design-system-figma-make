@@ -20,7 +20,7 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
       multiple = true,
       disabled = false,
       label = "Click to upload or drag and drop",
-      sublabel = "PDF, DOC, DOCX, TXT up to 10MB (Multiple files allowed)",
+      sublabel = `PDF, DOC, DOCX, TXT up to 10MB${multiple ? " (Multiple files allowed)" : ""}`,
       ...props
     },
     ref
@@ -76,7 +76,7 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
         onDragOver={onDragOver}
         onDragLeave={onDragLeave}
         className={cn(
-          "flex flex-col items-center justify-center gap-[10px] p-8 w-[718px] max-w-[940px] rounded-none",
+          "flex flex-col items-center justify-center gap-[10px] p-8 rounded-lg",
           "border border-dashed",
           disabled
             ? "border-neutral-300 cursor-not-allowed opacity-60"

@@ -17,7 +17,7 @@ export const Footer = React.forwardRef<HTMLElement, FooterProps>(
   (
     {
       className,
-      copyright = "Supreme Optimization © 2025. All rights Reserved",
+      copyright = `Supreme Optimization © ${new Date().getFullYear()}. All rights Reserved`,
       links = [{ label: "Terms and Conditions", href: "#" }],
       ...props
     },

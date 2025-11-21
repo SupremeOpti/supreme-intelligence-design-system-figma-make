@@ -522,4 +522,41 @@ interface CurieAIChatPromptProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 declare const CurieAIChatPrompt: React.ForwardRefExoticComponent<CurieAIChatPromptProps & React.RefAttributes<HTMLDivElement>>;
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, AnnouncementCard, Avatar, AvatarGroup, Badge, type BadgeProps, Banner, type BannerProps, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, type ButtonProps, CardWithProgress, Checkbox, CommonCard, ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxFooter, ContentBoxHeader, ContentBoxTitle, ContentTypeCard, CurieAIChatPrompt, type CurieAIChatPromptProps, HighlightCTACard, HighlightCard, HowItWorksCard, IconCard, InfoCard, Input, type InputProps, Logo, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, MessageAngle, MessageCard, PageLevel, PageLevelItem, PageLevelList, type PageLevelProps, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, Persona, PersonaProfile, type PersonaProfileProps, type PersonaProps, Popover, PopoverContent, PopoverTrigger, Progress, Range, type RangeProps, RangeSlider, Score, type ScoreProps, SingleIconCard, Slider, TabGroup, Table, TableBody, TableCaption, TableCell, TableCellBenchmark, type TableCellBenchmarkProps, TableCellGeneric, type TableCellGenericProps, TableFooter, TableHead, TableHeader, TableHeaderCell, type TableHeaderCellProps, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, type TextareaProps, Toast, ToastAction, type ToastActionElement, ToastActions, ToastClose, ToastContent, ToastDescription, ToastIcon, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, badgeVariants, bannerVariants, buttonVariants, pageLevelVariants, personaProfileVariants, personaVariants, tabsContentVariants, tabsListVariants, tabsTriggerVariants, toggleVariants };
+interface FooterLink {
+    label: string;
+    href?: string;
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+}
+interface FooterProps extends React.HTMLAttributes<HTMLElement> {
+    copyright?: string;
+    links?: FooterLink[];
+}
+declare const Footer: React.ForwardRefExoticComponent<FooterProps & React.RefAttributes<HTMLElement>>;
+
+interface DropdownOption {
+    id: string;
+    label: string;
+    icon?: React.ReactNode;
+    iconSrc?: string;
+    meta?: string;
+}
+interface DropdownProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "children"> {
+    options: DropdownOption[];
+    value?: string;
+    defaultValue?: string;
+    onChange?: (value: string, option: DropdownOption) => void;
+    placeholder?: string;
+    triggerPlaceholder?: string;
+    searchPlaceholder?: string;
+    searchable?: boolean;
+    searchValue?: string;
+    onSearchChange?: (value: string) => void;
+    emptyState?: React.ReactNode;
+    footerOption?: DropdownOption;
+    renderOptionMeta?: (option: DropdownOption) => React.ReactNode;
+    maxVisibleOptions?: number;
+    closeOnSelect?: boolean;
+}
+declare const Dropdown: React.ForwardRefExoticComponent<DropdownProps & React.RefAttributes<HTMLButtonElement>>;
+
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, AnnouncementCard, Avatar, AvatarGroup, Badge, type BadgeProps, Banner, type BannerProps, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, type ButtonProps, CardWithProgress, Checkbox, CommonCard, ContentBox, ContentBoxContent, ContentBoxDescription, ContentBoxFooter, ContentBoxHeader, ContentBoxTitle, ContentTypeCard, CurieAIChatPrompt, type CurieAIChatPromptProps, Dropdown, type DropdownOption, type DropdownProps, Footer, type FooterProps, HighlightCTACard, HighlightCard, HowItWorksCard, IconCard, InfoCard, Input, type InputProps, Logo, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, MessageAngle, MessageCard, PageLevel, PageLevelItem, PageLevelList, type PageLevelProps, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, Persona, PersonaProfile, type PersonaProfileProps, type PersonaProps, Popover, PopoverContent, PopoverTrigger, Progress, Range, type RangeProps, RangeSlider, Score, type ScoreProps, SingleIconCard, Slider, TabGroup, Table, TableBody, TableCaption, TableCell, TableCellBenchmark, type TableCellBenchmarkProps, TableCellGeneric, type TableCellGenericProps, TableFooter, TableHead, TableHeader, TableHeaderCell, type TableHeaderCellProps, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, type TextareaProps, Toast, ToastAction, type ToastActionElement, ToastActions, ToastClose, ToastContent, ToastDescription, ToastIcon, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, badgeVariants, bannerVariants, buttonVariants, pageLevelVariants, personaProfileVariants, personaVariants, tabsContentVariants, tabsListVariants, tabsTriggerVariants, toggleVariants };

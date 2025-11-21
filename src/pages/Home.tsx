@@ -12,6 +12,7 @@ import { ArrowTrendingUpIcon, EnvelopeIcon, MagnifyingGlassIcon } from "@heroico
 import { Avatar, AvatarGroup } from "@/components/ui/avatar";
 import { ToggleDemo } from "@/pages/toggle-demo";
 import { Logo } from "@/components/ui/logo";
+import { Footer } from "@/components";
 
 import {
   PageLevel,
@@ -84,6 +85,7 @@ import DragDrop from "@/components/ui/drag-drop";
 import { PageHeading } from "@/components/ui/page-heading";
 import { Stepper } from "@/components/ui/stepper";
 import { Briefcase, Target, Link2 } from "lucide-react";
+import { Dropdown } from "@/components/ui/dropdown";
 
 const headerItems: {
   icon: React.ReactNode;
@@ -1055,6 +1057,18 @@ const Components = () => {
             </TabsContent>
             <TabsContent value="VisualElementsIndicators">
               <div className="flex flex-col gap-4 mt-4">
+                 {/* dropdown */}
+                 <section className="space-y-2">
+                  <h2 className="text-3xl font-semold">Dropdown</h2>
+                  <ContentBox>
+                    <ContentBoxHeader>
+                      <ContentBoxTitle>Dropdown Component</ContentBoxTitle>
+                    </ContentBoxHeader>
+                    <ContentBoxContent>
+                      <Dropdown options={[{ id: "1", label: "Option 1" }, { id: "2", label: "Option 2" }, { id: "3", label: "Option 3" }]} searchable={false} />
+                    </ContentBoxContent>
+                  </ContentBox>
+                </section>
                 {/* Icons */}
                 <section className="space-y-2">
                   <h2 className="text-3xl font-semibold">Icons</h2>
@@ -1492,11 +1506,24 @@ const Components = () => {
                     </ContentBoxContent>
                   </ContentBox>
                 </section>
+                {/* dropdown */}
+                <section className="space-y-2">
+                  <h2 className="text-3xl font-semold">Dropdown</h2>
+                  <ContentBox>
+                    <ContentBoxHeader>
+                      <ContentBoxTitle>Dropdown Component</ContentBoxTitle>
+                    </ContentBoxHeader>
+                    <ContentBoxContent>
+                      <Dropdown options={[{ id: "1", label: "Option 1" }, { id: "2", label: "Option 2" }, { id: "3", label: "Option 3" }]} searchable={false} />
+                    </ContentBoxContent>
+                  </ContentBox>
+                </section>
               </div>
             </TabsContent>
           </Tabs>
         </div>
       </div>
+      <Footer />
     </Layout>
   );
 };
