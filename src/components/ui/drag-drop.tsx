@@ -7,8 +7,12 @@ export interface DragDropProps extends React.HTMLAttributes<HTMLDivElement> {
   accept?: string;
   multiple?: boolean;
   disabled?: boolean;
+  loading?: boolean;
+  loadingText?: string;
   label?: string;
   sublabel?: string;
+  iconSize?: number | string;
+  iconColor?: string;
 }
 
 export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
@@ -19,8 +23,12 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
       accept = ".pdf,.doc,.docx,.txt",
       multiple = true,
       disabled = false,
+      loading = false,
+      loadingText = "Uploading files...",
       label = "Click to upload or drag and drop",
       sublabel = `PDF, DOC, DOCX, TXT up to 10MB${multiple ? " (Multiple files allowed)" : ""}`,
+      iconSize = 74,
+      iconColor = "supreme-blue-600",
       ...props
     },
     ref
@@ -28,8 +36,38 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
     const inputRef = React.useRef<HTMLInputElement>(null);
     const [isDragging, setIsDragging] = React.useState(false);
 
+    const isDisabled = disabled || loading;
+
+    // Convert iconSize to pixel value
+    const iconSizePx = typeof iconSize === "number" ? `${iconSize}px` : iconSize;
+    
+    // Get color value - support CSS variables, hex/rgb values, and Tailwind color names
+    const getColorValue = (color: string) => {
+      // If it's already a CSS variable, hex, or rgb value, return as is
+      if (color.startsWith("var(") || color.startsWith("#") || color.startsWith("rgb")) {
+        return color;
+      }
+      // Map Tailwind color names to CSS variables
+      const colorMap: Record<string, string> = {
+        "supreme-blue-50": "var(--supreme-blue-50)",
+        "supreme-blue-100": "var(--supreme-blue-100)",
+        "supreme-blue-200": "var(--supreme-blue-200)",
+        "supreme-blue-300": "var(--supreme-blue-300)",
+        "supreme-blue-400": "var(--supreme-blue-400)",
+        "supreme-blue-500": "var(--supreme-blue-500)",
+        "supreme-blue-600": "var(--supreme-blue-600)",
+        "supreme-blue-700": "var(--supreme-blue-700)",
+        "supreme-blue-800": "var(--supreme-blue-800)",
+        "supreme-blue-900": "var(--supreme-blue-900)",
+        "supreme-blue-950": "var(--supreme-blue-950)",
+      };
+      return colorMap[color] || color;
+    };
+    
+    const iconColorValue = getColorValue(iconColor);
+
     const openFilePicker = () => {
-      if (disabled) return;
+      if (isDisabled) return;
       inputRef.current?.click();
     };
 
@@ -43,19 +81,19 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
       e.preventDefault();
       e.stopPropagation();
       setIsDragging(false);
-      if (disabled) return;
+      if (isDisabled) return;
       handleFiles(e.dataTransfer.files);
     };
 
     const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
-      if (disabled) return;
+      if (isDisabled) return;
       setIsDragging(true);
     };
 
     const onDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
-      if (disabled) return;
+      if (isDisabled) return;
       setIsDragging(false);
     };
 
@@ -69,8 +107,8 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
       <div
         ref={ref}
         role="button"
-        aria-disabled={disabled}
-        tabIndex={disabled ? -1 : 0}
+        aria-disabled={isDisabled}
+        tabIndex={isDisabled ? -1 : 0}
         onClick={openFilePicker}
         onDrop={onDrop}
         onDragOver={onDragOver}
@@ -78,7 +116,7 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
         className={cn(
           "flex flex-col items-center justify-center gap-[10px] p-8 rounded-lg",
           "border border-dashed",
-          disabled
+          isDisabled
             ? "border-neutral-300 cursor-not-allowed opacity-60"
             : isDragging
             ? "border-supreme-blue-700 bg-supreme-blue-50"
@@ -87,13 +125,37 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
         )}
         {...props}
       >
-        <CloudArrowUpIcon className="w-[74px] h-[74px] text-supreme-blue-600" />
-        <div className="w-[336px] text-center">
-          <p className="text-base leading-6 text-neutral-600">{label}</p>
-          <p className="text-xs leading-4 text-neutral-600">
-            {sublabel}
-          </p>
-        </div>
+        {loading ? (
+          <>
+            <div 
+              className="animate-spin rounded-full border-b-2"
+              style={{
+                width: iconSizePx,
+                height: iconSizePx,
+                borderColor: iconColorValue,
+              }}
+            ></div>
+            <div className="w-[336px] text-center">
+              <p className="text-base leading-6 text-neutral-600">{loadingText}</p>
+            </div>
+          </>
+        ) : (
+          <>
+            <CloudArrowUpIcon 
+              style={{
+                width: iconSizePx,
+                height: iconSizePx,
+                color: iconColorValue,
+              }}
+            />
+            <div className="w-[336px] text-center">
+              <p className="text-base leading-6 text-neutral-600">{label}</p>
+              <p className="text-xs leading-4 text-neutral-600">
+                {sublabel}
+              </p>
+            </div>
+          </>
+        )}
 
         <input
           ref={inputRef}
@@ -102,7 +164,7 @@ export const DragDrop = React.forwardRef<HTMLDivElement, DragDropProps>(
           accept={accept}
           multiple={multiple}
           onChange={onInputChange}
-          disabled={disabled}
+          disabled={isDisabled}
           aria-hidden
         />
       </div>

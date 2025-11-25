@@ -110,8 +110,12 @@ interface DragDropProps extends React.HTMLAttributes<HTMLDivElement> {
     accept?: string;
     multiple?: boolean;
     disabled?: boolean;
+    loading?: boolean;
+    loadingText?: string;
     label?: string;
     sublabel?: string;
+    iconSize?: number | string;
+    iconColor?: string;
 }
 declare const DragDrop: React.ForwardRefExoticComponent<DragDropProps & React.RefAttributes<HTMLDivElement>>;
 

@@ -3298,14 +3298,40 @@ var DragDrop = React25.forwardRef(
     accept = ".pdf,.doc,.docx,.txt",
     multiple = true,
     disabled = false,
+    loading = false,
+    loadingText = "Uploading files...",
     label = "Click to upload or drag and drop",
     sublabel = `PDF, DOC, DOCX, TXT up to 10MB${multiple ? " (Multiple files allowed)" : ""}`,
+    iconSize = 74,
+    iconColor = "supreme-blue-600",
     ...props
   }, ref) => {
     const inputRef = React25.useRef(null);
     const [isDragging, setIsDragging] = React25.useState(false);
+    const isDisabled = disabled || loading;
+    const iconSizePx = typeof iconSize === "number" ? `${iconSize}px` : iconSize;
+    const getColorValue = (color) => {
+      if (color.startsWith("var(") || color.startsWith("#") || color.startsWith("rgb")) {
+        return color;
+      }
+      const colorMap = {
+        "supreme-blue-50": "var(--supreme-blue-50)",
+        "supreme-blue-100": "var(--supreme-blue-100)",
+        "supreme-blue-200": "var(--supreme-blue-200)",
+        "supreme-blue-300": "var(--supreme-blue-300)",
+        "supreme-blue-400": "var(--supreme-blue-400)",
+        "supreme-blue-500": "var(--supreme-blue-500)",
+        "supreme-blue-600": "var(--supreme-blue-600)",
+        "supreme-blue-700": "var(--supreme-blue-700)",
+        "supreme-blue-800": "var(--supreme-blue-800)",
+        "supreme-blue-900": "var(--supreme-blue-900)",
+        "supreme-blue-950": "var(--supreme-blue-950)"
+      };
+      return colorMap[color] || color;
+    };
+    const iconColorValue = getColorValue(iconColor);
     const openFilePicker = () => {
-      if (disabled) return;
+      if (isDisabled) return;
       inputRef.current?.click();
     };
     const handleFiles = (fileList) => {
@@ -3317,17 +3343,17 @@ var DragDrop = React25.forwardRef(
       e.preventDefault();
       e.stopPropagation();
       setIsDragging(false);
-      if (disabled) return;
+      if (isDisabled) return;
       handleFiles(e.dataTransfer.files);
     };
     const onDragOver = (e) => {
       e.preventDefault();
-      if (disabled) return;
+      if (isDisabled) return;
       setIsDragging(true);
     };
     const onDragLeave = (e) => {
       e.preventDefault();
-      if (disabled) return;
+      if (isDisabled) return;
       setIsDragging(false);
     };
     const onInputChange = (e) => {
@@ -3339,8 +3365,8 @@ var DragDrop = React25.forwardRef(
       {
         ref,
         role: "button",
-        "aria-disabled": disabled,
-        tabIndex: disabled ? -1 : 0,
+        "aria-disabled": isDisabled,
+        tabIndex: isDisabled ? -1 : 0,
         onClick: openFilePicker,
         onDrop,
         onDragOver,
@@ -3348,15 +3374,39 @@ var DragDrop = React25.forwardRef(
         className: cn(
           "flex flex-col items-center justify-center gap-[10px] p-8 rounded-lg",
           "border border-dashed",
-          disabled ? "border-neutral-300 cursor-not-allowed opacity-60" : isDragging ? "border-supreme-blue-700 bg-supreme-blue-50" : "border-supreme-blue-600",
+          isDisabled ? "border-neutral-300 cursor-not-allowed opacity-60" : isDragging ? "border-supreme-blue-700 bg-supreme-blue-50" : "border-supreme-blue-600",
           className
         ),
         ...props,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_outline10.CloudArrowUpIcon, { className: "w-[74px] h-[74px] text-supreme-blue-600" }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "w-[336px] text-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-base leading-6 text-neutral-600", children: label }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-xs leading-4 text-neutral-600", children: sublabel })
+          loading ? /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(import_jsx_runtime25.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+              "div",
+              {
+                className: "animate-spin rounded-full border-b-2",
+                style: {
+                  width: iconSizePx,
+                  height: iconSizePx,
+                  borderColor: iconColorValue
+                }
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "w-[336px] text-center", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-base leading-6 text-neutral-600", children: loadingText }) })
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(import_jsx_runtime25.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+              import_outline10.CloudArrowUpIcon,
+              {
+                style: {
+                  width: iconSizePx,
+                  height: iconSizePx,
+                  color: iconColorValue
+                }
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "w-[336px] text-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-base leading-6 text-neutral-600", children: label }),
+              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-xs leading-4 text-neutral-600", children: sublabel })
+            ] })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
             "input",
@@ -3367,7 +3417,7 @@ var DragDrop = React25.forwardRef(
               accept,
               multiple,
               onChange: onInputChange,
-              disabled,
+              disabled: isDisabled,
               "aria-hidden": true
             }
           )
