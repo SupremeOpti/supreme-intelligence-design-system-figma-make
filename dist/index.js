@@ -729,9 +729,9 @@ var StepperItem = React9.forwardRef(
             {
               className: cn(
                 "leading-4 text-xs text-center tracking-normal truncate",
-                step === "done" && "text-neutral-800 font-normal",
+                step === "done" && "text-neutral-800 font-bold",
                 step === "default" && "text-neutral-500 font-bold",
-                step === "active" && "text-neutral-800 font-bold"
+                step === "active" && "text-supreme-blue-400 font-bold"
               ),
               children: title
             }
