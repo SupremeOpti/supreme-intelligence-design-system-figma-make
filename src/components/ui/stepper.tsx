@@ -63,7 +63,7 @@ const StepperItem = React.forwardRef<HTMLDivElement, StepperItemProps>(
       <div
         ref={ref}
         className={cn(
-          "flex flex-col gap-2 items-center w-[130px] relative",
+          "flex flex-col gap-2 items-center w-[150px] relative",
           className
         )}
         {...props}
@@ -71,14 +71,14 @@ const StepperItem = React.forwardRef<HTMLDivElement, StepperItemProps>(
         {showLeftConnector && (
           <div
             className={cn("h-[3px] absolute top-[15px] left-0 z-0", leftConnectorColor)}
-            style={{ width: "50px" }}
+            style={{ width: "60px" }}
           />
         )}
         <StepperIndicator stepNumber={stepNumber} step={step} />
         {showRightConnector && (
           <div
             className={cn("h-[3px] absolute top-[15px] right-0 z-0", rightConnectorColor)}
-            style={{ width: "50px" }}
+            style={{ width: "60px" }}
           />
         )}
         <p

@@ -704,7 +704,7 @@ var StepperItem = React9.forwardRef(
       {
         ref,
         className: cn(
-          "flex flex-col gap-2 items-center w-[130px] relative",
+          "flex flex-col gap-2 items-center w-[150px] relative",
           className
         ),
         ...props,
@@ -713,7 +713,7 @@ var StepperItem = React9.forwardRef(
             "div",
             {
               className: cn("h-[3px] absolute top-[15px] left-0 z-0", leftConnectorColor),
-              style: { width: "50px" }
+              style: { width: "60px" }
             }
           ),
           /* @__PURE__ */ jsx9(StepperIndicator, { stepNumber, step }),
@@ -721,7 +721,7 @@ var StepperItem = React9.forwardRef(
             "div",
             {
               className: cn("h-[3px] absolute top-[15px] right-0 z-0", rightConnectorColor),
-              style: { width: "50px" }
+              style: { width: "60px" }
             }
           ),
           /* @__PURE__ */ jsx9(
