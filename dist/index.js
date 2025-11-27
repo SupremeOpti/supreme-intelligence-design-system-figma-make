@@ -667,29 +667,32 @@ import * as React9 from "react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { jsx as jsx9, jsxs as jsxs7 } from "react/jsx-runtime";
 var StepperIndicator = React9.forwardRef(({ className, stepNumber, step = "default", ...props }, ref) => {
-  return /* @__PURE__ */ jsx9(
+  return /* @__PURE__ */ jsxs7(
     "div",
     {
       ref,
       className: cn(
-        "flex flex-col items-center justify-center rounded-full shrink-0 size-[30px]",
+        "relative flex flex-col items-center justify-center rounded-full shrink-0 size-[30px]",
         step === "done" && "bg-indigo-950 border-2 !border-white border-shadow-sm p-[6px]",
         step === "default" && "bg-indigo-100 border-2 !border-indigo-300 border-shadow-sm p-[10px]",
-        step === "active" && "bg-supreme-blue-500 border-2 !border-white border-shadow-sm p-[10px]",
+        step === "active" && "bg-supreme-blue-600 border-2 !border-white text-white shadow-lg shadow-blue-600/25 ring-4 ring-blue-100 p-[10px]",
         className
       ),
       ...props,
-      children: step === "done" ? /* @__PURE__ */ jsx9(CheckIcon, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ jsx9(
-        "p",
-        {
-          className: cn(
-            "font-bold leading-4 text-xs text-center w-full whitespace-pre-wrap",
-            step === "default" && "text-indigo-400",
-            step === "active" && "text-white"
-          ),
-          children: stepNumber || 1
-        }
-      )
+      children: [
+        step === "active" && /* @__PURE__ */ jsx9("div", { className: "absolute inset-0 rounded-full bg-supreme-blue-600 animate-ping opacity-20" }),
+        step === "done" ? /* @__PURE__ */ jsx9(CheckIcon, { className: "w-6 h-6 text-white relative z-10" }) : /* @__PURE__ */ jsx9(
+          "p",
+          {
+            className: cn(
+              "font-bold leading-4 text-xs text-center w-full whitespace-pre-wrap relative z-10",
+              step === "default" && "text-indigo-400",
+              step === "active" && "text-white"
+            ),
+            children: stepNumber || 1
+          }
+        )
+      ]
     }
   );
 });

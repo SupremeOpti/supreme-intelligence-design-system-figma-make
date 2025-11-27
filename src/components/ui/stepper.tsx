@@ -15,23 +15,26 @@ const StepperIndicator = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "flex flex-col items-center justify-center rounded-full shrink-0 size-[30px]",
+        "relative flex flex-col items-center justify-center rounded-full shrink-0 size-[30px]",
         step === "done" &&
           "bg-indigo-950 border-2 !border-white border-shadow-sm p-[6px]",
         step === "default" &&
           "bg-indigo-100 border-2 !border-indigo-300 border-shadow-sm p-[10px]",
         step === "active" &&
-          "bg-supreme-blue-500 border-2 !border-white border-shadow-sm p-[10px]",
+          "bg-supreme-blue-600 border-2 !border-white text-white shadow-lg shadow-blue-600/25 ring-4 ring-blue-100 p-[10px]",
         className
       )}
       {...props}
     >
+      {step === "active" && (
+        <div className="absolute inset-0 rounded-full bg-supreme-blue-600 animate-ping opacity-20"></div>
+      )}
       {step === "done" ? (
-        <CheckIcon className="w-6 h-6 text-white" />
+        <CheckIcon className="w-6 h-6 text-white relative z-10" />
       ) : (
         <p
           className={cn(
-            "font-bold leading-4 text-xs text-center w-full whitespace-pre-wrap",
+            "font-bold leading-4 text-xs text-center w-full whitespace-pre-wrap relative z-10",
             step === "default" && "text-indigo-400",
             step === "active" && "text-white"
           )}

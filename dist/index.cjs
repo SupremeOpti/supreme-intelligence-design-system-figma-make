@@ -4400,29 +4400,32 @@ var React29 = __toESM(require("react"), 1);
 var import_outline12 = require("@heroicons/react/24/outline");
 var import_jsx_runtime45 = require("react/jsx-runtime");
 var StepperIndicator = React29.forwardRef(({ className, stepNumber, step = "default", ...props }, ref) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(
     "div",
     {
       ref,
       className: cn(
-        "flex flex-col items-center justify-center rounded-full shrink-0 size-[30px]",
+        "relative flex flex-col items-center justify-center rounded-full shrink-0 size-[30px]",
         step === "done" && "bg-indigo-950 border-2 !border-white border-shadow-sm p-[6px]",
         step === "default" && "bg-indigo-100 border-2 !border-indigo-300 border-shadow-sm p-[10px]",
-        step === "active" && "bg-supreme-blue-500 border-2 !border-white border-shadow-sm p-[10px]",
+        step === "active" && "bg-supreme-blue-600 border-2 !border-white text-white shadow-lg shadow-blue-600/25 ring-4 ring-blue-100 p-[10px]",
         className
       ),
       ...props,
-      children: step === "done" ? /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_outline12.CheckIcon, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
-        "p",
-        {
-          className: cn(
-            "font-bold leading-4 text-xs text-center w-full whitespace-pre-wrap",
-            step === "default" && "text-indigo-400",
-            step === "active" && "text-white"
-          ),
-          children: stepNumber || 1
-        }
-      )
+      children: [
+        step === "active" && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "absolute inset-0 rounded-full bg-supreme-blue-600 animate-ping opacity-20" }),
+        step === "done" ? /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_outline12.CheckIcon, { className: "w-6 h-6 text-white relative z-10" }) : /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+          "p",
+          {
+            className: cn(
+              "font-bold leading-4 text-xs text-center w-full whitespace-pre-wrap relative z-10",
+              step === "default" && "text-indigo-400",
+              step === "active" && "text-white"
+            ),
+            children: stepNumber || 1
+          }
+        )
+      ]
     }
   );
 });
