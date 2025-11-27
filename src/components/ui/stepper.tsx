@@ -118,7 +118,9 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
           const prevStep = index > 0 ? steps[index - 1] : null;
           let leftConnectorColor = "";
           if (prevStep) {
-            if (prevStep.step === "done" && stepData.step === "active") {
+            if (prevStep.step === "done" && stepData.step === "done") {
+              leftConnectorColor = "bg-indigo-950";
+            } else if (prevStep.step === "done" && stepData.step === "active") {
               leftConnectorColor = "bg-gradient-to-r from-indigo-700 to-indigo-500";
             } else if (prevStep.step === "done" || prevStep.step === "active") {
               leftConnectorColor = "bg-gradient-to-r from-indigo-300 to-slate-50";
@@ -131,7 +133,9 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
           const nextStep = index < steps.length - 1 ? steps[index + 1] : null;
           let rightConnectorColor = "";
           if (nextStep) {
-            if (stepData.step === "done" && nextStep.step === "active") {
+            if (stepData.step === "done" && nextStep.step === "done") {
+              rightConnectorColor = "bg-indigo-950";
+            } else if (stepData.step === "done" && nextStep.step === "active") {
               rightConnectorColor = "bg-gradient-to-r from-indigo-950 to-indigo-700";
             } else if (stepData.step === "done" || stepData.step === "active") {
               rightConnectorColor = "bg-gradient-to-r from-indigo-500 to-indigo-300";

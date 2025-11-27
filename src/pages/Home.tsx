@@ -1502,7 +1502,7 @@ const Components = () => {
                       <ContentBoxTitle>Stepper Component</ContentBoxTitle>
                     </ContentBoxHeader>
                     <ContentBoxContent>
-                      <Stepper steps={[{ title: "Step 1", step: "done", stepNumber: 1 }, { title: "Step 2", step: "active", stepNumber: 2 }, { title: "Step 3", step: "default", stepNumber: 3 }, { title: "Step 4", step: "default", stepNumber: 4 }]} />
+                      <Stepper steps={[{ title: "Step 1", step: "done", stepNumber: 1 }, { title: "Step 2", step: "done", stepNumber: 2 }, { title: "Step 3", step: "active", stepNumber: 3 }, { title: "Step 4", step: "default", stepNumber: 4 }]} />
                     </ContentBoxContent>
                   </ContentBox>
                 </section>
