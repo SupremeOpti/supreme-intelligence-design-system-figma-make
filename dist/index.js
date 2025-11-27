@@ -712,7 +712,7 @@ var StepperItem = React9.forwardRef(
           showLeftConnector && /* @__PURE__ */ jsx9(
             "div",
             {
-              className: cn("h-[2px] absolute top-[15px] left-0 z-0", leftConnectorColor),
+              className: cn("h-[3px] absolute top-[15px] left-0 z-0", leftConnectorColor),
               style: { width: "50px" }
             }
           ),
@@ -720,7 +720,7 @@ var StepperItem = React9.forwardRef(
           showRightConnector && /* @__PURE__ */ jsx9(
             "div",
             {
-              className: cn("h-[2px] absolute top-[15px] right-0 z-0", rightConnectorColor),
+              className: cn("h-[3px] absolute top-[15px] right-0 z-0", rightConnectorColor),
               style: { width: "50px" }
             }
           ),
@@ -728,7 +728,7 @@ var StepperItem = React9.forwardRef(
             "p",
             {
               className: cn(
-                "leading-4 text-xs text-center tracking-normal",
+                "leading-4 text-xs text-center tracking-normal truncate",
                 step === "done" && "text-neutral-800 font-normal",
                 step === "default" && "text-neutral-500 font-bold",
                 step === "active" && "text-neutral-800 font-bold"
@@ -759,7 +759,7 @@ var Stepper = React9.forwardRef(
             } else if (prevStep.step === "done" || prevStep.step === "active") {
               leftConnectorColor = "bg-gradient-to-r from-indigo-300 to-slate-50";
             } else {
-              leftConnectorColor = "bg-slate-50";
+              leftConnectorColor = "bg-supreme-blue-50";
             }
           }
           const nextStep = index < steps.length - 1 ? steps[index + 1] : null;
@@ -770,7 +770,7 @@ var Stepper = React9.forwardRef(
             } else if (stepData.step === "done" || stepData.step === "active") {
               rightConnectorColor = "bg-gradient-to-r from-indigo-500 to-indigo-300";
             } else {
-              rightConnectorColor = "bg-slate-50";
+              rightConnectorColor = "bg-supreme-blue-50";
             }
           }
           return /* @__PURE__ */ jsx9(
