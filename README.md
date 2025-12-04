@@ -125,11 +125,58 @@ content: [
 ];
 ```
 
+### Using the Tailwind Preset (Recommended)
+
+To automatically get all design tokens (colors, spacing, typography, shadows, etc.) without manual configuration, use the Tailwind preset:
+
+```typescript
+// tailwind.config.ts
+import type { Config } from "tailwindcss";
+import designSystemPreset from "@supreme-intelligence/design-system/tailwind-preset";
+
+export default {
+  presets: [designSystemPreset],
+  content: [
+    "./src/**/*.{ts,tsx}",
+    "./node_modules/@supreme-intelligence/**/*.{js,ts,jsx,tsx}",
+  ],
+  // ... rest of your config
+} satisfies Config;
+```
+
+**What the preset includes:**
+- ✅ All color tokens (semantic colors, `supreme-blue`, `neutral`, `gray`, `slate`, etc.)
+- ✅ Complete spacing scale
+- ✅ Border radius tokens
+- ✅ Box shadow tokens
+- ✅ Blur and backdrop blur tokens
+- ✅ Opacity scale
+- ✅ Typography tokens (font sizes, weights, line heights, letter spacing)
+- ✅ Animation keyframes
+
+**Without the preset**, you would need to manually copy all these design tokens to your `tailwind.config.ts`, which is not recommended.
+
 ## Quick Start
 
 ### React/Next.js Projects
 
-1. **Import the design system in your CSS:**
+1. **Configure Tailwind with the preset:**
+
+```typescript
+// tailwind.config.ts
+import type { Config } from "tailwindcss";
+import designSystemPreset from "@supreme-intelligence/design-system/tailwind-preset";
+
+export default {
+  presets: [designSystemPreset],
+  content: [
+    "./src/**/*.{ts,tsx}",
+    "./node_modules/@supreme-intelligence/**/*.{js,ts,jsx,tsx}",
+  ],
+} satisfies Config;
+```
+
+2. **Import the design system in your CSS:**
 
 ```css
 /* globals.css or main.css */
@@ -137,7 +184,7 @@ content: [
 @import "@supreme-intelligence/design-system/styles";
 ```
 
-2. **Use the components:**
+3. **Use the components:**
 
 ```tsx
 import { Button, Logo } from "@supreme-intelligence/design-system";
@@ -154,7 +201,24 @@ export default function App() {
 
 ### Laravel Projects
 
-1. **Import the design system in your main CSS file:**
+1. **Configure Tailwind with the preset:**
+
+```javascript
+// tailwind.config.js
+const designSystemPreset = require("@supreme-intelligence/design-system/tailwind-preset");
+
+module.exports = {
+  presets: [designSystemPreset],
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+    "./node_modules/@supreme-intelligence/**/*.{js,ts,jsx,tsx}",
+  ],
+};
+```
+
+2. **Import the design system in your main CSS file:**
 
 ```css
 /* resources/css/app.css */
@@ -162,7 +226,7 @@ export default function App() {
 @import "@supreme-intelligence/design-system/styles";
 ```
 
-2. **Use in Blade templates:**
+3. **Use in Blade templates:**
 
 ```html
 <div class="bg-background text-foreground p-4 rounded-lg">
