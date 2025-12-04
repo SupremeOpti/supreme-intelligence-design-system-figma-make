@@ -847,9 +847,9 @@ var Input = React9.forwardRef(
           {
             className: cn(
               "absolute -top-3 left-[10px] z-10 px-1 py-[1px] text-xs font-normal leading-4",
-              isError && "text-destructive bg-white",
-              isActive && "text-supreme-blue-800 bg-white",
-              !isError && !isActive && "text-neutral-500 bg-white",
+              isError && "text-destructive bg-background",
+              isActive && "text-supreme-blue-800 bg-background",
+              !isError && !isActive && "text-neutral-500 bg-background",
               isDisabled && "bg-neutral-200 text-neutral-500"
             ),
             children: [
@@ -3204,7 +3204,7 @@ var Textarea = React19.forwardRef(
         "label",
         {
           className: cn(
-            "text-sm font-medium bg-white px-1 text-neutral-600 dark:text-supreme-blue-300 mb-1 absolute -top-3 z-10 left-4",
+            "text-sm font-medium bg-background px-1 text-neutral-600 dark:text-supreme-blue-300 mb-1 absolute -top-3 z-10 left-4",
             labelClassName,
             isError && "text-destructive"
           ),

@@ -27,10 +27,34 @@ declare const avatarVariants: {
     lg: string;
 };
 interface AvatarProps extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * The content of the avatar.
+     */
+    children?: React.ReactNode;
+    /**
+     * The size of the avatar.
+     * @default "md"
+     */
     size?: keyof typeof avatarVariants;
+    /**
+     * The type of avatar content.
+     */
     type?: "photo" | "initials";
+    /**
+     * Fallback content when image is not available.
+     */
     fallback?: React.ReactNode;
+    /**
+     * Image source URL.
+     */
     src?: string;
+    /**
+     * Alt text for the image.
+     */
     alt?: string;
 }
 interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -44,6 +68,10 @@ declare const badgeVariants: (props?: {
     variant?: "default" | "foundation" | "slate" | "zinc" | "gray" | "red" | "orange" | "amber" | "yellow" | "lime" | "green" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "pink";
 } & class_variance_authority_types.ClassProp) => string;
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeVariants> {
+    /**
+     * The variant style of the badge.
+     */
+    variant?: "foundation" | "default" | "slate" | "zinc" | "gray" | "red" | "orange" | "amber" | "yellow" | "lime" | "green" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "pink";
     showDot?: boolean;
     showRemove?: boolean;
     onRemove?: () => void;
@@ -59,6 +87,16 @@ declare const bannerVariants: (props?: {
     size?: "default" | "sm" | "lg" | "xl";
 } & class_variance_authority_types.ClassProp) => string;
 interface BannerProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof bannerVariants> {
+    /**
+     * The variant style of the banner.
+     * @default "default"
+     */
+    variant?: "default" | "primary" | "secondary" | "dark";
+    /**
+     * The size of the banner.
+     * @default "default"
+     */
+    size?: "default" | "sm" | "lg" | "xl";
     title: string;
     ctaText?: string;
     onCtaClick?: () => void;
@@ -89,6 +127,16 @@ declare const buttonVariants: (props?: {
     size?: "default" | "md" | "lg" | "xl" | "icon" | "icon-sm" | "icon-lg";
 } & class_variance_authority_types.ClassProp) => string;
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+    /**
+     * The variant style of the button.
+     * @default "primary"
+     */
+    variant?: "primary" | "primary-stroke" | "secondary" | "secondary-color" | "secondary-blue" | "link" | "ghost";
+    /**
+     * The size of the button.
+     * @default "default"
+     */
+    size?: "default" | "md" | "lg" | "xl" | "icon" | "icon-sm" | "icon-lg";
     asChild?: boolean;
     showIcons?: "after" | "before" | "both" | "center" | "none";
 }
@@ -251,6 +299,24 @@ declare const pageLevelVariants: (props?: {
     size?: "default" | "sm" | "lg" | "xl";
 } & class_variance_authority_types.ClassProp) => string;
 interface PageLevelProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof pageLevelVariants> {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * The content of the page level.
+     */
+    children?: React.ReactNode;
+    /**
+     * The variant style of the page level.
+     * @default "default"
+     */
+    variant?: "default" | "primary" | "secondary" | "brand";
+    /**
+     * The size of the page level.
+     * @default "default"
+     */
+    size?: "sm" | "default" | "lg" | "xl";
     level?: number | string;
     showArrow?: boolean;
     arrowPosition?: "before" | "after";
@@ -258,9 +324,25 @@ interface PageLevelProps extends React.HTMLAttributes<HTMLDivElement>, VariantPr
 }
 declare const PageLevel: React.ForwardRefExoticComponent<PageLevelProps & React.RefAttributes<HTMLDivElement>>;
 declare const PageLevelList: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * The content of the page level list.
+     */
+    children?: React.ReactNode;
     separator?: React.ReactNode;
 } & React.RefAttributes<HTMLDivElement>>;
 declare const PageLevelItem: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLSpanElement> & {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * The content of the page level item.
+     */
+    children?: React.ReactNode;
     active?: boolean;
 } & React.RefAttributes<HTMLSpanElement>>;
 
@@ -298,6 +380,24 @@ declare const personaProfileVariants: (props?: {
     variant?: "selected" | "default" | "ghost" | "hover";
 } & class_variance_authority_types.ClassProp) => string;
 interface PersonaProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof personaVariants> {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * The content of the persona.
+     */
+    children?: React.ReactNode;
+    /**
+     * The variant style of the persona.
+     * @default "default"
+     */
+    variant?: "default" | "selected" | "outline";
+    /**
+     * The size of the persona.
+     * @default "default"
+     */
+    size?: "default" | "sm" | "lg";
     personas?: string[];
     placeholder?: string;
     showLeftIcon?: boolean;
@@ -306,6 +406,19 @@ interface PersonaProps extends React.HTMLAttributes<HTMLDivElement>, VariantProp
 }
 declare const Persona: React.ForwardRefExoticComponent<PersonaProps & React.RefAttributes<HTMLDivElement>>;
 interface PersonaProfileProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof personaProfileVariants> {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * The content of the persona profile.
+     */
+    children?: React.ReactNode;
+    /**
+     * The variant style of the persona profile.
+     * @default "default"
+     */
+    variant?: "default" | "hover" | "selected" | "ghost";
     avatar?: React.ReactNode;
     avatarFallback?: string;
     name?: string;
@@ -507,6 +620,27 @@ declare const TooltipProvider: React.FC<TooltipPrimitive.TooltipProviderProps>;
 declare const Tooltip: React.FC<TooltipPrimitive.TooltipProps>;
 declare const TooltipTrigger: React.ForwardRefExoticComponent<TooltipPrimitive.TooltipTriggerProps & React.RefAttributes<HTMLButtonElement>>;
 interface TooltipContentProps extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * The content of the tooltip.
+     */
+    children?: React.ReactNode;
+    /**
+     * The offset distance from the trigger element.
+     * @default 4
+     */
+    sideOffset?: number;
+    /**
+     * The side of the trigger element to render against.
+     */
+    side?: 'top' | 'bottom' | 'left' | 'right';
+    /**
+     * The direction of the arrow indicator.
+     * @default 'bottom'
+     */
     arrowDirection?: 'top' | 'bottom' | 'left' | 'right';
 }
 declare const TooltipContent: React.ForwardRefExoticComponent<TooltipContentProps & React.RefAttributes<HTMLDivElement>>;
@@ -541,6 +675,14 @@ interface DropdownOption {
     meta?: string;
 }
 interface DropdownProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "children"> {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * Left icon to display on the trigger button.
+     */
+    leftIcon?: React.ReactNode;
     options: DropdownOption[];
     value?: string;
     defaultValue?: string;

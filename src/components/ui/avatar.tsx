@@ -31,10 +31,34 @@ const AvatarGroupContext = React.createContext<{
 
 interface AvatarProps
   extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> {
+  /**
+   * Additional CSS class names.
+   */
+  className?: string;
+  /**
+   * The content of the avatar.
+   */
+  children?: React.ReactNode;
+  /**
+   * The size of the avatar.
+   * @default "md"
+   */
   size?: keyof typeof avatarVariants;
+  /**
+   * The type of avatar content.
+   */
   type?: "photo" | "initials";
+  /**
+   * Fallback content when image is not available.
+   */
   fallback?: React.ReactNode;
+  /**
+   * Image source URL.
+   */
   src?: string;
+  /**
+   * Alt text for the image.
+   */
   alt?: string;
 }
 

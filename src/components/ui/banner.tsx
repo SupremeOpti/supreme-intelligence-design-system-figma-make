@@ -33,6 +33,16 @@ const bannerVariants = cva(
 export interface BannerProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof bannerVariants> {
+  /**
+   * The variant style of the banner.
+   * @default "default"
+   */
+  variant?: "default" | "primary" | "secondary" | "dark"
+  /**
+   * The size of the banner.
+   * @default "default"
+   */
+  size?: "default" | "sm" | "lg" | "xl"
   title: string;
   ctaText?: string;
   onCtaClick?: () => void;

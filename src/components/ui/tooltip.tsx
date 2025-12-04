@@ -10,6 +10,27 @@ const Tooltip = TooltipPrimitive.Root
 const TooltipTrigger = TooltipPrimitive.Trigger
 
 interface TooltipContentProps extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {
+  /**
+   * Additional CSS class names.
+   */
+  className?: string
+  /**
+   * The content of the tooltip.
+   */
+  children?: React.ReactNode
+  /**
+   * The offset distance from the trigger element.
+   * @default 4
+   */
+  sideOffset?: number
+  /**
+   * The side of the trigger element to render against.
+   */
+  side?: 'top' | 'bottom' | 'left' | 'right'
+  /**
+   * The direction of the arrow indicator.
+   * @default 'bottom'
+   */
   arrowDirection?: 'top' | 'bottom' | 'left' | 'right'
 }
 

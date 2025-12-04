@@ -41,9 +41,25 @@ declare const RadioGroupItem: React.ForwardRefExoticComponent<Omit<RadioGroupPri
 
 declare const dividerVariants: (props?: {
     variant?: "default" | "high-contrast" | "low-contrast";
-} & class_variance_authority_types.ClassProp) => string;
-interface DividerProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof dividerVariants> {
     orientation?: "horizontal" | "vertical";
+} & class_variance_authority_types.ClassProp) => string;
+interface DividerProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "orientation">, VariantProps<typeof dividerVariants> {
+    /**
+     * The variant style of the divider.
+     * @default "default"
+     */
+    variant?: "default" | "high-contrast" | "low-contrast";
+    /**
+     * The orientation of the divider.
+     * @default "horizontal"
+     */
+    orientation?: "horizontal" | "vertical";
+    /**
+     * Whether the divider is decorative (purely visual, not semantic).
+     * When `true`, the divider will have `aria-hidden="true"`.
+     * @default false
+     */
+    decorative?: boolean;
 }
 declare const Divider: React.ForwardRefExoticComponent<DividerProps & React.RefAttributes<HTMLDivElement>>;
 
@@ -188,4 +204,4 @@ declare function useToast(): {
     toasts: Toast[];
 };
 
-export { AuthFormComponent as AuthForm, AuthFormActions, AuthFormBody, AuthFormDescription, AuthFormDivider, type AuthFormDividerProps, AuthFormFooter, AuthFormHeader, AuthFormPrimary, type AuthFormProps, AuthFormSubtitle, AuthFormTitle, CreditOption, type CreditOptionProps, CreditSelector, type CreditSelectorProps, Credits, type CreditsProps, Divider, type DividerProps, DragDrop, type DragDropProps, PageHeading, type PageHeadingProps, Quote, type QuoteProps, RadioGroup, RadioGroupItem, Stepper, StepperIndicator, type StepperIndicatorProps, StepperItem, type StepperItemProps, type StepperProps, ToastActionElement, ToastProps, cn, reducer, toast, useIsMobile, useToast };
+export { AuthFormComponent as AuthForm, AuthFormActions, AuthFormBody, AuthFormDescription, AuthFormDivider, type AuthFormDividerProps, AuthFormFooter, AuthFormHeader, AuthFormPrimary, type AuthFormProps, AuthFormSubtitle, AuthFormTitle, CreditOption, type CreditOptionProps, CreditSelector, type CreditSelectorProps, Credits, type CreditsProps, Divider, type DividerProps, DragDrop, type DragDropProps, PageHeading, type PageHeadingProps, Quote, type QuoteProps, RadioGroup, RadioGroupItem, Stepper, StepperIndicator, type StepperIndicatorProps, StepperItem, type StepperItemProps, type StepperProps, ToastActionElement, ToastProps, cn, dividerVariants, reducer, toast, useIsMobile, useToast };

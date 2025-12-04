@@ -25,6 +25,14 @@ export interface DropdownProps
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     "onChange" | "children"
   > {
+  /**
+   * Additional CSS class names.
+   */
+  className?: string;
+  /**
+   * Left icon to display on the trigger button.
+   */
+  leftIcon?: React.ReactNode;
   options: DropdownOption[];
   value?: string;
   defaultValue?: string;

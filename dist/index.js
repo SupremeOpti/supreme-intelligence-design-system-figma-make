@@ -118,7 +118,7 @@ import {
   toast,
   toggleVariants,
   useToast
-} from "./chunk-KTZUTOT4.js";
+} from "./chunk-NVD7564X.js";
 import {
   Avatar,
   AvatarGroup,
@@ -211,7 +211,7 @@ var Quote = React2.forwardRef(
 );
 Quote.displayName = "Quote";
 
-// src/components/ui/radio.tsx
+// src/components/ui/radio-group.tsx
 import * as React3 from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { jsx as jsx3 } from "react/jsx-runtime";
@@ -263,24 +263,36 @@ var dividerVariants = cva("", {
       default: "bg-slate-200",
       "high-contrast": "bg-slate-300",
       "low-contrast": "bg-slate-100"
+    },
+    orientation: {
+      horizontal: "h-[1px] w-full",
+      vertical: "h-full w-[1px]"
     }
   },
   defaultVariants: {
-    variant: "default"
+    variant: "default",
+    orientation: "horizontal"
   }
 });
 var Divider = React4.forwardRef(
-  ({ className, variant, orientation = "horizontal", ...props }, ref) => {
+  ({
+    className,
+    variant,
+    orientation = "horizontal",
+    decorative = false,
+    ...props
+  }, ref) => {
     return /* @__PURE__ */ jsx4(
       "div",
       {
         ref,
         className: cn(
-          dividerVariants({ variant, className }),
-          orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]"
+          dividerVariants({ variant, orientation }),
+          className
         ),
         role: "separator",
         "aria-orientation": orientation,
+        "aria-hidden": decorative ? "true" : void 0,
         ...props
       }
     );
@@ -965,6 +977,7 @@ export {
   bannerVariants,
   buttonVariants,
   cn,
+  dividerVariants,
   pageLevelVariants,
   personaProfileVariants,
   personaVariants,

@@ -43,6 +43,16 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  /**
+   * The variant style of the button.
+   * @default "primary"
+   */
+  variant?: "primary" | "primary-stroke" | "secondary" | "secondary-color" | "secondary-blue" | "link" | "ghost"
+  /**
+   * The size of the button.
+   * @default "default"
+   */
+  size?: "default" | "md" | "lg" | "xl" | "icon" | "icon-sm" | "icon-lg"
   asChild?: boolean;
   showIcons?: "after" | "before" | "both" | "center" | "none";
 }

@@ -40,9 +40,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <label
               className={cn(
                 "absolute -top-3 left-[10px] z-10 px-1 py-[1px] text-xs font-normal leading-4",
-                isError && "text-destructive bg-white",
-                isActive && "text-supreme-blue-800 bg-white",
-                !isError && !isActive && "text-neutral-500 bg-white",
+                isError && "text-destructive bg-background",
+                isActive && "text-supreme-blue-800 bg-background",
+                !isError && !isActive && "text-neutral-500 bg-background",
                 isDisabled && "bg-neutral-200 text-neutral-500"
               )}
             >

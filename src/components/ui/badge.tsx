@@ -35,6 +35,10 @@ const badgeVariants = cva(
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {
+  /**
+   * The variant style of the badge.
+   */
+  variant?: "foundation" | "default" | "slate" | "zinc" | "gray" | "red" | "orange" | "amber" | "yellow" | "lime" | "green" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "pink"
   showDot?: boolean;
   showRemove?: boolean;
   onRemove?: () => void;

@@ -31,6 +31,24 @@ const pageLevelVariants = cva(
 export interface PageLevelProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof pageLevelVariants> {
+  /**
+   * Additional CSS class names.
+   */
+  className?: string;
+  /**
+   * The content of the page level.
+   */
+  children?: React.ReactNode;
+  /**
+   * The variant style of the page level.
+   * @default "default"
+   */
+  variant?: "default" | "primary" | "secondary" | "brand"
+  /**
+   * The size of the page level.
+   * @default "default"
+   */
+  size?: "sm" | "default" | "lg" | "xl"
   level?: number | string;
   showArrow?: boolean;
   arrowPosition?: "before" | "after";
@@ -73,6 +91,14 @@ PageLevel.displayName = "PageLevel";
 const PageLevelList = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * The content of the page level list.
+     */
+    children?: React.ReactNode;
     separator?: React.ReactNode;
   }
 >(({ className, separator, children, ...props }, ref) => {
@@ -99,6 +125,14 @@ PageLevelList.displayName = "PageLevelList";
 const PageLevelItem = React.forwardRef<
   HTMLSpanElement,
   React.HTMLAttributes<HTMLSpanElement> & {
+    /**
+     * Additional CSS class names.
+     */
+    className?: string;
+    /**
+     * The content of the page level item.
+     */
+    children?: React.ReactNode;
     active?: boolean;
   }
 >(({ className, active = false, ...props }, ref) => (

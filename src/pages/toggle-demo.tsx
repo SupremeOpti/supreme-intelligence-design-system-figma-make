@@ -1,7 +1,7 @@
 import React from "react";
 import { Toggle } from "../components/ui/toggle";
 import { Checkbox } from "@/components/ui/checkbox";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export function ToggleDemo() {
   const [toggles, setToggles] = React.useState({

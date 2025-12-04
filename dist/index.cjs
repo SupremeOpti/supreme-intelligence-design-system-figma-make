@@ -181,6 +181,7 @@ __export(index_exports, {
   bannerVariants: () => bannerVariants,
   buttonVariants: () => buttonVariants,
   cn: () => cn,
+  dividerVariants: () => dividerVariants,
   pageLevelVariants: () => pageLevelVariants,
   personaProfileVariants: () => personaProfileVariants,
   personaVariants: () => personaVariants,
@@ -1239,7 +1240,7 @@ var Quote = React12.forwardRef(
 );
 Quote.displayName = "Quote";
 
-// src/components/ui/radio.tsx
+// src/components/ui/radio-group.tsx
 var React13 = __toESM(require("react"), 1);
 var RadioGroupPrimitive = __toESM(require("@radix-ui/react-radio-group"), 1);
 var import_jsx_runtime13 = require("react/jsx-runtime");
@@ -1291,24 +1292,36 @@ var dividerVariants = (0, import_class_variance_authority4.cva)("", {
       default: "bg-slate-200",
       "high-contrast": "bg-slate-300",
       "low-contrast": "bg-slate-100"
+    },
+    orientation: {
+      horizontal: "h-[1px] w-full",
+      vertical: "h-full w-[1px]"
     }
   },
   defaultVariants: {
-    variant: "default"
+    variant: "default",
+    orientation: "horizontal"
   }
 });
 var Divider = React14.forwardRef(
-  ({ className, variant, orientation = "horizontal", ...props }, ref) => {
+  ({
+    className,
+    variant,
+    orientation = "horizontal",
+    decorative = false,
+    ...props
+  }, ref) => {
     return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
       "div",
       {
         ref,
         className: cn(
-          dividerVariants({ variant, className }),
-          orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]"
+          dividerVariants({ variant, orientation }),
+          className
         ),
         role: "separator",
         "aria-orientation": orientation,
+        "aria-hidden": decorative ? "true" : void 0,
         ...props
       }
     );
@@ -1406,9 +1419,9 @@ var Input = React16.forwardRef(
           {
             className: cn(
               "absolute -top-3 left-[10px] z-10 px-1 py-[1px] text-xs font-normal leading-4",
-              isError && "text-destructive bg-white",
-              isActive && "text-supreme-blue-800 bg-white",
-              !isError && !isActive && "text-neutral-500 bg-white",
+              isError && "text-destructive bg-background",
+              isActive && "text-supreme-blue-800 bg-background",
+              !isError && !isActive && "text-neutral-500 bg-background",
               isDisabled && "bg-neutral-200 text-neutral-500"
             ),
             children: [
@@ -5135,7 +5148,7 @@ var Textarea = React32.forwardRef(
         "label",
         {
           className: cn(
-            "text-sm font-medium bg-white px-1 text-neutral-600 dark:text-supreme-blue-300 mb-1 absolute -top-3 z-10 left-4",
+            "text-sm font-medium bg-background px-1 text-neutral-600 dark:text-supreme-blue-300 mb-1 absolute -top-3 z-10 left-4",
             labelClassName,
             isError && "text-destructive"
           ),
@@ -6239,6 +6252,7 @@ function useIsMobile() {
   bannerVariants,
   buttonVariants,
   cn,
+  dividerVariants,
   pageLevelVariants,
   personaProfileVariants,
   personaVariants,

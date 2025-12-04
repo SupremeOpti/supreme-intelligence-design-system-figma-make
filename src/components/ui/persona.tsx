@@ -67,6 +67,24 @@ const personaProfileVariants = cva(
 export interface PersonaProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof personaVariants> {
+  /**
+   * Additional CSS class names.
+   */
+  className?: string
+  /**
+   * The content of the persona.
+   */
+  children?: React.ReactNode
+  /**
+   * The variant style of the persona.
+   * @default "default"
+   */
+  variant?: "default" | "selected" | "outline"
+  /**
+   * The size of the persona.
+   * @default "default"
+   */
+  size?: "default" | "sm" | "lg"
   personas?: string[]
   placeholder?: string
   showLeftIcon?: boolean
@@ -118,6 +136,19 @@ Persona.displayName = "Persona"
 export interface PersonaProfileProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof personaProfileVariants> {
+  /**
+   * Additional CSS class names.
+   */
+  className?: string
+  /**
+   * The content of the persona profile.
+   */
+  children?: React.ReactNode
+  /**
+   * The variant style of the persona profile.
+   * @default "default"
+   */
+  variant?: "default" | "hover" | "selected" | "ghost"
   avatar?: React.ReactNode
   avatarFallback?: string
   name?: string

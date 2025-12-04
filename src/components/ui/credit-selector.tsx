@@ -1,5 +1,5 @@
 import * as React from "react";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { BoltIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 
