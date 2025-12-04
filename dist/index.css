@@ -25,9 +25,6 @@ All colors MUST be HSL.
     --accent-foreground: 0 0% 9%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 243 100% 64%;
     
     /* Border Radius Design Tokens */
     --radius-none: 0px;
@@ -235,9 +232,6 @@ All colors MUST be HSL.
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 243 100% 64%;
     
     /* Dark mode sidebar overrides */
     --sidebar-background: 240 5.9% 10%;
@@ -252,9 +246,6 @@ All colors MUST be HSL.
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground;
   }
