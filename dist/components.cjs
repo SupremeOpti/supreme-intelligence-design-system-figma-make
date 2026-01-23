@@ -408,7 +408,8 @@ var buttonVariants = (0, import_class_variance_authority2.cva)(
         "secondary-color": "bg-[#EDEBFD] text-[#272080] border border-[#D4D4D4] hover:border-[#272080] transition-all duration-300 ease-out",
         "secondary-blue": "bg-[#EDEBFD] text-gray-700 border border-[#C6C2F8] hover:border-[#272080] transition-all duration-300 ease-out",
         link: "text-[#272080] underline-offset-4 hover:underline bg-transparent border-none shadow-none h-5 gap-1 min-w-[83px]",
-        ghost: "bg-transparent border-none shadow-none h-5 gap-1 min-w-[83px]"
+        ghost: "bg-transparent border-none shadow-none h-5 gap-1 min-w-[83px]",
+        outline: "h-9 px-4 rounded-[8px] text-[#737373] border-[#d4d4d4] border bg-background text-foreground hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
       },
       size: {
         default: "h-10 rounded-[8px] px-6 py-2",

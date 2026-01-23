@@ -3,7 +3,7 @@ import {
   Avatar,
   Button,
   Sidebar
-} from "./chunk-X5DJSNNL.js";
+} from "./chunk-TG7SB6G6.js";
 import {
   SupremeIcon,
   cn

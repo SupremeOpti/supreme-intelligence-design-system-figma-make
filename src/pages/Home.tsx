@@ -320,6 +320,9 @@ const Components = () => {
                                 <th className="text-center p-3 font-medium">
                                   Favourite
                                 </th>
+                                <th className="text-center p-3 font-medium">
+                                  Outline
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -379,6 +382,14 @@ const Components = () => {
                                 <td className="p-3 flex items-center justify-center">
                                   <Favourite active={true} size="lg" />
                                 </td>
+                                <td className="p-3 text-center">
+                                  <Button
+                                    variant="outline"
+                                    size="lg"
+                                  >
+                                    Button
+                                  </Button>
+                                </td>
                               </tr>
                               <tr className="border-b">
                                 <td className="p-3 font-medium">Medium</td>
@@ -435,6 +446,14 @@ const Components = () => {
                                 </td>
                                 <td className="p-3 flex items-center justify-center">
                                   <Favourite size="md" />
+                                </td>
+                                <td className="p-3 text-center">
+                                  <Button
+                                    variant="outline"
+                                    size="md"
+                                  >
+                                    Button
+                                  </Button>
                                 </td>
                               </tr>
                             </tbody>
