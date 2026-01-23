@@ -86,6 +86,7 @@ import { PageHeading } from "@/components/ui/page-heading";
 import { Stepper } from "@/components/ui/stepper";
 import { Briefcase, Target, Link2 } from "lucide-react";
 import { Dropdown } from "@/components/ui/dropdown";
+import { Favourite } from "@/components/ui/favourite";
 
 const headerItems: {
   icon: React.ReactNode;
@@ -316,6 +317,9 @@ const Components = () => {
                                 <th className="text-center p-3 font-medium">
                                   Icon Only
                                 </th>
+                                <th className="text-center p-3 font-medium">
+                                  Favourite
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -372,6 +376,9 @@ const Components = () => {
                                     showIcons="center"
                                   ></Button>
                                 </td>
+                                <td className="p-3 flex items-center justify-center">
+                                  <Favourite active={true} size="lg" />
+                                </td>
                               </tr>
                               <tr className="border-b">
                                 <td className="p-3 font-medium">Medium</td>
@@ -425,6 +432,9 @@ const Components = () => {
                                     size="icon-sm"
                                     showIcons="center"
                                   ></Button>
+                                </td>
+                                <td className="p-3 flex items-center justify-center">
+                                  <Favourite size="md" />
                                 </td>
                               </tr>
                             </tbody>
