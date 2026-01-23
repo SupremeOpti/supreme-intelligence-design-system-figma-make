@@ -1507,6 +1507,7 @@ const Components = () => {
                     <ContentBoxContent>
                       <DragDrop onFiles={(files) => console.log(files)}
                         accept=".pdf,.doc,.docx,.txt"
+                        iconSize={48}
                         multiple />
                     </ContentBoxContent>
                   </ContentBox>
