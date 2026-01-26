@@ -303,9 +303,6 @@ const Components = () => {
                                   Primary
                                 </th>
                                 <th className="text-center p-3 font-medium">
-                                  Primary Stroke
-                                </th>
-                                <th className="text-center p-3 font-medium">
                                   Secondary
                                 </th>
                                 <th className="text-center p-3 font-medium">
@@ -331,15 +328,6 @@ const Components = () => {
                                 <td className="p-3 text-center">
                                   <Button
                                     variant="primary"
-                                    size="lg"
-                                    showIcons="both"
-                                  >
-                                    Button
-                                  </Button>
-                                </td>
-                                <td className="p-3 text-center">
-                                  <Button
-                                    variant="primary-stroke"
                                     size="lg"
                                     showIcons="both"
                                   >
@@ -396,15 +384,6 @@ const Components = () => {
                                 <td className="p-3 text-center">
                                   <Button
                                     variant="primary"
-                                    size="md"
-                                    showIcons="both"
-                                  >
-                                    Button
-                                  </Button>
-                                </td>
-                                <td className="p-3 text-center">
-                                  <Button
-                                    variant="primary-stroke"
                                     size="md"
                                     showIcons="both"
                                   >
