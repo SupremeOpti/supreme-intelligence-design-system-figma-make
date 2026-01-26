@@ -141,8 +141,6 @@ __export(index_exports, {
   SingleIconCard: () => SingleIconCard,
   Slider: () => Slider,
   Stepper: () => Stepper,
-  StepperIndicator: () => StepperIndicator,
-  StepperItem: () => StepperItem,
   TabGroup: () => TabGroup,
   Table: () => Table,
   TableBody: () => TableBody,
@@ -4499,131 +4497,68 @@ RangeSlider.displayName = "RangeSlider";
 var React29 = __toESM(require("react"), 1);
 var import_outline12 = require("@heroicons/react/24/outline");
 var import_jsx_runtime45 = require("react/jsx-runtime");
-var StepperIndicator = React29.forwardRef(({ className, stepNumber, step = "default", ...props }, ref) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(
-    "div",
-    {
-      ref,
-      className: cn(
-        "relative flex flex-col items-center justify-center rounded-full shrink-0 size-[30px]",
-        step === "done" && "bg-indigo-950 border-2 !border-white border-shadow-sm p-[6px]",
-        step === "default" && "bg-indigo-100 border-2 !border-indigo-300 border-shadow-sm p-[10px]",
-        step === "active" && "bg-supreme-blue-600 border-2 !border-white text-white shadow-lg shadow-blue-600/25 ring-4 ring-blue-100 p-[10px]",
-        className
-      ),
-      ...props,
-      children: [
-        step === "active" && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "absolute inset-0 rounded-full bg-supreme-blue-600 animate-ping opacity-20" }),
-        step === "done" ? /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_outline12.CheckIcon, { className: "w-6 h-6 text-white relative z-10" }) : /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
-          "p",
-          {
-            className: cn(
-              "font-bold leading-4 text-xs text-center w-full whitespace-pre-wrap relative z-10",
-              step === "default" && "text-indigo-400",
-              step === "active" && "text-white"
-            ),
-            children: stepNumber || 1
-          }
-        )
-      ]
-    }
-  );
-});
-StepperIndicator.displayName = "StepperIndicator";
-var StepperItem = React29.forwardRef(
-  ({ className, stepNumber, title, step = "default", showLeftConnector = false, showRightConnector = false, leftConnectorColor, rightConnectorColor, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(
-      "div",
+var Stepper = React29.forwardRef(
+  ({ className, steps, showDivider = true, separator, ...props }, ref) => {
+    const renderedSeparator = separator ?? /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+      import_outline12.ChevronRightIcon,
       {
-        ref,
-        className: cn(
-          "flex flex-col gap-2 items-center w-[150px] relative",
-          className
-        ),
-        ...props,
-        children: [
-          showLeftConnector && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
-            "div",
-            {
-              className: cn("h-[3px] absolute top-[15px] left-0 z-0", leftConnectorColor),
-              style: { width: "60px" }
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(StepperIndicator, { stepNumber, step }),
-          showRightConnector && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
-            "div",
-            {
-              className: cn("h-[3px] absolute top-[15px] right-0 z-0", rightConnectorColor),
-              style: { width: "60px" }
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
-            "p",
-            {
-              className: cn(
-                "leading-4 text-xs text-center tracking-normal truncate",
-                step === "done" && "text-neutral-800 font-bold",
-                step === "default" && "text-neutral-500 font-bold",
-                step === "active" && "text-supreme-blue-400 font-bold"
-              ),
-              children: title
-            }
-          )
-        ]
+        className: "h-4 w-4 text-neutral-400",
+        "aria-hidden": "true"
       }
     );
-  }
-);
-StepperItem.displayName = "StepperItem";
-var Stepper = React29.forwardRef(
-  ({ className, steps, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
-      "div",
+    return /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(
+      "nav",
       {
         ref,
-        className: cn("flex items-center relative", className),
+        "aria-label": "Progress",
+        className: cn("w-full", className),
         ...props,
-        children: steps.map((stepData, index) => {
-          const prevStep = index > 0 ? steps[index - 1] : null;
-          let leftConnectorColor = "";
-          if (prevStep) {
-            if (prevStep.step === "done" && stepData.step === "done") {
-              leftConnectorColor = "bg-indigo-950";
-            } else if (prevStep.step === "done" && stepData.step === "active") {
-              leftConnectorColor = "bg-gradient-to-r from-indigo-700 to-indigo-500";
-            } else if (prevStep.step === "done" || prevStep.step === "active") {
-              leftConnectorColor = "bg-gradient-to-r from-indigo-300 to-slate-50";
-            } else {
-              leftConnectorColor = "bg-supreme-blue-50";
-            }
-          }
-          const nextStep = index < steps.length - 1 ? steps[index + 1] : null;
-          let rightConnectorColor = "";
-          if (nextStep) {
-            if (stepData.step === "done" && nextStep.step === "done") {
-              rightConnectorColor = "bg-indigo-950";
-            } else if (stepData.step === "done" && nextStep.step === "active") {
-              rightConnectorColor = "bg-gradient-to-r from-indigo-950 to-indigo-700";
-            } else if (stepData.step === "done" || stepData.step === "active") {
-              rightConnectorColor = "bg-gradient-to-r from-indigo-500 to-indigo-300";
-            } else {
-              rightConnectorColor = "bg-supreme-blue-50";
-            }
-          }
-          return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
-            StepperItem,
-            {
-              stepNumber: stepData.stepNumber,
-              title: stepData.title,
-              step: stepData.step,
-              showLeftConnector: index > 0,
-              showRightConnector: index < steps.length - 1,
-              leftConnectorColor,
-              rightConnectorColor
-            },
-            index
-          );
-        })
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("ol", { className: "flex flex-wrap items-center gap-2 text-sm", children: steps.map((step, index) => {
+            const isActive = step.step === "active";
+            const isDone = step.step === "done";
+            const isUpcoming = step.step === "default";
+            const baseClasses = "inline-flex items-center rounded-md px-1 py-0.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-supreme-blue-200";
+            const stepClasses = cn(
+              baseClasses,
+              isActive && "text-supreme-blue-600 font-medium",
+              isDone && "text-neutral-600 hover:text-supreme-blue-600",
+              isUpcoming && "text-neutral-400"
+            );
+            const content = /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("span", { className: "min-w-0 truncate", children: step.title });
+            const node = step.href ? /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+              "a",
+              {
+                href: step.href,
+                className: stepClasses,
+                "aria-current": isActive ? "step" : void 0,
+                children: content
+              }
+            ) : step.onClick ? /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+              "button",
+              {
+                type: "button",
+                className: cn(stepClasses, isUpcoming && "pointer-events-none"),
+                onClick: isUpcoming ? void 0 : step.onClick,
+                "aria-current": isActive ? "step" : void 0,
+                "aria-disabled": isUpcoming ? true : void 0,
+                children: content
+              }
+            ) : /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
+              "span",
+              {
+                className: stepClasses,
+                "aria-current": isActive ? "step" : void 0,
+                children: content
+              }
+            );
+            return /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("li", { className: "flex min-w-0 items-center gap-2", children: [
+              node,
+              index < steps.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("span", { "aria-hidden": "true", className: "shrink-0", children: renderedSeparator })
+            ] }, index);
+          }) }),
+          showDivider && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "mt-4 h-px w-full bg-neutral-200" })
+        ]
       }
     );
   }
@@ -6299,8 +6234,6 @@ function useIsMobile() {
   SingleIconCard,
   Slider,
   Stepper,
-  StepperIndicator,
-  StepperItem,
   TabGroup,
   Table,
   TableBody,
