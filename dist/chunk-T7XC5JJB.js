@@ -415,21 +415,21 @@ var AnnouncementCard = React6.forwardRef(({ className, title, author, date, cont
       ...props,
       children: [
         /* @__PURE__ */ jsxs6("div", { className: "flex flex-col gap-2.5 items-start", children: [
-          /* @__PURE__ */ jsx6("h3", { className: "text-lg font-semibold text-black leading-7 whitespace-pre-wrap", children: title }),
+          /* @__PURE__ */ jsx6("h3", { className: cn("text-lg font-semibold text-black leading-7 whitespace-pre-wrap", props.titleClassName), children: title }),
           (author || date) && /* @__PURE__ */ jsxs6("div", { className: "flex gap-2.5 items-center", children: [
-            author && /* @__PURE__ */ jsx6("span", { className: "text-xs font-normal text-neutral-500 leading-4", children: author }),
+            author && /* @__PURE__ */ jsx6("span", { className: cn("text-xs font-normal text-neutral-500 leading-4", props.authorClassName), children: author }),
             author && date && /* @__PURE__ */ jsx6("span", { className: "text-xs text-neutral-500", children: "|" }),
-            date && /* @__PURE__ */ jsx6("span", { className: "text-xs font-normal text-neutral-500 leading-4", children: date })
+            date && /* @__PURE__ */ jsx6("span", { className: cn("text-xs font-normal text-neutral-500 leading-4", props.dateClassName), children: date })
           ] }),
-          /* @__PURE__ */ jsx6("p", { className: "text-base font-normal text-neutral-800 leading-6 w-full whitespace-pre-wrap", children: content })
+          /* @__PURE__ */ jsx6("p", { className: cn("text-base font-normal text-neutral-800 leading-6 w-full whitespace-pre-wrap", props.contentClassName), children: content })
         ] }),
-        badgeText && /* @__PURE__ */ jsx6("div", { className: "absolute top-7 right-5", children: /* @__PURE__ */ jsx6(Badge, { variant: "default", className: "text-gray-600 text-xs", children: badgeText }) })
+        badgeText && /* @__PURE__ */ jsx6("div", { className: "absolute top-7 right-5", children: /* @__PURE__ */ jsx6(Badge, { variant: "default", className: cn("text-gray-600 text-xs", props.badgeClassName), children: badgeText }) })
       ]
     }
   );
 });
 AnnouncementCard.displayName = "AnnouncementCard";
-var InfoCard = React6.forwardRef(({ className, title, subtitle, description, showIcon = true, ...props }, ref) => {
+var InfoCard = React6.forwardRef(({ className, showIcon = true, ...props }, ref) => {
   return /* @__PURE__ */ jsxs6(
     "div",
     {
@@ -441,18 +441,18 @@ var InfoCard = React6.forwardRef(({ className, title, subtitle, description, sho
       tabIndex: 0,
       ...props,
       children: [
-        showIcon && /* @__PURE__ */ jsx6("div", { className: "absolute top-6 right-6", children: /* @__PURE__ */ jsx6(SparklesIcon, { className: "w-[18px] h-[18px]" }) }),
+        showIcon && /* @__PURE__ */ jsx6("div", { className: "absolute top-6 right-6", children: props.icon || /* @__PURE__ */ jsx6(SparklesIcon, { className: "w-[18px] h-[18px]" }) }),
         /* @__PURE__ */ jsxs6("div", { className: cn(showIcon && "pr-8"), children: [
-          subtitle && /* @__PURE__ */ jsx6("p", { className: "text-lg font-normal text-neutral-700 mb-2", children: subtitle }),
-          title && /* @__PURE__ */ jsx6("h3", { className: "text-2xl font-semibold text-neutral-800 mb-1", children: title }),
-          description && /* @__PURE__ */ jsx6("p", { className: "text-base font-normal text-neutral-600 leading-6", children: description })
+          props.subtitle && /* @__PURE__ */ jsx6("p", { className: cn("text-lg font-normal text-neutral-700 mb-2", props.subtitleClassName), children: props.subtitle }),
+          props.title && /* @__PURE__ */ jsx6("h3", { className: cn("text-2xl font-semibold text-neutral-800 mb-1", props.titleClassName), children: props.title }),
+          props.description && /* @__PURE__ */ jsx6("p", { className: cn("text-base font-normal text-neutral-600 leading-6", props.descriptionClassName), children: props.description })
         ] })
       ]
     }
   );
 });
 InfoCard.displayName = "InfoCard";
-var IconCard = React6.forwardRef(({ className, title, value, showLeftIcon = true, showRightIcon = true, ...props }, ref) => {
+var IconCard = React6.forwardRef(({ className, title, value, showLeftIcon = true, showRightIcon = true, leftIcon, rightIcon, ...props }, ref) => {
   return /* @__PURE__ */ jsxs6(
     "div",
     {
@@ -465,13 +465,13 @@ var IconCard = React6.forwardRef(({ className, title, value, showLeftIcon = true
       ...props,
       children: [
         /* @__PURE__ */ jsxs6("div", { className: "flex gap-3 items-center", children: [
-          showLeftIcon && /* @__PURE__ */ jsx6("div", { className: "bg-supreme-blue-50 flex items-center justify-center p-2.5 rounded-full flex-shrink-0", children: /* @__PURE__ */ jsx6(ArrowTrendingUpIcon, { className: "w-[25px] h-[25px] text-neutral-800" }) }),
+          showLeftIcon && /* @__PURE__ */ jsx6("div", { className: "flex-shrink-0", children: leftIcon || /* @__PURE__ */ jsx6(ArrowTrendingUpIcon, { className: "w-[25px] h-[25px] text-neutral-800" }) }),
           /* @__PURE__ */ jsxs6("div", { className: "flex flex-col gap-1 items-start whitespace-nowrap", children: [
-            title && /* @__PURE__ */ jsx6("h3", { className: "text-base font-normal text-neutral-600 leading-6", children: title }),
+            title && /* @__PURE__ */ jsx6("h3", { className: cn("text-base font-normal text-neutral-600 leading-6", props.titleClassName), children: title }),
             value && /* @__PURE__ */ jsx6("div", { className: "text-2xl font-semibold text-neutral-800 leading-8", children: value })
           ] })
         ] }),
-        showRightIcon && /* @__PURE__ */ jsx6(UsersIcon, { className: "w-[35px] h-[35px] text-supreme-blue-700" })
+        showRightIcon && /* @__PURE__ */ jsx6("div", { className: "flex-shrink-0", children: rightIcon || /* @__PURE__ */ jsx6(UsersIcon, { className: "w-[35px] h-[35px] text-supreme-blue-700" }) })
       ]
     }
   );
@@ -487,8 +487,8 @@ var MessageAngle = React6.forwardRef(({ className, title, description, children,
     ),
     ...props,
     children: [
-      title && /* @__PURE__ */ jsx6("h3", { className: "text-base font-normal mb-3 text-neutral-600", children: title }),
-      description && /* @__PURE__ */ jsx6("p", { className: "text-xs text-neutral-600 leading-relaxed", children: description }),
+      title && /* @__PURE__ */ jsx6("h3", { className: cn("text-base font-normal mb-3 text-neutral-600", props.titleClassName), children: title }),
+      description && /* @__PURE__ */ jsx6("p", { className: cn("text-xs text-neutral-600 leading-relaxed", props.descriptionClassName), children: description }),
       children
     ]
   }
@@ -514,14 +514,14 @@ var MessageCard = React6.forwardRef(
       tabIndex: 0,
       ...props,
       children: [
-        showIcon && /* @__PURE__ */ jsx6("div", { className: "absolute top-6 right-6", children: /* @__PURE__ */ jsx6(PencilSquareIcon, { className: "w-[18px] h-[18px] text-neutral-600" }) }),
+        showIcon && /* @__PURE__ */ jsx6("div", { className: "absolute top-6 right-6", children: props.icon || /* @__PURE__ */ jsx6(PencilSquareIcon, { className: "w-[18px] h-[18px] text-neutral-600" }) }),
         /* @__PURE__ */ jsxs6("div", { className: "flex flex-col gap-2.5 items-start", children: [
           /* @__PURE__ */ jsxs6("div", { className: "flex gap-2 items-center", children: [
             /* @__PURE__ */ jsx6("div", { className: "w-2.5 h-2.5 bg-supreme-blue-300 rounded-full" }),
-            /* @__PURE__ */ jsx6("h3", { className: "text-lg font-semibold text-supreme-blue-800 leading-7 whitespace-nowrap", children: headerTitle })
+            /* @__PURE__ */ jsx6("h3", { className: cn("text-lg font-semibold text-supreme-blue-800 leading-7 whitespace-nowrap", props.headerTitleClassName), children: headerTitle })
           ] }),
-          /* @__PURE__ */ jsx6("p", { className: "text-xs font-normal text-neutral-600 leading-4 w-full whitespace-pre-wrap", children: mainContent }),
-          /* @__PURE__ */ jsx6(MessageAngle, { title: nestedTitle, description: nestedContent, className: "bg-gray-100 rounded-lg p-4" })
+          /* @__PURE__ */ jsx6("p", { className: cn("text-xs font-normal text-neutral-600 leading-4 w-full whitespace-pre-wrap", props.mainTitleClassName), children: mainContent }),
+          /* @__PURE__ */ jsx6(MessageAngle, { title: nestedTitle, description: nestedContent, titleClassName: props.nestedTitleClassName, descriptionClassName: props.nestedContentClassName })
         ] })
       ]
     }
@@ -539,14 +539,14 @@ var HighlightCard = React6.forwardRef(({ className, value, title, subtitle, show
     tabIndex: 0,
     ...props,
     children: [
-      showIcon && /* @__PURE__ */ jsx6("div", { className: "bg-supreme-blue-50 flex items-center justify-center p-2.5 rounded-full flex-shrink-0", children: /* @__PURE__ */ jsx6(ArrowTrendingUpIcon, { className: "w-[25px] h-[25px] text-neutral-800" }) }),
+      showIcon && /* @__PURE__ */ jsx6("div", { className: "bg-supreme-blue-50 flex items-center justify-center p-2.5 rounded-full flex-shrink-0", children: props.icon || /* @__PURE__ */ jsx6(ArrowTrendingUpIcon, { className: "w-[25px] h-[25px] text-neutral-800" }) }),
       /* @__PURE__ */ jsxs6("div", { className: "flex flex-col gap-1", children: [
-        /* @__PURE__ */ jsxs6("div", { className: "text-3xl font-semibold text-neutral-800 leading-9 whitespace-nowrap", children: [
+        /* @__PURE__ */ jsxs6("div", { className: cn("text-3xl font-semibold text-neutral-800 leading-9 whitespace-nowrap", props.valueClassName), children: [
           value,
           "%"
         ] }),
-        /* @__PURE__ */ jsx6("h3", { className: "text-base font-semibold text-neutral-600 leading-6", children: title }),
-        subtitle && /* @__PURE__ */ jsx6("p", { className: "text-base font-normal text-neutral-600 leading-6", children: subtitle })
+        /* @__PURE__ */ jsx6("h3", { className: cn("text-base font-semibold text-neutral-600 leading-6", props.titleClassName), children: title }),
+        subtitle && /* @__PURE__ */ jsx6("p", { className: cn("text-base font-normal text-neutral-600 leading-6", props.subtitleClassName), children: subtitle })
       ] })
     ]
   }
@@ -565,10 +565,10 @@ var HighlightCTACard = React6.forwardRef(({ className, title, value, description
     children: [
       /* @__PURE__ */ jsxs6("div", { className: "flex gap-3 items-center", children: [
         showIcon && icon ? /* @__PURE__ */ jsx6("div", { className: "text-supreme-blue-900 w-6 h-6 flex items-center justify-center", children: icon }) : /* @__PURE__ */ jsx6("div", { className: "bg-white flex items-center justify-center p-2.5 rounded-full flex-shrink-0", children: /* @__PURE__ */ jsx6(ArrowTrendingUpIcon, { className: "w-[25px] h-[25px] text-supreme-blue-900" }) }),
-        title && /* @__PURE__ */ jsx6("h3", { className: "text-2xl font-semibold text-supreme-blue-900 leading-8 whitespace-pre-wrap", children: title })
+        title && /* @__PURE__ */ jsx6("h3", { className: cn("text-2xl font-semibold text-supreme-blue-900 leading-8 whitespace-pre-wrap", props.titleClassName), children: title })
       ] }),
-      value && /* @__PURE__ */ jsx6("div", { className: "text-4xl font-bold text-supreme-blue-900 leading-10 whitespace-nowrap", children: value }),
-      showDescription && /* @__PURE__ */ jsx6("p", { className: "text-base font-normal text-neutral-600 leading-6 w-full whitespace-pre-wrap", children: description }),
+      value && /* @__PURE__ */ jsx6("div", { className: cn("text-4xl font-bold text-supreme-blue-900 leading-10 whitespace-nowrap", props.valueClassName), children: value }),
+      showDescription && /* @__PURE__ */ jsx6("p", { className: cn("text-base font-normal text-neutral-600 leading-6 w-full whitespace-pre-wrap", props.descriptionClassName), children: description }),
       showAction && /* @__PURE__ */ jsx6(
         "button",
         {
@@ -593,9 +593,9 @@ var HowItWorksCard = React6.forwardRef(({ className, stepNumber, title, descript
     children: [
       /* @__PURE__ */ jsxs6("div", { className: "flex flex-col gap-3.5 items-center justify-center shrink-0 w-full", children: [
         /* @__PURE__ */ jsx6("div", { className: "bg-supreme-blue-50 flex items-center justify-center p-2.5 rounded-full shrink-0 size-[41px]", children: type === "icons" && icon ? /* @__PURE__ */ jsx6("div", { className: "size-6 flex items-center justify-center", children: icon }) : /* @__PURE__ */ jsx6("span", { className: "text-[#4136d4] text-lg font-bold leading-7 text-center w-full", children: stepNumber || 1 }) }),
-        /* @__PURE__ */ jsx6("h3", { className: "text-xl font-normal text-black text-center leading-7", children: title })
+        /* @__PURE__ */ jsx6("h3", { className: cn("text-xl font-normal text-black text-center leading-7", props.titleClassName), children: title })
       ] }),
-      /* @__PURE__ */ jsx6("p", { className: "text-base font-normal text-neutral-600 text-center leading-6 w-full whitespace-pre-wrap", children: description })
+      /* @__PURE__ */ jsx6("p", { className: cn("text-base font-normal text-neutral-600 text-center leading-6 w-full whitespace-pre-wrap", props.descriptionClassName), children: description })
     ]
   }
 ));
@@ -641,8 +641,8 @@ var ContentTypeCard = React6.forwardRef(({ className, title, description, icon, 
       children: /* @__PURE__ */ jsxs6("div", { className: "flex gap-2.5 items-start relative shrink-0 w-full", children: [
         /* @__PURE__ */ jsx6("div", { className: "size-[35px] flex items-center justify-center shrink-0", children: icon || /* @__PURE__ */ jsx6(DocumentIcon, { className: "w-[35px] h-[35px] text-supreme-blue-700" }) }),
         /* @__PURE__ */ jsxs6("div", { className: "flex flex-1 flex-col gap-1 items-start leading-6 min-w-0 whitespace-pre-wrap", children: [
-          /* @__PURE__ */ jsx6("p", { className: "text-lg font-semibold text-neutral-900 w-full", children: title }),
-          /* @__PURE__ */ jsx6("p", { className: "text-base font-normal text-neutral-600 w-full", children: description })
+          /* @__PURE__ */ jsx6("p", { className: cn("text-lg font-semibold text-neutral-900 w-full", props.titleClassName), children: title }),
+          /* @__PURE__ */ jsx6("p", { className: cn("text-base font-normal text-neutral-600 w-full", props.descriptionClassName), children: description })
         ] })
       ] })
     }
@@ -661,9 +661,9 @@ var CardWithProgress = React6.forwardRef(({ className, title, description, progr
     children: [
       /* @__PURE__ */ jsxs6("div", { className: "flex gap-3 items-center", children: [
         /* @__PURE__ */ jsx6(ArrowTrendingUpIcon, { className: "w-[25px] h-[25px] text-neutral-800" }),
-        /* @__PURE__ */ jsx6("h3", { className: "text-xl font-bold text-supreme-blue-900 leading-7 whitespace-pre-wrap w-[258px]", children: title })
+        /* @__PURE__ */ jsx6("h3", { className: cn("text-xl font-bold text-supreme-blue-900 leading-7 whitespace-pre-wrap w-[258px]", props.titleClassName), children: title })
       ] }),
-      /* @__PURE__ */ jsx6("p", { className: "text-base font-normal text-neutral-600 leading-6 w-full whitespace-pre-wrap", children: description }),
+      /* @__PURE__ */ jsx6("p", { className: cn("text-base font-normal text-neutral-600 leading-6 w-full whitespace-pre-wrap", props.descriptionClassName), children: description }),
       /* @__PURE__ */ jsx6("div", { className: "flex flex-col gap-2.5 w-full", children: progressItems.map((item, index) => /* @__PURE__ */ jsxs6("div", { className: "flex flex-col gap-1", children: [
         /* @__PURE__ */ jsxs6("div", { className: "flex items-center justify-between", children: [
           /* @__PURE__ */ jsx6("span", { className: "text-xs font-normal text-neutral-600", children: item.label }),
