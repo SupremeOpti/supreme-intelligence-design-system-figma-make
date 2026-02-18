@@ -1173,11 +1173,11 @@ var Input = React11.forwardRef(
           "div",
           {
             className: cn(
-              "relative flex px-3 items-center gap-2 rounded-md bg-white border",
+              "relative flex items-center gap-2 rounded-md bg-white border",
               isError ? "border-destructive focus-within:ring-0" : isActive ? "border-supreme-blue-800 focus-within:ring-0" : isDisabled ? "border-neutral-300 bg-neutral-200" : "border-neutral-300 focus-within:ring-2 focus-within:ring-supreme-blue-500"
             ),
             children: [
-              leftIcon && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex items-center justify-center shrink-0 w-5 h-5", children: [
+              leftIcon && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex items-center ml-3 justify-center shrink-0 w-5 h-5", children: [
                 React11.isValidElement(leftIcon) && React11.cloneElement(leftIcon, {
                   className: cn(
                     "w-[20px] h-[20px]",
@@ -1194,14 +1194,15 @@ var Input = React11.forwardRef(
                   type,
                   className: cn(
                     "flex-1 text-sm min-w-0 py-3 h-auto bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
-                    className
+                    className,
+                    isError && "px-3"
                   ),
                   ref,
                   disabled: isDisabled,
                   ...props
                 }
               ),
-              rightIcon && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex items-center justify-center shrink-0 w-5 h-5", children: [
+              rightIcon && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex mr-3 items-center justify-center shrink-0 w-5 h-5", children: [
                 React11.isValidElement(rightIcon) && React11.cloneElement(rightIcon, {
                   className: cn(
                     "w-[20px] h-[20px]",
