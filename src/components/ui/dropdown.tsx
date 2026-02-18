@@ -250,7 +250,7 @@ const Dropdown = React.forwardRef<
 
         <PopoverContent
           className={cn(
-            "overflow-hidden rounded-md border border-neutral-200 bg-white p-0 shadow-lg",
+            "w-[var(--radix-popover-trigger-width)] overflow-hidden rounded-md border border-neutral-200 bg-white p-0 shadow-lg",
             !searchable && "pt-2"
           )}
           align="start"

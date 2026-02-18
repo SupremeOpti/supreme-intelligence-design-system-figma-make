@@ -53,7 +53,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
           <div
             className={cn(
-              "relative flex items-center gap-2 px-3 py-3.5 rounded-md bg-white border",
+              "relative flex px-3 items-center gap-2 rounded-md bg-white border",
               isError
                 ? "border-destructive focus-within:ring-0"
                 : isActive
@@ -81,7 +81,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <input
               type={type}
               className={cn(
-                "flex-1 text-sm min-w-0 h-auto bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+                "flex-1 text-sm min-w-0 py-3 h-auto bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
                 className
               )}
               ref={ref}

@@ -1093,7 +1093,7 @@ var ContentBoxHeader = React10.forwardRef(({ className, ...props }, ref) => /* @
   "div",
   {
     ref,
-    className: cn("flex flex-col space-y-1.5 p-6", className),
+    className: cn("flex flex-col space-y-1.5 p-3 md:p-6", className),
     ...props
   }
 ));
@@ -1103,7 +1103,7 @@ var ContentBoxTitle = React10.forwardRef(({ className, ...props }, ref) => /* @_
   {
     ref,
     className: cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "text-lg md:text-2xl font-semibold leading-none tracking-tight",
       className
     ),
     ...props
@@ -1119,7 +1119,7 @@ var ContentBoxDescription = React10.forwardRef(({ className, ...props }, ref) =>
   }
 ));
 ContentBoxDescription.displayName = "ContentBoxDescription";
-var ContentBoxContent = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { ref, className: cn("p-6 pt-0", className), ...props }));
+var ContentBoxContent = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { ref, className: cn("p-3 pt-0 md:p-6 md:pt-0", className), ...props }));
 ContentBoxContent.displayName = "ContentBoxContent";
 var ContentBoxFooter = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
   "div",
@@ -1173,7 +1173,7 @@ var Input = React11.forwardRef(
           "div",
           {
             className: cn(
-              "relative flex items-center gap-2 px-3 py-3.5 rounded-md bg-white border",
+              "relative flex px-3 items-center gap-2 rounded-md bg-white border",
               isError ? "border-destructive focus-within:ring-0" : isActive ? "border-supreme-blue-800 focus-within:ring-0" : isDisabled ? "border-neutral-300 bg-neutral-200" : "border-neutral-300 focus-within:ring-2 focus-within:ring-supreme-blue-500"
             ),
             children: [
@@ -1193,7 +1193,7 @@ var Input = React11.forwardRef(
                 {
                   type,
                   className: cn(
-                    "flex-1 text-sm min-w-0 h-auto bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+                    "flex-1 text-sm min-w-0 py-3 h-auto bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
                     className
                   ),
                   ref,
@@ -4992,7 +4992,7 @@ var Dropdown = React30.forwardRef(
             PopoverContent,
             {
               className: cn(
-                "overflow-hidden rounded-md border border-neutral-200 bg-white p-0 shadow-lg",
+                "w-[var(--radix-popover-trigger-width)] overflow-hidden rounded-md border border-neutral-200 bg-white p-0 shadow-lg",
                 !searchable && "pt-2"
               ),
               align: "start",

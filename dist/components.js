@@ -115,7 +115,7 @@ import {
   tabsListVariants,
   tabsTriggerVariants,
   toggleVariants
-} from "./chunk-S3I6DS2Z.js";
+} from "./chunk-WJFGMGBF.js";
 import {
   Avatar,
   AvatarGroup,
