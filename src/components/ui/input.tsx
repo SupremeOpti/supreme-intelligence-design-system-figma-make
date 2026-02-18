@@ -81,9 +81,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <input
               type={type}
               className={cn(
-                "flex-1 text-sm min-w-0 py-3 h-auto bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+                "flex-1 text-sm min-w-0 p-3 h-auto rounded-lg bg-transparent border-0 text-sm leading-5 placeholder:text-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
                 className,
-                isError && "px-3"
+                leftIcon && "px-0",
+                rightIcon && "px-0"
               )}
               ref={ref}
               disabled={isDisabled}
